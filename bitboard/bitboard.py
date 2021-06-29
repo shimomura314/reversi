@@ -3,8 +3,6 @@ Citation : https://othelloq.com/programming/bit-board
 """
 
 from collections import deque
-import copy
-import random
 
 
 class BitBoard:
@@ -39,14 +37,14 @@ class BitBoard:
 
     def bit_count(self, x: int):
         """Count the number of bit awaking.
-        
+
         Parameters
         ----------
         x : int
             64-bit intager.
         """
         # Distributing by 2-bit, express the number of bits using 2-bit integer.
-        x -= (x>>1) & 0x5555555555555555
+        x -= (x >> 1) & 0x5555555555555555
         # Upper 2-bit + lower 2-bit.
         x = (x & 0x3333333333333333) + ((x >> 2) & 0x3333333333333333)
         # Upper 4-bit + lower 4-bit.
@@ -57,9 +55,10 @@ class BitBoard:
         x += x >> 16
         # Upper 32-bit + lower 32-bit.
         x += x >> 32
-        return  x & 0x0000007f
+        return x & 0x0000007f
 
-    def count_disks(self, black_board: int, white_board: int, player_color: int):
+    def count_disks(
+            self, black_board: int, white_board: int, player_color: int):
         """Returns player and opponent's disk number.
 
         Returns
@@ -75,7 +74,8 @@ class BitBoard:
         self.game_turn ^= 1
         return
 
-    def reversible_area(self, black_board: int, white_board: int, game_turn: int):
+    def reversible_area(
+            self, black_board: int, white_board: int, game_turn: int):
         """Returns reversible area."""
         if game_turn:
             player, opponent = black_board, white_board
@@ -84,8 +84,8 @@ class BitBoard:
         blank_board = ~(black_board | white_board)
 
         horizontal_border = opponent & 0x7e7e7e7e7e7e7e7e
-        vertical_border   = opponent & 0x00ffffffffffff00
-        all_border        = opponent & 0x007e7e7e7e7e7e00
+        vertical_border = opponent & 0x00ffffffffffff00
+        all_border = opponent & 0x007e7e7e7e7e7e00
 
         # Upper
         one_reversible = horizontal_border & (player << 1)
@@ -104,7 +104,7 @@ class BitBoard:
         one_reversible |= horizontal_border & (one_reversible >> 1)
         one_reversible |= horizontal_border & (one_reversible >> 1)
         reversible |= blank_board & (one_reversible >> 1)
-        
+
         # Left
         one_reversible = vertical_border & (player << 8)
         one_reversible |= vertical_border & (one_reversible << 8)
@@ -122,7 +122,7 @@ class BitBoard:
         one_reversible |= vertical_border & (one_reversible >> 8)
         one_reversible |= vertical_border & (one_reversible >> 8)
         reversible |= blank_board & (one_reversible >> 8)
-        
+
         # Upper right
         one_reversible = all_border & (player << 7)
         one_reversible |= all_border & (one_reversible << 7)
@@ -162,7 +162,7 @@ class BitBoard:
 
     def is_reversible(self, input_: int, reversible: int):
         """Return wheather you can put disk on (x,y) or not.
-        
+
         Parameters
         ----------
         input_ : int
@@ -172,7 +172,7 @@ class BitBoard:
 
     def check_surroundings(self, input_: int, direction: int):
         """Check neighbor disk is reversible or not.
-        
+
         Used parameters
         ---------------
         0xffffffffffffff00
@@ -209,21 +209,21 @@ class BitBoard:
         input_ : int
             64-bit intager.
         """
-        if direction == 0: # Upper
+        if direction == 0:  # Upper
             return (input_ << 8) & 0xffffffffffffff00
-        elif direction == 1: # Upper right
+        elif direction == 1:  # Upper right
             return (input_ << 7) & 0x7f7f7f7f7f7f7f00
         elif direction == 2: # Right
             return (input_ >> 1) & 0x7f7f7f7f7f7f7f7f
-        elif direction == 3: # Lower right
+        elif direction == 3:  # Lower right
             return (input_ >> 9) & 0x007f7f7f7f7f7f7f
-        elif direction == 4: # Lower
+        elif direction == 4:  # Lower
             return (input_ >> 8) & 0x00ffffffffffffff
-        elif direction == 5: # Lower left
+        elif direction == 5:  # Lower left
             return (input_ >> 7) & 0x00fefefefefefefe
-        elif direction == 6: # Left
+        elif direction == 6:  # Left
             return (input_ << 1) & 0xfefefefefefefefe
-        elif direction == 7: # Upper left
+        elif direction == 7:  # Upper left
             return (input_ << 9) & 0xfefefefefefefe00
         else:
             return 0

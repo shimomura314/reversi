@@ -7,9 +7,11 @@ from .menu import MenuBar
 
 __all__ = ["MyFrame"]
 
+
 class MyFrame(wx.Frame):
     """Make frame for GUI."""
-    def __init__(self, parent=None, id=-1, title=None, size=(640, 480), othello=None):
+    def __init__(
+            self, parent=None, id=-1, title=None, size=(640, 480), othello=None):
         wx.Frame.__init__(self, parent, id, title, size=size)
         self.othello = othello
         self.result = False
@@ -39,6 +41,7 @@ class MyFrame(wx.Frame):
     def on_timer(self, event):
         self.result = self.othello.process_game()
         return
+
 
 class GamePanel(wx.Panel):
     def __init__(self, frame):
@@ -75,7 +78,7 @@ class GamePanel(wx.Panel):
         BOARD_SIZE = min(width, height)*0.7
         DISK_SIZE = (BOARD_SIZE/7)*0.7/2
         self._board = self._frame.othello.display_board()
-        
+
         self._width = width
         self._height = height
         self._BOARD_SIZE = BOARD_SIZE
@@ -98,11 +101,14 @@ class GamePanel(wx.Panel):
         for row in range(8):
             for column in range(8):
                 if self._board[row][column] == 1:
-                    self._disks[row][column].draw(cp.COLOR_BLACK_DISK, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
+                    self._disks[row][column].draw(
+                        cp.COLOR_BLACK_DISK, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
                 elif self._board[row][column] == -1:
-                    self._disks[row][column].draw(cp.COLOR_WHITE_DISK, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
+                    self._disks[row][column].draw(
+                        cp.COLOR_WHITE_DISK, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
                 else:
-                    self._disks[row][column].draw(cp.COLOR_BOARD, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
+                    self._disks[row][column].draw(
+                        cp.COLOR_BOARD, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
         self._client_DC.DrawBitmap(self._bit_map, 0, 0)
 
     def on_timer(self, event):
@@ -125,7 +131,7 @@ class UserPanel(wx.Panel):
         layout.Add(self._opponent_point_panel, proportion=1, flag=wx.EXPAND)
         layout.Add(self._result_panel, proportion=1, flag=wx.EXPAND)
         self.SetSizer(layout)
-        
+
         self._timer = wx.Timer(self)
         self.Bind(wx.EVT_TIMER, self.on_timer)
         self._timer.Start(100)
@@ -168,7 +174,10 @@ class PointPanel(wx.Panel):
         self._buffer_DC.SetBrush(wx.Brush(color))
         self._buffer_DC.DrawCircle(width/3, height/2, size*0.2)
 
-        self._buffer_DC.SetFont(wx.Font(size*0.175, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
+        self._buffer_DC.SetFont(
+            wx.Font(
+                size*0.175, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL
+                ))
         self._buffer_DC.DrawText("×" + str(point), width*0.55, height/2)
         self._buffer_DC.DrawText(self._text, width*0.55, height*0.3)
 
@@ -206,9 +215,10 @@ class ResultPanel(wx.Panel):
 
 
 class Disk(object):
+
     def __init__(self):
         return
-    
+
     def draw(self, color: str, buffer_DC, position: tuple, size: float):
         buffer_DC.SetPen(wx.Pen(color))
         buffer_DC.SetBrush(wx.Brush(color))
@@ -241,11 +251,11 @@ class SquareMap(object):
         for row in range(9):
             for column in range(9):
                 buffer_DC.DrawLine(
-                    line_position[0][row], line_position[1][0], 
+                    line_position[0][row], line_position[1][0],
                     line_position[0][row], line_position[1][-1]
                     )
                 buffer_DC.DrawLine(
-                    line_position[0][0], line_position[1][column], 
+                    line_position[0][0], line_position[1][column],
                     line_position[0][-1], line_position[1][column]
                     )
         for row in range(1, 8):

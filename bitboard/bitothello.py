@@ -5,6 +5,7 @@ import random
 
 from .bitboard import BitBoard
 
+
 class OthelloGame:
     """Play othello.
     Black disk make the first move.
@@ -57,9 +58,13 @@ class OthelloGame:
             Integer from 0 to 63.
         """
         input_ = pow(2, input_)
-        reversible = self.board.reversible_area(self.board._black_board, self.board._white_board, self.board.game_turn)
+        reversible = self.board.reversible_area(
+            self.board._black_board, self.board._white_board, self.board.game_turn)
         if self.board.is_reversible(input_, reversible):
-            black_board, white_board = self.board.reverse(self.board._black_board, self.board._white_board, self.board.game_turn, input_)
+            black_board, white_board = self.board.reverse(
+                self.board._black_board, self.board._white_board,
+                self.board.game_turn, input_,
+                )
             self.board.update(black_board, white_board)
             self.board.change_turn()
             self.count_pass = 0
@@ -89,11 +94,19 @@ class OthelloGame:
     def process_game(self):
         if self.game_judgement():
             return True
-        count_player, count_opponent = self.board.count_disks(self.board._black_board, self.board._white_board, self._player_color)
+        count_player, count_opponent = self.board.count_disks(
+            self.board._black_board,
+            self.board._white_board,
+            self._player_color
+            )
         self.count_player = count_player
         self.count_opponent = count_opponent
         self.count_blank = 64 - count_player - count_opponent
-        reversible = self.board.reversible_area(self.board._black_board, self.board._white_board, self.board.game_turn)
+        reversible = self.board.reversible_area(
+            self.board._black_board,
+            self.board._white_board,
+            self.board.game_turn
+            )
         self.reversible = reversible
 
         if self.board.game_turn == self._player_color:

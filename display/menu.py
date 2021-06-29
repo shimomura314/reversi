@@ -5,6 +5,7 @@ import wx
 from bitboard import OthelloGame
 from strategy import Strategy
 
+
 class MenuBar(wx.MenuBar):
     """Set menu bar."""
     def __init__(self, frame):
@@ -42,7 +43,7 @@ class MenuBar(wx.MenuBar):
         self.Append(menu_edit, "Edit")
         self.Append(menu_procedure, "Procedure")
         self.Append(menu_opponent, "CPU strategy")
-    
+
     def save_board(self):
         """Save current board."""
         self._save = copy.deepcopy(self._frame.othello.board)
