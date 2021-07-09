@@ -8,7 +8,7 @@ class EloRating:
     INIT_RATING = 1500
     K = 16
 
-    def __init__(self, members, filename='./_trial/matching/strategy_rating.pkl'):
+    def __init__(self, members, filename='./matching/strategy_rating.pkl'):
         self._filename = filename
         try:
             with open(filename, 'rb') as file_:

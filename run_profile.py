@@ -79,4 +79,4 @@ def main(game_number=1):
 
 
 if __name__ == "__main__":
-    cProfile.run('main()', filename="./_trial/matching/matching.prof", sort=2)
+    cProfile.run('main()', filename="./matching/matching.prof", sort=2)
