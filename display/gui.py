@@ -11,7 +11,9 @@ __all__ = ["MyFrame"]
 class MyFrame(wx.Frame):
     """Make frame for GUI."""
     def __init__(
-            self, parent=None, id=-1, title=None, size=(640, 480), othello=None):
+            self, parent=None, id=-1, title=None,
+            size=(640, 480), othello=None,
+            ):
         wx.Frame.__init__(self, parent, id, title, size=size)
         self.othello = othello
         self.result = False
@@ -49,7 +51,10 @@ class GamePanel(wx.Panel):
         self.SetBackgroundColour("white")
         self._frame = frame
         self._disks = [[None for _ in range(8)] for _ in range(8)]
-        self._position = [[(row*30, column*30) for column in range(8)] for row in range(8)]
+        self._position = [
+            [(row*30, column*30) for column in range(8)]
+            for row in range(8)
+            ]
         self._line_position = [[0 for _ in range(9)] for _ in range(2)]
 
         # Set board and disks
@@ -84,7 +89,12 @@ class GamePanel(wx.Panel):
         self._BOARD_SIZE = BOARD_SIZE
         self._DISK_SIZE = DISK_SIZE
         self._position = [
-            [(width/2 - BOARD_SIZE/2 + row*BOARD_SIZE/7, height/2 - BOARD_SIZE/2 + column*BOARD_SIZE/7) for column in range(8)] for row in range(8)
+            [
+                (
+                    width/2 - BOARD_SIZE/2 + row*BOARD_SIZE/7,
+                    height/2 - BOARD_SIZE/2 + column*BOARD_SIZE/7
+                    )
+                for column in range(8)] for row in range(8)
             ]
         self._line_position = [
             [width/2 + (x-4)*BOARD_SIZE/7 for x in range(9)],
@@ -102,13 +112,25 @@ class GamePanel(wx.Panel):
             for column in range(8):
                 if self._board[row][column] == 1:
                     self._disks[row][column].draw(
-                        cp.COLOR_BLACK_DISK, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
+                        cp.COLOR_BLACK_DISK,
+                        self._buffer_DC,
+                        self._position[row][column],
+                        self._DISK_SIZE,
+                        )
                 elif self._board[row][column] == -1:
                     self._disks[row][column].draw(
-                        cp.COLOR_WHITE_DISK, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
+                        cp.COLOR_WHITE_DISK,
+                        self._buffer_DC,
+                        self._position[row][column],
+                        self._DISK_SIZE,
+                        )
                 else:
                     self._disks[row][column].draw(
-                        cp.COLOR_BOARD, self._buffer_DC, self._position[row][column], self._DISK_SIZE)
+                        cp.COLOR_BOARD,
+                        self._buffer_DC,
+                        self._position[row][column],
+                        self._DISK_SIZE,
+                        )
         self._client_DC.DrawBitmap(self._bit_map, 0, 0)
 
     def on_timer(self, event):
@@ -122,8 +144,12 @@ class UserPanel(wx.Panel):
         wx.Panel.__init__(self, frame)
         self._frame = frame
 
-        self._user_point_panel = PointPanel(self, frame, cp.COLOR_PANEL_PLAYER, 1)
-        self._opponent_point_panel = PointPanel(self, frame, cp.COLOR_PANEL_CPU, -1)
+        self._user_point_panel = PointPanel(
+            self, frame, cp.COLOR_PANEL_PLAYER, 1
+            )
+        self._opponent_point_panel = PointPanel(
+            self, frame, cp.COLOR_PANEL_CPU, -1
+            )
         self._result_panel = ResultPanel(self, frame)
 
         layout = wx.BoxSizer(wx.VERTICAL)
@@ -176,7 +202,10 @@ class PointPanel(wx.Panel):
 
         self._buffer_DC.SetFont(
             wx.Font(
-                size*0.175, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL
+                size*0.175,
+                wx.FONTFAMILY_DEFAULT,
+                wx.FONTSTYLE_NORMAL,
+                wx.FONTWEIGHT_NORMAL,
                 ))
         self._buffer_DC.DrawText("×" + str(point), width*0.55, height/2)
         self._buffer_DC.DrawText(self._text, width*0.55, height*0.3)
@@ -207,7 +236,13 @@ class ResultPanel(wx.Panel):
 
         self._buffer_DC.SetPen(wx.Pen("black"))
         self._buffer_DC.SetBrush(wx.Brush("black"))
-        self._buffer_DC.SetFont(wx.Font(size*0.175, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
+        self._buffer_DC.SetFont(
+            wx.Font(
+                size*0.175,
+                wx.FONTFAMILY_DEFAULT,
+                wx.FONTSTYLE_NORMAL,
+                wx.FONTWEIGHT_NORMAL
+                ))
         self._buffer_DC.DrawText(self._text, width*0.5, height/2)
 
         self._client_DC.DrawBitmap(self._bit_map, 0, 0)
@@ -236,13 +271,15 @@ class SquareMap(object):
         buffer_DC.SetPen(wx.Pen(cp.COLOR_BOARD_EDGE))
         buffer_DC.SetBrush(wx.Brush(cp.COLOR_BOARD_EDGE))
         buffer_DC.DrawRectangle(
-            line_position[0][0] - edge_length*0.05, line_position[1][0] - edge_length*0.05,
+            line_position[0][0] - edge_length*0.05,
+            line_position[1][0] - edge_length*0.05,
             edge_length*1.1, edge_length*1.1
             )
         buffer_DC.SetPen(wx.Pen(cp.COLOR_BOARD))
         buffer_DC.SetBrush(wx.Brush(cp.COLOR_BOARD))
         buffer_DC.DrawRectangle(
-            line_position[0][0] - edge_length*0.025, line_position[1][0] - edge_length*0.025,
+            line_position[0][0] - edge_length*0.025,
+            line_position[1][0] - edge_length*0.025,
             edge_length*1.05, edge_length*1.05
             )
 
@@ -260,5 +297,9 @@ class SquareMap(object):
                     )
         for row in range(1, 8):
             for column in range(1, 8):
-                buffer_DC.DrawCircle(line_position[0][row], line_position[1][column], edge_length*0.005)
+                buffer_DC.DrawCircle(
+                    line_position[0][row],
+                    line_position[1][column],
+                    edge_length*0.005,
+                    )
         return

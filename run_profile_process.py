@@ -4,11 +4,6 @@
 
 from concurrent.futures import ProcessPoolExecutor
 import cProfile
-from itertools import combinations
-import pickle
-import time
-import timeit
-from tqdm import tqdm
 
 from bitboard import OthelloGame
 from matching import EloRating
@@ -57,23 +52,26 @@ def match(strategies=('random', "min-max")):
 
 def main(number=2):
     strategies = [
-    "random",
-    "min-max",
+        "random",
+        "min-max",
     ]
 
     Rating = EloRating(strategies)
-    
+
     parameters = [("random", "min-max") for _ in range(number)]
     results = []
 
     with ProcessPoolExecutor(max_workers=4) as executor:
-        for parameter, result in zip(parameters, executor.map(match, parameters)):
+        for parameter, result in zip(
+                parameters, executor.map(match, parameters)
+                ):
             print(parameter, result)
             results.append([parameter, result])
     for parameter, result in results:
         Rating.update_rating(*parameter, 2, result[0]+result[2]/2)
     Rating.save_rating()
     return
+
 
 if __name__ == "__main__":
     cProfile.run('main()', filename="./matching/matching.prof", sort=2)

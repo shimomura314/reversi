@@ -1,5 +1,4 @@
-"""Python de Othello
-"""
+"""Python de Othello"""
 
 import random
 
@@ -59,7 +58,10 @@ class OthelloGame:
         """
         input_ = pow(2, input_)
         reversible = self.board.reversible_area(
-            self.board._black_board, self.board._white_board, self.board.game_turn)
+            self.board._black_board,
+            self.board._white_board,
+            self.board.game_turn
+            )
         if self.board.is_reversible(input_, reversible):
             black_board, white_board = self.board.reverse(
                 self.board._black_board, self.board._white_board,
@@ -129,7 +131,10 @@ class OthelloGame:
 
     def display_board(self):
         """Show the game board."""
-        black_board, white_board = self.board._black_board, self.board._white_board
+        black_board, white_board = (
+            self.board._black_board,
+            self.board._white_board,
+        )
         board_list = [[0 for _ in range(8)] for _ in range(8)]
         for row in range(8):
             for column in range(8):

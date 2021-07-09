@@ -114,11 +114,11 @@ def main(strategies, game_number=1, repeat=20):
 
 if __name__ == "__main__":
     strategies = [
-    "random",
-    # "maximize",
-    # "minimize",
-    # "min-max simple",
-    "min-max",
+        "random",
+        # "maximize",
+        # "minimize",
+        # "min-max simple",
+        "min-max",
     ]
 
     main(strategies, repeat=10)

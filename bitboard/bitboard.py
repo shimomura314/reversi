@@ -1,4 +1,5 @@
-"""Python de Othello
+"""
+Python de Othello
 Citation : https://othelloq.com/programming/bit-board
 """
 
@@ -43,7 +44,7 @@ class BitBoard:
         x : int
             64-bit intager.
         """
-        # Distributing by 2-bit, express the number of bits using 2-bit integer.
+        # Distributing by 2-bit, express the number of bits using 2-bit.
         x -= (x >> 1) & 0x5555555555555555
         # Upper 2-bit + lower 2-bit.
         x = (x & 0x3333333333333333) + ((x >> 2) & 0x3333333333333333)
@@ -184,7 +185,7 @@ class BitBoard:
         0xfefefefefefefefe
         0xfefefefefefefe00
 
-        0b       0b       0b       0b      
+        0b       0b       0b       0b
         11111111 01111111 01111111 00000000
         11111111 01111111 01111111 01111111
         11111111 01111111 01111111 01111111
@@ -194,7 +195,7 @@ class BitBoard:
         11111111 01111111 01111111 01111111
         00000000 00000000 01111111 01111111
 
-        0b       0b       0b       0b 
+        0b       0b       0b       0b
         00000000 00000000 11111110 11111110
         11111111 11111110 11111110 11111110
         11111111 11111110 11111110 11111110
@@ -213,7 +214,7 @@ class BitBoard:
             return (input_ << 8) & 0xffffffffffffff00
         elif direction == 1:  # Upper right
             return (input_ << 7) & 0x7f7f7f7f7f7f7f00
-        elif direction == 2: # Right
+        elif direction == 2:  # Right
             return (input_ >> 1) & 0x7f7f7f7f7f7f7f7f
         elif direction == 3:  # Lower right
             return (input_ >> 9) & 0x007f7f7f7f7f7f7f
@@ -228,7 +229,10 @@ class BitBoard:
         else:
             return 0
 
-    def reverse(self, black_board: int, white_board: int, game_turn: int, input_: int):
+    def reverse(
+            self, black_board: int, white_board: int,
+            game_turn: int, input_: int
+            ):
         """Put a disk and reverse disks.
 
         Parameters
@@ -244,7 +248,7 @@ class BitBoard:
             player, opponent = black_board, white_board
         else:
             player, opponent = white_board, black_board
-        blank_board = ~(black_board | white_board)
+        # blank_board = ~(black_board | white_board)
 
         reverse_bit = 0
         for direction in range(8):
