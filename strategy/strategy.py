@@ -1,20 +1,14 @@
 """Various strategies for othello.
 """
 
-from collections import deque
-import copy
-import numpy as np
-import random
-
 from bitboard import OthelloGame
 
-from .evenness import Evenness
 from .maximize import Maximize
 from .minimize import Minimize
 from .minmax import Minmax
 from .minmaxsimple import MinmaxSimple
-from .openness import Openness
 from .random import Random
+
 
 class Strategy(OthelloGame):
     """You can select AI strategy from candidates below.
@@ -27,7 +21,6 @@ class Strategy(OthelloGame):
     openness : Put disk based on openness theory.
     evenness : Put disk based on evenness theory.
     """
-    
     def __init__(self, othello):
         self._othello = othello
         self._player_color = othello._player_color
@@ -41,10 +34,6 @@ class Strategy(OthelloGame):
             self._strategy = Maximize()
         if strategy == "minimize":
             self._strategy = Minimize()
-        if strategy == "openness_theory":
-            self._strategy = Openness()
-        if strategy == "evenness_theory":
-            self._strategy = Evenness()
         if strategy == "min-max simple":
             self._strategy = MinmaxSimple()
         if strategy == "min-max":

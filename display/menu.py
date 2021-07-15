@@ -32,8 +32,6 @@ class MenuBar(wx.MenuBar):
         self._id_random = menu_opponent.AppendRadioItem(wx.ID_ANY, "random").GetId()
         self._id_maximize = menu_opponent.AppendRadioItem(wx.ID_ANY, "maximize").GetId()
         self._id_minimize = menu_opponent.AppendRadioItem(wx.ID_ANY, "minimize").GetId()
-        # self._id_openness = menu_opponent.AppendRadioItem(wx.ID_ANY, "openness").GetId()
-        # self._id_evenness = menu_opponent.AppendRadioItem(wx.ID_ANY, "evenness").GetId()
         self._id_minmax_simple = menu_opponent.AppendRadioItem(wx.ID_ANY, "min-max simple").GetId()
         self._id_minmax = menu_opponent.AppendRadioItem(wx.ID_ANY, "min-max").GetId()
 
@@ -93,17 +91,13 @@ class MenuBar(wx.MenuBar):
             game.load_strategy(Strategy)
             self._frame.othello = game
 
-        # Change_strategy.  
+        # Change_strategy.
         if event.GetId() == self._id_random:
             return self._frame.othello.change_strategy("random", False)
         if event.GetId() == self._id_maximize:
             return self._frame.othello.change_strategy("maximize", False)
         if event.GetId() == self._id_minimize:
             return self._frame.othello.change_strategy("minimize", False)
-        # if event.GetId() == self._id_openness:
-        #     return self._frame.othello.change_strategy("openness_theory", False)
-        # if event.GetId() == self._id_evenness:
-        #     return self._frame.othello.change_strategy("evenness_theory", False)
         if event.GetId() == self._id_minmax_simple:
             return self._frame.othello.change_strategy("min-max simple", False)
         if event.GetId() == self._id_minmax:
