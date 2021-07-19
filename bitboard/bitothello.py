@@ -43,13 +43,6 @@ class OthelloGame:
     def auto_mode(self, automode: bool):
         self.player_auto = automode
 
-    def load_strategy(self, Strategy):
-        """Set strategy class."""
-        self._strategy_player = Strategy(self)
-        self._strategy_player.set_strategy("random")
-        self._strategy_opponent = Strategy(self)
-        self._strategy_opponent.set_strategy("random")
-
     def put_disk(self, put_loc: int):
         """You can put disk and reverse opponent's.
 
@@ -65,6 +58,13 @@ class OthelloGame:
             self.count_pass = 0
         return
 
+    def load_strategy(self, Strategy):
+        """Set strategy class."""
+        self._strategy_player = Strategy(self)
+        self._strategy_player.set_strategy("random")
+        self._strategy_opponent = Strategy(self)
+        self._strategy_opponent.set_strategy("random")
+
     def change_strategy(self, strategy, is_player=False):
         """You can select AI strategy from candidates below.
 
@@ -74,8 +74,6 @@ class OthelloGame:
             random : Put disk randomly.
             maximize : Put disk to maximize number of one's disks.
             minimize : Put disk to minimize number of one's disks.
-            openness : Put disk based on openness theory.
-            evenness : Put disk based on evenness theory.
 
         is_player : bool
             Default is False.
@@ -133,8 +131,20 @@ class OthelloGame:
                 white_board = white_board >> 1
         return board_list
 
-    def game_judgement(self):
+    def game_judgement(
+        self,
+        count_player: int = None,
+        count_opponent: int = None,
+        count_blank: int = None
+    ):
         """Judgement of game."""
+        if count_player is None:
+            count_player = self.count_player
+        if count_opponent is None:
+            count_opponent = self.count_opponent
+        if count_blank is None:
+            count_blank = self.count_blank
+
         if self.count_pass >= 2 or self.count_blank == 0:
             if self.count_player == self.count_opponent:
                 self.result = "DRAW"
