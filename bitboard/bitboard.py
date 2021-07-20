@@ -28,7 +28,7 @@ class BitBoard:
         self._log_redo = deque(())
         return
 
-    def _bit_count(self, x: int):
+    def bit_count(self, x: int):
         """Count the number of bit awaking.
 
         Parameters
@@ -162,7 +162,7 @@ class BitBoard:
             white_board = self._white_board
             black_board = self._black_board
         board = [white_board, black_board]
-        return list(map(self._bit_count, board))
+        return list(map(self.bit_count, board))
 
     def reversible_area(
             self, game_turn: int,

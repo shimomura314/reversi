@@ -1,13 +1,7 @@
 """Various strategies for othello.
 """
 
-from collections import deque
-import copy
-import numpy as np
 import pickle
-import random
-
-from bitboard import OthelloGame
 
 
 class MinmaxSimple:
