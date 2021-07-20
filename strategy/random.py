@@ -3,6 +3,7 @@
 
 import random
 
+
 class Random:
     """Put disk randomly."""
     def __init__(self):
@@ -12,6 +13,6 @@ class Random:
         """Put disk randomly."""
         candidates = []
         for num in range(64):
-            if (pow(2, num))&othello.reversible:
+            if (pow(2, num)) & othello.reversible:
                 candidates.append(num)
         return random.choice(candidates)

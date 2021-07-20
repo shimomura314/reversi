@@ -24,38 +24,48 @@ class MenuBar(wx.MenuBar):
         menu_edit.Append(wx.ID_REDO, "Redo")
 
         menu_procedure = wx.Menu()
-        self._id_color_black = menu_procedure.Append(wx.ID_ANY, "black").GetId()
-        self._id_color_white = menu_procedure.Append(wx.ID_ANY, "white").GetId()
-        self._id_color_random = menu_procedure.Append(wx.ID_ANY, "random").GetId()
+        self._id_color_black = menu_procedure.Append(
+            wx.ID_ANY, "black").GetId()
+        self._id_color_white = menu_procedure.Append(
+            wx.ID_ANY, "white").GetId()
+        self._id_color_random = menu_procedure.Append(
+            wx.ID_ANY, "random").GetId()
 
-        menu_opponent = wx.Menu()
-        self._id_random = menu_opponent.AppendRadioItem(wx.ID_ANY, "random").GetId()
-        self._id_maximize = menu_opponent.AppendRadioItem(wx.ID_ANY, "maximize").GetId()
-        self._id_minimize = menu_opponent.AppendRadioItem(wx.ID_ANY, "minimize").GetId()
-        # self._id_openness = menu_opponent.AppendRadioItem(wx.ID_ANY, "openness").GetId()
-        # self._id_evenness = menu_opponent.AppendRadioItem(wx.ID_ANY, "evenness").GetId()
-        self._id_minmax_simple = menu_opponent.AppendRadioItem(wx.ID_ANY, "min-max simple").GetId()
-        self._id_minmax = menu_opponent.AppendRadioItem(wx.ID_ANY, "min-max").GetId()
+        menu_cpu = wx.Menu()
+        self._id_random = menu_cpu.AppendRadioItem(
+            wx.ID_ANY, "random").GetId()
+        self._id_maximize = menu_cpu.AppendRadioItem(
+            wx.ID_ANY, "maximize").GetId()
+        self._id_minimize = menu_cpu.AppendRadioItem(
+            wx.ID_ANY, "minimize").GetId()
+        self._id_minmax_simple = menu_cpu.AppendRadioItem(
+            wx.ID_ANY, "min-max simple").GetId()
+        self._id_minmax = menu_cpu.AppendRadioItem(
+            wx.ID_ANY, "min-max").GetId()
 
         self.Bind(wx.EVT_MENU, self.event_manager)
 
         self.Append(menu_file, "File")
         self.Append(menu_edit, "Edit")
         self.Append(menu_procedure, "Procedure")
-        self.Append(menu_opponent, "CPU strategy")
+        self.Append(menu_cpu, "CPU strategy")
 
     def save_board(self):
         """Save current board."""
-        self._save = copy.deepcopy(self._frame.othello.board)
-        self._board_log = copy.deepcopy(self._frame.othello.board._log)
-        self._board_log_redo = copy.deepcopy(self._frame.othello.board._log_redo)
+        white_board, black_board, log, log_redo = \
+            self._frame.othello.board.return_state()
+        self._board_save = copy.deepcopy([white_board, black_board])
+        self._board_log = copy.deepcopy(log)
+        self._board_log_redo = copy.deepcopy(log_redo)
         return
 
     def load_board(self):
         """Load saved board."""
-        self._frame.othello.board = copy.deepcopy(self._save)
-        self._frame.othello.board._log = copy.deepcopy(self._board_log)
-        self._frame.othello.board._log_redo = copy.deepcopy(self._board_log_redo)
+        self._frame.othello.board.load_state(
+            self._board_save[0], self._board_save[1],
+            self._board_log,
+            self._board_log_redo,
+        )
         return
 
     def initialize_game(self):
@@ -93,17 +103,13 @@ class MenuBar(wx.MenuBar):
             game.load_strategy(Strategy)
             self._frame.othello = game
 
-        # Change_strategy.  
+        # Change_strategy.
         if event.GetId() == self._id_random:
             return self._frame.othello.change_strategy("random", False)
         if event.GetId() == self._id_maximize:
             return self._frame.othello.change_strategy("maximize", False)
         if event.GetId() == self._id_minimize:
             return self._frame.othello.change_strategy("minimize", False)
-        # if event.GetId() == self._id_openness:
-        #     return self._frame.othello.change_strategy("openness_theory", False)
-        # if event.GetId() == self._id_evenness:
-        #     return self._frame.othello.change_strategy("evenness_theory", False)
         if event.GetId() == self._id_minmax_simple:
             return self._frame.othello.change_strategy("min-max simple", False)
         if event.GetId() == self._id_minmax:

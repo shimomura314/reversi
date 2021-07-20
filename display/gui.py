@@ -46,6 +46,7 @@ class MyFrame(wx.Frame):
 
 
 class GamePanel(wx.Panel):
+
     def __init__(self, frame):
         wx.Panel.__init__(self, frame)
         self.SetBackgroundColour("white")

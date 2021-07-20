@@ -1,2 +1,3 @@
 *.pkl
+*.prof
 __pycache__

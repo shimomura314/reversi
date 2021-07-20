@@ -13,10 +13,10 @@ class EloRating:
         try:
             with open(filename, 'rb') as file_:
                 self._rating = pickle.load(file_)
-        except:
+        except FileNotFoundError:
             self._rating = {}
         for member in members:
-            if not member in self._rating:
+            if member not in self._rating:
                 self._rating[member] = EloRating.INIT_RATING
         return
 
@@ -30,7 +30,10 @@ class EloRating:
         ratio = 1/(pow(10, rate_difference/400)+1)
         return ratio
 
-    def update_rating(self, member1: str, member2: str, number_game: int, number_1_win: int):
+    def update_rating(
+            self, member1: str, member2: str,
+            number_game: int, number_1_win: int,
+            ):
         """Update rating.
 
         Parameters
@@ -50,8 +53,14 @@ class EloRating:
         pre_probability_2 = self.win_lose_ratio(member2, member1)
         expected_win_2 = pre_probability_2 * number_game
 
-        self._rating[member1] = self._rating[member1] + EloRating.K*(number_1_win-expected_win_1)
-        self._rating[member2] = self._rating[member2] + EloRating.K*(number_2_win-expected_win_2)
+        self._rating[member1] = (
+            self._rating[member1]
+            + EloRating.K * (number_1_win - expected_win_1)
+        )
+        self._rating[member2] = (
+            self._rating[member2]
+            + EloRating.K * (number_2_win - expected_win_2)
+        )
         return
 
     def initialize_rating(self):
