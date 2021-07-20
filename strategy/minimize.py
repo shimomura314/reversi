@@ -14,7 +14,7 @@ class Minimize:
         game_turn = othello.game_turn
         white_board, black_board = othello.board.return_board()
         min_strategy = []
-        min_merit = 0
+        min_merit = float("inf")
 
         candidates = []
         for num in range(64):

@@ -360,7 +360,7 @@ class Minmax:
             # print("final value = %f, selected = %d, game turn %d, depth = %d" %(min_evaluation, selected, game_turn, depth))
             return min_evaluation, selected
 
-    def put_disk(self, othello, depth=6):
+    def put_disk(self, othello, depth=5):
         # print()
         # print()
         # print("initial call")
