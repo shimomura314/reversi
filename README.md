@@ -8,6 +8,11 @@
 * numpy 1.16.5
 * wx 4.1.0
 
+## DEMO
+
+game.exeからゲームを実行可能．
+
+
 ## Author
 
 * Author：Yuki Shimomura
