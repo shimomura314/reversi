@@ -3,6 +3,7 @@
     - bitbord : オセロの手続きを設定
     - display : GUIを設定
     - strategy : CPUの戦略を定義
+pyinstaller game.py --onefile --noconsoleでexe化
 """
 
 import wx
