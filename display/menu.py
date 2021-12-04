@@ -13,15 +13,8 @@ class MenuBar(wx.MenuBar):
         self._frame = frame
 
         menu_file = wx.Menu()
-        menu_file.Append(wx.ID_SAVE, "Save")
-        menu_file.Append(wx.ID_REPLACE, "Load")
-        menu_file.Append(wx.ID_RESET, "Initialize")
         menu_file.AppendSeparator()
         menu_file.Append(wx.ID_EXIT, "Exit")
-
-        menu_edit = wx.Menu()
-        menu_edit.Append(wx.ID_UNDO, "Undo")
-        menu_edit.Append(wx.ID_REDO, "Redo")
 
         menu_procedure = wx.Menu()
         self._id_color_black = menu_procedure.Append(
@@ -46,7 +39,6 @@ class MenuBar(wx.MenuBar):
         self.Bind(wx.EVT_MENU, self.event_manager)
 
         self.Append(menu_file, "File")
-        self.Append(menu_edit, "Edit")
         self.Append(menu_procedure, "Procedure")
         self.Append(menu_cpu, "CPU strategy")
 
@@ -116,16 +108,6 @@ class MenuBar(wx.MenuBar):
             return self._frame.othello.change_strategy("min-max", False)
 
     def event_manager(self, event):
-        if event.GetId() == wx.ID_SAVE:
-            return self.save_board()
-        if event.GetId() == wx.ID_REPLACE:
-            return self.load_board()
-        if event.GetId() == wx.ID_RESET:
-            return self.initialize_game()
         if event.GetId() == wx.ID_EXIT:
             return self.close_game()
-        if event.GetId() == wx.ID_UNDO:
-            return self.undo_turn()
-        if event.GetId() == wx.ID_REDO:
-            return self.redo_turn()
         return self.change_settings(event)
