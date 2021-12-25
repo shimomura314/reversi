@@ -12,7 +12,6 @@
 
 game.exeからゲームを実行可能．
 
-
 ## Author
 
 * Author：Yuki Shimomura

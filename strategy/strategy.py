@@ -6,6 +6,7 @@ from bitboard import OthelloGame
 from .maximize import Maximize
 from .minimize import Minimize
 from .minmax import Minmax
+from .minmaxsimple import MinmaxSimple
 from .random import Random
 
 
@@ -33,6 +34,8 @@ class Strategy(OthelloGame):
             self._strategy = Maximize()
         if strategy == "minimize":
             self._strategy = Minimize()
+        if strategy == "min-max simple":
+            self._strategy = MinmaxSimple()
         if strategy == "min-max":
             self._strategy = Minmax()
         return

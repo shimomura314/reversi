@@ -3,6 +3,9 @@ Python de Othello
 Citation : https://othelloq.com/programming/bit-board
 """
 
+import copy
+from collections import deque
+
 
 class BitBoard:
     """Play othello.
@@ -18,6 +21,11 @@ class BitBoard:
         # Set a board
         self._white_board = BitBoard.INIT_WHITE
         self._black_board = BitBoard.INIT_BLACK
+
+        # Logger
+        self._log = deque(())
+        self._log.append([BitBoard.INIT_WHITE, BitBoard.INIT_BLACK])
+        self._log_redo = deque(())
         return
 
     def bit_count(self, x: int):
@@ -143,6 +151,8 @@ class BitBoard:
         # If update is True, determine the state.
         if update:
             self._white_board, self._black_board = board
+            self._log.append([self._white_board, self._black_board])
+            self._log_redo = deque(())
 
         return board
 
@@ -265,9 +275,52 @@ class BitBoard:
         reversible = self.reversible_area(game_turn, white_board, black_board)
         return reversible != 0
 
+    def undo_turn(self):
+        success = 0
+        if self._log != deque(()):
+            success += 1
+            latest = self._log.pop()
+            self._log_redo.append(latest)
+            self._white_board, self._black_board = latest
+        if self._log != deque(()):
+            success += 1
+            latest = self._log.pop()
+            self._log_redo.append(latest)
+            self._white_board, self._black_board = latest
+        return success
+
+    def redo_turn(self):
+        success = 0
+        if self._log_redo != deque(()):
+            success += 1
+            latest = self._log_redo.pop()
+            self._log.append(latest)
+            self._white_board, self._black_board = latest
+        if self._log_redo != deque(()):
+            success += 1
+            latest = self._log_redo.pop()
+            self._log.append(latest)
+            self._white_board, self._black_board = latest
+        return success
+
     def return_board(self):
         return self._white_board, self._black_board
 
     def return_player_board(self, game_turn: int):
         board = [self._white_board, self._black_board]
         return board[game_turn], board[game_turn ^ 1]
+
+    def return_state(self):
+        return (
+            self._white_board, self._black_board,
+            self._log, self._log_redo
+            )
+
+    def load_state(
+            self, white_board: int, black_board: int, log: list, log_redo: list
+            ):
+        self._white_board = white_board
+        self._black_board = black_board
+        self._log = copy.deepcopy(log)
+        self._log_redo = copy.deepcopy(log_redo)
+        pass

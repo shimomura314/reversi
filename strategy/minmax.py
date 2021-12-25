@@ -1,14 +1,21 @@
 """Various strategies for othello.
 """
 
+from collections import deque
+import copy
+import numpy as np
 import pickle
+import random
+
+from bitboard import OthelloGame
 
 
 class Minmax:
-    """Find a better move by min-max method."""
+    """Find a better move by min-max method.
+    """
     __all__ = ["put_disk"]
 
-    def __init__(self, filename='./strategy/minmaxsimple_hash.pkl'):
+    def __init__(self, filename='./strategy/minmax_hash.pkl'):
         self._filename = filename
         try:
             with open(filename, 'rb') as file_:
@@ -22,29 +29,25 @@ class Minmax:
                     if key not in self._hash_log.keys():
                         self._hash_log[key] = {}
 
-        self._EVALUATION_TABLE = [
-            # 1st evaluation table
-            [
-                30,  -12,   0,  -1,  -1,   0, -12,  30,
-                -12, -15,  -3,  -3,  -3,  -3, -15, -12,
-                0,    -3,   0,  -1,  -1,   0,  -3,   0,
-                -1,   -3,  -1,  -1,  -1,  -1,  -3,  -1,
-                -1,   -3,  -1,  -1,  -1,  -1,  -3,  -1,
-                0,    -3,   0,  -1,  -1,   0,  -3,   0,
-                -12, -15,  -3,  -3,  -3,  -3, -15, -12,
-                30,  -12,   0,  -1,  -1,   0, -12,  30,
-            ],
-            # 2nd evaluation table
-            [
-                120, -20,  20,   5,   5,  20, -20, 120,
-                -20, -40,  -5,  -5,  -5,  -5, -40, -20,
-                20,   -5,  15,   3,   3,  15,  -5,  20,
-                5,    -5,   3,   3,   3,   3,  -5,   5,
-                5,    -5,   3,   3,   3,   3,  -5,   5,
-                20,   -5,  15,   3,   3,  15,  -5,  20,
-                -20, -40,  -5,  -5,  -5,  -5, -40, -20,
-                120, -20,  20,   5,   5,  20, -20, 120,
-            ],
+        self._EVALUATION_FIRST = [
+            30,  -12,   0,  -1,  -1,   0, -12,  30,
+            -12, -15,  -3,  -3,  -3,  -3, -15, -12,
+            0,    -3,   0,  -1,  -1,   0,  -3,   0,
+            -1,   -3,  -1,  -1,  -1,  -1,  -3,  -1,
+            -1,   -3,  -1,  -1,  -1,  -1,  -3,  -1,
+            0,    -3,   0,  -1,  -1,   0,  -3,   0,
+            -12, -15,  -3,  -3,  -3,  -3, -15, -12,
+            30,  -12,   0,  -1,  -1,   0, -12,  30,
+        ]
+        self._EVALUATION_MIDDLE = [
+            120, -20,  20,   5,   5,  20, -20, 120,
+            -20, -40,  -5,  -5,  -5,  -5, -40, -20,
+            20,   -5,  15,   3,   3,  15,  -5,  20,
+            5,    -5,   3,   3,   3,   3,  -5,   5,
+            5,    -5,   3,   3,   3,   3,  -5,   5,
+            20,   -5,  15,   3,   3,  15,  -5,  20,
+            -20, -40,  -5,  -5,  -5,  -5, -40, -20,
+            120, -20,  20,   5,   5,  20, -20, 120,
         ]
 
         self._EXP2 = [pow(2, num) for num in range(64)]
@@ -56,19 +59,65 @@ class Minmax:
             return 1
         return 0
 
-    def evaluate_value(self, white_board, black_board):
-        evaluation = 0
+    # def openness(
+    #         self, black_board: int, white_board: int,
+    #         game_turn: int, candidate:int):
+    #     """Calculate openness.
+
+    #     未完成　難しくない？
+
+    #     Parameters
+    #     ----------
+    #     candidate : int
+    #         Integer from 0 to 63.
+    #     """
+    #     input_ = self._EXP2[candidate]
+    #     if game_turn:
+    #         return self.bit_count(black_board), self.bit_count(white_board)
+    #     else:
+    #         return self.bit_count(white_board), self.bit_count(black_board)
+    #     blank_board = ~(black_board | white_board)
+
+    #     reverse_bit = 0
+    #     for direction in range(8):
+    #         reverse_bit_ = 0
+    #         border_bit = self._othello.board.check_surroundings(
+    #             input_, direction)
+    #         while (border_bit != 0) and ((border_bit & opponent) != 0):
+    #             reverse_bit_ |= border_bit
+    #             border_bit = self.check_surroundings(border_bit, direction)
+    #         if (border_bit & player) != 0:
+    #             reverse_bit |= reverse_bit_
+
+    #     reversed_disk = []
+    #     for num in range(64):
+    #         if self._EXP2[num]&reverse_bit:
+    #             reversed_disk.append(num)
+    #     print("reversed_disk", reversed_disk)
+
+    #     openness_value = 0
+    #     print(candidate, openness_value)
+    #     return openness_value
+
+    def static_evaluation_function(
+            self, white_board: int, black_board: int, stage: int) -> int:
+        """Definition of static function."""
+        board_evaluation = 0
         board = [white_board, black_board]
 
-        # If disk does not touch the border,
-        # phase is False and TABLE[0] is called.
-        phase = self.touch_border(white_board, black_board)
-        for position in range(64):
-            if (self._EXP2[position] & board[self._player_color ^ 1]):
-                evaluation += self._EVALUATION_TABLE[phase][position]
-            if (self._EXP2[position] & board[self._player_color]):
-                evaluation -= self._EVALUATION_TABLE[phase][position]
-        return evaluation
+        if stage < 21:
+            for position in range(64):
+                if (self._EXP2[position] & board[self._player_color ^ 1]):
+                    board_evaluation += self._EVALUATION_FIRST[position]
+                if (self._EXP2[position] & board[self._player_color]):
+                    board_evaluation -= self._EVALUATION_FIRST[position]
+        else:
+            for position in range(64):
+                if (self._EXP2[position] & board[self._player_color ^ 1]):
+                    board_evaluation += self._EVALUATION_MIDDLE[position]
+                if (self._EXP2[position] & board[self._player_color]):
+                    board_evaluation -= self._EVALUATION_MIDDLE[position]
+        return board_evaluation
 
     def check_hash_table(self, hashed_board, hash_key):
         """Save board data which is deeper than 4."""
@@ -89,46 +138,150 @@ class Minmax:
             pickle.dump(self._hash_log, file_)
         return
 
+    def move_ordering(
+            self, white_board: int, black_board: int, game_turn: int,
+            reversible: int, candidates: list, stage: int,
+            ) -> list:
+        """Define order of moves, so that you can find next move effectively.
+        For move ordering, values below are used.
+            Opening(0~20) : evaluate_value, available moves
+            Middle game(21~47) : evaluate_value
+            Endgame(48~64) : number of available moves(Fastest-first find)
+
+        Returns
+        ----------
+        candidates : list of ints
+            List of integers orderd by possibility.
+        """
+        # print("order")
+
+        ordered_candidates = []
+        if not reversible:
+            return ordered_candidates
+        # Killer move(corner)
+        if reversible & 0x1:
+            ordered_candidates.append([1000000, 0])
+        if reversible & 0x80:
+            ordered_candidates.append([1000000, 7])
+        if reversible & 0x100000000000000:
+            ordered_candidates.append([1000000, 56])
+        if reversible & 0x8000000000000000:
+            ordered_candidates.append([1000000, 63])
+        # print("init candidates", candidates)
+        for number, candidate in enumerate(candidates):
+            new_white_board, new_black_board = \
+                self._othello.board.put_disk(
+                    game_turn, self._EXP2[candidate], False,
+                    white_board, black_board,
+                )
+
+            if stage < 21:
+                usable_moves = self._othello.board.reversible_area(
+                    game_turn ^ 1, new_white_board, new_black_board
+                    )
+                usable_moves = self._othello.board.bit_count(usable_moves)
+                board_evaluation = self.static_evaluation_function(
+                    new_white_board, new_black_board, stage=stage)
+                evaluation = -5*usable_moves + board_evaluation
+                # print(stage, usable_moves, board_evaluation)
+            elif 21 <= stage < 48:
+                board_evaluation = self.static_evaluation_function(
+                    new_white_board, new_black_board, stage=stage)
+                evaluation = board_evaluation
+                # print(stage, board_evaluation)
+            else:
+                usable_moves = self._othello.board.reversible_area(
+                    game_turn ^ 1, new_white_board, new_black_board
+                    )
+                usable_moves = self._othello.board.bit_count(usable_moves)
+                evaluation = -1*usable_moves
+                # print(stage, usable_moves)
+
+            ordered_candidates.append([evaluation, candidate])
+        ordered_candidates.sort(reverse=True)
+        # ordered_candidates = np.uint64(np.array(ordered_candidates))
+        ordered_candidates = np.array(ordered_candidates)
+        # print(ordered_candidates)
+        return ordered_candidates[:, 1]
+
+    def search_candidates(self, reversible: int) -> list:
+        """Count the number of bit awaking.
+
+        Parameters
+        ----------
+        reversible : int
+            64-bit intager.
+
+        Returns
+        ----------
+        candidates : list of ints
+            List of integers from 0 to 63.
+        """
+        candidates = []
+        for position in range(64):
+            if reversible & self._EXP2[position]:
+                candidates.append(position)
+        return candidates
+
     def min_max(
-            self, white_board, black_board, game_turn, depth, pre_evaluation
+            self, white_board: int, black_board: int, game_turn: int,
+            depth: int, pre_evaluation=-1*float('inf'),
             ):
         # If the board is known, return value.
+        # print("called, game turn = %d, depth = %d, pre = %f" %(game_turn, depth, pre_evaluation))
         hashed_board = "".join([str(white_board), str(black_board)])
-        hash_key = "".join([str(self._player_color)+str(game_turn)+str(depth)])
+        hash_key = "".join([str(self._player_color) + str(game_turn) + str(depth)])
 
         is_exist, saved = self.check_hash_table(hashed_board, hash_key)
         if is_exist:
             evaluation, selected = saved
+            # print("exist, evaluation = %d, selected = %d, depth = %d" %(evaluation, selected, depth))
             return evaluation, selected
 
         # Calculate evaluation.
-        evaluation = self.evaluate_value(white_board, black_board)
+        stage = sum(self._othello.board.count_disks(white_board, black_board))
         if depth == 0:
-            return evaluation, 1
+            if stage < 21:
+                # print("return root evaluation = %d" %(evaluation))
+                usable_moves = self._othello.board.reversible_area(
+                    game_turn, white_board, black_board
+                    )
+                usable_moves = self._othello.board.bit_count(usable_moves)
+                board_evaluation = self.static_evaluation_function(
+                    white_board, black_board, stage)
+                evaluation = -5*usable_moves + board_evaluation
+                return evaluation, 1
+            else:
+                evaluation = self.static_evaluation_function(
+                    white_board, black_board, stage)
+                return evaluation, 1
 
         if game_turn == self._player_color:
-            max_evaluation = -1 * float('inf')
+            max_evaluation = -1*float('inf')
         else:
             min_evaluation = float('inf')
 
         reversible = self._othello.board.reversible_area(
-            game_turn, white_board, black_board
-            )
+            game_turn, white_board, black_board)
+        if depth > 4:
+            pre_candidates = self.search_candidates(reversible)
+            candidates = self.move_ordering(
+                white_board, black_board, game_turn,
+                reversible, pre_candidates, stage,
+                )
+        else:
+            candidates = self.search_candidates(reversible)
 
-        candidates = []
-        for num in range(64):
-            if self._EXP2[num] & reversible:
-                candidates.append(num)
-
+        # print("pre candidates", candidates)
         if self._othello.board.turn_playable(
-            game_turn, white_board, black_board
-        ):
+                game_turn, white_board, black_board):
             for candidate in candidates:
-                new_white_board, new_black_board = \
+                new_black_board, new_white_board = \
                     self._othello.board.put_disk(
                         game_turn, self._EXP2[candidate], False,
                         white_board, black_board,
                     )
+
                 count_white, count_black = self._othello.board.count_disks(
                     new_white_board, new_black_board
                 )
@@ -137,69 +290,90 @@ class Minmax:
                 else:
                     count_player, count_opponent = count_white, count_black
                 count_blank = 64 - count_player - count_opponent
+
                 if self._othello.game_judgement(
                         count_player, count_opponent, count_blank):
                     if self._result == 'WIN':
-                        next_evaluation = 10000000000
+                        next_evaluation = count_player*1000
                     elif self._result == 'LOSE':
-                        next_evaluation = -10000000000
+                        next_evaluation = -count_opponent*1000
                     else:
                         next_evaluation = 0
                 else:
                     if game_turn == self._player_color:
+                        # print('call function, candidate = %d, depth = %d' %(candidate, depth))
                         next_evaluation = self.min_max(
-                            new_white_board, new_black_board,
-                            game_turn ^ 1, depth-1, max_evaluation,
+                            new_white_board, new_black_board, game_turn ^ 1,
+                            depth-1, max_evaluation,
                             )[0]
                     else:
+                        # print('call function, candidate = %d, depth = %d' %(candidate, depth))
                         next_evaluation = self.min_max(
-                            new_white_board, new_black_board,
-                            game_turn ^ 1, depth-1, min_evaluation,
+                            new_white_board, new_black_board, game_turn ^ 1,
+                            depth-1, min_evaluation,
                             )[0]
 
                 # alpha-bata method(pruning)
                 if game_turn == self._player_color:
+                    # print('beta cut, pre=%f < next=%f or not' %(pre_evaluation, next_evaluation))
                     if next_evaluation > pre_evaluation:
+                        # print('cut, candidate = %d, depth = %d' %(candidate, depth))
                         return pre_evaluation, candidate
                 else:
+                    # print('alpha cut, pre=%f > next=%f or not' %(pre_evaluation, next_evaluation))
                     if pre_evaluation > next_evaluation:
+                        # print('cut, candidate = %d, depth = %d' %(candidate, depth))
                         return pre_evaluation, candidate
 
                 if game_turn == self._player_color:
                     if max_evaluation < next_evaluation:
                         max_evaluation = next_evaluation
                         selected = candidate
+                        # print("new max", max_evaluation)
                 else:
                     if next_evaluation < min_evaluation:
                         min_evaluation = next_evaluation
                         selected = candidate
+                        # print("new min", min_evaluation)
         else:
+            # print('pass', game_turn, depth)
             if game_turn == self._player_color:
                 return self.min_max(
-                    white_board, black_board,
-                    game_turn ^ 1, depth-1, max_evaluation,
+                    white_board, black_board, game_turn ^ 1,
+                    depth-1, max_evaluation
                     )
             else:
                 return self.min_max(
-                    white_board, black_board,
-                    game_turn ^ 1, depth-1, min_evaluation,
+                    black_board, white_board, game_turn ^ 1,
+                    depth-1, min_evaluation,
                     )
         if game_turn == self._player_color:
-            self.save_hash_table(
-                hashed_board, hash_key, max_evaluation, selected, depth)
+            if depth > 4:
+                self.save_hash_table(
+                    hashed_board, hash_key, max_evaluation, selected, depth)
+            # print("final value = %f, selected = %d, game turn %d, depth = %d" %(max_evaluation, selected, game_turn, depth))
             return max_evaluation, selected
         else:
-            self.save_hash_table(
-                hashed_board, hash_key, min_evaluation, selected, depth)
+            if depth > 4:
+                self.save_hash_table(
+                    hashed_board, hash_key, min_evaluation, selected, depth)
+            # print("final value = %f, selected = %d, game turn %d, depth = %d" %(min_evaluation, selected, game_turn, depth))
             return min_evaluation, selected
 
-    def put_disk(self, othello, depth=3):
+    def put_disk(self, othello, depth=5):
+        # print()
+        # print()
+        # print("initial call")
         white_board, black_board = othello.board.return_board()
         game_turn = othello.game_turn
         self._player_color = game_turn
         self._count_pass = 0
         self._othello = othello
-        return self.min_max(
-            white_board, black_board, game_turn,
-            depth, pre_evaluation=float('inf'),
-            )[1]
+        # x = self.min_max(black_board, white_board, game_turn, depth, pre_evaluation=float('inf'))[1]
+        # print(x)
+        # return int(x)
+        return int(
+            self.min_max(
+                white_board, black_board, game_turn,
+                depth, pre_evaluation=float('inf'),
+                )[1])
