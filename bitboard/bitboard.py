@@ -1,17 +1,19 @@
 """
-Python de Othello
-Citation : https://othelloq.com/programming/bit-board
+This file defines the system of Reversi.
+Black disk make the first move, and white disk make the second move.
 """
 
-import copy
-from collections import deque
+from functools import lru_cache
 
 
 class BitBoard:
-    """Play othello.
-    Black disk make the first move.
-    White disk make the second move.
-    """
+
+    __all__ = [
+        "simulate_play", "play_turn",
+        "count_disks", "reversible_area", "is_reversible", "turn_playable",
+        "return_board", "return_player_board", "load_board",
+        ]
+
     BLACK = 1
     WHITE = 0
     INIT_BLACK = 0x0000000810000000
@@ -21,20 +23,17 @@ class BitBoard:
         # Set a board
         self._white_board = BitBoard.INIT_WHITE
         self._black_board = BitBoard.INIT_BLACK
-
-        # Logger
-        self._log = deque(())
-        self._log.append([BitBoard.INIT_WHITE, BitBoard.INIT_BLACK])
-        self._log_redo = deque(())
         return
 
-    def bit_count(self, x: int):
+    @staticmethod
+    # @lru_cache()
+    def _bit_count(x: int):
         """Count the number of bit awaking.
 
         Parameters
         ----------
         x : int
-            64-bit intager.
+            64-bit intager which represents the location of disk.
         """
         # Distributing by 2-bit, express the number of bits using 2-bit.
         x -= (x >> 1) & 0x5555555555555555
@@ -50,80 +49,50 @@ class BitBoard:
         x += x >> 32
         return x & 0x0000007f
 
-    def _check_surroundings(self, put_loc: int, direction: int):
+    @staticmethod
+    # @lru_cache()
+    def _check_surroundings(put_loc: int, direction: int):
         """Check neighbor disk is reversible or not.
-
-        Used parameters
-        ---------------
-        0xffffffffffffff00
-        0x7f7f7f7f7f7f7f00
-        0x7f7f7f7f7f7f7f7f
-        0x007f7f7f7f7f7f7f
-        0x00ffffffffffffff
-        0x00fefefefefefefe
-        0xfefefefefefefefe
-        0xfefefefefefefe00
-
-        0b       0b       0b       0b
-        11111111 01111111 01111111 00000000
-        11111111 01111111 01111111 01111111
-        11111111 01111111 01111111 01111111
-        11111111 01111111 01111111 01111111
-        11111111 01111111 01111111 01111111
-        11111111 01111111 01111111 01111111
-        11111111 01111111 01111111 01111111
-        00000000 00000000 01111111 01111111
-
-        0b       0b       0b       0b
-        00000000 00000000 11111110 11111110
-        11111111 11111110 11111110 11111110
-        11111111 11111110 11111110 11111110
-        11111111 11111110 11111110 11111110
-        11111111 11111110 11111110 11111110
-        11111111 11111110 11111110 11111110
-        11111111 11111110 11111110 11111110
-        11111111 11111110 11111110 00000000
 
         Parameters
         ----------
         put_loc : int
-            64-bit intager.
+            64-bit intager which represents the location of disk.
+        direction : int
+            Intager from 0 to 7.
         """
         if direction == 0:  # Upper
             return (put_loc << 8) & 0xffffffffffffff00
-        elif direction == 1:  # Upper right
+        if direction == 1:  # Upper right
             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00
-        elif direction == 2:  # Right
+        if direction == 2:  # Right
             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7f
-        elif direction == 3:  # Lower right
+        if direction == 3:  # Lower right
             return (put_loc >> 9) & 0x007f7f7f7f7f7f7f
-        elif direction == 4:  # Lower
+        if direction == 4:  # Lower
             return (put_loc >> 8) & 0x00ffffffffffffff
-        elif direction == 5:  # Lower left
+        if direction == 5:  # Lower left
             return (put_loc >> 7) & 0x00fefefefefefefe
-        elif direction == 6:  # Left
+        if direction == 6:  # Left
             return (put_loc << 1) & 0xfefefefefefefefe
-        elif direction == 7:  # Upper left
+        if direction == 7:  # Upper left
             return (put_loc << 9) & 0xfefefefefefefe00
-        else:
-            return 0
+        return 0
 
-    def put_disk(
-            self, game_turn: int, put_loc: int, update=True,
-            white_board: int = None,
-            black_board: int = None,
+    def simulate_play(
+            self, game_turn: int, put_loc: int,
+            white_board: int = None, black_board: int = None,
             ):
-        """Put a disk and reverse opponent disks.
+        """Simulate the next turn.
 
         Parameters
         ----------
         game_turn : int
-            If black, 1. If white, 0.
+            If black is on turn, 1. If white, 0.
         put_loc : int
-            64-bit intager.
-        update : bool
-            If True, update a state of board.
+            64-bit intager which represents the location of disk.
         black_board, white_board : int
+            If board is not synchronized with the instance, enter it manually.
 
         Returns
         ----------
@@ -148,13 +117,21 @@ class BitBoard:
         board[game_turn] ^= (put_loc | reverse_bit)
         board[game_turn ^ 1] ^= reverse_bit
 
-        # If update is True, determine the state.
-        if update:
-            self._white_board, self._black_board = board
-            self._log.append([self._white_board, self._black_board])
-            self._log_redo = deque(())
-
         return board
+
+    def play_turn(self, white_board=None, black_board=None):
+        """Put a disk and reverse opponent disks.
+
+        Parameters
+        ----------
+        game_turn : int
+            If black, 1. If white, 0.
+        put_loc : int
+            64-bit intager.
+        """
+        self._white_board = white_board
+        self._black_board = black_board
+        return
 
     def count_disks(self, white_board=None, black_board=None):
         """Returns white and black's disk number."""
@@ -166,8 +143,7 @@ class BitBoard:
 
     def reversible_area(
             self, game_turn: int,
-            white_board: int = None,
-            black_board: int = None,
+            white_board: int = None, black_board: int = None,
             ):
         """Returns reversible area."""
         if white_board is None:
@@ -272,36 +248,11 @@ class BitBoard:
             black_board: int = None,
             ):
         """Return wheather you can put disk or not."""
+        if white_board is None:
+            white_board = self._white_board
+            black_board = self._black_board
         reversible = self.reversible_area(game_turn, white_board, black_board)
         return reversible != 0
-
-    def undo_turn(self):
-        success = 0
-        if self._log != deque(()):
-            success += 1
-            latest = self._log.pop()
-            self._log_redo.append(latest)
-            self._white_board, self._black_board = latest
-        if self._log != deque(()):
-            success += 1
-            latest = self._log.pop()
-            self._log_redo.append(latest)
-            self._white_board, self._black_board = latest
-        return success
-
-    def redo_turn(self):
-        success = 0
-        if self._log_redo != deque(()):
-            success += 1
-            latest = self._log_redo.pop()
-            self._log.append(latest)
-            self._white_board, self._black_board = latest
-        if self._log_redo != deque(()):
-            success += 1
-            latest = self._log_redo.pop()
-            self._log.append(latest)
-            self._white_board, self._black_board = latest
-        return success
 
     def return_board(self):
         return self._white_board, self._black_board
@@ -310,17 +261,6 @@ class BitBoard:
         board = [self._white_board, self._black_board]
         return board[game_turn], board[game_turn ^ 1]
 
-    def return_state(self):
-        return (
-            self._white_board, self._black_board,
-            self._log, self._log_redo
-            )
-
-    def load_state(
-            self, white_board: int, black_board: int, log: list, log_redo: list
-            ):
+    def load_board(self, white_board, black_board):
         self._white_board = white_board
         self._black_board = black_board
-        self._log = copy.deepcopy(log)
-        self._log_redo = copy.deepcopy(log_redo)
-        pass
