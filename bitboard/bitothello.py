@@ -98,13 +98,13 @@ class OthelloGame:
         return
 
     def process_game(self):
-        if self.game_judgement():
+        if self.judge_game():
             return True
 
         self.update_count()
 
         if self.game_turn == self._player_color:
-            self.reversible = self.board.reversible_area(self.game_turn)
+            # self.reversible = self.board.reversible_area(self.game_turn)
             if self.board.turn_playable(self.game_turn):
                 if self._player_auto:
                     self.play_turn(self._strategy_player.selecter(self))
@@ -114,7 +114,7 @@ class OthelloGame:
                 self.game_turn ^= 1
                 self._pass_count += 1
         else:
-            self.reversible = self.board.reversible_area(self.game_turn)
+            # self.reversible = self.board.reversible_area(self.game_turn)
             if self.board.turn_playable(self.game_turn):
                 self.play_turn(self._strategy_opponent.selecter(self))
             else:
@@ -136,7 +136,7 @@ class OthelloGame:
                 white_board = white_board >> 1
         return board_list
 
-    def game_judgement(self, disk_count: list = None):
+    def judge_game(self, disk_count: list = None):
         """Judgement of game."""
         if disk_count is None:
             disk_count = self._disk_count

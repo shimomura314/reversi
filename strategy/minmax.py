@@ -291,7 +291,7 @@ class Minmax:
                     count_player, count_opponent = count_white, count_black
                 count_blank = 64 - count_player - count_opponent
 
-                if self._othello.game_judgement(
+                if self._othello.judge_game(
                         count_player, count_opponent, count_blank):
                     if self._result == 'WIN':
                         next_evaluation = count_player*1000
