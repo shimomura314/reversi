@@ -12,6 +12,7 @@ class MenuBar(wx.MenuBar):
         super().__init__()
         self._frame = frame
 
+        # Basic menu
         menu_file = wx.Menu()
         menu_file.Append(wx.ID_SAVE, "Save")
         menu_file.Append(wx.ID_REPLACE, "Load")
@@ -19,10 +20,12 @@ class MenuBar(wx.MenuBar):
         menu_file.AppendSeparator()
         menu_file.Append(wx.ID_EXIT, "Exit")
 
+        # Operation menu
         menu_edit = wx.Menu()
         menu_edit.Append(wx.ID_UNDO, "Undo")
         menu_edit.Append(wx.ID_REDO, "Redo")
 
+        # Select color of player disk
         menu_procedure = wx.Menu()
         self._id_color_black = menu_procedure.Append(
             wx.ID_ANY, "black").GetId()
@@ -31,6 +34,7 @@ class MenuBar(wx.MenuBar):
         self._id_color_random = menu_procedure.Append(
             wx.ID_ANY, "random").GetId()
 
+        # Select the strategy of CPU
         menu_cpu = wx.Menu()
         self._id_random = menu_cpu.AppendRadioItem(
             wx.ID_ANY, "random").GetId()
@@ -52,19 +56,18 @@ class MenuBar(wx.MenuBar):
 
     def save_board(self):
         """Save current board."""
-        white_board, black_board, log, log_redo = \
-            self._frame.othello.board.return_state()
+        white_board, black_board, log_undo, log_redo = \
+            self._frame.othello.return_state()
         self._board_save = copy.deepcopy([white_board, black_board])
-        self._board_log = copy.deepcopy(log)
+        self._board_log_undo = copy.deepcopy(log_undo)
         self._board_log_redo = copy.deepcopy(log_redo)
         return
 
     def load_board(self):
         """Load saved board."""
-        self._frame.othello.board.load_state(
+        self._frame.othello.load_state(
             self._board_save[0], self._board_save[1],
-            self._board_log,
-            self._board_log_redo,
+            self._board_log_undo, self._board_log_redo,
         )
         return
 
@@ -81,11 +84,11 @@ class MenuBar(wx.MenuBar):
 
     def undo_turn(self):
         """Return to the previous board."""
-        return self._frame.othello.board.undo_turn()
+        return self._frame.othello.undo_turn()
 
     def redo_turn(self):
         """Redo the last select."""
-        return self._frame.othello.board.redo_turn()
+        return self._frame.othello.redo_turn()
 
     def change_settings(self, event):
         """Change settings."""

@@ -3,7 +3,7 @@ This file defines the system of Reversi.
 Black disk make the first move, and white disk make the second move.
 """
 
-from functools import lru_cache
+# from functools import lru_cache
 
 
 class BitBoard:

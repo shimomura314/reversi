@@ -17,7 +17,7 @@ class OthelloGame:
         self.board = BitBoard()
 
         # Logger
-        self._log_undo = deque([BitBoard.INIT_WHITE, BitBoard.INIT_BLACK])
+        self._log_undo = deque([[BitBoard.INIT_WHITE, BitBoard.INIT_BLACK]])
         self._log_redo = deque([])
 
         # Black or white
@@ -95,7 +95,24 @@ class OthelloGame:
             self.board.play_turn(*board)
             self.game_turn ^= 1
             self._pass_count = 0
+            if self._player_color == self.game_turn:
+                self._log_undo.append(board)
         return
+
+    def judge_game(self, disk_count: list = None):
+        """Judgement of game."""
+        if disk_count is None:
+            disk_count = self._disk_count
+
+        if self._pass_count >= 2 or sum(disk_count) == 64:
+            if disk_count[0] == disk_count[1]:
+                self.result = "DRAW"
+            if disk_count[0] > disk_count[1]:
+                self.result = "WIN"
+            if disk_count[0] < disk_count[1]:
+                self.result = "LOSE"
+            return True
+        return False
 
     def process_game(self):
         if self.judge_game():
@@ -104,7 +121,7 @@ class OthelloGame:
         self.update_count()
 
         if self.game_turn == self._player_color:
-            # self.reversible = self.board.reversible_area(self.game_turn)
+            self.reversible = self.board.reversible_area(self.game_turn)
             if self.board.turn_playable(self.game_turn):
                 if self._player_auto:
                     self.play_turn(self._strategy_player.selecter(self))
@@ -114,7 +131,7 @@ class OthelloGame:
                 self.game_turn ^= 1
                 self._pass_count += 1
         else:
-            # self.reversible = self.board.reversible_area(self.game_turn)
+            self.reversible = self.board.reversible_area(self.game_turn)
             if self.board.turn_playable(self.game_turn):
                 self.play_turn(self._strategy_opponent.selecter(self))
             else:
@@ -136,17 +153,36 @@ class OthelloGame:
                 white_board = white_board >> 1
         return board_list
 
-    def judge_game(self, disk_count: list = None):
-        """Judgement of game."""
-        if disk_count is None:
-            disk_count = self._disk_count
+    def undo_turn(self):
+        print("before")
+        print(self._log_undo, self._log_redo)
+        if not self._log_undo:
+            return
+        previous_board = self._log_undo.pop()
+        self._log_redo.append(previous_board)
+        self.board.load_board(*previous_board)
+        print("after")
+        print(self._log_undo, self._log_redo)
+        return
 
-        if self._pass_count >= 2 or sum(disk_count) == 64:
-            if disk_count[0] == disk_count[1]:
-                self.result = "DRAW"
-            if disk_count[0] > disk_count[1]:
-                self.result = "WIN"
-            if disk_count[0] < disk_count[1]:
-                self.result = "LOSE"
-            return True
-        return False
+    def redo_turn(self):
+        print("before")
+        print(self._log_undo, self._log_redo)
+        if not self._log_redo:
+            return
+        next_board = self._log_redo.pop()
+        self._log_undo.append(next_board)
+        self.board.load_board(*next_board)
+        print("after")
+        print(self._log_undo, self._log_redo)
+        return
+
+    def return_state(self):
+        white_board, black_board = self.board.return_board()
+        return white_board, black_board, self._log_undo, self._log_redo
+
+    def load_state(self, white_board, black_board, log_undo, log_redo):
+        white_board, black_board = self.board.return_board()
+        self.board.load_board(white_board, black_board)
+        self._log_undo = copy.deepcopy(log_undo)
+        self._log_redo = copy.deepcopy(log_redo)
