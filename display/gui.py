@@ -1,4 +1,4 @@
-"""GUI."""
+"""This is a GUI to display the board of Reversi."""
 
 import wx
 
@@ -76,7 +76,7 @@ class GamePanel(wx.Panel):
         different = self._line_position[0][1] - self._line_position[0][0]
         select_x = (event.X - self._line_position[0][0])//different
         select_y = (event.Y - self._line_position[1][0])//different
-        return self._frame.othello.put_disk(int(select_x*8 + select_y))
+        return self._frame.othello.play_turn(int(select_x*8 + select_y))
 
     def update_data(self):
         """Get the size of panel and calculate the size of board."""
@@ -166,8 +166,9 @@ class UserPanel(wx.Panel):
 
     def on_timer(self, event):
         """Determine disks' position and draw area."""
-        self._user_point_panel.draw(self._frame.othello.count_player)
-        self._opponent_point_panel.draw(self._frame.othello.count_opponent)
+        [player, opponent] = self._frame.othello.update_count()
+        self._user_point_panel.draw(player)
+        self._opponent_point_panel.draw(opponent)
         self._result_panel.draw()
 
 

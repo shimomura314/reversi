@@ -139,7 +139,7 @@ class BitBoard:
             white_board = self._white_board
             black_board = self._black_board
         board = [white_board, black_board]
-        return list(map(self.bit_count, board))
+        return list(map(self._bit_count, board))
 
     def reversible_area(
             self, game_turn: int,

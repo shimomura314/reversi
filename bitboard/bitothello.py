@@ -1,22 +1,24 @@
 """Python de Othello"""
 
+import copy
+from collections import deque
 import random
 
 from .bitboard import BitBoard
 
 
 class OthelloGame:
-    """Play othello.
-    Black disk make the first move.
-    White disk make the second move.
-    """
-    BLACK = 1
-    WHITE = 0
-    BOARD_SIZE = 8
+    """Play othello."""
+    BLACK = BitBoard().BLACK
+    WHITE = BitBoard().WHITE
 
     def __init__(self, player_color="black"):
         # Set a board
         self.board = BitBoard()
+
+        # Logger
+        self._log_undo = deque([BitBoard.INIT_WHITE, BitBoard.INIT_BLACK])
+        self._log_redo = deque([])
 
         # Black or white
         if player_color == "black":
@@ -26,37 +28,32 @@ class OthelloGame:
         if player_color == "random":
             self._player_color = random.choice([0, 1])
 
+        # State of game
         self.game_turn = 1
+        self.reversible = 0
+        self.result = ""
 
         # Counter
-        self.result = ""
-        self.count_player = 2
-        self.count_opponent = 2
-        self.count_blank = 60
-        self.count_pass = 0
-        self.reversible = 0
+        # [player, opponent, pass] = self._count
+        self._disk_count = [2, 2]
+        self._pass_count = 0
 
         # Mode
-        self.player_auto = False
+        self._player_auto = False
         return
+
+    def update_count(self):
+        count_board = self.board.count_disks()
+        player_cpu = [
+            count_board[self._player_color],
+            count_board[self._player_color ^ 1],
+        ]
+        self._disk_count = player_cpu
+        return player_cpu
 
     def auto_mode(self, automode: bool):
-        self.player_auto = automode
-
-    def put_disk(self, put_loc: int):
-        """You can put disk and reverse opponent's.
-
-        Parameters
-        ----------
-        put_loc : int
-            Integer from 0 to 63.
-        """
-        put_loc = pow(2, put_loc)
-        if self.board.is_reversible(self.game_turn, put_loc):
-            self.board.put_disk(self.game_turn, put_loc)
-            self.game_turn ^= 1
-            self.count_pass = 0
-        return
+        """If True is selected, the match will be played between the CPUs."""
+        self._player_auto = automode
 
     def load_strategy(self, Strategy):
         """Set strategy class."""
@@ -84,37 +81,45 @@ class OthelloGame:
             self._strategy_opponent.set_strategy(strategy)
         return
 
-    def _update_count(self):
-        count_board = self.board.count_disks()
-        self.count_player, self.count_opponent = (
-            count_board[self._player_color],
-            count_board[self._player_color ^ 1],
-            )
-        self.count_blank = 64 - sum(count_board)
+    def play_turn(self, put_loc: int):
+        """You can put disk and reverse opponent's.
+
+        Parameters
+        ----------
+        put_loc : int
+            Integer from 0 to 63.
+        """
+        put_loc = pow(2, put_loc)
+        if self.board.is_reversible(self.game_turn, put_loc):
+            board = self.board.simulate_play(self.game_turn, put_loc)
+            self.board.play_turn(*board)
+            self.game_turn ^= 1
+            self._pass_count = 0
+        return
 
     def process_game(self):
         if self.game_judgement():
             return True
 
-        self._update_count()
+        self.update_count()
 
         if self.game_turn == self._player_color:
             self.reversible = self.board.reversible_area(self.game_turn)
             if self.board.turn_playable(self.game_turn):
-                if self.player_auto:
-                    self.put_disk(self._strategy_player.selecter(self))
+                if self._player_auto:
+                    self.play_turn(self._strategy_player.selecter(self))
                 else:
                     pass
             else:
                 self.game_turn ^= 1
-                self.count_pass += 1
+                self._pass_count += 1
         else:
             self.reversible = self.board.reversible_area(self.game_turn)
             if self.board.turn_playable(self.game_turn):
-                self.put_disk(self._strategy_opponent.selecter(self))
+                self.play_turn(self._strategy_opponent.selecter(self))
             else:
                 self.game_turn ^= 1
-                self.count_pass += 1
+                self._pass_count += 1
         return False
 
     def display_board(self):
@@ -131,26 +136,17 @@ class OthelloGame:
                 white_board = white_board >> 1
         return board_list
 
-    def game_judgement(
-        self,
-        count_player: int = None,
-        count_opponent: int = None,
-        count_blank: int = None
-    ):
+    def game_judgement(self, disk_count: list = None):
         """Judgement of game."""
-        if count_player is None:
-            count_player = self.count_player
-        if count_opponent is None:
-            count_opponent = self.count_opponent
-        if count_blank is None:
-            count_blank = self.count_blank
+        if disk_count is None:
+            disk_count = self._disk_count
 
-        if self.count_pass >= 2 or self.count_blank == 0:
-            if self.count_player == self.count_opponent:
+        if self._pass_count >= 2 or sum(disk_count) == 64:
+            if disk_count[0] == disk_count[1]:
                 self.result = "DRAW"
-            if self.count_player > self.count_opponent:
+            if disk_count[0] > disk_count[1]:
                 self.result = "WIN"
-            if self.count_player < self.count_opponent:
+            if disk_count[0] < disk_count[1]:
                 self.result = "LOSE"
             return True
         return False

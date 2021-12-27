@@ -21,7 +21,7 @@ class Minimize:
             if (pow(2, num)) & othello.reversible:
                 candidates.append(num)
         for candidate in candidates:
-            new_board = othello.board.put_disk(
+            new_board = othello.board.play_turn(
                 othello.game_turn, candidate, update=False
                 )
             counter = othello.board.count_disks(*new_board)
