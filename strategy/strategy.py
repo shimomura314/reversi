@@ -1,5 +1,4 @@
-"""Various strategies for othello.
-"""
+"""Various strategies for othello."""
 
 from bitboard import OthelloGame
 

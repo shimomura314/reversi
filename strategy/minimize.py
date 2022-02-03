@@ -1,18 +1,14 @@
-"""Various strategies for othello.
-"""
+"""A strategy to try to minimize the number of disks you have."""
 
 import random
 
 
 class Minimize:
-    """Put disk to minimize number of one's disks."""
     def __init__(self):
         return
 
     def put_disk(self, othello):
-        """Put disk to minimize number of one's disks."""
         game_turn = othello.game_turn
-        white_board, black_board = othello.board.return_board()
         min_strategy = []
         min_merit = float("inf")
 
@@ -21,11 +17,9 @@ class Minimize:
             if (pow(2, num)) & othello.reversible:
                 candidates.append(num)
         for candidate in candidates:
-            new_board = othello.board.play_turn(
-                othello.game_turn, candidate, update=False
-                )
+            new_board = othello.board.simulate_play(
+                othello.game_turn, candidate)
             counter = othello.board.count_disks(*new_board)
-            counter[game_turn]
             if min_merit > counter[game_turn]:
                 min_strategy = [candidate]
                 min_merit = counter[game_turn]

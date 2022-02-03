@@ -1,5 +1,4 @@
-"""Various strategies for othello.
-"""
+"""A strategy to try to maximize the number of disks you have."""
 
 import random
 

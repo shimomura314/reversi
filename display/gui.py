@@ -1,5 +1,6 @@
 """This is a GUI to display the board of Reversi."""
 
+import time
 import wx
 
 from .color import color_pallet as cp
@@ -42,6 +43,7 @@ class MyFrame(wx.Frame):
 
     def on_timer(self, event):
         self.result = self.othello.process_game()
+        time.sleep(0.5)
         return
 
 

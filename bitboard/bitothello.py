@@ -96,6 +96,8 @@ class OthelloGame:
             self.game_turn ^= 1
             self._pass_count = 0
             if self._player_color == self.game_turn:
+                if self._log_redo:
+                    self._log_redo = deque([])
                 self._log_undo.append(board)
         return
 
@@ -161,6 +163,10 @@ class OthelloGame:
         previous_board = self._log_undo.pop()
         self._log_redo.append(previous_board)
         self.board.load_board(*previous_board)
+        if not self._log_undo:
+            self._log_undo = deque(
+                [[BitBoard.INIT_WHITE, BitBoard.INIT_BLACK]]
+                )
         print("after")
         print(self._log_undo, self._log_redo)
         return
