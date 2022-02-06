@@ -20,11 +20,9 @@ class Maximize:
             new_board = othello.board.simulate_play(
                 othello.game_turn, candidate)
             counter = othello.board.count_disks(*new_board)
-            print(counter, new_board, "b")
             if max_merit < counter[game_turn]:
                 max_strategy = [candidate]
                 max_merit = counter[game_turn]
             elif max_merit == counter[game_turn]:
                 max_strategy.append(candidate)
-        print(max_strategy)
         return random.choice(max_strategy)

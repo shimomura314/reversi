@@ -5,7 +5,7 @@ from bitboard import OthelloGame
 from .maximize import Maximize
 from .minimize import Minimize
 from .minmax import Minmax
-from .minmaxsimple import MinmaxSimple
+from .minmax_fixing import MinmaxNew
 from .random import Random
 
 
@@ -33,10 +33,10 @@ class Strategy(OthelloGame):
             self._strategy = Maximize()
         if strategy == "minimize":
             self._strategy = Minimize()
-        if strategy == "min-max simple":
-            self._strategy = MinmaxSimple()
         if strategy == "min-max":
             self._strategy = Minmax()
+        if strategy == "min-max new":
+            self._strategy = MinmaxNew()
         return
 
     def selecter(self, othello):
