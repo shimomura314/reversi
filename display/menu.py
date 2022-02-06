@@ -1,4 +1,5 @@
-"""Class of menu bar."""
+"""This file defines menu bar."""
+
 import copy
 import wx
 
@@ -42,8 +43,6 @@ class MenuBar(wx.MenuBar):
             wx.ID_ANY, "maximize").GetId()
         self._id_minimize = menu_cpu.AppendRadioItem(
             wx.ID_ANY, "minimize").GetId()
-        self._id_minmax_simple = menu_cpu.AppendRadioItem(
-            wx.ID_ANY, "min-max simple").GetId()
         self._id_minmax = menu_cpu.AppendRadioItem(
             wx.ID_ANY, "min-max").GetId()
 
@@ -113,8 +112,6 @@ class MenuBar(wx.MenuBar):
             return self._frame.othello.change_strategy("maximize", False)
         if event.GetId() == self._id_minimize:
             return self._frame.othello.change_strategy("minimize", False)
-        if event.GetId() == self._id_minmax_simple:
-            return self._frame.othello.change_strategy("min-max simple", False)
         if event.GetId() == self._id_minmax:
             return self._frame.othello.change_strategy("min-max", False)
 

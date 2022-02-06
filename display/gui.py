@@ -1,10 +1,12 @@
 """This is a GUI to display the board of Reversi."""
 
-import time
+from logging import getLogger
 import wx
 
 from .color import color_pallet as cp
 from .menu import MenuBar
+
+logger = getLogger(__name__)
 
 __all__ = ["MyFrame"]
 
@@ -18,6 +20,7 @@ class MyFrame(wx.Frame):
         wx.Frame.__init__(self, parent, id, title, size=size)
         self.othello = othello
         self.result = False
+        self.update = True
 
         # Initialize status bar
         self.CreateStatusBar()
@@ -39,11 +42,13 @@ class MyFrame(wx.Frame):
         self.Bind(wx.EVT_TIMER, self.on_timer)
         self._timer.Start(100)
         self.user_auto = False
+        logger.info("GUI for the board was set.")
         return
 
     def on_timer(self, event):
-        self.result = self.othello.process_game()
-        time.sleep(0.5)
+        self.result, self.update = self.othello.process_game()
+        # time.sleep(0.5)
+        logger.debug("Frame update.")
         return
 
 
@@ -75,10 +80,19 @@ class GamePanel(wx.Panel):
 
     def on_left_down(self, event):
         """If a disk area was clicked, return the position of disk."""
+        logger.info("Mouse bottun was put.")
         different = self._line_position[0][1] - self._line_position[0][0]
         select_x = (event.X - self._line_position[0][0])//different
         select_y = (event.Y - self._line_position[1][0])//different
-        return self._frame.othello.play_turn(int(select_x*8 + select_y))
+        try:
+            self._frame.othello.play_turn(int(select_x*8 + select_y))
+        except AssertionError:
+            self._frame.SetStatusText("This position is out of the board.")
+        except ValueError:
+            self._frame.SetStatusText("You can not reverse disks.")
+        else:
+            self._frame.SetStatusText("Success.")
+        return
 
     def update_data(self):
         """Get the size of panel and calculate the size of board."""
@@ -139,6 +153,7 @@ class GamePanel(wx.Panel):
     def on_timer(self, event):
         self.update_data()
         self.draw_board()
+        logger.debug("Panel update.")
 
 
 class UserPanel(wx.Panel):

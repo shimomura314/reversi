@@ -10,13 +10,13 @@ from matching import EloRating
 from strategy import Strategy
 
 
-def match(strategies=('random', "min-max")):
+def match(strategies=("random", "min-max")):
     (strategy1, strategy2) = strategies
     count_win = 0
     count_lose = 0
     count_draw = 0
 
-    game = OthelloGame('black')
+    game = OthelloGame("black")
     game.load_strategy(Strategy)
     game.change_strategy(strategy1, is_player=True)
     game.change_strategy(strategy2, is_player=False)
@@ -32,7 +32,7 @@ def match(strategies=('random', "min-max")):
     if game.result == "DRAW":
         count_draw += 1
 
-    game = OthelloGame('white')
+    game = OthelloGame("white")
     game.load_strategy(Strategy)
     game.change_strategy(strategy1, is_player=True)
     game.change_strategy(strategy2, is_player=False)
@@ -74,4 +74,4 @@ def main(number=2):
 
 
 if __name__ == "__main__":
-    cProfile.run('main()', filename="./matching/matching.prof", sort=2)
+    cProfile.run("main()", filename="./matching/matching.prof", sort=2)

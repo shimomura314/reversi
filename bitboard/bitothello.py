@@ -2,13 +2,16 @@
 
 import copy
 from collections import deque
+from logging import getLogger
 import random
 
 from .bitboard import BitBoard
 
+logger = getLogger(__name__)
+
 
 class OthelloGame:
-    """Play othello."""
+
     BLACK = BitBoard().BLACK
     WHITE = BitBoard().WHITE
 
@@ -32,17 +35,23 @@ class OthelloGame:
         self.game_turn = 1
         self.reversible = 0
         self.result = ""
+        # logger.debug("bug")
+        # logger.info("information")
+        # logger.warning("warn")
+        # logger.error("errooooor")
+        # logger.critical("ex")
 
         # Counter
-        # [player, opponent, pass] = self._count
         self._disk_count = [2, 2]
         self._pass_count = 0
 
         # Mode
         self._player_auto = False
+        logger.info("Game starts.")
         return
 
     def update_count(self):
+        """Update counts of disks."""
         count_board = self.board.count_disks()
         player_cpu = [
             count_board[self._player_color],
@@ -71,7 +80,6 @@ class OthelloGame:
             random : Put disk randomly.
             maximize : Put disk to maximize number of one's disks.
             minimize : Put disk to minimize number of one's disks.
-
         is_player : bool
             Default is False.
         """
@@ -89,6 +97,8 @@ class OthelloGame:
         put_loc : int
             Integer from 0 to 63.
         """
+        if not (0 <= put_loc <= 63):
+            raise AssertionError
         put_loc = pow(2, put_loc)
         if self.board.is_reversible(self.game_turn, put_loc):
             board = self.board.simulate_play(self.game_turn, put_loc)
@@ -99,6 +109,8 @@ class OthelloGame:
                 if self._log_redo:
                     self._log_redo = deque([])
                 self._log_undo.append(board)
+        else:
+            raise ValueError
         return
 
     def judge_game(self, disk_count: list = None):
@@ -117,8 +129,14 @@ class OthelloGame:
         return False
 
     def process_game(self):
+        """
+        Returns
+        -------
+        finished, updated : bool
+        """
         if self.judge_game():
-            return True
+            logger.debug("Game was judged as the end.")
+            return True, True
 
         self.update_count()
 
@@ -126,20 +144,26 @@ class OthelloGame:
             self.reversible = self.board.reversible_area(self.game_turn)
             if self.board.turn_playable(self.game_turn):
                 if self._player_auto:
+                    logger.debug("Player's turn was processed automatically.")
                     self.play_turn(self._strategy_player.selecter(self))
+                    return False, True
                 else:
                     pass
             else:
+                logger.debug("Player's turn was passed.")
                 self.game_turn ^= 1
                 self._pass_count += 1
         else:
             self.reversible = self.board.reversible_area(self.game_turn)
             if self.board.turn_playable(self.game_turn):
+                logger.debug("CPU's turn was processed automatically.")
                 self.play_turn(self._strategy_opponent.selecter(self))
+                return False, True
             else:
+                logger.debug("CPU's turn was passed.")
                 self.game_turn ^= 1
                 self._pass_count += 1
-        return False
+        return False, False
 
     def display_board(self):
         """Show the game board."""
@@ -156,10 +180,15 @@ class OthelloGame:
         return board_list
 
     def undo_turn(self):
-        print("before")
-        print(self._log_undo, self._log_redo)
+        logger.debug(
+            "Log:%s - %s" % (
+                ", ".join(map(str, self._log_undo)),
+                ", ".join(map(str, self._log_redo)),
+                ))
         if not self._log_undo:
+            logger.warning("The board can not be playbacked.")
             return
+        logger.info("The board was playbacked.")
         previous_board = self._log_undo.pop()
         self._log_redo.append(previous_board)
         self.board.load_board(*previous_board)
@@ -167,20 +196,31 @@ class OthelloGame:
             self._log_undo = deque(
                 [[BitBoard.INIT_WHITE, BitBoard.INIT_BLACK]]
                 )
-        print("after")
-        print(self._log_undo, self._log_redo)
+        logger.debug(
+            "Log:%s - %s" % (
+                ", ".join(map(str, self._log_undo)),
+                ", ".join(map(str, self._log_redo)),
+                ))
         return
 
     def redo_turn(self):
-        print("before")
-        print(self._log_undo, self._log_redo)
+        logger.debug(
+            "Log:%s - %s" % (
+                ", ".join(map(str, self._log_undo)),
+                ", ".join(map(str, self._log_redo)),
+                ))
         if not self._log_redo:
+            logger.warning("The board can not be advanced.")
             return
+        logger.info("The board was advanced.")
         next_board = self._log_redo.pop()
         self._log_undo.append(next_board)
         self.board.load_board(*next_board)
-        print("after")
-        print(self._log_undo, self._log_redo)
+        logger.debug(
+            "Log:%s - %s" % (
+                ", ".join(map(str, self._log_undo)),
+                ", ".join(map(str, self._log_redo)),
+                ))
         return
 
     def return_state(self):

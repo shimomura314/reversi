@@ -4,6 +4,9 @@ Black disk make the first move, and white disk make the second move.
 """
 
 # from functools import lru_cache
+from logging import getLogger
+
+logger = getLogger(__name__)
 
 
 class BitBoard:
@@ -23,6 +26,7 @@ class BitBoard:
         # Set a board
         self._white_board = BitBoard.INIT_WHITE
         self._black_board = BitBoard.INIT_BLACK
+        logger.info("Board was set.")
         return
 
     @staticmethod
@@ -95,7 +99,7 @@ class BitBoard:
             If board is not synchronized with the instance, enter it manually.
 
         Returns
-        ----------
+        -------
         reversed_black_board, reversed_white_board : int
         """
         if white_board is None:
@@ -139,7 +143,6 @@ class BitBoard:
             white_board = self._white_board
             black_board = self._black_board
         board = [white_board, black_board]
-        print(board, list(map(self._bit_count, board)), "a")
         return list(map(self._bit_count, board))
 
     def reversible_area(
@@ -245,8 +248,7 @@ class BitBoard:
 
     def turn_playable(
             self, game_turn: int,
-            white_board: int = None,
-            black_board: int = None,
+            white_board: int = None, black_board: int = None,
             ):
         """Return wheather you can put disk or not."""
         if white_board is None:
