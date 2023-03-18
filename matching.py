@@ -17,8 +17,6 @@ STRAT = [
     "maximize",
     "minimize",
     "min-max",
-    # "min-max5",
-    # "min-max6",
 ]
 
 # [win, lose, draw]

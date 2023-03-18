@@ -1,5 +1,4 @@
 """Various strategies for othello."""
-
 import pickle
 
 
@@ -9,7 +8,7 @@ class Minmax:
     __all__ = ["put_disk"]
 
     def __init__(self):
-        self._EVALUATION_TABLE = [
+        self._EVAL_TBL = [
             # 1st evaluation table
             [
                 30,  -12,   0,  -1,  -1,   0, -12,  30,
@@ -51,9 +50,9 @@ class Minmax:
         phase = self.touch_border(black_board, white_board)
         for position in range(64):
             if (self._EXP2[position] & board[self._player_clr]):
-                evaluation += self._EVALUATION_TABLE[phase][position]
+                evaluation += self._EVAL_TBL[phase][position]
             if (self._EXP2[position] & board[self._player_clr ^ 1]):
-                evaluation -= self._EVALUATION_TABLE[phase][position]
+                evaluation -= self._EVAL_TBL[phase][position]
         return evaluation
 
     def update_file(self):
