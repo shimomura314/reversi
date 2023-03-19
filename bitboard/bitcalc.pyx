@@ -78,21 +78,21 @@ cpdef uint64_t reversible_area_c(uint64_t turn, uint64_t black_board, uint64_t w
     cdef uint64_t *CONST = [
         0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
     ]
-    board = [black_board, white_board]
-    blank_board = ~(board[0] | board[1])
+    cdef uint64_t *board = [black_board, white_board]
+    cdef uint64_t blank_board = ~(board[0] | board[1])
 
-    horiz_brd = board[turn ^ 1] & CONST[0]
-    vert_brd = board[turn ^ 1] & CONST[1]
-    all_border = board[turn ^ 1] & CONST[2]
+    cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
+    cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]
+    cdef uint64_t all_border = board[turn ^ 1] & CONST[2]
 
     # Upper
-    one_rv = horiz_brd & (board[turn] << 1)
+    cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
     one_rv |= horiz_brd & (one_rv << 1)
     one_rv |= horiz_brd & (one_rv << 1)
     one_rv |= horiz_brd & (one_rv << 1)
     one_rv |= horiz_brd & (one_rv << 1)
     one_rv |= horiz_brd & (one_rv << 1)
-    reversible = blank_board & (one_rv << 1)
+    cdef uint64_t reversible = blank_board & (one_rv << 1)
 
     # Lower
     one_rv = horiz_brd & (board[turn] >> 1)

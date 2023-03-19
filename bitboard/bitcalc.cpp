@@ -1060,20 +1060,37 @@ static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
     PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
     const char* function_name);
 
-/* PyIntBinop.proto */
-#if !CYTHON_COMPILING_IN_PYPY
-static PyObject* __Pyx_PyInt_LshiftObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
+/* PyDictVersioning.proto */
+#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
+#define __PYX_DICT_VERSION_INIT  ((PY_UINT64_T) -1)
+#define __PYX_GET_DICT_VERSION(dict)  (((PyDictObject*)(dict))->ma_version_tag)
+#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)\
+    (version_var) = __PYX_GET_DICT_VERSION(dict);\
+    (cache_var) = (value);
+#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP) {\
+    static PY_UINT64_T __pyx_dict_version = 0;\
+    static PyObject *__pyx_dict_cached_value = NULL;\
+    if (likely(__PYX_GET_DICT_VERSION(DICT) == __pyx_dict_version)) {\
+        (VAR) = __pyx_dict_cached_value;\
+    } else {\
+        (VAR) = __pyx_dict_cached_value = (LOOKUP);\
+        __pyx_dict_version = __PYX_GET_DICT_VERSION(DICT);\
+    }\
+}
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj);
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj);
+static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version);
 #else
-#define __Pyx_PyInt_LshiftObjC(op1, op2, intval, inplace, zerodivision_check)\
-    (inplace ? PyNumber_InPlaceLshift(op1, op2) : PyNumber_Lshift(op1, op2))
+#define __PYX_GET_DICT_VERSION(dict)  (0)
+#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)
+#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP)  (VAR) = (LOOKUP);
 #endif
 
-/* PyIntBinop.proto */
-#if !CYTHON_COMPILING_IN_PYPY
-static PyObject* __Pyx_PyInt_RshiftObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
+/* PyObjectGetAttrStr.proto */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name);
 #else
-#define __Pyx_PyInt_RshiftObjC(op1, op2, intval, inplace, zerodivision_check)\
-    (inplace ? PyNumber_InPlaceRshift(op1, op2) : PyNumber_Rshift(op1, op2))
+#define __Pyx_PyObject_GetAttrStr(o,n) PyObject_GetAttr(o,n)
 #endif
 
 /* PyThreadStateGet.proto */
@@ -1110,44 +1127,6 @@ static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject 
 #define __Pyx_ErrFetchInState(tstate, type, value, tb)  PyErr_Fetch(type, value, tb)
 #define __Pyx_ErrRestore(type, value, tb)  PyErr_Restore(type, value, tb)
 #define __Pyx_ErrFetch(type, value, tb)  PyErr_Fetch(type, value, tb)
-#endif
-
-/* WriteUnraisableException.proto */
-static void __Pyx_WriteUnraisable(const char *name, int clineno,
-                                  int lineno, const char *filename,
-                                  int full_traceback, int nogil);
-
-/* PyDictVersioning.proto */
-#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
-#define __PYX_DICT_VERSION_INIT  ((PY_UINT64_T) -1)
-#define __PYX_GET_DICT_VERSION(dict)  (((PyDictObject*)(dict))->ma_version_tag)
-#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)\
-    (version_var) = __PYX_GET_DICT_VERSION(dict);\
-    (cache_var) = (value);
-#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP) {\
-    static PY_UINT64_T __pyx_dict_version = 0;\
-    static PyObject *__pyx_dict_cached_value = NULL;\
-    if (likely(__PYX_GET_DICT_VERSION(DICT) == __pyx_dict_version)) {\
-        (VAR) = __pyx_dict_cached_value;\
-    } else {\
-        (VAR) = __pyx_dict_cached_value = (LOOKUP);\
-        __pyx_dict_version = __PYX_GET_DICT_VERSION(DICT);\
-    }\
-}
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj);
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj);
-static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version);
-#else
-#define __PYX_GET_DICT_VERSION(dict)  (0)
-#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)
-#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP)  (VAR) = (LOOKUP);
-#endif
-
-/* PyObjectGetAttrStr.proto */
-#if CYTHON_USE_TYPE_SLOTS
-static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name);
-#else
-#define __Pyx_PyObject_GetAttrStr(o,n) PyObject_GetAttr(o,n)
 #endif
 
 /* CLineInTraceback.proto */
@@ -1247,10 +1226,6 @@ static PyObject *__pyx_n_s_white_board;
 static PyObject *__pyx_pf_8bitboard_7bitcalc_bit_count_c(CYTHON_UNUSED PyObject *__pyx_self, std::uint64_t __pyx_v_x); /* proto */
 static PyObject *__pyx_pf_8bitboard_7bitcalc_2check_surround_c(CYTHON_UNUSED PyObject *__pyx_self, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_direction); /* proto */
 static PyObject *__pyx_pf_8bitboard_7bitcalc_4reversible_area_c(CYTHON_UNUSED PyObject *__pyx_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
-static PyObject *__pyx_int_1;
-static PyObject *__pyx_int_7;
-static PyObject *__pyx_int_8;
-static PyObject *__pyx_int_9;
 /* Late includes */
 
 /* "bitboard/bitcalc.pyx":12
@@ -1700,23 +1675,17 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_2check_surround_c(CYTHON_UNUSED PyO
 static PyObject *__pyx_pw_8bitboard_7bitcalc_5reversible_area_c(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, CYTHON_UNUSED int __pyx_skip_dispatch) {
   std::uint64_t *__pyx_v_CONST;
-  PyObject *__pyx_v_board = NULL;
-  PyObject *__pyx_v_blank_board = NULL;
-  PyObject *__pyx_v_horiz_brd = NULL;
-  PyObject *__pyx_v_vert_brd = NULL;
-  PyObject *__pyx_v_all_border = NULL;
-  PyObject *__pyx_v_one_rv = NULL;
-  PyObject *__pyx_v_reversible = NULL;
+  std::uint64_t *__pyx_v_board;
+  std::uint64_t __pyx_v_blank_board;
+  std::uint64_t __pyx_v_horiz_brd;
+  std::uint64_t __pyx_v_vert_brd;
+  std::uint64_t __pyx_v_all_border;
+  std::uint64_t __pyx_v_one_rv;
+  std::uint64_t __pyx_v_reversible;
   std::uint64_t __pyx_r;
   __Pyx_RefNannyDeclarations
   std::uint64_t __pyx_t_1[3];
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  std::uint64_t __pyx_t_5;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
+  std::uint64_t __pyx_t_2[2];
   __Pyx_RefNannySetupContext("reversible_area_c", 0);
 
   /* "bitboard/bitcalc.pyx":78
@@ -1734,138 +1703,76 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
   /* "bitboard/bitcalc.pyx":81
  *         0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
  *     ]
- *     board = [black_board, white_board]             # <<<<<<<<<<<<<<
- *     blank_board = ~(board[0] | board[1])
+ *     cdef uint64_t *board = [black_board, white_board]             # <<<<<<<<<<<<<<
+ *     cdef uint64_t blank_board = ~(board[0] | board[1])
  * 
  */
-  __pyx_t_2 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
-  __pyx_t_2 = 0;
-  __pyx_t_3 = 0;
-  __pyx_v_board = ((PyObject*)__pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_t_2[0] = __pyx_v_black_board;
+  __pyx_t_2[1] = __pyx_v_white_board;
+  __pyx_v_board = __pyx_t_2;
 
   /* "bitboard/bitcalc.pyx":82
  *     ]
- *     board = [black_board, white_board]
- *     blank_board = ~(board[0] | board[1])             # <<<<<<<<<<<<<<
+ *     cdef uint64_t *board = [black_board, white_board]
+ *     cdef uint64_t blank_board = ~(board[0] | board[1])             # <<<<<<<<<<<<<<
  * 
- *     horiz_brd = board[turn ^ 1] & CONST[0]
+ *     cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
  */
-  __pyx_t_4 = PyNumber_Or(PyList_GET_ITEM(__pyx_v_board, 0), PyList_GET_ITEM(__pyx_v_board, 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 82, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_Invert(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_v_blank_board = __pyx_t_3;
-  __pyx_t_3 = 0;
+  __pyx_v_blank_board = (~((__pyx_v_board[0]) | (__pyx_v_board[1])));
 
   /* "bitboard/bitcalc.pyx":84
- *     blank_board = ~(board[0] | board[1])
+ *     cdef uint64_t blank_board = ~(board[0] | board[1])
  * 
- *     horiz_brd = board[turn ^ 1] & CONST[0]             # <<<<<<<<<<<<<<
- *     vert_brd = board[turn ^ 1] & CONST[1]
- *     all_border = board[turn ^ 1] & CONST[2]
+ *     cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]             # <<<<<<<<<<<<<<
+ *     cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]
+ *     cdef uint64_t all_border = board[turn ^ 1] & CONST[2]
  */
-  __pyx_t_5 = (__pyx_v_turn ^ 1);
-  __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t((__pyx_v_CONST[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(PyList_GET_ITEM(__pyx_v_board, __pyx_t_5), __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_v_horiz_brd = __pyx_t_4;
-  __pyx_t_4 = 0;
+  __pyx_v_horiz_brd = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[0]));
 
   /* "bitboard/bitcalc.pyx":85
  * 
- *     horiz_brd = board[turn ^ 1] & CONST[0]
- *     vert_brd = board[turn ^ 1] & CONST[1]             # <<<<<<<<<<<<<<
- *     all_border = board[turn ^ 1] & CONST[2]
+ *     cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
+ *     cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]             # <<<<<<<<<<<<<<
+ *     cdef uint64_t all_border = board[turn ^ 1] & CONST[2]
  * 
  */
-  __pyx_t_5 = (__pyx_v_turn ^ 1);
-  __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t((__pyx_v_CONST[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(PyList_GET_ITEM(__pyx_v_board, __pyx_t_5), __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_v_vert_brd = __pyx_t_3;
-  __pyx_t_3 = 0;
+  __pyx_v_vert_brd = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[1]));
 
   /* "bitboard/bitcalc.pyx":86
- *     horiz_brd = board[turn ^ 1] & CONST[0]
- *     vert_brd = board[turn ^ 1] & CONST[1]
- *     all_border = board[turn ^ 1] & CONST[2]             # <<<<<<<<<<<<<<
+ *     cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
+ *     cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]
+ *     cdef uint64_t all_border = board[turn ^ 1] & CONST[2]             # <<<<<<<<<<<<<<
  * 
  *     # Upper
  */
-  __pyx_t_5 = (__pyx_v_turn ^ 1);
-  __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t((__pyx_v_CONST[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(PyList_GET_ITEM(__pyx_v_board, __pyx_t_5), __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_v_all_border = __pyx_t_4;
-  __pyx_t_4 = 0;
+  __pyx_v_all_border = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[2]));
 
   /* "bitboard/bitcalc.pyx":89
  * 
  *     # Upper
- *     one_rv = horiz_brd & (board[turn] << 1)             # <<<<<<<<<<<<<<
+ *     cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)             # <<<<<<<<<<<<<<
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(PyList_GET_ITEM(__pyx_v_board, __pyx_v_turn), __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_v_one_rv = __pyx_t_3;
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_horiz_brd & ((__pyx_v_board[__pyx_v_turn]) << 1));
 
   /* "bitboard/bitcalc.pyx":90
  *     # Upper
- *     one_rv = horiz_brd & (board[turn] << 1)
+ *     cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 90, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 90, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 90, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
   /* "bitboard/bitcalc.pyx":91
- *     one_rv = horiz_brd & (board[turn] << 1)
+ *     cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
   /* "bitboard/bitcalc.pyx":92
  *     one_rv |= horiz_brd & (one_rv << 1)
@@ -1874,67 +1781,34 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
   /* "bitboard/bitcalc.pyx":93
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
  *     one_rv |= horiz_brd & (one_rv << 1)
- *     reversible = blank_board & (one_rv << 1)
+ *     cdef uint64_t reversible = blank_board & (one_rv << 1)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
   /* "bitboard/bitcalc.pyx":94
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
- *     reversible = blank_board & (one_rv << 1)
+ *     cdef uint64_t reversible = blank_board & (one_rv << 1)
  * 
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
   /* "bitboard/bitcalc.pyx":95
  *     one_rv |= horiz_brd & (one_rv << 1)
  *     one_rv |= horiz_brd & (one_rv << 1)
- *     reversible = blank_board & (one_rv << 1)             # <<<<<<<<<<<<<<
+ *     cdef uint64_t reversible = blank_board & (one_rv << 1)             # <<<<<<<<<<<<<<
  * 
  *     # Lower
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_blank_board, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_v_reversible = __pyx_t_4;
-  __pyx_t_4 = 0;
+  __pyx_v_reversible = (__pyx_v_blank_board & (__pyx_v_one_rv << 1));
 
   /* "bitboard/bitcalc.pyx":98
  * 
@@ -1943,13 +1817,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= horiz_brd & (one_rv >> 1)
  *     one_rv |= horiz_brd & (one_rv >> 1)
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(PyList_GET_ITEM(__pyx_v_board, __pyx_v_turn), __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_horiz_brd & ((__pyx_v_board[__pyx_v_turn]) >> 1));
 
   /* "bitboard/bitcalc.pyx":99
  *     # Lower
@@ -1958,16 +1826,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= horiz_brd & (one_rv >> 1)
  *     one_rv |= horiz_brd & (one_rv >> 1)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
   /* "bitboard/bitcalc.pyx":100
  *     one_rv = horiz_brd & (board[turn] >> 1)
@@ -1976,16 +1835,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= horiz_brd & (one_rv >> 1)
  *     one_rv |= horiz_brd & (one_rv >> 1)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
   /* "bitboard/bitcalc.pyx":101
  *     one_rv |= horiz_brd & (one_rv >> 1)
@@ -1994,16 +1844,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= horiz_brd & (one_rv >> 1)
  *     one_rv |= horiz_brd & (one_rv >> 1)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
   /* "bitboard/bitcalc.pyx":102
  *     one_rv |= horiz_brd & (one_rv >> 1)
@@ -2012,16 +1853,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= horiz_brd & (one_rv >> 1)
  *     reversible |= blank_board & (one_rv >> 1)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
   /* "bitboard/bitcalc.pyx":103
  *     one_rv |= horiz_brd & (one_rv >> 1)
@@ -2030,16 +1862,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     reversible |= blank_board & (one_rv >> 1)
  * 
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_horiz_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
   /* "bitboard/bitcalc.pyx":104
  *     one_rv |= horiz_brd & (one_rv >> 1)
@@ -2048,16 +1871,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  * 
  *     # Left
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_1, 1, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_blank_board, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_reversible, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_reversible, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 1)));
 
   /* "bitboard/bitcalc.pyx":107
  * 
@@ -2066,13 +1880,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv << 8)
  *     one_rv |= vert_brd & (one_rv << 8)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(PyList_GET_ITEM(__pyx_v_board, __pyx_v_turn), __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_vert_brd & ((__pyx_v_board[__pyx_v_turn]) << 8));
 
   /* "bitboard/bitcalc.pyx":108
  *     # Left
@@ -2081,16 +1889,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv << 8)
  *     one_rv |= vert_brd & (one_rv << 8)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
   /* "bitboard/bitcalc.pyx":109
  *     one_rv = vert_brd & (board[turn] << 8)
@@ -2099,16 +1898,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv << 8)
  *     one_rv |= vert_brd & (one_rv << 8)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 109, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
   /* "bitboard/bitcalc.pyx":110
  *     one_rv |= vert_brd & (one_rv << 8)
@@ -2117,16 +1907,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv << 8)
  *     one_rv |= vert_brd & (one_rv << 8)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 110, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
   /* "bitboard/bitcalc.pyx":111
  *     one_rv |= vert_brd & (one_rv << 8)
@@ -2135,16 +1916,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv << 8)
  *     reversible |= blank_board & (one_rv << 8)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 111, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
   /* "bitboard/bitcalc.pyx":112
  *     one_rv |= vert_brd & (one_rv << 8)
@@ -2153,16 +1925,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     reversible |= blank_board & (one_rv << 8)
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 112, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 112, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
   /* "bitboard/bitcalc.pyx":113
  *     one_rv |= vert_brd & (one_rv << 8)
@@ -2171,16 +1934,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  * 
  *     # Right
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_blank_board, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_reversible, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_reversible, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 8)));
 
   /* "bitboard/bitcalc.pyx":116
  * 
@@ -2189,13 +1943,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv >> 8)
  *     one_rv |= vert_brd & (one_rv >> 8)
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(PyList_GET_ITEM(__pyx_v_board, __pyx_v_turn), __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 116, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_vert_brd & ((__pyx_v_board[__pyx_v_turn]) >> 8));
 
   /* "bitboard/bitcalc.pyx":117
  *     # Right
@@ -2204,16 +1952,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv >> 8)
  *     one_rv |= vert_brd & (one_rv >> 8)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 117, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
   /* "bitboard/bitcalc.pyx":118
  *     one_rv = vert_brd & (board[turn] >> 8)
@@ -2222,16 +1961,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv >> 8)
  *     one_rv |= vert_brd & (one_rv >> 8)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
   /* "bitboard/bitcalc.pyx":119
  *     one_rv |= vert_brd & (one_rv >> 8)
@@ -2240,16 +1970,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv >> 8)
  *     one_rv |= vert_brd & (one_rv >> 8)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 119, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 119, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
   /* "bitboard/bitcalc.pyx":120
  *     one_rv |= vert_brd & (one_rv >> 8)
@@ -2258,16 +1979,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= vert_brd & (one_rv >> 8)
  *     reversible |= blank_board & (one_rv >> 8)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 120, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 120, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
   /* "bitboard/bitcalc.pyx":121
  *     one_rv |= vert_brd & (one_rv >> 8)
@@ -2276,16 +1988,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     reversible |= blank_board & (one_rv >> 8)
  * 
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_vert_brd, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
   /* "bitboard/bitcalc.pyx":122
  *     one_rv |= vert_brd & (one_rv >> 8)
@@ -2294,16 +1997,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  * 
  *     # Upper right
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_8, 8, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_blank_board, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_reversible, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_reversible, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 8)));
 
   /* "bitboard/bitcalc.pyx":125
  * 
@@ -2312,13 +2006,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 7)
  *     one_rv |= all_border & (one_rv << 7)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(PyList_GET_ITEM(__pyx_v_board, __pyx_v_turn), __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) << 7));
 
   /* "bitboard/bitcalc.pyx":126
  *     # Upper right
@@ -2327,16 +2015,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 7)
  *     one_rv |= all_border & (one_rv << 7)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
   /* "bitboard/bitcalc.pyx":127
  *     one_rv = all_border & (board[turn] << 7)
@@ -2345,16 +2024,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 7)
  *     one_rv |= all_border & (one_rv << 7)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 127, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 127, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
   /* "bitboard/bitcalc.pyx":128
  *     one_rv |= all_border & (one_rv << 7)
@@ -2363,16 +2033,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 7)
  *     one_rv |= all_border & (one_rv << 7)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 128, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 128, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 128, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
   /* "bitboard/bitcalc.pyx":129
  *     one_rv |= all_border & (one_rv << 7)
@@ -2381,16 +2042,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 7)
  *     reversible |= blank_board & (one_rv << 7)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 129, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 129, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 129, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
   /* "bitboard/bitcalc.pyx":130
  *     one_rv |= all_border & (one_rv << 7)
@@ -2399,16 +2051,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     reversible |= blank_board & (one_rv << 7)
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 130, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 130, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
   /* "bitboard/bitcalc.pyx":131
  *     one_rv |= all_border & (one_rv << 7)
@@ -2417,16 +2060,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  * 
  *     # Upper left
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 131, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_blank_board, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_reversible, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 131, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_reversible, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 7)));
 
   /* "bitboard/bitcalc.pyx":134
  * 
@@ -2435,13 +2069,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 9)
  *     one_rv |= all_border & (one_rv << 9)
  */
-  __pyx_t_4 = __Pyx_PyInt_LshiftObjC(PyList_GET_ITEM(__pyx_v_board, __pyx_v_turn), __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 134, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 134, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) << 9));
 
   /* "bitboard/bitcalc.pyx":135
  *     # Upper left
@@ -2450,16 +2078,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 9)
  *     one_rv |= all_border & (one_rv << 9)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 135, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 135, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 135, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
   /* "bitboard/bitcalc.pyx":136
  *     one_rv = all_border & (board[turn] << 9)
@@ -2468,16 +2087,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 9)
  *     one_rv |= all_border & (one_rv << 9)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
   /* "bitboard/bitcalc.pyx":137
  *     one_rv |= all_border & (one_rv << 9)
@@ -2486,16 +2096,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 9)
  *     one_rv |= all_border & (one_rv << 9)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
   /* "bitboard/bitcalc.pyx":138
  *     one_rv |= all_border & (one_rv << 9)
@@ -2504,16 +2105,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv << 9)
  *     reversible |= blank_board & (one_rv << 9)
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 138, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 138, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
   /* "bitboard/bitcalc.pyx":139
  *     one_rv |= all_border & (one_rv << 9)
@@ -2522,16 +2114,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     reversible |= blank_board & (one_rv << 9)
  * 
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
   /* "bitboard/bitcalc.pyx":140
  *     one_rv |= all_border & (one_rv << 9)
@@ -2540,16 +2123,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  * 
  *     # Lower right
  */
-  __pyx_t_3 = __Pyx_PyInt_LshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_blank_board, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_reversible, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_reversible, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 9)));
 
   /* "bitboard/bitcalc.pyx":143
  * 
@@ -2558,13 +2132,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 9)
  *     one_rv |= all_border & (one_rv >> 9)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(PyList_GET_ITEM(__pyx_v_board, __pyx_v_turn), __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 143, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 143, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) >> 9));
 
   /* "bitboard/bitcalc.pyx":144
  *     # Lower right
@@ -2573,16 +2141,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 9)
  *     one_rv |= all_border & (one_rv >> 9)
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 144, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 144, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 144, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
   /* "bitboard/bitcalc.pyx":145
  *     one_rv = all_border & (board[turn] >> 9)
@@ -2591,16 +2150,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 9)
  *     one_rv |= all_border & (one_rv >> 9)
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
   /* "bitboard/bitcalc.pyx":146
  *     one_rv |= all_border & (one_rv >> 9)
@@ -2609,16 +2159,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 9)
  *     one_rv |= all_border & (one_rv >> 9)
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 146, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
   /* "bitboard/bitcalc.pyx":147
  *     one_rv |= all_border & (one_rv >> 9)
@@ -2627,16 +2168,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 9)
  *     reversible |= blank_board & (one_rv >> 9)
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 147, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
   /* "bitboard/bitcalc.pyx":148
  *     one_rv |= all_border & (one_rv >> 9)
@@ -2645,16 +2177,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     reversible |= blank_board & (one_rv >> 9)
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
   /* "bitboard/bitcalc.pyx":149
  *     one_rv |= all_border & (one_rv >> 9)
@@ -2663,16 +2186,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  * 
  *     # Lower left
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_9, 9, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 149, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_blank_board, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 149, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_InPlaceOr(__pyx_v_reversible, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 149, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF_SET(__pyx_v_reversible, __pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 9)));
 
   /* "bitboard/bitcalc.pyx":152
  * 
@@ -2681,13 +2195,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 7)
  *     one_rv |= all_border & (one_rv >> 7)
  */
-  __pyx_t_4 = __Pyx_PyInt_RshiftObjC(PyList_GET_ITEM(__pyx_v_board, __pyx_v_turn), __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 152, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_And(__pyx_v_all_border, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 152, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) >> 7));
 
   /* "bitboard/bitcalc.pyx":153
  *     # Lower left
@@ -2696,16 +2204,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 7)
  *     one_rv |= all_border & (one_rv >> 7)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
   /* "bitboard/bitcalc.pyx":154
  *     one_rv = all_border & (board[turn] >> 7)
@@ -2714,16 +2213,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 7)
  *     one_rv |= all_border & (one_rv >> 7)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 154, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 154, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
   /* "bitboard/bitcalc.pyx":155
  *     one_rv |= all_border & (one_rv >> 7)
@@ -2732,16 +2222,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 7)
  *     one_rv |= all_border & (one_rv >> 7)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
   /* "bitboard/bitcalc.pyx":156
  *     one_rv |= all_border & (one_rv >> 7)
@@ -2750,16 +2231,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     one_rv |= all_border & (one_rv >> 7)
  *     reversible |= blank_board & (one_rv >> 7)
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 156, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
   /* "bitboard/bitcalc.pyx":157
  *     one_rv |= all_border & (one_rv >> 7)
@@ -2768,16 +2240,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     reversible |= blank_board & (one_rv >> 7)
  *     return reversible
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_all_border, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 157, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_one_rv, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_one_rv, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
   /* "bitboard/bitcalc.pyx":158
  *     one_rv |= all_border & (one_rv >> 7)
@@ -2785,24 +2248,14 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  *     reversible |= blank_board & (one_rv >> 7)             # <<<<<<<<<<<<<<
  *     return reversible
  */
-  __pyx_t_3 = __Pyx_PyInt_RshiftObjC(__pyx_v_one_rv, __pyx_int_7, 7, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_And(__pyx_v_blank_board, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_InPlaceOr(__pyx_v_reversible, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF_SET(__pyx_v_reversible, __pyx_t_3);
-  __pyx_t_3 = 0;
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 7)));
 
   /* "bitboard/bitcalc.pyx":159
  *     one_rv |= all_border & (one_rv >> 7)
  *     reversible |= blank_board & (one_rv >> 7)
  *     return reversible             # <<<<<<<<<<<<<<
  */
-  __pyx_t_5 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_reversible); if (unlikely((__pyx_t_5 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 159, __pyx_L1_error)
-  __pyx_r = __pyx_t_5;
+  __pyx_r = __pyx_v_reversible;
   goto __pyx_L0;
 
   /* "bitboard/bitcalc.pyx":63
@@ -2814,20 +2267,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_reversible_area_c(std::uint64_t 
  */
 
   /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_WriteUnraisable("bitboard.bitcalc.reversible_area_c", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
-  __pyx_r = 0;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_board);
-  __Pyx_XDECREF(__pyx_v_blank_board);
-  __Pyx_XDECREF(__pyx_v_horiz_brd);
-  __Pyx_XDECREF(__pyx_v_vert_brd);
-  __Pyx_XDECREF(__pyx_v_all_border);
-  __Pyx_XDECREF(__pyx_v_one_rv);
-  __Pyx_XDECREF(__pyx_v_reversible);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -3007,10 +2447,6 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
 static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_7 = PyInt_FromLong(7); if (unlikely(!__pyx_int_7)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_8 = PyInt_FromLong(8); if (unlikely(!__pyx_int_8)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_9 = PyInt_FromLong(9); if (unlikely(!__pyx_int_9)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3474,303 +2910,6 @@ bad:
     return -1;
 }
 
-/* PyIntBinop */
-#if !CYTHON_COMPILING_IN_PYPY
-static PyObject* __Pyx_PyInt_LshiftObjC(PyObject *op1, PyObject *op2, CYTHON_UNUSED long intval, int inplace, int zerodivision_check) {
-    (void)inplace;
-    (void)zerodivision_check;
-    #if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_CheckExact(op1))) {
-        const long b = intval;
-        long a = PyInt_AS_LONG(op1);
-            if (likely(b < (long) (sizeof(long)*8) && a == (a << b) >> b) || !a) {
-                return PyInt_FromLong(a << b);
-            }
-    }
-    #endif
-    #if CYTHON_USE_PYLONG_INTERNALS
-    if (likely(PyLong_CheckExact(op1))) {
-        const long b = intval;
-        long a, x;
-#ifdef HAVE_LONG_LONG
-        const PY_LONG_LONG llb = intval;
-        PY_LONG_LONG lla, llx;
-#endif
-        const digit* digits = ((PyLongObject*)op1)->ob_digit;
-        const Py_ssize_t size = Py_SIZE(op1);
-        if (likely(__Pyx_sst_abs(size) <= 1)) {
-            a = likely(size) ? digits[0] : 0;
-            if (size == -1) a = -a;
-        } else {
-            switch (size) {
-                case -2:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        a = -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 2:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        a = (long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case -3:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        a = -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 3:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        a = (long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case -4:
-                    if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                        a = -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 4:
-                    if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                        a = (long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                default: return PyLong_Type.tp_as_number->nb_lshift(op1, op2);
-            }
-        }
-                x = a << b;
-#ifdef HAVE_LONG_LONG
-                if (unlikely(!(b < (long) (sizeof(long)*8) && a == x >> b)) && a) {
-                    lla = a;
-                    goto long_long;
-                }
-#else
-                if (likely(b < (long) (sizeof(long)*8) && a == x >> b) || !a)
-#endif
-            return PyLong_FromLong(x);
-#ifdef HAVE_LONG_LONG
-        long_long:
-                llx = lla << llb;
-                if (likely(lla == llx >> llb))
-            return PyLong_FromLongLong(llx);
-#endif
-        
-        
-    }
-    #endif
-    return (inplace ? PyNumber_InPlaceLshift : PyNumber_Lshift)(op1, op2);
-}
-#endif
-
-/* PyIntBinop */
-#if !CYTHON_COMPILING_IN_PYPY
-static PyObject* __Pyx_PyInt_RshiftObjC(PyObject *op1, PyObject *op2, CYTHON_UNUSED long intval, int inplace, int zerodivision_check) {
-    (void)inplace;
-    (void)zerodivision_check;
-    #if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_CheckExact(op1))) {
-        const long b = intval;
-        long a = PyInt_AS_LONG(op1);
-            return PyInt_FromLong(a >> b);
-    }
-    #endif
-    #if CYTHON_USE_PYLONG_INTERNALS
-    if (likely(PyLong_CheckExact(op1))) {
-        const long b = intval;
-        long a, x;
-#ifdef HAVE_LONG_LONG
-        const PY_LONG_LONG llb = intval;
-        PY_LONG_LONG lla, llx;
-#endif
-        const digit* digits = ((PyLongObject*)op1)->ob_digit;
-        const Py_ssize_t size = Py_SIZE(op1);
-        if (likely(__Pyx_sst_abs(size) <= 1)) {
-            a = likely(size) ? digits[0] : 0;
-            if (size == -1) a = -a;
-        } else {
-            switch (size) {
-                case -2:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        a = -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 2:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        a = (long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case -3:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        a = -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 3:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        a = (long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case -4:
-                    if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                        a = -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
-                        lla = -(PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                case 4:
-                    if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                        a = (long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                        break;
-#ifdef HAVE_LONG_LONG
-                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
-                        lla = (PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                        goto long_long;
-#endif
-                    }
-                    CYTHON_FALLTHROUGH;
-                default: return PyLong_Type.tp_as_number->nb_rshift(op1, op2);
-            }
-        }
-                x = a >> b;
-            return PyLong_FromLong(x);
-#ifdef HAVE_LONG_LONG
-        long_long:
-                llx = lla >> llb;
-            return PyLong_FromLongLong(llx);
-#endif
-        
-        
-    }
-    #endif
-    return (inplace ? PyNumber_InPlaceRshift : PyNumber_Rshift)(op1, op2);
-}
-#endif
-
-/* PyErrFetchRestore */
-#if CYTHON_FAST_THREAD_STATE
-static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-    tmp_type = tstate->curexc_type;
-    tmp_value = tstate->curexc_value;
-    tmp_tb = tstate->curexc_traceback;
-    tstate->curexc_type = type;
-    tstate->curexc_value = value;
-    tstate->curexc_traceback = tb;
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-}
-static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
-    *type = tstate->curexc_type;
-    *value = tstate->curexc_value;
-    *tb = tstate->curexc_traceback;
-    tstate->curexc_type = 0;
-    tstate->curexc_value = 0;
-    tstate->curexc_traceback = 0;
-}
-#endif
-
-/* WriteUnraisableException */
-static void __Pyx_WriteUnraisable(const char *name, CYTHON_UNUSED int clineno,
-                                  CYTHON_UNUSED int lineno, CYTHON_UNUSED const char *filename,
-                                  int full_traceback, CYTHON_UNUSED int nogil) {
-    PyObject *old_exc, *old_val, *old_tb;
-    PyObject *ctx;
-    __Pyx_PyThreadState_declare
-#ifdef WITH_THREAD
-    PyGILState_STATE state;
-    if (nogil)
-        state = PyGILState_Ensure();
-    else state = (PyGILState_STATE)0;
-#endif
-    __Pyx_PyThreadState_assign
-    __Pyx_ErrFetch(&old_exc, &old_val, &old_tb);
-    if (full_traceback) {
-        Py_XINCREF(old_exc);
-        Py_XINCREF(old_val);
-        Py_XINCREF(old_tb);
-        __Pyx_ErrRestore(old_exc, old_val, old_tb);
-        PyErr_PrintEx(1);
-    }
-    #if PY_MAJOR_VERSION < 3
-    ctx = PyString_FromString(name);
-    #else
-    ctx = PyUnicode_FromString(name);
-    #endif
-    __Pyx_ErrRestore(old_exc, old_val, old_tb);
-    if (!ctx) {
-        PyErr_WriteUnraisable(Py_None);
-    } else {
-        PyErr_WriteUnraisable(ctx);
-        Py_DECREF(ctx);
-    }
-#ifdef WITH_THREAD
-    if (nogil)
-        PyGILState_Release(state);
-#endif
-}
-
 /* PyDictVersioning */
 #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
 static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj) {
@@ -3808,6 +2947,30 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
         return tp->tp_getattr(obj, PyString_AS_STRING(attr_name));
 #endif
     return PyObject_GetAttr(obj, attr_name);
+}
+#endif
+
+/* PyErrFetchRestore */
+#if CYTHON_FAST_THREAD_STATE
+static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+    tmp_type = tstate->curexc_type;
+    tmp_value = tstate->curexc_value;
+    tmp_tb = tstate->curexc_traceback;
+    tstate->curexc_type = type;
+    tstate->curexc_value = value;
+    tstate->curexc_traceback = tb;
+    Py_XDECREF(tmp_type);
+    Py_XDECREF(tmp_value);
+    Py_XDECREF(tmp_tb);
+}
+static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
+    *type = tstate->curexc_type;
+    *value = tstate->curexc_value;
+    *tb = tstate->curexc_traceback;
+    tstate->curexc_type = 0;
+    tstate->curexc_value = 0;
+    tstate->curexc_traceback = 0;
 }
 #endif
 
