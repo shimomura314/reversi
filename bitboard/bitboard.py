@@ -6,6 +6,8 @@ Black disk make the first move, and white disk make the second move.
 # from functools import lru_cache
 from logging import getLogger
 
+from .bitcalc import bit_count_c, check_surround_c, reversible_area_c
+
 logger = getLogger(__name__)
 
 
@@ -36,6 +38,7 @@ class BitBoard:
         x : int
             64-bit intager which represents the location of disk.
         """
+        return bit_count_c(x)
         # Distributing by 2-bit, express the number of bits using 2-bit.
         x -= (x >> 1) & 0x5555555555555555
         # Upper 2-bit + lower 2-bit.
@@ -61,6 +64,7 @@ class BitBoard:
         direction : int
             Intager from 0 to 7.
         """
+        return check_surround_c(put_loc, direction)
         if direction == 0:  # Upper
             return (put_loc << 8) & 0xffffffffffffff00
         elif direction == 1:  # Upper right
@@ -164,6 +168,7 @@ class BitBoard:
         if black_board is None:
             black_board = self._black_board
             white_board = self._white_board
+        return reversible_area_c(turn, black_board, white_board)
         board = [black_board, white_board]
         blank_board = ~(board[0] | board[1])
 
