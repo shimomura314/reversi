@@ -1,142 +1,141 @@
-Sun Mar 19 22:53:08 2023    ./matching/matching.prof
+Mon Mar 20 21:22:49 2023    ./matching/matching.prof
 
-         123773459 function calls (120822022 primitive calls) in 84.221 seconds
+         46919535 function calls (43938077 primitive calls) in 59.800 seconds  
 
    Ordered by: internal time
 
-   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-  2953248   41.200    0.000   41.702    0.000 minmax.py:44(evaluate_value)
-  2986723   13.945    0.000   22.284    0.000 bitboard.py:87(simulate_play)
-2953248/1811   10.910    0.000   83.568    0.046 minmax.py:62(min_max)
- 35434840    4.831    0.000    8.339    0.000 bitboard.py:56(_check_surround)
- 35434840    3.507    0.000    3.507    0.000 {built-in method bitboard.bitcalc.check_surround_c}
-  2986923    2.097    0.000    3.550    0.000 bitboard.py:138(count_disks)
-  2958852    2.083    0.000    4.569    0.000 bitothello.py:88(judge_game)
-  6997590    1.427    0.000    2.426    0.000 bitboard.py:152(reversible_area)
-  6997590    0.999    0.000    0.999    0.000 {built-in method bitboard.bitcalc.reversible_area_c}
-  5973846    0.881    0.000    1.454    0.000 bitboard.py:32(_bit_count)
-  5973846    0.572    0.000    0.572    0.000 {built-in method bitboard.bitcalc.bit_count_c}
-  2953248    0.502    0.000    0.502    0.000 minmax.py:38(touch_border)
-  2958825    0.445    0.000    0.447    0.000 {built-in method builtins.sum}
-  5187698    0.337    0.000    0.337    0.000 {method 'append' of 'list' objects}
-   536343    0.184    0.000    0.363    0.000 bitboard.py:277(turn_playable)
-   356056    0.089    0.000    0.089    0.000 {built-in method builtins.pow}
-     1810    0.036    0.000    0.194    0.000 maximize.py:10(put_disk)
-     1789    0.035    0.000    0.203    0.000 minimize.py:10(put_disk)
-     7400    0.028    0.000   84.195    0.011 bitothello.py:132(process_game)
-     7200    0.021    0.000    0.092    0.000 bitothello.py:49(play_turn)
-     1790    0.020    0.000    0.053    0.000 random.py:11(put_disk)
-     7400    0.007    0.000    0.017    0.000 bitothello.py:78(update_count)
-     1811    0.006    0.000   83.574    0.046 minmax.py:158(put_disk)
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)        
+  2983256   41.417    0.000   41.877    0.000 minmax.py:44(evaluate_value)     
+2983256/1798    9.716    0.000   59.459    0.033 minmax.py:62(min_max)
+  2988782    1.828    0.000    4.419    0.000 bitothello.py:89(judge_game)     
+  6519174    1.521    0.000    2.397    0.000 bitboard.py:83(reversible_area)  
+  7060784    0.953    0.000    0.953    0.000 {method 'reversible_area' of 'bitboard.bitcalc.BitBoardC' objects}
+  3016792    0.898    0.000    0.898    0.000 {method 'simulate_play' of 'bitboard.bitcalc.BitBoardC' objects}
+  3016792    0.726    0.000    1.625    0.000 bitboard.py:33(simulate_play)    
+  3016986    0.661    0.000    1.084    0.000 bitboard.py:70(count_disks)      
+  2983256    0.460    0.000    0.460    0.000 minmax.py:38(touch_border)       
+  3016986    0.423    0.000    0.423    0.000 {method 'count_disks' of 'bitboard.bitcalc.BitBoardC' objects}
+  2988755    0.418    0.000    0.419    0.000 {built-in method builtins.sum}   
+  5313474    0.342    0.000    0.342    0.000 {method 'append' of 'list' objects}
+   541610    0.151    0.000    0.228    0.000 bitboard.py:129(turn_playable)   
+   354873    0.088    0.000    0.088    0.000 {built-in method builtins.pow}   
+     1792    0.031    0.000    0.076    0.000 minimize.py:10(put_disk)
+     1796    0.031    0.000    0.076    0.000 maximize.py:10(put_disk)
+     7363    0.025    0.000   59.776    0.008 bitothello.py:133(process_game)  
+     1783    0.021    0.000    0.053    0.000 random.py:11(put_disk)
+     7169    0.019    0.000    0.038    0.000 bitothello.py:50(play_turn)      
+     1798    0.006    0.000   59.465    0.033 minmax.py:158(put_disk)
        40    0.006    0.000    0.006    0.000 {method 'write' of '_io.TextIOWrapper' objects}
-     7200    0.006    0.000   84.030    0.012 strategy.py:40(selecter)
-     5389    0.005    0.000    0.008    0.000 random.py:237(_randbelow_with_getrandbits)
-      120    0.004    0.000   84.204    0.702 matching.py:43(set_match)
-     5389    0.004    0.000    0.013    0.000 random.py:343(choice)
-     7640    0.004    0.000    0.004    0.000 __init__.py:1689(isEnabledFor)
-     7200    0.004    0.000    0.007    0.000 bitboard.py:252(is_reversible)
-     7400    0.003    0.000    0.008    0.000 __init__.py:1424(debug)
-     7200    0.003    0.000    0.003    0.000 bitboard.py:127(update_board)
-    10474    0.002    0.000    0.002    0.000 utils.py:330(<genexpr>)
-     9806    0.001    0.000    0.001    0.000 {method 'getrandbits' of '_random.Random' objects}
-     5389    0.001    0.000    0.001    0.000 {method 'bit_length' of 'int' objects}
+     7363    0.006    0.000    0.009    0.000 bitothello.py:79(update_count)   
+     7169    0.006    0.000   59.676    0.008 strategy.py:40(selecter)
+     5371    0.005    0.000    0.007    0.000 random.py:237(_randbelow_with_getrandbits)
+      120    0.005    0.000   59.785    0.498 matching.py:43(set_match)        
+     5371    0.004    0.000    0.012    0.000 random.py:343(choice)
+     7169    0.004    0.000    0.005    0.000 bitboard.py:58(update_board)     
+     7603    0.004    0.000    0.004    0.000 __init__.py:1689(isEnabledFor)   
+     7363    0.003    0.000    0.007    0.000 __init__.py:1424(debug)
+     7169    0.003    0.000    0.006    0.000 bitboard.py:104(is_reversible)   
+     7169    0.003    0.000    0.003    0.000 {method 'is_reversible' of 'bitboard.bitcalc.BitBoardC' objects}
+     7169    0.001    0.000    0.001    0.000 {method 'update_board' of 'bitboard.bitcalc.BitBoardC' objects}
+     9693    0.001    0.000    0.001    0.000 {method 'getrandbits' of '_random.Random' objects}
+     6072    0.001    0.000    0.001    0.000 utils.py:330(<genexpr>)
+     5371    0.001    0.000    0.001    0.000 {method 'bit_length' of 'int' objects}
        31    0.001    0.000    0.004    0.000 std.py:355(format_meter)
-     3595    0.001    0.000    0.001    0.000 {method 'append' of 'collections.deque' objects}
-      120    0.001    0.000    0.001    0.000 bitothello.py:18(__init__)
-     5493    0.001    0.000    0.001    0.000 {built-in method builtins.len}
-    10381    0.001    0.000    0.001    0.000 {built-in method unicodedata.east_asian_width}
-       60    0.000    0.000    0.013    0.000 std.py:1212(update)
+      120    0.001    0.000    0.001    0.000 bitothello.py:19(__init__)       
+     5475    0.001    0.000    0.001    0.000 {built-in method builtins.len}   
+      480    0.001    0.000    0.002    0.000 strategy.py:28(set_strategy)     
+     3578    0.001    0.000    0.001    0.000 {method 'append' of 'collections.deque' objects}
+      248    0.001    0.000    0.001    0.000 {method 'format' of 'str' objects}
+       60    0.001    0.000    0.012    0.000 std.py:1212(update)
        60    0.000    0.000    0.001    0.000 minmax.py:36(<listcomp>)
-      480    0.000    0.000    0.002    0.000 strategy.py:28(set_strategy)
-      248    0.000    0.000    0.001    0.000 {method 'format' of 'str' objects}
-       60    0.000    0.000   84.205    1.403 matching.py:56(matching)
-     1811    0.000    0.000    0.000    0.000 bitboard.py:297(return_board)
-        1    0.000    0.000   84.221   84.221 matching.py:117(runby1)
-      240    0.000    0.000    0.001    0.000 strategy.py:23(__init__)
-       60    0.000    0.000    0.002    0.000 minmax.py:10(__init__)
+     1798    0.000    0.000    0.000    0.000 bitboard.py:149(return_board)    
+     5979    0.000    0.000    0.000    0.000 {built-in method unicodedata.east_asian_width}
+       60    0.000    0.000   59.785    0.996 matching.py:56(matching)
+        1    0.000    0.000   59.800   59.800 matching.py:117(runby1)
       120    0.000    0.000    0.000    0.000 bitboard.py:27(__init__)
-       60    0.000    0.000    0.001    0.000 elorating.py:32(update_rating)
-        1    0.000    0.000    0.000    0.000 {built-in method io.open}
-      240    0.000    0.000    0.002    0.000 bitothello.py:115(change_strategy)
-       31    0.000    0.000    0.000    0.000 std.py:1460(format_dict)
+      240    0.000    0.000    0.001    0.000 strategy.py:23(__init__)
       180    0.000    0.000    0.000    0.000 std.py:233(__call__)
-       31    0.000    0.000    0.005    0.000 std.py:1164(__str__)
-      120    0.000    0.000    0.001    0.000 bitothello.py:110(load_strategy)
-       41    0.000    0.000    0.006    0.000 ansitowin32.py:185(write_and_convert)
-       93    0.000    0.000    0.000    0.000 {method 'sub' of 're.Pattern' objects}
-      120    0.000    0.000    0.000    0.000 elorating.py:26(win_lose_ratio)
-       41    0.000    0.000    0.000    0.000 ansitowin32.py:253(convert_osc)
-      240    0.000    0.000    0.000    0.000 __init__.py:1436(info)
-       41    0.000    0.000    0.006    0.000 ansitowin32.py:201(write_plain_text)
-       62    0.000    0.000    0.000    0.000 utils.py:222(_is_ascii)
+       31    0.000    0.000    0.000    0.000 std.py:1460(format_dict)
+        1    0.000    0.000    0.000    0.000 {built-in method io.open}        
+       60    0.000    0.000    0.000    0.000 elorating.py:32(update_rating)   
+       31    0.000    0.000    0.004    0.000 std.py:1164(__str__)
+      120    0.000    0.000    0.001    0.000 bitothello.py:111(load_strategy) 
+       60    0.000    0.000    0.002    0.000 minmax.py:10(__init__)
         1    0.000    0.000    0.000    0.000 {method '__exit__' of '_io._IOBase' objects}
-       31    0.000    0.000    0.000    0.000 std.py:188(__format__)
+       41    0.000    0.000    0.006    0.000 ansitowin32.py:185(write_and_convert)
+       41    0.000    0.000    0.006    0.000 ansitowin32.py:201(write_plain_text)
+      120    0.000    0.000    0.000    0.000 elorating.py:26(win_lose_ratio)  
+      240    0.000    0.000    0.002    0.000 bitothello.py:116(change_strategy)
+       62    0.000    0.000    0.000    0.000 utils.py:222(_is_ascii)
+       30    0.000    0.000    0.011    0.000 std.py:1339(refresh)
+       41    0.000    0.000    0.000    0.000 ansitowin32.py:253(convert_osc)  
+      240    0.000    0.000    0.000    0.000 __init__.py:1436(info)
        31    0.000    0.000    0.005    0.000 std.py:342(fp_write)
-       31    0.000    0.000    0.012    0.000 std.py:1478(display)
-       30    0.000    0.000    0.012    0.000 std.py:1339(refresh)
+       93    0.000    0.000    0.000    0.000 {method 'sub' of 're.Pattern' objects}
+       31    0.000    0.000    0.000    0.000 std.py:188(__format__)
+       31    0.000    0.000    0.010    0.000 std.py:1478(display)
        32    0.000    0.000    0.000    0.000 std.py:108(release)
-      120    0.000    0.000    0.000    0.000 matching.py:33(update_cnt)
        32    0.000    0.000    0.000    0.000 std.py:104(acquire)
-       93    0.000    0.000    0.003    0.000 utils.py:329(_text_width)
+       93    0.000    0.000    0.002    0.000 utils.py:329(_text_width)        
+      120    0.000    0.000    0.000    0.000 matching.py:33(update_cnt)       
        32    0.000    0.000    0.000    0.000 {method 'acquire' of '_multiprocessing.SemLock' objects}
-       62    0.000    0.000    0.000    0.000 std.py:288(format_interval)
-       93    0.000    0.000    0.003    0.000 utils.py:333(disp_len)
-       71    0.000    0.000    0.000    0.000 {method 'flush' of '_io.TextIOWrapper' objects}
-       31    0.000    0.000    0.007    0.000 std.py:348(print_status)
-      121    0.000    0.000    0.000    0.000 {built-in method time.time}
-       64    0.000    0.000    0.006    0.000 utils.py:143(inner)
+       93    0.000    0.000    0.002    0.000 utils.py:333(disp_len)
+      121    0.000    0.000    0.000    0.000 {built-in method time.time}      
+       62    0.000    0.000    0.000    0.000 std.py:288(format_interval)      
        82    0.000    0.000    0.000    0.000 {method 'finditer' of 're.Pattern' objects}
+       71    0.000    0.000    0.000    0.000 {method 'flush' of '_io.TextIOWrapper' objects}
+       64    0.000    0.000    0.005    0.000 utils.py:143(inner)
+       31    0.000    0.000    0.006    0.000 std.py:348(print_status)
+        1    0.000    0.000   59.800   59.800 {built-in method builtins.exec}  
+       41    0.000    0.000    0.006    0.000 ansitowin32.py:46(write)
        31    0.000    0.000    0.000    0.000 {built-in method now}
-       41    0.000    0.000    0.007    0.000 ansitowin32.py:46(write)
        31    0.000    0.000    0.000    0.000 std.py:155(__init__)
-       41    0.000    0.000    0.007    0.000 ansitowin32.py:168(write)
-      240    0.000    0.000    0.000    0.000 bitothello.py:225(return_turn)
-       32    0.000    0.000    0.000    0.000 {method 'release' of '_multiprocessing.SemLock' objects}
-      651    0.000    0.000    0.000    0.000 {built-in method builtins.ord}
-       31    0.000    0.000    0.001    0.000 utils.py:341(disp_trim)
-      120    0.000    0.000    0.000    0.000 bitothello.py:106(auto_mode)
-      300    0.000    0.000    0.000    0.000 random.py:8(__init__)
-       62    0.000    0.000    0.000    0.000 {built-in method builtins.max}
-      155    0.000    0.000    0.000    0.000 {built-in method builtins.divmod}
-        1    0.000    0.000   84.221   84.221 {built-in method builtins.exec}
-       34    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.RLock' objects}
-       63    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
+       41    0.000    0.000    0.006    0.000 ansitowin32.py:168(write)        
+      651    0.000    0.000    0.000    0.000 {built-in method builtins.ord}   
        31    0.000    0.000    0.000    0.000 utils.py:57(__init__)
-       31    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
-        2    0.000    0.000    0.001    0.001 {built-in method builtins.print}
-       31    0.000    0.000    0.000    0.000 utils.py:61(__format__)
-       34    0.000    0.000    0.000    0.000 {method 'release' of '_thread.RLock' objects}
+       63    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
+       31    0.000    0.000    0.001    0.000 utils.py:341(disp_trim)
+       32    0.000    0.000    0.000    0.000 {method 'release' of '_multiprocessing.SemLock' objects}
+      120    0.000    0.000    0.000    0.000 bitothello.py:107(auto_mode)     
+      240    0.000    0.000    0.000    0.000 bitothello.py:226(return_turn)   
+      300    0.000    0.000    0.000    0.000 random.py:8(__init__)
+       62    0.000    0.000    0.000    0.000 {built-in method builtins.max}   
+        1    0.000    0.000    0.000    0.000 {built-in method _pickle.dump}   
+       34    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.RLock' objects}
        31    0.000    0.000    0.000    0.000 std.py:169(colour)
-        1    0.000    0.000    0.000    0.000 elorating.py:22(save_rating)
-       60    0.000    0.000    0.000    0.000 maximize.py:7(__init__)
-       60    0.000    0.000    0.000    0.000 minimize.py:7(__init__)
-        1    0.000    0.000    0.000    0.000 {built-in method _pickle.dump}
-        1    0.000    0.000   84.221   84.221 <string>:1(<module>)
-        1    0.000    0.000    0.000    0.000 std.py:583(_decr_instances)
+      155    0.000    0.000    0.000    0.000 {built-in method builtins.divmod}       31    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+        2    0.000    0.000    0.001    0.001 {built-in method builtins.print} 
+        1    0.000    0.000    0.000    0.000 std.py:583(_decr_instances)      
         1    0.000    0.000    0.001    0.001 std.py:1279(close)
-       33    0.000    0.000    0.000    0.000 {built-in method builtins.abs}
-       31    0.000    0.000    0.000    0.000 std.py:165(colour)
-        1    0.000    0.000    0.000    0.000 _weakrefset.py:63(__iter__)
+       31    0.000    0.000    0.000    0.000 utils.py:61(__format__)
+        1    0.000    0.000    0.000    0.000 elorating.py:22(save_rating)     
+       34    0.000    0.000    0.000    0.000 {method 'release' of '_thread.RLock' objects}
+       33    0.000    0.000    0.000    0.000 {built-in method builtins.abs}   
+       60    0.000    0.000    0.000    0.000 minimize.py:7(__init__)
+       60    0.000    0.000    0.000    0.000 maximize.py:7(__init__)
+        2    0.000    0.000    0.000    0.000 __init__.py:218(_acquireLock)    
        62    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
-        2    0.000    0.000    0.000    0.000 __init__.py:218(_acquireLock)
-        1    0.000    0.000    0.000    0.000 _weakrefset.py:111(remove)
-        2    0.000    0.000    0.000    0.000 {method 'remove' of 'set' objects}
+       31    0.000    0.000    0.000    0.000 std.py:165(colour)
         2    0.000    0.000    0.000    0.000 std.py:1300(fp_write)
+        2    0.000    0.000    0.000    0.000 __init__.py:227(_releaseLock)    
         1    0.000    0.000    0.000    0.000 _weakrefset.py:53(_commit_removals)
+        1    0.000    0.000    0.000    0.000 _weakrefset.py:63(__iter__)      
+        1    0.000    0.000    0.000    0.000 _weakrefset.py:111(remove)       
+        2    0.000    0.000    0.000    0.000 {method 'remove' of 'set' objects}
         2    0.000    0.000    0.000    0.000 std.py:1167(_comparable)
-        1    0.000    0.000    0.000    0.000 _weakrefset.py:21(__enter__)
-        1    0.000    0.000    0.000    0.000 std.py:1171(__hash__)
         2    0.000    0.000    0.000    0.000 __init__.py:1675(getEffectiveLevel)
-        1    0.000    0.000    0.000    0.000 _weakrefset.py:27(__exit__)
+        1    0.000    0.000    0.000    0.000 _weakrefset.py:21(__enter__)
         1    0.000    0.000    0.000    0.000 utils.py:74(__eq__)
-        2    0.000    0.000    0.000    0.000 std.py:112(__enter__)
+        1    0.000    0.000    0.000    0.000 _weakrefset.py:27(__exit__)      
+        1    0.000    0.000    0.000    0.000 std.py:1171(__hash__)
+        1    0.000    0.000   59.800   59.800 <string>:1(<module>)
         2    0.000    0.000    0.000    0.000 std.py:115(__exit__)
-        2    0.000    0.000    0.000    0.000 __init__.py:227(_releaseLock)
-        1    0.000    0.000    0.000    0.000 _weakrefset.py:17(__init__)
+        2    0.000    0.000    0.000    0.000 std.py:112(__enter__)
+        1    0.000    0.000    0.000    0.000 _weakrefset.py:17(__init__)      
+        2    0.000    0.000    0.000    0.000 __init__.py:1276(disable)        
+        1    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}  
         3    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
-        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
-        2    0.000    0.000    0.000    0.000 __init__.py:1276(disable)
-        1    0.000    0.000    0.000    0.000 {method 'pop' of 'list' objects}
-        1    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
         1    0.000    0.000    0.000    0.000 std.py:1315(<lambda>)
-        1    0.000    0.000    0.000    0.000 {built-in method builtins.id}
+        1    0.000    0.000    0.000    0.000 {method 'pop' of 'list' objects} 
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.id} 

@@ -6,6 +6,7 @@ from logging import getLogger
 import random
 
 from .bitboard import BitBoard
+# from .bitcalc import BitBoardC as BitBoard
 
 logger = getLogger(__name__)
 
