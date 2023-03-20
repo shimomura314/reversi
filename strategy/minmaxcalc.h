@@ -6,18 +6,18 @@
 #include "Python.h"
 struct MinmaxCObject;
 
-/* "strategy/minmaxcalc.pyx":15
+/* "strategy/minmaxcalc.pyx":19
  * 
  * 
  * cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:             # <<<<<<<<<<<<<<
  * 
- *     cdef uint64_t _EVAL_TBL1[64]
+ *     cdef int _EVAL_TBL1[64]
  */
 struct MinmaxCObject {
   PyObject_HEAD
   struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *__pyx_vtab;
-  std::uint64_t _EVAL_TBL1[64];
-  std::uint64_t _EVAL_TBL2[64];
+  int _EVAL_TBL1[64];
+  int _EVAL_TBL2[64];
   std::uint64_t _EXP2[64];
   int _player_clr;
   int _count_pass;

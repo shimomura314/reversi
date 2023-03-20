@@ -12,10 +12,14 @@ cdef extern from "<cstdint>" namespace "std":
     ctypedef unsigned long long uint64_t
 
 
+cdef extern from "math.h":
+    float INFINITY
+
+
 cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
 
-    cdef uint64_t _EVAL_TBL1[64]
-    cdef uint64_t _EVAL_TBL2[64]
+    cdef int _EVAL_TBL1[64]
+    cdef int _EVAL_TBL2[64]
     cdef uint64_t _EXP2[64]
     cdef int _player_clr
     cdef int _count_pass
@@ -58,23 +62,23 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
             4611686018427387904, 9223372036854775808,
         ]
 
-    cpdef int touch_border(self, uint64_t black_board, uint64_t white_board)
-    cpdef int evaluate_value(self, uint64_t black_board, uint64_t white_board)
-    cpdef (float, uint64_t) min_max(
+    cdef int touch_border(self, uint64_t black_board, uint64_t white_board)
+    cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board)
+    cdef (float, int) min_max(
         self, uint64_t black_board, uint64_t white_board, int turn,
         int depth, float pre_evaluation
         )
-    cpdef int put_disk(self, othello, depth=4)
+    cpdef int put_disk(self, object othello, int depth=4)
 
-    cpdef int touch_border(self, uint64_t black_board, uint64_t white_board):
+    cdef int touch_border(self, uint64_t black_board, uint64_t white_board):
         cdef uint64_t board = (black_board | white_board)
-        if board & 0xff818181818181ff:
+        if board & 0xff818181818181ffULL:
             return 1
         return 0
 
-    cpdef int evaluate_value(self, uint64_t black_board, uint64_t white_board):
-        cdef int evaluation = 0
-        board = [black_board, white_board]
+    cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board):
+        cdef float evaluation = 0
+        cdef uint64_t *board = [black_board, white_board]
 
         # If disk does not touch the border,
         # phase is False and TABLE[0] is called.
@@ -93,7 +97,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
                     evaluation -= self._EVAL_TBL2[position]
         return evaluation
 
-    cpdef (float, uint64_t) min_max(
+    cdef (float, int) min_max(
             self, uint64_t black_board, uint64_t white_board, int turn,
             int depth, float pre_evaluation
             ):
@@ -110,20 +114,27 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         cdef float evaluation = self.evaluate_value(black_board, white_board)
         cdef float max_evaluation
         cdef float min_evaluation
+        cdef float next_evaluation 
+        cdef uint64_t new_black_board
+        cdef uint64_t new_white_board
+        cdef int count_black
+        cdef int count_white
+        cdef int selected
+        cdef int candidate
 
         if depth == 0:
             return evaluation, 1
 
         if turn == self._player_clr:
-            max_evaluation = -1 * float("inf")
+            max_evaluation = -1 * INFINITY
         else:
-            min_evaluation = float("inf")
+            min_evaluation = INFINITY
 
         cdef uint64_t reversible = self._othello.board.reversible_area(
             turn, black_board, white_board
             )
 
-        candidates = []
+        cdef list candidates = []
         for num in range(64):
             if self._EXP2[num] & reversible:
                 candidates.append(num)
@@ -193,12 +204,14 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         else:
             return min_evaluation, selected
 
-    cpdef int put_disk(self, othello, depth=4):
+    cpdef int put_disk(self, object othello, int depth=4):
+        cdef uint64_t new_black_board
+        cdef uint64_t new_white_board
+
         black_board, white_board = othello.board.return_board()
         cdef int turn = othello.turn
         self._player_clr = turn
         self._count_pass = 0
         self._othello = othello
         return self.min_max(
-            black_board, white_board, turn,
-            depth, pre_evaluation=float("inf"))[1]
+            black_board, white_board, turn, depth, INFINITY)[1]
