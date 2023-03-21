@@ -4,7 +4,7 @@
 
 * Windows10
 * Visual Studio Code 1.56.0
-* Python 3.7.4
+* Python 3.9.13
 * numpy 1.16.5
 * wx 4.1.0
 
