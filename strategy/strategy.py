@@ -31,9 +31,12 @@ class Strategy(OthelloGame):
             self._strategy = Maximize()
         elif strategy == "minimize":
             self._strategy = Minimize()
+        elif strategy == "min-max short":
+            self._strategy = MinmaxC(2)
         elif strategy == "min-max":
-            # self._strategy = Minmax()
-            self._strategy = MinmaxC()
+            self._strategy = MinmaxC(4)
+        elif strategy == "min-max long":
+            self._strategy = MinmaxC(6)
         else:
             raise KeyError
 

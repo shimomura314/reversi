@@ -24,6 +24,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
     cdef int _player_clr
     cdef int _count_pass
     cdef object _othello
+    cdef int depth
 
     cdef int touch_border(self, uint64_t black_board, uint64_t white_board)
     cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board)
@@ -31,9 +32,9 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         self, uint64_t black_board, uint64_t white_board, int turn,
         int depth, float pre_evaluation
         )
-    cpdef int put_disk(self, object othello, int depth=4)
+    cpdef int put_disk(self, object othello)
 
-    def __cinit__(self):
+    def __cinit__(self, int depth=4):
         self._EVAL_TBL1[0:64] = [
             30,  -12,   0,  -1,  -1,   0, -12,  30,
             -12, -15,  -3,  -3,  -3,  -3, -15, -12,
@@ -69,6 +70,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
             576460752303423488, 1152921504606846976, 2305843009213693952,
             4611686018427387904, 9223372036854775808,
         ]
+        self.depth = depth
 
     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):
         cdef uint64_t board = (black_board | white_board)
@@ -202,7 +204,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         else:
             return min_evaluation, selected
 
-    cpdef int put_disk(self, object othello, int depth=4):
+    cpdef int put_disk(self, object othello):
         cdef uint64_t new_black_board
         cdef uint64_t new_white_board
 
@@ -212,4 +214,4 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         self._count_pass = 0
         self._othello = othello
         return self.min_max(
-            black_board, white_board, turn, depth, INFINITY)[1]
+            black_board, white_board, turn, self.depth, INFINITY)[1]

@@ -22,6 +22,7 @@ struct MinmaxCObject {
   int _player_clr;
   int _count_pass;
   PyObject *_othello;
+  int depth;
 };
 
 #ifndef __PYX_HAVE_API__strategy__minmaxcalc
