@@ -1103,7 +1103,7 @@ struct __pyx_ctuple_float__and_int;
 typedef struct __pyx_ctuple_float__and_int __pyx_ctuple_float__and_int;
 struct __pyx_opt_args_8strategy_10minmaxcalc_7MinmaxC_put_disk;
 
-/* "strategy/minmaxcalc.pyx":67
+/* "strategy/minmaxcalc.pyx":30
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board)
  *     cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board)
  *     cdef (float, int) min_max(             # <<<<<<<<<<<<<<
@@ -1115,12 +1115,12 @@ struct __pyx_ctuple_float__and_int {
   int f1;
 };
 
-/* "strategy/minmaxcalc.pyx":71
+/* "strategy/minmaxcalc.pyx":34
  *         int depth, float pre_evaluation
  *         )
  *     cpdef int put_disk(self, object othello, int depth=4)             # <<<<<<<<<<<<<<
  * 
- *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):
+ *     def __cinit__(self):
  */
 struct __pyx_opt_args_8strategy_10minmaxcalc_7MinmaxC_put_disk {
   int __pyx_n;
@@ -2275,8 +2275,8 @@ static PyObject *__pyx_tuple__27;
 static PyObject *__pyx_codeobj__28;
 /* Late includes */
 
-/* "strategy/minmaxcalc.pyx":28
- *     cdef object _othello
+/* "strategy/minmaxcalc.pyx":36
+ *     cpdef int put_disk(self, object othello, int depth=4)
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
  *         self._EVAL_TBL1[0:64] = [
@@ -2307,7 +2307,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   std::uint64_t __pyx_t_3[64];
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "strategy/minmaxcalc.pyx":29
+  /* "strategy/minmaxcalc.pyx":37
  * 
  *     def __cinit__(self):
  *         self._EVAL_TBL1[0:64] = [             # <<<<<<<<<<<<<<
@@ -2380,7 +2380,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   __pyx_t_1[63] = 30;
   memcpy(&(__pyx_v_self->_EVAL_TBL1[0]), __pyx_t_1, sizeof(__pyx_v_self->_EVAL_TBL1[0]) * (64));
 
-  /* "strategy/minmaxcalc.pyx":39
+  /* "strategy/minmaxcalc.pyx":47
  *             30,  -12,   0,  -1,  -1,   0, -12,  30,
  *         ]
  *         self._EVAL_TBL2[0:64] = [             # <<<<<<<<<<<<<<
@@ -2453,7 +2453,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   __pyx_t_2[63] = 0x78;
   memcpy(&(__pyx_v_self->_EVAL_TBL2[0]), __pyx_t_2, sizeof(__pyx_v_self->_EVAL_TBL2[0]) * (64));
 
-  /* "strategy/minmaxcalc.pyx":49
+  /* "strategy/minmaxcalc.pyx":57
  *             120, -20,  20,   5,   5,  20, -20, 120,
  *         ]
  *         self._EXP2[0:64] = [             # <<<<<<<<<<<<<<
@@ -2526,8 +2526,8 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   __pyx_t_3[63] = 0x8000000000000000;
   memcpy(&(__pyx_v_self->_EXP2[0]), __pyx_t_3, sizeof(__pyx_v_self->_EXP2[0]) * (64));
 
-  /* "strategy/minmaxcalc.pyx":28
- *     cdef object _othello
+  /* "strategy/minmaxcalc.pyx":36
+ *     cpdef int put_disk(self, object othello, int depth=4)
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
  *         self._EVAL_TBL1[0:64] = [
@@ -2541,7 +2541,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
 }
 
 /* "strategy/minmaxcalc.pyx":73
- *     cpdef int put_disk(self, object othello, int depth=4)
+ *         ]
  * 
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
  *         cdef uint64_t board = (black_board | white_board)
@@ -2604,7 +2604,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED st
   goto __pyx_L0;
 
   /* "strategy/minmaxcalc.pyx":73
- *     cpdef int put_disk(self, object othello, int depth=4)
+ *         ]
  * 
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
  *         cdef uint64_t board = (black_board | white_board)

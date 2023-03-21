@@ -21,16 +21,6 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
     cdef public uint64_t _black_board
     cdef public uint64_t _white_board
 
-    def __cinit__(self):
-        self.BLACK = 0
-        self.WHITE = 1
-        self.INIT_BLACK = 0x0000000810000000ULL
-        self.INIT_WHITE = 0x0000001008000000ULL
-
-    def __init__(self):
-        self._black_board = 0x0000000810000000ULL
-        self._white_board = 0x0000001008000000ULL
-
     # Declaration of methods.
     cpdef uint64_t _bit_count(self, uint64_t x)
     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
@@ -53,6 +43,15 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
     cpdef (uint64_t, uint64_t) return_player_board(self, int turn)
     cpdef load_board(self, uint64_t black_board, uint64_t white_board)
 
+    def __cinit__(self):
+        self.BLACK = 0
+        self.WHITE = 1
+        self.INIT_BLACK = 0x0000000810000000ULL
+        self.INIT_WHITE = 0x0000001008000000ULL
+
+    def __init__(self):
+        self._black_board = 0x0000000810000000ULL
+        self._white_board = 0x0000001008000000ULL
 
     # Difinitions of methods.
     cpdef uint64_t _bit_count(self, uint64_t x):
