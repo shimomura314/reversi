@@ -1072,8 +1072,8 @@ struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable {
 struct BitBoardCObject {
   PyObject_HEAD
   struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *__pyx_vtab;
-  std::uint64_t BLACK;
-  std::uint64_t WHITE;
+  int BLACK;
+  int WHITE;
   std::uint64_t INIT_BLACK;
   std::uint64_t INIT_WHITE;
   std::uint64_t _black_board;
@@ -5643,8 +5643,8 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_24load_board(struct BitB
 /* "bitboard/bitcalc.pyx":15
  * 
  *     # Class variables.
- *     cdef public uint64_t BLACK             # <<<<<<<<<<<<<<
- *     cdef public uint64_t WHITE
+ *     cdef public int BLACK             # <<<<<<<<<<<<<<
+ *     cdef public int WHITE
  *     cdef public uint64_t INIT_BLACK
  */
 
@@ -5670,7 +5670,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK___get__(struct Bi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5703,12 +5703,12 @@ static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_3__set__(PyObject *__py
 static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
-  std::uint64_t __pyx_t_1;
+  int __pyx_t_1;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 15, __pyx_L1_error)
   __pyx_v_self->BLACK = __pyx_t_1;
 
   /* function exit code */
@@ -5724,8 +5724,8 @@ static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK_2__set__(struct BitBoar
 
 /* "bitboard/bitcalc.pyx":16
  *     # Class variables.
- *     cdef public uint64_t BLACK
- *     cdef public uint64_t WHITE             # <<<<<<<<<<<<<<
+ *     cdef public int BLACK
+ *     cdef public int WHITE             # <<<<<<<<<<<<<<
  *     cdef public uint64_t INIT_BLACK
  *     cdef public uint64_t INIT_WHITE
  */
@@ -5752,7 +5752,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE___get__(struct Bi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->WHITE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->WHITE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5785,12 +5785,12 @@ static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_3__set__(PyObject *__py
 static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
-  std::uint64_t __pyx_t_1;
+  int __pyx_t_1;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L1_error)
   __pyx_v_self->WHITE = __pyx_t_1;
 
   /* function exit code */
@@ -5805,8 +5805,8 @@ static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE_2__set__(struct BitBoar
 }
 
 /* "bitboard/bitcalc.pyx":17
- *     cdef public uint64_t BLACK
- *     cdef public uint64_t WHITE
+ *     cdef public int BLACK
+ *     cdef public int WHITE
  *     cdef public uint64_t INIT_BLACK             # <<<<<<<<<<<<<<
  *     cdef public uint64_t INIT_WHITE
  * 
@@ -5887,7 +5887,7 @@ static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_2__set__(struct B
 }
 
 /* "bitboard/bitcalc.pyx":18
- *     cdef public uint64_t WHITE
+ *     cdef public int WHITE
  *     cdef public uint64_t INIT_BLACK
  *     cdef public uint64_t INIT_WHITE             # <<<<<<<<<<<<<<
  * 

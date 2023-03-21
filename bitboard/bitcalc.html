@@ -384,8 +384,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <pre class='cython code score-0 '>struct BitBoardCObject {
   PyObject_HEAD
   struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *__pyx_vtab;
-  std::uint64_t BLACK;
-  std::uint64_t WHITE;
+  int BLACK;
+  int WHITE;
   std::uint64_t INIT_BLACK;
   std::uint64_t INIT_WHITE;
   std::uint64_t _black_board;
@@ -412,8 +412,8 @@ struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC {
 static struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *__pyx_vtabptr_8bitboard_7bitcalc_BitBoardC;
 </pre><pre class="cython line score-0">&#xA0;<span class="">013</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">014</span>:     <span class="c"># Class variables.</span></pre>
-<pre class="cython line score-11" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">015</span>:     <span class="k">cdef</span> <span class="kr">public</span> <span class="kt">uint64_t</span> <span class="nf">BLACK</span></pre>
-<pre class='cython code score-11 '>/* Python wrapper */
+<pre class="cython line score-15" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">015</span>:     <span class="k">cdef</span> <span class="kr">public</span> <span class="kt">int</span> <span class="nf">BLACK</span></pre>
+<pre class='cython code score-15 '>/* Python wrapper */
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_1__get__(PyObject *__pyx_v_self); /*proto*/
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
@@ -431,7 +431,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK___get__(struct Bi
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("__get__", 0);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self-&gt;BLACK);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_self-&gt;BLACK);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -465,7 +465,7 @@ static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK_2__set__(struct BitBoar
   int __pyx_r;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 15, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 15, __pyx_L1_error)</span>
   __pyx_v_self-&gt;BLACK = __pyx_t_1;
 
   /* function exit code */
@@ -478,8 +478,8 @@ static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK_2__set__(struct BitBoar
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
-</pre><pre class="cython line score-11" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">016</span>:     <span class="k">cdef</span> <span class="kr">public</span> <span class="kt">uint64_t</span> <span class="nf">WHITE</span></pre>
-<pre class='cython code score-11 '>/* Python wrapper */
+</pre><pre class="cython line score-15" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">016</span>:     <span class="k">cdef</span> <span class="kr">public</span> <span class="kt">int</span> <span class="nf">WHITE</span></pre>
+<pre class='cython code score-15 '>/* Python wrapper */
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_1__get__(PyObject *__pyx_v_self); /*proto*/
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
@@ -497,7 +497,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE___get__(struct Bi
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("__get__", 0);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self-&gt;WHITE);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_From_int</span>(__pyx_v_self-&gt;WHITE);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -531,7 +531,7 @@ static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE_2__set__(struct BitBoar
   int __pyx_r;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 16, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyInt_As_int</span>(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 16, __pyx_L1_error)</span>
   __pyx_v_self-&gt;WHITE = __pyx_t_1;
 
   /* function exit code */

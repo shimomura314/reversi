@@ -12,8 +12,8 @@ cdef extern from "<cstdint>" namespace "std":
 cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
 
     # Class variables.
-    cdef public uint64_t BLACK
-    cdef public uint64_t WHITE
+    cdef public int BLACK
+    cdef public int WHITE
     cdef public uint64_t INIT_BLACK
     cdef public uint64_t INIT_WHITE
 

@@ -2,7 +2,7 @@
 # cython: language_level=3, boundscheck=False, wraparound=False
 # cython: cdivision=True
 
-"""cythonize -3 -a -i .\bitboard\bitOthello.pyx"""
+"""cythonize -3 -a -i .\bitboard\bitothello.pyx"""
 
 import copy
 from collections import deque
@@ -22,17 +22,37 @@ cdef extern from "<cstdint>" namespace "std":
 cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType]:
 
     # Class variables.
-    cdef uint64_t BLACK
-    cdef uint64_t WHITE
-    cdef object board
-    cdef int _player_clr
-    cdef int turn
-    cdef uint64_t reversible
-    cdef int _disk_count[2]
-    cdef int _pass_cnt[2]
-    cdef bint _player_auto
-    cdef object _board_log
-    cdef object _board_back
+    cdef public int BLACK
+    cdef public int WHITE
+    cdef public object board
+    cdef public int _player_clr
+    cdef public int turn
+    cdef public uint64_t reversible
+    cdef public str result
+    cdef public int _disk_count[2]
+    cdef public int _pass_cnt[2]
+    cdef public bint _player_auto
+    cdef public object _strategy_player
+    cdef public object _strategy_opponent
+    cdef public object _board_log
+    cdef public object _board_back
+
+    # Declaration of methods.
+    cpdef void play_turn(self, int put_loc)
+    cpdef (int, int) update_count(self)
+    cpdef bint judge_game(self, list disk_count = [])
+    cpdef void auto_mode(self, bint automode = True)
+    cpdef void load_strategy(self, object Strategy)
+    cpdef void change_strategy(self, str strategy, bint is_player=False)
+    cpdef (bint, bint) process_game(self)
+    cpdef list display_board(self)
+    cpdef bint undo_turn(self)
+    cpdef bint redo_turn(self)
+    cpdef int return_turn(self)
+    # cpdef (uint64_t, uint64_t, list, list) return_state(self)
+    cpdef void load_state(
+        self, uint64_t black_board, uint64_t white_board,
+        list board_log, list board_back)
 
     def __init__(self, str player_clr="black"):
         # Set a board.
@@ -43,9 +63,9 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
 
         # Black or white.
         if player_clr == "black":
-            self._player_clr = OthelloGameC.BLACK
+            self._player_clr = BitBoard().BLACK
         elif player_clr == "white":
-            self._player_clr = OthelloGameC.WHITE
+            self._player_clr = BitBoard().WHITE
         elif player_clr == "random":
             self._player_clr = random.choice([0, 1])
         else:
@@ -68,7 +88,7 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         self._board_log = deque([])
         self._board_back = deque([])
 
-    def play_turn(self, put_loc: int):
+    cpdef void play_turn(self, int put_loc):
         """You can put disk and reverse opponent's disk.
 
         Parameters
@@ -78,41 +98,48 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         """
         if not (0 <= put_loc <= 63):
             raise AssertionError
-        put_loc = pow(2, put_loc)
+        # cdef uint64_t put_loc_ = 1i64 << put_loc
+        cdef uint64_t put_loc_ = pow(2, put_loc)
+        cdef uint64_t next_black_board, next_white_board
+
+        # put_loc_ = 1 << put_loc
 
         # If input value is not valid, raise an error.
-        if not self.board.is_reversible(self.turn, put_loc):
+        if not self.board.is_reversible(self.turn, put_loc_):
             raise ValueError
 
-        next_board = self.board.simulate_play(self.turn, put_loc)
+        next_black_board, next_white_board = self.board.simulate_play(
+            self.turn, put_loc_, 0, 0)
 
         if self._player_clr == self.turn:
             # Delete roll back log which is no longer used.
             if self._board_back:
                 self._board_back = deque([])
-            self._board_log.append(next_board)
+            self._board_log.append([next_black_board, next_white_board])
 
         # Update boards.
-        self.board.update_board(*next_board)
+        self.board.update_board(next_black_board, next_white_board)
         self._pass_cnt[self.turn] = 0
         self.turn ^= 1
 
-    def update_count(self):
+    cpdef (int, int) update_count(self):
         """Update counts of disks."""
+        cdef int count_board[2]
         count_board = self.board.count_disks()
-        player_cpu = [
-            count_board[self._player_clr],
-            count_board[self._player_clr ^ 1],
-        ]
-        self._disk_count = player_cpu
-        return player_cpu
+        if self._player_clr == 0:
+            self._disk_count = [count_board[0], count_board[1]]
+            return count_board[0], count_board[1]
+        else:
+            self._disk_count = [count_board[1], count_board[0]]
+            return count_board[1], count_board[0]
 
-    def judge_game(self, disk_count: list = None):
+    cpdef bint judge_game(self, list disk_count = []):
         """Judgement of game."""
-        if disk_count is None:
+        if disk_count == []:
             disk_count = self._disk_count
 
         # if self._pass_cnt >= 2 or sum(disk_count) == 64:
+        cdef uint64_t black, white
         black = self.board.reversible_area(0)
         white = self.board.reversible_area(1)
         if (black == 0 and white == 0) or sum(disk_count) == 64:
@@ -125,16 +152,16 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
             return True
         return False
 
-    def auto_mode(self, automode: bool = True):
+    cpdef void auto_mode(self, bint automode = True):
         """If True is selected, the match will be played between the CPUs."""
         self._player_auto = automode
 
-    def load_strategy(self, Strategy):
+    cpdef void load_strategy(self, object Strategy):
         """Set strategy class."""
         self._strategy_player = Strategy(self)
         self._strategy_opponent = Strategy(self)
 
-    def change_strategy(self, strategy, is_player=False):
+    cpdef void change_strategy(self, str strategy, bint is_player=False):
         """You can select AI strategy from candidates below.
 
         Parameters
@@ -151,7 +178,7 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         else:
             self._strategy_opponent.set_strategy(strategy)
 
-    def process_game(self):
+    cpdef (bint, bint) process_game(self):
         """
         Returns
         -------
@@ -188,8 +215,12 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
                 self._pass_cnt[self.turn] += 1
         return False, False
 
-    def display_board(self):
+    cpdef list display_board(self):
         """Calculate 2-dimensional arrays to be used for board display."""
+        cdef uint64_t black_board, white_board
+        cdef int board_list[8][8]
+
+
         black_board, white_board = self.board.return_board()
         board_list = [[0 for _ in range(8)] for _ in range(8)]
         for row in range(8):
@@ -202,7 +233,7 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
                 white_board = white_board >> 1
         return board_list
 
-    def undo_turn(self):
+    cpdef bint undo_turn(self):
         logger.debug(
             "Log:%s - %s" % (
                 ", ".join(map(str, self._board_log)),
@@ -224,7 +255,7 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
                 ))
         return True
 
-    def redo_turn(self):
+    cpdef bint redo_turn(self):
         logger.debug(
             "Log:%s - %s" % (
                 ", ".join(map(str, self._board_log)),
@@ -244,15 +275,16 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
                 ))
         return True
 
-    def return_turn(self):
+    cpdef int return_turn(self):
         return self._player_clr
 
-    def return_state(self):
-        black_board, white_board = self.board.return_board()
-        return black_board, white_board, self._board_log, self._board_back
+    # cpdef (uint64_t, uint64_t, list, list) return_state(self):
+    #     black_board, white_board = self.board.return_board()
+    #     return black_board, white_board, self._board_log, self._board_back
 
-    def load_state(self, black_board, white_board, board_log, board_back):
+    cpdef void load_state(
+            self, uint64_t black_board, uint64_t white_board,
+            list board_log, list board_back):
         self.board.load_board(black_board, white_board)
         self._board_log = copy.deepcopy(board_log)
         self._board_back = copy.deepcopy(board_back)
-

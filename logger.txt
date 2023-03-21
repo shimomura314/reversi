@@ -920,3 +920,17 @@
 2023-03-20 20:20:04,014 - INFO - gui - Mouse bottun was put.
 2023-03-20 20:20:04,375 - INFO - gui - Mouse bottun was put.
 2023-03-20 20:20:04,416 - DEBUG - bitothello - CPU's turn was processed automatically.
+2023-03-21 15:22:26,810 - INFO - game - Game starts.
+2023-03-21 15:22:26,892 - INFO - gui - GUI for the board was set.
+2023-03-21 15:23:17,821 - INFO - game - Game starts.
+2023-03-21 15:23:17,839 - INFO - gui - GUI for the board was set.
+2023-03-21 15:23:18,917 - INFO - gui - Mouse bottun was put.
+2023-03-21 15:23:19,769 - INFO - gui - Mouse bottun was put.
+2023-03-21 15:23:20,633 - INFO - gui - Mouse bottun was put.
+2023-03-21 15:23:21,258 - INFO - gui - Mouse bottun was put.
+2023-03-21 15:23:21,885 - INFO - gui - Mouse bottun was put.
+2023-03-21 15:23:22,833 - INFO - gui - Mouse bottun was put.
+2023-03-21 15:24:23,927 - INFO - game - Game starts.
+2023-03-21 15:24:23,944 - INFO - gui - GUI for the board was set.
+2023-03-21 15:24:25,197 - INFO - gui - Mouse bottun was put.
+2023-03-21 15:24:28,428 - INFO - gui - Mouse bottun was put.
