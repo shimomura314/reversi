@@ -25,17 +25,17 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cdef public int BLACK
     cdef public int WHITE
     cdef public object board
-    cdef public int _player_clr
+    cdef int _player_clr
     cdef public int turn
     cdef public uint64_t reversible
     cdef public str result
-    cdef public int _disk_count[2]
-    cdef public int _pass_cnt[2]
-    cdef public bint _player_auto
-    cdef public object _strategy_player
-    cdef public object _strategy_opponent
-    cdef public object _board_log
-    cdef public object _board_back
+    cdef int _disk_count[2]
+    cdef int _pass_cnt[2]
+    cdef bint _player_auto
+    cdef object _strategy_player
+    cdef object _strategy_opponent
+    cdef object _board_log
+    cdef object _board_back
 
     # Declaration of methods.
     cpdef void play_turn(self, int put_loc)

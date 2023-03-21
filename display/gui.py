@@ -197,7 +197,7 @@ class PointPanel(wx.Panel):
         """Show each player's points."""
         width, height = self.GetSize()
         size = min(width, height)
-        if self._is_player ^ self._frame.othello._player_clr:
+        if self._is_player ^ self._frame.othello.return_turn():
             color = cp.CLR_BLACK_DISK
         else:
             color = cp.CLR_WHITE_DISK

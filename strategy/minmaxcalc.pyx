@@ -139,9 +139,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
             if self._EXP2[num] & reversible:
                 candidates.append(num)
 
-        if self._othello.board.turn_playable(
-            turn, black_board, white_board
-        ):
+        if self._othello.board.turn_playable(turn, black_board, white_board):
             for candidate in candidates:
                 new_black_board, new_white_board = \
                     self._othello.board.simulate_play(
