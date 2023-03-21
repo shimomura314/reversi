@@ -987,17 +987,79 @@ static const char *__pyx_f[] = {
 struct BitBoardCObject;
 struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
 typedef struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play;
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks;
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area;
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible;
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable;
 
 /* "bitboard/bitcalc.pyx":37
  *     cpdef uint64_t _bit_count(self, uint64_t x)
  *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
  *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
  *         self, int turn, uint64_t put_loc,
- *         uint64_t black_board, uint64_t white_board,
+ *         uint64_t black_board = 0, uint64_t white_board = 0,
  */
 struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t {
   std::uint64_t f0;
   std::uint64_t f1;
+};
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitcalc.pyx":42
+ *         )
+ *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board)
+ *     cpdef (uint64_t, uint64_t) count_disks(             # <<<<<<<<<<<<<<
+ *             self, uint64_t black_board = 0, uint64_t white_board = 0)
+ *     cpdef uint64_t reversible_area(
+ */
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitcalc.pyx":44
+ *     cpdef (uint64_t, uint64_t) count_disks(
+ *             self, uint64_t black_board = 0, uint64_t white_board = 0)
+ *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
+ *         self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0)
+ *     cpdef bint is_reversible(
+ */
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitcalc.pyx":46
+ *     cpdef uint64_t reversible_area(
+ *         self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0)
+ *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
+ *         self, uint64_t turn, uint64_t put_loc,
+ *         uint64_t black_board = 0, uint64_t white_board = 0,
+ */
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitcalc.pyx":50
+ *         uint64_t black_board = 0, uint64_t white_board = 0,
+ *         )
+ *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
+ *         self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0)
+ *     cpdef (uint64_t, uint64_t) return_board(self)
+ */
+struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
 };
 
 /* "bitboard/bitcalc.pyx":12
@@ -1025,12 +1087,12 @@ __PYX_EXTERN_C DL_EXPORT(PyTypeObject) BitBoardCType;
 struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC {
   std::uint64_t (*_bit_count)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch);
   std::uint64_t (*_check_surround)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
-  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*simulate_play)(struct BitBoardCObject *, int, std::uint64_t, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*simulate_play)(struct BitBoardCObject *, int, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play *__pyx_optional_args);
   void (*update_board)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
-  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*count_disks)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
-  std::uint64_t (*reversible_area)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
-  int (*is_reversible)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
-  int (*turn_playable)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*count_disks)(struct BitBoardCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks *__pyx_optional_args);
+  std::uint64_t (*reversible_area)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area *__pyx_optional_args);
+  int (*is_reversible)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible *__pyx_optional_args);
+  int (*turn_playable)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable *__pyx_optional_args);
   __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_board)(struct BitBoardCObject *, int __pyx_skip_dispatch);
   __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_player_board)(struct BitBoardCObject *, int, int __pyx_skip_dispatch);
   PyObject *(*load_board)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
@@ -1366,12 +1428,12 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC__bit_count(CYTHON_UNUSED struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_x, int __pyx_skip_dispatch); /* proto*/
 static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC__check_surround(CYTHON_UNUSED struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_direction, int __pyx_skip_dispatch); /* proto*/
-static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_simulate_play(struct BitBoardCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_simulate_play(struct BitBoardCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play *__pyx_optional_args); /* proto*/
 static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
-static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_count_disks(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
-static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHON_UNUSED struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
-static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
-static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_count_disks(struct BitBoardCObject *__pyx_v_self, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks *__pyx_optional_args); /* proto*/
+static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area *__pyx_optional_args); /* proto*/
+static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible *__pyx_optional_args); /* proto*/
+static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable *__pyx_optional_args); /* proto*/
 static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_return_board(struct BitBoardCObject *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_return_player_board(struct BitBoardCObject *__pyx_v_self, int __pyx_v_turn, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
@@ -1461,6 +1523,14 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_18turn_playable(struct B
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_20return_board(struct BitBoardCObject *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_22return_player_board(struct BitBoardCObject *__pyx_v_self, int __pyx_v_turn); /* proto */
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_24load_board(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
+static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK___get__(struct BitBoardCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE___get__(struct BitBoardCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK___get__(struct BitBoardCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE___get__(struct BitBoardCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_12_black_board___get__(struct BitBoardCObject *__pyx_v_self); /* proto */
 static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_12_black_board_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_12_white_board___get__(struct BitBoardCObject *__pyx_v_self); /* proto */
@@ -2226,11 +2296,13 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_6_check_surround(struct 
  * 
  *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
  *             self, int turn, uint64_t put_loc,
- *             uint64_t black_board, uint64_t white_board,
+ *             uint64_t black_board = 0, uint64_t white_board = 0,
  */
 
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_9simulate_play(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_simulate_play(struct BitBoardCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch) {
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_simulate_play(struct BitBoardCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
   std::uint64_t __pyx_v_reverse_bit;
   std::uint64_t __pyx_v_reverse_bit_;
   std::uint64_t __pyx_v_border_bit;
@@ -2249,11 +2321,21 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
   PyObject *__pyx_t_10 = NULL;
   __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_11;
   int __pyx_t_12;
-  long __pyx_t_13;
+  int __pyx_t_13;
+  std::uint64_t __pyx_t_14;
+  long __pyx_t_15;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("simulate_play", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
   /* Check if called by wrapper */
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
@@ -2356,13 +2438,60 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
   /* "bitboard/bitcalc.pyx":127
  *         reversed_black_board, reversed_white_board : list of int
  *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  __pyx_t_13 = ((__pyx_v_black_board == 0) != 0);
+  if (__pyx_t_13) {
+  } else {
+    __pyx_t_12 = __pyx_t_13;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_13 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_12 = __pyx_t_13;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_12) {
+
+    /* "bitboard/bitcalc.pyx":128
+ *         """
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board             # <<<<<<<<<<<<<<
+ *             white_board = self._white_board
+ * 
+ */
+    __pyx_t_14 = __pyx_v_self->_black_board;
+    __pyx_v_black_board = __pyx_t_14;
+
+    /* "bitboard/bitcalc.pyx":129
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board
+ *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *         cdef uint64_t reverse_bit = 0
+ */
+    __pyx_t_14 = __pyx_v_self->_white_board;
+    __pyx_v_white_board = __pyx_t_14;
+
+    /* "bitboard/bitcalc.pyx":127
+ *         reversed_black_board, reversed_white_board : list of int
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  }
+
+  /* "bitboard/bitcalc.pyx":131
+ *             white_board = self._white_board
+ * 
  *         cdef uint64_t reverse_bit = 0             # <<<<<<<<<<<<<<
  *         cdef uint64_t reverse_bit_
  *         cdef uint64_t border_bit
  */
   __pyx_v_reverse_bit = 0;
 
-  /* "bitboard/bitcalc.pyx":130
+  /* "bitboard/bitcalc.pyx":134
  *         cdef uint64_t reverse_bit_
  *         cdef uint64_t border_bit
  *         if turn == 0:             # <<<<<<<<<<<<<<
@@ -2372,17 +2501,17 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
   __pyx_t_12 = ((__pyx_v_turn == 0) != 0);
   if (__pyx_t_12) {
 
-    /* "bitboard/bitcalc.pyx":132
+    /* "bitboard/bitcalc.pyx":136
  *         if turn == 0:
  *             # Player is black_board.
  *             for direction in range(8):             # <<<<<<<<<<<<<<
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  */
-    for (__pyx_t_13 = 0; __pyx_t_13 < 8; __pyx_t_13+=1) {
-      __pyx_v_direction = __pyx_t_13;
+    for (__pyx_t_15 = 0; __pyx_t_15 < 8; __pyx_t_15+=1) {
+      __pyx_v_direction = __pyx_t_15;
 
-      /* "bitboard/bitcalc.pyx":133
+      /* "bitboard/bitcalc.pyx":137
  *             # Player is black_board.
  *             for direction in range(8):
  *                 reverse_bit_ = 0             # <<<<<<<<<<<<<<
@@ -2391,7 +2520,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
       __pyx_v_reverse_bit_ = 0;
 
-      /* "bitboard/bitcalc.pyx":134
+      /* "bitboard/bitcalc.pyx":138
  *             for direction in range(8):
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)             # <<<<<<<<<<<<<<
@@ -2400,7 +2529,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
       __pyx_v_border_bit = ((std::uint64_t)((struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 0));
 
-      /* "bitboard/bitcalc.pyx":135
+      /* "bitboard/bitcalc.pyx":139
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  *                 while border_bit & white_board:             # <<<<<<<<<<<<<<
@@ -2411,7 +2540,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_white_board) != 0);
         if (!__pyx_t_12) break;
 
-        /* "bitboard/bitcalc.pyx":136
+        /* "bitboard/bitcalc.pyx":140
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  *                 while border_bit & white_board:
  *                     reverse_bit_ |= border_bit             # <<<<<<<<<<<<<<
@@ -2420,7 +2549,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
         __pyx_v_reverse_bit_ = (__pyx_v_reverse_bit_ | __pyx_v_border_bit);
 
-        /* "bitboard/bitcalc.pyx":137
+        /* "bitboard/bitcalc.pyx":141
  *                 while border_bit & white_board:
  *                     reverse_bit_ |= border_bit
  *                     border_bit = self._check_surround(border_bit, direction)             # <<<<<<<<<<<<<<
@@ -2430,7 +2559,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         __pyx_v_border_bit = ((struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_border_bit, __pyx_v_direction, 0);
       }
 
-      /* "bitboard/bitcalc.pyx":139
+      /* "bitboard/bitcalc.pyx":143
  *                     border_bit = self._check_surround(border_bit, direction)
  *                 # If player's disk is opposite side.
  *                 if border_bit & black_board:             # <<<<<<<<<<<<<<
@@ -2440,7 +2569,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
       __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_black_board) != 0);
       if (__pyx_t_12) {
 
-        /* "bitboard/bitcalc.pyx":140
+        /* "bitboard/bitcalc.pyx":144
  *                 # If player's disk is opposite side.
  *                 if border_bit & black_board:
  *                     reverse_bit |= reverse_bit_             # <<<<<<<<<<<<<<
@@ -2449,7 +2578,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
         __pyx_v_reverse_bit = (__pyx_v_reverse_bit | __pyx_v_reverse_bit_);
 
-        /* "bitboard/bitcalc.pyx":139
+        /* "bitboard/bitcalc.pyx":143
  *                     border_bit = self._check_surround(border_bit, direction)
  *                 # If player's disk is opposite side.
  *                 if border_bit & black_board:             # <<<<<<<<<<<<<<
@@ -2459,7 +2588,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
       }
     }
 
-    /* "bitboard/bitcalc.pyx":141
+    /* "bitboard/bitcalc.pyx":145
  *                 if border_bit & black_board:
  *                     reverse_bit |= reverse_bit_
  *             black_board ^= (put_loc | reverse_bit)             # <<<<<<<<<<<<<<
@@ -2468,7 +2597,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
     __pyx_v_black_board = (__pyx_v_black_board ^ (__pyx_v_put_loc | __pyx_v_reverse_bit));
 
-    /* "bitboard/bitcalc.pyx":142
+    /* "bitboard/bitcalc.pyx":146
  *                     reverse_bit |= reverse_bit_
  *             black_board ^= (put_loc | reverse_bit)
  *             white_board ^= reverse_bit             # <<<<<<<<<<<<<<
@@ -2477,17 +2606,17 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
     __pyx_v_white_board = (__pyx_v_white_board ^ __pyx_v_reverse_bit);
 
-    /* "bitboard/bitcalc.pyx":130
+    /* "bitboard/bitcalc.pyx":134
  *         cdef uint64_t reverse_bit_
  *         cdef uint64_t border_bit
  *         if turn == 0:             # <<<<<<<<<<<<<<
  *             # Player is black_board.
  *             for direction in range(8):
  */
-    goto __pyx_L3;
+    goto __pyx_L6;
   }
 
-  /* "bitboard/bitcalc.pyx":145
+  /* "bitboard/bitcalc.pyx":149
  *         else:
  *             # Player is white_board.
  *             for direction in range(8):             # <<<<<<<<<<<<<<
@@ -2495,10 +2624,10 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  */
   /*else*/ {
-    for (__pyx_t_13 = 0; __pyx_t_13 < 8; __pyx_t_13+=1) {
-      __pyx_v_direction = __pyx_t_13;
+    for (__pyx_t_15 = 0; __pyx_t_15 < 8; __pyx_t_15+=1) {
+      __pyx_v_direction = __pyx_t_15;
 
-      /* "bitboard/bitcalc.pyx":146
+      /* "bitboard/bitcalc.pyx":150
  *             # Player is white_board.
  *             for direction in range(8):
  *                 reverse_bit_ = 0             # <<<<<<<<<<<<<<
@@ -2507,7 +2636,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
       __pyx_v_reverse_bit_ = 0;
 
-      /* "bitboard/bitcalc.pyx":147
+      /* "bitboard/bitcalc.pyx":151
  *             for direction in range(8):
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)             # <<<<<<<<<<<<<<
@@ -2516,7 +2645,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
       __pyx_v_border_bit = ((std::uint64_t)((struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 0));
 
-      /* "bitboard/bitcalc.pyx":148
+      /* "bitboard/bitcalc.pyx":152
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  *                 while border_bit & black_board:             # <<<<<<<<<<<<<<
@@ -2527,7 +2656,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_black_board) != 0);
         if (!__pyx_t_12) break;
 
-        /* "bitboard/bitcalc.pyx":149
+        /* "bitboard/bitcalc.pyx":153
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  *                 while border_bit & black_board:
  *                     reverse_bit_ |= border_bit             # <<<<<<<<<<<<<<
@@ -2536,7 +2665,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
         __pyx_v_reverse_bit_ = (__pyx_v_reverse_bit_ | __pyx_v_border_bit);
 
-        /* "bitboard/bitcalc.pyx":150
+        /* "bitboard/bitcalc.pyx":154
  *                 while border_bit & black_board:
  *                     reverse_bit_ |= border_bit
  *                     border_bit = self._check_surround(border_bit, direction)             # <<<<<<<<<<<<<<
@@ -2546,7 +2675,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         __pyx_v_border_bit = ((struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_border_bit, __pyx_v_direction, 0);
       }
 
-      /* "bitboard/bitcalc.pyx":152
+      /* "bitboard/bitcalc.pyx":156
  *                     border_bit = self._check_surround(border_bit, direction)
  *                 # If player's disk is opposite side.
  *                 if border_bit & white_board:             # <<<<<<<<<<<<<<
@@ -2556,7 +2685,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
       __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_white_board) != 0);
       if (__pyx_t_12) {
 
-        /* "bitboard/bitcalc.pyx":153
+        /* "bitboard/bitcalc.pyx":157
  *                 # If player's disk is opposite side.
  *                 if border_bit & white_board:
  *                     reverse_bit |= reverse_bit_             # <<<<<<<<<<<<<<
@@ -2565,7 +2694,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
         __pyx_v_reverse_bit = (__pyx_v_reverse_bit | __pyx_v_reverse_bit_);
 
-        /* "bitboard/bitcalc.pyx":152
+        /* "bitboard/bitcalc.pyx":156
  *                     border_bit = self._check_surround(border_bit, direction)
  *                 # If player's disk is opposite side.
  *                 if border_bit & white_board:             # <<<<<<<<<<<<<<
@@ -2575,7 +2704,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
       }
     }
 
-    /* "bitboard/bitcalc.pyx":154
+    /* "bitboard/bitcalc.pyx":158
  *                 if border_bit & white_board:
  *                     reverse_bit |= reverse_bit_
  *             white_board ^= (put_loc | reverse_bit)             # <<<<<<<<<<<<<<
@@ -2584,7 +2713,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
     __pyx_v_white_board = (__pyx_v_white_board ^ (__pyx_v_put_loc | __pyx_v_reverse_bit));
 
-    /* "bitboard/bitcalc.pyx":155
+    /* "bitboard/bitcalc.pyx":159
  *                     reverse_bit |= reverse_bit_
  *             white_board ^= (put_loc | reverse_bit)
  *             black_board ^= reverse_bit             # <<<<<<<<<<<<<<
@@ -2593,9 +2722,9 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
     __pyx_v_black_board = (__pyx_v_black_board ^ __pyx_v_reverse_bit);
   }
-  __pyx_L3:;
+  __pyx_L6:;
 
-  /* "bitboard/bitcalc.pyx":157
+  /* "bitboard/bitcalc.pyx":161
  *             black_board ^= reverse_bit
  * 
  *         return black_board, white_board             # <<<<<<<<<<<<<<
@@ -2612,7 +2741,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  * 
  *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
  *             self, int turn, uint64_t put_loc,
- *             uint64_t black_board, uint64_t white_board,
+ *             uint64_t black_board = 0, uint64_t white_board = 0,
  */
 
   /* function exit code */
@@ -2674,40 +2803,52 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_9simulate_play(PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_put_loc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 1); __PYX_ERR(0, 108, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("simulate_play", 0, 2, 4, 1); __PYX_ERR(0, 108, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 2); __PYX_ERR(0, 108, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[2] = value; kw_args--; }
         }
         CYTHON_FALLTHROUGH;
         case  3:
-        if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 3); __PYX_ERR(0, 108, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[3] = value; kw_args--; }
         }
       }
       if (unlikely(kw_args > 0)) {
         if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "simulate_play") < 0)) __PYX_ERR(0, 108, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
-      goto __pyx_L5_argtuple_error;
     } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
     }
     __pyx_v_turn = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
     __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+    if (values[2]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[3]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 108, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("simulate_play", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 108, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.simulate_play", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2723,21 +2864,27 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_9simulate_play(PyObject 
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_8simulate_play(struct BitBoardCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("simulate_play", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8bitboard_7bitcalc_9BitBoardC_simulate_play(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_7bitcalc_BitBoardC->simulate_play(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, 1, &__pyx_t_2); 
+  __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.simulate_play", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -2746,7 +2893,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_8simulate_play(struct Bi
   return __pyx_r;
 }
 
-/* "bitboard/bitcalc.pyx":159
+/* "bitboard/bitcalc.pyx":163
  *         return black_board, white_board
  * 
  *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
@@ -2778,12 +2925,12 @@ static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCO
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_7bitcalc_9BitBoardC_11update_board)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 159, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 159, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 163, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -2801,7 +2948,7 @@ static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCO
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 163, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2811,7 +2958,7 @@ static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCO
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 163, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2819,7 +2966,7 @@ static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCO
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 159, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 163, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -2830,7 +2977,7 @@ static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCO
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 159, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 163, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -2852,7 +2999,7 @@ static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCO
     #endif
   }
 
-  /* "bitboard/bitcalc.pyx":167
+  /* "bitboard/bitcalc.pyx":171
  *             64-bit intager.
  *         """
  *         self._black_board = black_board             # <<<<<<<<<<<<<<
@@ -2861,7 +3008,7 @@ static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCO
  */
   __pyx_v_self->_black_board = __pyx_v_black_board;
 
-  /* "bitboard/bitcalc.pyx":168
+  /* "bitboard/bitcalc.pyx":172
  *         """
  *         self._black_board = black_board
  *         self._white_board = white_board             # <<<<<<<<<<<<<<
@@ -2870,7 +3017,7 @@ static void __pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(struct BitBoardCO
  */
   __pyx_v_self->_white_board = __pyx_v_white_board;
 
-  /* "bitboard/bitcalc.pyx":159
+  /* "bitboard/bitcalc.pyx":163
  *         return black_board, white_board
  * 
  *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
@@ -2928,11 +3075,11 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_11update_board(PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update_board", 1, 2, 2, 1); __PYX_ERR(0, 159, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("update_board", 1, 2, 2, 1); __PYX_ERR(0, 163, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_board") < 0)) __PYX_ERR(0, 159, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_board") < 0)) __PYX_ERR(0, 163, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2940,12 +3087,12 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_11update_board(PyObject 
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 159, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 159, __pyx_L3_error)
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("update_board", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 159, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("update_board", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 163, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.update_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2967,7 +3114,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_10update_board(struct Bi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("update_board", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2984,16 +3131,18 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_10update_board(struct Bi
   return __pyx_r;
 }
 
-/* "bitboard/bitcalc.pyx":170
+/* "bitboard/bitcalc.pyx":174
  *         self._white_board = white_board
  * 
  *     cpdef (uint64_t, uint64_t) count_disks(             # <<<<<<<<<<<<<<
- *             self, uint64_t black_board, uint64_t white_board):
+ *             self, uint64_t black_board = 0, uint64_t white_board = 0):
  *         """Returns black and white's disk number.
  */
 
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_13count_disks(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_count_disks(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch) {
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_count_disks(struct BitBoardCObject *__pyx_v_self, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
   __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3005,10 +3154,21 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
   int __pyx_t_7;
   PyObject *__pyx_t_8 = NULL;
   __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_9;
+  int __pyx_t_10;
+  int __pyx_t_11;
+  std::uint64_t __pyx_t_12;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("count_disks", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
   /* Check if called by wrapper */
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
@@ -3018,12 +3178,12 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_count_disks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_count_disks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_7bitcalc_9BitBoardC_13count_disks)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -3041,7 +3201,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 170, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3051,7 +3211,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 170, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3059,7 +3219,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 170, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 174, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -3070,12 +3230,12 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 170, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_9 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 170, __pyx_L1_error)
+        __pyx_t_9 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 174, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_9;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3094,9 +3254,56 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
     #endif
   }
 
-  /* "bitboard/bitcalc.pyx":179
+  /* "bitboard/bitcalc.pyx":183
  *             64-bit intager.
  *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  __pyx_t_11 = ((__pyx_v_black_board == 0) != 0);
+  if (__pyx_t_11) {
+  } else {
+    __pyx_t_10 = __pyx_t_11;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_11 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_10 = __pyx_t_11;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_10) {
+
+    /* "bitboard/bitcalc.pyx":184
+ *         """
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board             # <<<<<<<<<<<<<<
+ *             white_board = self._white_board
+ * 
+ */
+    __pyx_t_12 = __pyx_v_self->_black_board;
+    __pyx_v_black_board = __pyx_t_12;
+
+    /* "bitboard/bitcalc.pyx":185
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board
+ *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *         return self._bit_count(black_board), self._bit_count(white_board)
+ */
+    __pyx_t_12 = __pyx_v_self->_white_board;
+    __pyx_v_white_board = __pyx_t_12;
+
+    /* "bitboard/bitcalc.pyx":183
+ *             64-bit intager.
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  }
+
+  /* "bitboard/bitcalc.pyx":187
+ *             white_board = self._white_board
+ * 
  *         return self._bit_count(black_board), self._bit_count(white_board)             # <<<<<<<<<<<<<<
  * 
  *     cpdef uint64_t reversible_area(
@@ -3106,11 +3313,11 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
   __pyx_r = __pyx_t_9;
   goto __pyx_L0;
 
-  /* "bitboard/bitcalc.pyx":170
+  /* "bitboard/bitcalc.pyx":174
  *         self._white_board = white_board
  * 
  *     cpdef (uint64_t, uint64_t) count_disks(             # <<<<<<<<<<<<<<
- *             self, uint64_t black_board, uint64_t white_board):
+ *             self, uint64_t black_board = 0, uint64_t white_board = 0):
  *         """Returns black and white's disk number.
  */
 
@@ -3159,30 +3366,44 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_13count_disks(PyObject *
       kw_args = PyDict_Size(__pyx_kwds);
       switch (pos_args) {
         case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[0] = value; kw_args--; }
+        }
         CYTHON_FALLTHROUGH;
         case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("count_disks", 1, 2, 2, 1); __PYX_ERR(0, 170, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[1] = value; kw_args--; }
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "count_disks") < 0)) __PYX_ERR(0, 170, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "count_disks") < 0)) __PYX_ERR(0, 174, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
-      goto __pyx_L5_argtuple_error;
     } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
     }
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 171, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 171, __pyx_L3_error)
+    if (values[0]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 175, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[1]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 175, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("count_disks", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 170, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("count_disks", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 174, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.count_disks", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3198,21 +3419,27 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_13count_disks(PyObject *
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_12count_disks(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("count_disks", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8bitboard_7bitcalc_9BitBoardC_count_disks(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_7bitcalc_BitBoardC->count_disks(__pyx_v_self, 1, &__pyx_t_2); 
+  __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.count_disks", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3221,16 +3448,18 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_12count_disks(struct Bit
   return __pyx_r;
 }
 
-/* "bitboard/bitcalc.pyx":181
+/* "bitboard/bitcalc.pyx":189
  *         return self._bit_count(black_board), self._bit_count(white_board)
  * 
  *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
- *             self, uint64_t turn, uint64_t black_board, uint64_t white_board):
+ *             self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
  *         """Returns reversible area.
  */
 
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_15reversible_area(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHON_UNUSED struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch) {
+static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
   std::uint64_t *__pyx_v_CONST;
   std::uint64_t *__pyx_v_board;
   std::uint64_t __pyx_v_blank_board;
@@ -3251,12 +3480,22 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
   int __pyx_t_8;
   PyObject *__pyx_t_9 = NULL;
   std::uint64_t __pyx_t_10;
-  std::uint64_t __pyx_t_11[3];
-  std::uint64_t __pyx_t_12[2];
+  int __pyx_t_11;
+  int __pyx_t_12;
+  std::uint64_t __pyx_t_13[3];
+  std::uint64_t __pyx_t_14[2];
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reversible_area", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
   /* Check if called by wrapper */
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
@@ -3266,14 +3505,14 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_7bitcalc_9BitBoardC_15reversible_area)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 189, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 181, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 181, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 189, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_6 = __pyx_t_1; __pyx_t_7 = NULL;
@@ -3291,7 +3530,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3302,7 +3541,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3311,7 +3550,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
         } else
         #endif
         {
-          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 181, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 189, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           if (__pyx_t_7) {
             __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -3325,12 +3564,12 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
           __pyx_t_5 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_10 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_10 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 181, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_10 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 189, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_10;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3349,30 +3588,77 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
     #endif
   }
 
-  /* "bitboard/bitcalc.pyx":197
+  /* "bitboard/bitcalc.pyx":205
  *             Represents board of reversible positions.
  *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  __pyx_t_12 = ((__pyx_v_black_board == 0) != 0);
+  if (__pyx_t_12) {
+  } else {
+    __pyx_t_11 = __pyx_t_12;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_12 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_11 = __pyx_t_12;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_11) {
+
+    /* "bitboard/bitcalc.pyx":206
+ *         """
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board             # <<<<<<<<<<<<<<
+ *             white_board = self._white_board
+ * 
+ */
+    __pyx_t_10 = __pyx_v_self->_black_board;
+    __pyx_v_black_board = __pyx_t_10;
+
+    /* "bitboard/bitcalc.pyx":207
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board
+ *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *         cdef uint64_t *CONST = [
+ */
+    __pyx_t_10 = __pyx_v_self->_white_board;
+    __pyx_v_white_board = __pyx_t_10;
+
+    /* "bitboard/bitcalc.pyx":205
+ *             Represents board of reversible positions.
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  }
+
+  /* "bitboard/bitcalc.pyx":209
+ *             white_board = self._white_board
+ * 
  *         cdef uint64_t *CONST = [             # <<<<<<<<<<<<<<
  *             0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
  *         ]
  */
-  __pyx_t_11[0] = 0x7e7e7e7e7e7e7e7eULL;
-  __pyx_t_11[1] = 0x00ffffffffffff00ULL;
-  __pyx_t_11[2] = 0x007e7e7e7e7e7e00ULL;
-  __pyx_v_CONST = __pyx_t_11;
+  __pyx_t_13[0] = 0x7e7e7e7e7e7e7e7eULL;
+  __pyx_t_13[1] = 0x00ffffffffffff00ULL;
+  __pyx_t_13[2] = 0x007e7e7e7e7e7e00ULL;
+  __pyx_v_CONST = __pyx_t_13;
 
-  /* "bitboard/bitcalc.pyx":200
+  /* "bitboard/bitcalc.pyx":212
  *             0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
  *         ]
  *         cdef uint64_t *board = [black_board, white_board]             # <<<<<<<<<<<<<<
  *         cdef uint64_t blank_board = ~(board[0] | board[1])
  * 
  */
-  __pyx_t_12[0] = __pyx_v_black_board;
-  __pyx_t_12[1] = __pyx_v_white_board;
-  __pyx_v_board = __pyx_t_12;
+  __pyx_t_14[0] = __pyx_v_black_board;
+  __pyx_t_14[1] = __pyx_v_white_board;
+  __pyx_v_board = __pyx_t_14;
 
-  /* "bitboard/bitcalc.pyx":201
+  /* "bitboard/bitcalc.pyx":213
  *         ]
  *         cdef uint64_t *board = [black_board, white_board]
  *         cdef uint64_t blank_board = ~(board[0] | board[1])             # <<<<<<<<<<<<<<
@@ -3381,7 +3667,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_blank_board = (~((__pyx_v_board[0]) | (__pyx_v_board[1])));
 
-  /* "bitboard/bitcalc.pyx":203
+  /* "bitboard/bitcalc.pyx":215
  *         cdef uint64_t blank_board = ~(board[0] | board[1])
  * 
  *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]             # <<<<<<<<<<<<<<
@@ -3390,7 +3676,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_horiz_brd = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[0]));
 
-  /* "bitboard/bitcalc.pyx":204
+  /* "bitboard/bitcalc.pyx":216
  * 
  *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
  *         cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]             # <<<<<<<<<<<<<<
@@ -3399,7 +3685,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_vert_brd = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[1]));
 
-  /* "bitboard/bitcalc.pyx":205
+  /* "bitboard/bitcalc.pyx":217
  *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
  *         cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]
  *         cdef uint64_t all_border = board[turn ^ 1] & CONST[2]             # <<<<<<<<<<<<<<
@@ -3408,7 +3694,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_all_border = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[2]));
 
-  /* "bitboard/bitcalc.pyx":208
+  /* "bitboard/bitcalc.pyx":220
  * 
  *         # Upper
  *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)             # <<<<<<<<<<<<<<
@@ -3417,7 +3703,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_horiz_brd & ((__pyx_v_board[__pyx_v_turn]) << 1));
 
-  /* "bitboard/bitcalc.pyx":209
+  /* "bitboard/bitcalc.pyx":221
  *         # Upper
  *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -3426,7 +3712,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
-  /* "bitboard/bitcalc.pyx":210
+  /* "bitboard/bitcalc.pyx":222
  *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -3435,7 +3721,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
-  /* "bitboard/bitcalc.pyx":211
+  /* "bitboard/bitcalc.pyx":223
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -3444,7 +3730,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
-  /* "bitboard/bitcalc.pyx":212
+  /* "bitboard/bitcalc.pyx":224
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -3453,7 +3739,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
-  /* "bitboard/bitcalc.pyx":213
+  /* "bitboard/bitcalc.pyx":225
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -3462,7 +3748,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
-  /* "bitboard/bitcalc.pyx":214
+  /* "bitboard/bitcalc.pyx":226
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         cdef uint64_t reversible = blank_board & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -3471,7 +3757,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_reversible = (__pyx_v_blank_board & (__pyx_v_one_rv << 1));
 
-  /* "bitboard/bitcalc.pyx":217
+  /* "bitboard/bitcalc.pyx":229
  * 
  *         # Lower
  *         one_rv = horiz_brd & (board[turn] >> 1)             # <<<<<<<<<<<<<<
@@ -3480,7 +3766,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_horiz_brd & ((__pyx_v_board[__pyx_v_turn]) >> 1));
 
-  /* "bitboard/bitcalc.pyx":218
+  /* "bitboard/bitcalc.pyx":230
  *         # Lower
  *         one_rv = horiz_brd & (board[turn] >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -3489,7 +3775,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
-  /* "bitboard/bitcalc.pyx":219
+  /* "bitboard/bitcalc.pyx":231
  *         one_rv = horiz_brd & (board[turn] >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -3498,7 +3784,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
-  /* "bitboard/bitcalc.pyx":220
+  /* "bitboard/bitcalc.pyx":232
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -3507,7 +3793,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
-  /* "bitboard/bitcalc.pyx":221
+  /* "bitboard/bitcalc.pyx":233
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -3516,7 +3802,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
-  /* "bitboard/bitcalc.pyx":222
+  /* "bitboard/bitcalc.pyx":234
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -3525,7 +3811,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
-  /* "bitboard/bitcalc.pyx":223
+  /* "bitboard/bitcalc.pyx":235
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         reversible |= blank_board & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -3534,7 +3820,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 1)));
 
-  /* "bitboard/bitcalc.pyx":226
+  /* "bitboard/bitcalc.pyx":238
  * 
  *         # Left
  *         one_rv = vert_brd & (board[turn] << 8)             # <<<<<<<<<<<<<<
@@ -3543,7 +3829,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_vert_brd & ((__pyx_v_board[__pyx_v_turn]) << 8));
 
-  /* "bitboard/bitcalc.pyx":227
+  /* "bitboard/bitcalc.pyx":239
  *         # Left
  *         one_rv = vert_brd & (board[turn] << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -3552,7 +3838,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
-  /* "bitboard/bitcalc.pyx":228
+  /* "bitboard/bitcalc.pyx":240
  *         one_rv = vert_brd & (board[turn] << 8)
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -3561,7 +3847,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
-  /* "bitboard/bitcalc.pyx":229
+  /* "bitboard/bitcalc.pyx":241
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -3570,7 +3856,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
-  /* "bitboard/bitcalc.pyx":230
+  /* "bitboard/bitcalc.pyx":242
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -3579,7 +3865,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
-  /* "bitboard/bitcalc.pyx":231
+  /* "bitboard/bitcalc.pyx":243
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -3588,7 +3874,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
-  /* "bitboard/bitcalc.pyx":232
+  /* "bitboard/bitcalc.pyx":244
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)
  *         reversible |= blank_board & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -3597,7 +3883,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 8)));
 
-  /* "bitboard/bitcalc.pyx":235
+  /* "bitboard/bitcalc.pyx":247
  * 
  *         # Right
  *         one_rv = vert_brd & (board[turn] >> 8)             # <<<<<<<<<<<<<<
@@ -3606,7 +3892,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_vert_brd & ((__pyx_v_board[__pyx_v_turn]) >> 8));
 
-  /* "bitboard/bitcalc.pyx":236
+  /* "bitboard/bitcalc.pyx":248
  *         # Right
  *         one_rv = vert_brd & (board[turn] >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -3615,7 +3901,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
-  /* "bitboard/bitcalc.pyx":237
+  /* "bitboard/bitcalc.pyx":249
  *         one_rv = vert_brd & (board[turn] >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -3624,7 +3910,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
-  /* "bitboard/bitcalc.pyx":238
+  /* "bitboard/bitcalc.pyx":250
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -3633,7 +3919,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
-  /* "bitboard/bitcalc.pyx":239
+  /* "bitboard/bitcalc.pyx":251
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -3642,7 +3928,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
-  /* "bitboard/bitcalc.pyx":240
+  /* "bitboard/bitcalc.pyx":252
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -3651,7 +3937,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
-  /* "bitboard/bitcalc.pyx":241
+  /* "bitboard/bitcalc.pyx":253
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         reversible |= blank_board & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -3660,7 +3946,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 8)));
 
-  /* "bitboard/bitcalc.pyx":244
+  /* "bitboard/bitcalc.pyx":256
  * 
  *         # Upper right
  *         one_rv = all_border & (board[turn] << 7)             # <<<<<<<<<<<<<<
@@ -3669,7 +3955,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) << 7));
 
-  /* "bitboard/bitcalc.pyx":245
+  /* "bitboard/bitcalc.pyx":257
  *         # Upper right
  *         one_rv = all_border & (board[turn] << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -3678,7 +3964,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
-  /* "bitboard/bitcalc.pyx":246
+  /* "bitboard/bitcalc.pyx":258
  *         one_rv = all_border & (board[turn] << 7)
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -3687,7 +3973,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
-  /* "bitboard/bitcalc.pyx":247
+  /* "bitboard/bitcalc.pyx":259
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -3696,7 +3982,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
-  /* "bitboard/bitcalc.pyx":248
+  /* "bitboard/bitcalc.pyx":260
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -3705,7 +3991,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
-  /* "bitboard/bitcalc.pyx":249
+  /* "bitboard/bitcalc.pyx":261
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -3714,7 +4000,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
-  /* "bitboard/bitcalc.pyx":250
+  /* "bitboard/bitcalc.pyx":262
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)
  *         reversible |= blank_board & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -3723,7 +4009,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 7)));
 
-  /* "bitboard/bitcalc.pyx":253
+  /* "bitboard/bitcalc.pyx":265
  * 
  *         # Upper left
  *         one_rv = all_border & (board[turn] << 9)             # <<<<<<<<<<<<<<
@@ -3732,7 +4018,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) << 9));
 
-  /* "bitboard/bitcalc.pyx":254
+  /* "bitboard/bitcalc.pyx":266
  *         # Upper left
  *         one_rv = all_border & (board[turn] << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -3741,7 +4027,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
-  /* "bitboard/bitcalc.pyx":255
+  /* "bitboard/bitcalc.pyx":267
  *         one_rv = all_border & (board[turn] << 9)
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -3750,7 +4036,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
-  /* "bitboard/bitcalc.pyx":256
+  /* "bitboard/bitcalc.pyx":268
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -3759,7 +4045,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
-  /* "bitboard/bitcalc.pyx":257
+  /* "bitboard/bitcalc.pyx":269
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -3768,7 +4054,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
-  /* "bitboard/bitcalc.pyx":258
+  /* "bitboard/bitcalc.pyx":270
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -3777,7 +4063,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
-  /* "bitboard/bitcalc.pyx":259
+  /* "bitboard/bitcalc.pyx":271
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)
  *         reversible |= blank_board & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -3786,7 +4072,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 9)));
 
-  /* "bitboard/bitcalc.pyx":262
+  /* "bitboard/bitcalc.pyx":274
  * 
  *         # Lower right
  *         one_rv = all_border & (board[turn] >> 9)             # <<<<<<<<<<<<<<
@@ -3795,7 +4081,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) >> 9));
 
-  /* "bitboard/bitcalc.pyx":263
+  /* "bitboard/bitcalc.pyx":275
  *         # Lower right
  *         one_rv = all_border & (board[turn] >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -3804,7 +4090,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
-  /* "bitboard/bitcalc.pyx":264
+  /* "bitboard/bitcalc.pyx":276
  *         one_rv = all_border & (board[turn] >> 9)
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -3813,7 +4099,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
-  /* "bitboard/bitcalc.pyx":265
+  /* "bitboard/bitcalc.pyx":277
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -3822,7 +4108,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
-  /* "bitboard/bitcalc.pyx":266
+  /* "bitboard/bitcalc.pyx":278
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -3831,7 +4117,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
-  /* "bitboard/bitcalc.pyx":267
+  /* "bitboard/bitcalc.pyx":279
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -3840,7 +4126,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
-  /* "bitboard/bitcalc.pyx":268
+  /* "bitboard/bitcalc.pyx":280
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)
  *         reversible |= blank_board & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -3849,7 +4135,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 9)));
 
-  /* "bitboard/bitcalc.pyx":271
+  /* "bitboard/bitcalc.pyx":283
  * 
  *         # Lower left
  *         one_rv = all_border & (board[turn] >> 7)             # <<<<<<<<<<<<<<
@@ -3858,7 +4144,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) >> 7));
 
-  /* "bitboard/bitcalc.pyx":272
+  /* "bitboard/bitcalc.pyx":284
  *         # Lower left
  *         one_rv = all_border & (board[turn] >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -3867,7 +4153,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
-  /* "bitboard/bitcalc.pyx":273
+  /* "bitboard/bitcalc.pyx":285
  *         one_rv = all_border & (board[turn] >> 7)
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -3876,7 +4162,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
-  /* "bitboard/bitcalc.pyx":274
+  /* "bitboard/bitcalc.pyx":286
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -3885,7 +4171,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
-  /* "bitboard/bitcalc.pyx":275
+  /* "bitboard/bitcalc.pyx":287
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -3894,7 +4180,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
-  /* "bitboard/bitcalc.pyx":276
+  /* "bitboard/bitcalc.pyx":288
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -3903,7 +4189,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
-  /* "bitboard/bitcalc.pyx":277
+  /* "bitboard/bitcalc.pyx":289
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)
  *         reversible |= blank_board & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -3912,7 +4198,7 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 7)));
 
-  /* "bitboard/bitcalc.pyx":278
+  /* "bitboard/bitcalc.pyx":290
  *         one_rv |= all_border & (one_rv >> 7)
  *         reversible |= blank_board & (one_rv >> 7)
  *         return reversible             # <<<<<<<<<<<<<<
@@ -3922,11 +4208,11 @@ static std::uint64_t __pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(CYTHO
   __pyx_r = __pyx_v_reversible;
   goto __pyx_L0;
 
-  /* "bitboard/bitcalc.pyx":181
+  /* "bitboard/bitcalc.pyx":189
  *         return self._bit_count(black_board), self._bit_count(white_board)
  * 
  *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
- *             self, uint64_t turn, uint64_t black_board, uint64_t white_board):
+ *             self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
  *         """Returns reversible area.
  */
 
@@ -3983,34 +4269,46 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_15reversible_area(PyObje
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, 1); __PYX_ERR(0, 181, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[1] = value; kw_args--; }
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, 2); __PYX_ERR(0, 181, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[2] = value; kw_args--; }
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "reversible_area") < 0)) __PYX_ERR(0, 181, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "reversible_area") < 0)) __PYX_ERR(0, 189, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
-      goto __pyx_L5_argtuple_error;
     } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
     }
-    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 182, __pyx_L3_error)
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 182, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 182, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 190, __pyx_L3_error)
+    if (values[1]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 190, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[2]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 190, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 181, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("reversible_area", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 189, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.reversible_area", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4026,21 +4324,27 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_15reversible_area(PyObje
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_14reversible_area(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  std::uint64_t __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reversible_area", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_7bitcalc_BitBoardC->reversible_area(__pyx_v_self, __pyx_v_turn, 1, &__pyx_t_2); 
+  __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.reversible_area", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4049,16 +4353,18 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_14reversible_area(struct
   return __pyx_r;
 }
 
-/* "bitboard/bitcalc.pyx":280
+/* "bitboard/bitcalc.pyx":292
  *         return reversible
  * 
  *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
  *             self, uint64_t turn, uint64_t put_loc,
- *             uint64_t black_board, uint64_t white_board
+ *             uint64_t black_board = 0, uint64_t white_board = 0,
  */
 
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_17is_reversible(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch) {
+static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
   std::uint64_t __pyx_v_reversible;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -4075,10 +4381,19 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCO
   int __pyx_t_11;
   int __pyx_t_12;
   std::uint64_t __pyx_t_13;
+  struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area __pyx_t_14;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("is_reversible", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
   /* Check if called by wrapper */
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
@@ -4088,16 +4403,16 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCO
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_reversible); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_reversible); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_7bitcalc_9BitBoardC_17is_reversible)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 280, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 292, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 292, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 280, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 292, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 280, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 292, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_7 = __pyx_t_1; __pyx_t_8 = NULL;
@@ -4115,7 +4430,7 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCO
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_7)) {
           PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4127,7 +4442,7 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCO
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
           PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4137,7 +4452,7 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCO
         } else
         #endif
         {
-          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 280, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 292, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           if (__pyx_t_8) {
             __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -4154,12 +4469,12 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCO
           __pyx_t_4 = 0;
           __pyx_t_5 = 0;
           __pyx_t_6 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 280, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 292, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_11;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4178,60 +4493,68 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCO
     #endif
   }
 
-  /* "bitboard/bitcalc.pyx":299
+  /* "bitboard/bitcalc.pyx":311
  *         is_reversible : bool
  *         """
- *         if black_board is None:             # <<<<<<<<<<<<<<
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
  *             black_board = self._black_board
  *             white_board = self._white_board
  */
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_11 = (__pyx_t_1 == Py_None);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_12 = (__pyx_t_11 != 0);
+  __pyx_t_12 = ((__pyx_v_black_board == 0) != 0);
   if (__pyx_t_12) {
+  } else {
+    __pyx_t_11 = __pyx_t_12;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_12 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_11 = __pyx_t_12;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_11) {
 
-    /* "bitboard/bitcalc.pyx":300
+    /* "bitboard/bitcalc.pyx":312
  *         """
- *         if black_board is None:
+ *         if black_board  == 0 and white_board == 0:
  *             black_board = self._black_board             # <<<<<<<<<<<<<<
  *             white_board = self._white_board
- *         reversible = self.reversible_area(turn, black_board, white_board)
+ * 
  */
     __pyx_t_13 = __pyx_v_self->_black_board;
     __pyx_v_black_board = __pyx_t_13;
 
-    /* "bitboard/bitcalc.pyx":301
- *         if black_board is None:
+    /* "bitboard/bitcalc.pyx":313
+ *         if black_board  == 0 and white_board == 0:
  *             black_board = self._black_board
  *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
  *         reversible = self.reversible_area(turn, black_board, white_board)
- *         return (put_loc & reversible) == put_loc
  */
     __pyx_t_13 = __pyx_v_self->_white_board;
     __pyx_v_white_board = __pyx_t_13;
 
-    /* "bitboard/bitcalc.pyx":299
+    /* "bitboard/bitcalc.pyx":311
  *         is_reversible : bool
  *         """
- *         if black_board is None:             # <<<<<<<<<<<<<<
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
  *             black_board = self._black_board
  *             white_board = self._white_board
  */
   }
 
-  /* "bitboard/bitcalc.pyx":302
- *             black_board = self._black_board
+  /* "bitboard/bitcalc.pyx":315
  *             white_board = self._white_board
+ * 
  *         reversible = self.reversible_area(turn, black_board, white_board)             # <<<<<<<<<<<<<<
  *         return (put_loc & reversible) == put_loc
  * 
  */
-  __pyx_v_reversible = ((struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 0);
+  __pyx_t_14.__pyx_n = 2;
+  __pyx_t_14.black_board = __pyx_v_black_board;
+  __pyx_t_14.white_board = __pyx_v_white_board;
+  __pyx_t_13 = ((struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, 0, &__pyx_t_14); 
+  __pyx_v_reversible = __pyx_t_13;
 
-  /* "bitboard/bitcalc.pyx":303
- *             white_board = self._white_board
+  /* "bitboard/bitcalc.pyx":316
+ * 
  *         reversible = self.reversible_area(turn, black_board, white_board)
  *         return (put_loc & reversible) == put_loc             # <<<<<<<<<<<<<<
  * 
@@ -4240,12 +4563,12 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(struct BitBoardCO
   __pyx_r = ((__pyx_v_put_loc & __pyx_v_reversible) == __pyx_v_put_loc);
   goto __pyx_L0;
 
-  /* "bitboard/bitcalc.pyx":280
+  /* "bitboard/bitcalc.pyx":292
  *         return reversible
  * 
  *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
  *             self, uint64_t turn, uint64_t put_loc,
- *             uint64_t black_board, uint64_t white_board
+ *             uint64_t black_board = 0, uint64_t white_board = 0,
  */
 
   /* function exit code */
@@ -4307,40 +4630,52 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_17is_reversible(PyObject
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_put_loc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 1); __PYX_ERR(0, 280, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("is_reversible", 0, 2, 4, 1); __PYX_ERR(0, 292, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 2); __PYX_ERR(0, 280, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[2] = value; kw_args--; }
         }
         CYTHON_FALLTHROUGH;
         case  3:
-        if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 3); __PYX_ERR(0, 280, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[3] = value; kw_args--; }
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "is_reversible") < 0)) __PYX_ERR(0, 280, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "is_reversible") < 0)) __PYX_ERR(0, 292, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
-      goto __pyx_L5_argtuple_error;
     } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
     }
-    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 281, __pyx_L3_error)
-    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 281, __pyx_L3_error)
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 293, __pyx_L3_error)
+    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 293, __pyx_L3_error)
+    if (values[2]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 294, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[3]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 294, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 280, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("is_reversible", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 292, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.is_reversible", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4356,21 +4691,27 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_17is_reversible(PyObject
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_16is_reversible(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("is_reversible", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_7bitcalc_BitBoardC->is_reversible(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, 1, &__pyx_t_2); 
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.is_reversible", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4379,16 +4720,18 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_16is_reversible(struct B
   return __pyx_r;
 }
 
-/* "bitboard/bitcalc.pyx":305
+/* "bitboard/bitcalc.pyx":318
  *         return (put_loc & reversible) == put_loc
  * 
  *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
- *             self, uint64_t turn, uint64_t black_board, uint64_t white_board):
+ *             self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
  *         """Return wheather you can put disk or not.
  */
 
 static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_19turn_playable(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch) {
+static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
   std::uint64_t __pyx_v_reversible;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -4404,10 +4747,19 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCO
   int __pyx_t_10;
   int __pyx_t_11;
   std::uint64_t __pyx_t_12;
+  struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area __pyx_t_13;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("turn_playable", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
   /* Check if called by wrapper */
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
@@ -4417,14 +4769,14 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCO
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_turn_playable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_turn_playable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_7bitcalc_9BitBoardC_19turn_playable)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 305, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 305, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 318, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 305, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 318, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_6 = __pyx_t_1; __pyx_t_7 = NULL;
@@ -4442,7 +4794,7 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCO
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4453,7 +4805,7 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCO
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4462,7 +4814,7 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCO
         } else
         #endif
         {
-          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 305, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 318, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           if (__pyx_t_7) {
             __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -4476,12 +4828,12 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCO
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
           __pyx_t_5 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 305, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 318, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_10;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4500,60 +4852,68 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCO
     #endif
   }
 
-  /* "bitboard/bitcalc.pyx":318
+  /* "bitboard/bitcalc.pyx":331
  *             64-bit intager.
  *         """
- *         if black_board is None:             # <<<<<<<<<<<<<<
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
  *             black_board = self._black_board
  *             white_board = self._white_board
  */
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_10 = (__pyx_t_1 == Py_None);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_11 = (__pyx_t_10 != 0);
+  __pyx_t_11 = ((__pyx_v_black_board == 0) != 0);
   if (__pyx_t_11) {
+  } else {
+    __pyx_t_10 = __pyx_t_11;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_11 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_10 = __pyx_t_11;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_10) {
 
-    /* "bitboard/bitcalc.pyx":319
+    /* "bitboard/bitcalc.pyx":332
  *         """
- *         if black_board is None:
+ *         if black_board  == 0 and white_board == 0:
  *             black_board = self._black_board             # <<<<<<<<<<<<<<
  *             white_board = self._white_board
- *         reversible = self.reversible_area(turn, black_board, white_board)
+ * 
  */
     __pyx_t_12 = __pyx_v_self->_black_board;
     __pyx_v_black_board = __pyx_t_12;
 
-    /* "bitboard/bitcalc.pyx":320
- *         if black_board is None:
+    /* "bitboard/bitcalc.pyx":333
+ *         if black_board  == 0 and white_board == 0:
  *             black_board = self._black_board
  *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
  *         reversible = self.reversible_area(turn, black_board, white_board)
- *         return reversible != 0
  */
     __pyx_t_12 = __pyx_v_self->_white_board;
     __pyx_v_white_board = __pyx_t_12;
 
-    /* "bitboard/bitcalc.pyx":318
+    /* "bitboard/bitcalc.pyx":331
  *             64-bit intager.
  *         """
- *         if black_board is None:             # <<<<<<<<<<<<<<
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
  *             black_board = self._black_board
  *             white_board = self._white_board
  */
   }
 
-  /* "bitboard/bitcalc.pyx":321
- *             black_board = self._black_board
+  /* "bitboard/bitcalc.pyx":335
  *             white_board = self._white_board
+ * 
  *         reversible = self.reversible_area(turn, black_board, white_board)             # <<<<<<<<<<<<<<
  *         return reversible != 0
  * 
  */
-  __pyx_v_reversible = ((struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 0);
+  __pyx_t_13.__pyx_n = 2;
+  __pyx_t_13.black_board = __pyx_v_black_board;
+  __pyx_t_13.white_board = __pyx_v_white_board;
+  __pyx_t_12 = ((struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, 0, &__pyx_t_13); 
+  __pyx_v_reversible = __pyx_t_12;
 
-  /* "bitboard/bitcalc.pyx":322
- *             white_board = self._white_board
+  /* "bitboard/bitcalc.pyx":336
+ * 
  *         reversible = self.reversible_area(turn, black_board, white_board)
  *         return reversible != 0             # <<<<<<<<<<<<<<
  * 
@@ -4562,11 +4922,11 @@ static int __pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(struct BitBoardCO
   __pyx_r = (__pyx_v_reversible != 0);
   goto __pyx_L0;
 
-  /* "bitboard/bitcalc.pyx":305
+  /* "bitboard/bitcalc.pyx":318
  *         return (put_loc & reversible) == put_loc
  * 
  *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
- *             self, uint64_t turn, uint64_t black_board, uint64_t white_board):
+ *             self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
  *         """Return wheather you can put disk or not.
  */
 
@@ -4623,34 +4983,46 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_19turn_playable(PyObject
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, 1); __PYX_ERR(0, 305, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[1] = value; kw_args--; }
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, 2); __PYX_ERR(0, 305, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[2] = value; kw_args--; }
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "turn_playable") < 0)) __PYX_ERR(0, 305, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "turn_playable") < 0)) __PYX_ERR(0, 318, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
-      goto __pyx_L5_argtuple_error;
     } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
     }
-    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 306, __pyx_L3_error)
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 306, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 306, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 319, __pyx_L3_error)
+    if (values[1]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 319, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[2]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 319, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 305, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("turn_playable", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 318, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.turn_playable", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4666,21 +5038,27 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_19turn_playable(PyObject
 static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_18turn_playable(struct BitBoardCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("turn_playable", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_7bitcalc_BitBoardC->turn_playable(__pyx_v_self, __pyx_v_turn, 1, &__pyx_t_2); 
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.turn_playable", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4689,7 +5067,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_18turn_playable(struct B
   return __pyx_r;
 }
 
-/* "bitboard/bitcalc.pyx":324
+/* "bitboard/bitcalc.pyx":338
  *         return reversible != 0
  * 
  *     cpdef (uint64_t, uint64_t) return_board(self):             # <<<<<<<<<<<<<<
@@ -4719,7 +5097,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_return_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_return_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_7bitcalc_9BitBoardC_21return_board)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -4735,10 +5113,10 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 338, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 324, __pyx_L1_error)
+        __pyx_t_5 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 338, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4757,7 +5135,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
     #endif
   }
 
-  /* "bitboard/bitcalc.pyx":325
+  /* "bitboard/bitcalc.pyx":339
  * 
  *     cpdef (uint64_t, uint64_t) return_board(self):
  *         return self._black_board, self._white_board             # <<<<<<<<<<<<<<
@@ -4769,7 +5147,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
   __pyx_r = __pyx_t_5;
   goto __pyx_L0;
 
-  /* "bitboard/bitcalc.pyx":324
+  /* "bitboard/bitcalc.pyx":338
  *         return reversible != 0
  * 
  *     cpdef (uint64_t, uint64_t) return_board(self):             # <<<<<<<<<<<<<<
@@ -4812,7 +5190,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_20return_board(struct Bi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("return_board", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8bitboard_7bitcalc_9BitBoardC_return_board(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8bitboard_7bitcalc_9BitBoardC_return_board(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4829,7 +5207,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_20return_board(struct Bi
   return __pyx_r;
 }
 
-/* "bitboard/bitcalc.pyx":327
+/* "bitboard/bitcalc.pyx":341
  *         return self._black_board, self._white_board
  * 
  *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):             # <<<<<<<<<<<<<<
@@ -4861,10 +5239,10 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_return_player_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_return_player_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_7bitcalc_9BitBoardC_23return_player_board)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -4880,10 +5258,10 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
         __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_6 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 327, __pyx_L1_error)
+        __pyx_t_6 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 341, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_6;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4902,7 +5280,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
     #endif
   }
 
-  /* "bitboard/bitcalc.pyx":328
+  /* "bitboard/bitcalc.pyx":342
  * 
  *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):
  *         if turn == 0:             # <<<<<<<<<<<<<<
@@ -4912,7 +5290,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
   __pyx_t_7 = ((__pyx_v_turn == 0) != 0);
   if (__pyx_t_7) {
 
-    /* "bitboard/bitcalc.pyx":329
+    /* "bitboard/bitcalc.pyx":343
  *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):
  *         if turn == 0:
  *             return self._black_board, self._white_board             # <<<<<<<<<<<<<<
@@ -4924,7 +5302,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
     __pyx_r = __pyx_t_6;
     goto __pyx_L0;
 
-    /* "bitboard/bitcalc.pyx":328
+    /* "bitboard/bitcalc.pyx":342
  * 
  *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):
  *         if turn == 0:             # <<<<<<<<<<<<<<
@@ -4933,7 +5311,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
  */
   }
 
-  /* "bitboard/bitcalc.pyx":331
+  /* "bitboard/bitcalc.pyx":345
  *             return self._black_board, self._white_board
  *         else:
  *             return self._white_board, self._black_board             # <<<<<<<<<<<<<<
@@ -4947,7 +5325,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_7bi
     goto __pyx_L0;
   }
 
-  /* "bitboard/bitcalc.pyx":327
+  /* "bitboard/bitcalc.pyx":341
  *         return self._black_board, self._white_board
  * 
  *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):             # <<<<<<<<<<<<<<
@@ -4980,7 +5358,7 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_23return_player_board(Py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("return_player_board (wrapper)", 0);
   assert(__pyx_arg_turn); {
-    __pyx_v_turn = __Pyx_PyInt_As_int(__pyx_arg_turn); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 327, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_int(__pyx_arg_turn); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 341, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5004,7 +5382,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_22return_player_board(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("return_player_board", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8bitboard_7bitcalc_9BitBoardC_return_player_board(__pyx_v_self, __pyx_v_turn, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8bitboard_7bitcalc_9BitBoardC_return_player_board(__pyx_v_self, __pyx_v_turn, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5021,7 +5399,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_22return_player_board(st
   return __pyx_r;
 }
 
-/* "bitboard/bitcalc.pyx":333
+/* "bitboard/bitcalc.pyx":347
  *             return self._white_board, self._black_board
  * 
  *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
@@ -5054,13 +5432,13 @@ static PyObject *__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(struct BitBoar
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 333, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_7bitcalc_9BitBoardC_25load_board)) {
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 333, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 333, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 347, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -5078,7 +5456,7 @@ static PyObject *__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(struct BitBoar
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 333, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5088,7 +5466,7 @@ static PyObject *__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(struct BitBoar
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 333, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5096,7 +5474,7 @@ static PyObject *__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(struct BitBoar
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 333, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 347, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -5107,7 +5485,7 @@ static PyObject *__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(struct BitBoar
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 333, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -5130,7 +5508,7 @@ static PyObject *__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(struct BitBoar
     #endif
   }
 
-  /* "bitboard/bitcalc.pyx":334
+  /* "bitboard/bitcalc.pyx":348
  * 
  *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):
  *         self._black_board = black_board             # <<<<<<<<<<<<<<
@@ -5138,14 +5516,14 @@ static PyObject *__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(struct BitBoar
  */
   __pyx_v_self->_black_board = __pyx_v_black_board;
 
-  /* "bitboard/bitcalc.pyx":335
+  /* "bitboard/bitcalc.pyx":349
  *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):
  *         self._black_board = black_board
  *         self._white_board = white_board             # <<<<<<<<<<<<<<
  */
   __pyx_v_self->_white_board = __pyx_v_white_board;
 
-  /* "bitboard/bitcalc.pyx":333
+  /* "bitboard/bitcalc.pyx":347
  *             return self._white_board, self._black_board
  * 
  *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
@@ -5206,11 +5584,11 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_25load_board(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("load_board", 1, 2, 2, 1); __PYX_ERR(0, 333, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("load_board", 1, 2, 2, 1); __PYX_ERR(0, 347, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "load_board") < 0)) __PYX_ERR(0, 333, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "load_board") < 0)) __PYX_ERR(0, 347, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5218,12 +5596,12 @@ static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_25load_board(PyObject *_
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 333, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 333, __pyx_L3_error)
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 347, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 347, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("load_board", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 333, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("load_board", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 347, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.load_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5245,7 +5623,7 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_24load_board(struct BitB
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("load_board", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 333, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5258,6 +5636,334 @@ static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_24load_board(struct BitB
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitcalc.pyx":15
+ * 
+ *     # Class variables.
+ *     cdef public uint64_t BLACK             # <<<<<<<<<<<<<<
+ *     cdef public uint64_t WHITE
+ *     cdef public uint64_t INIT_BLACK
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK___get__(((struct BitBoardCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK___get__(struct BitBoardCObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.BLACK.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK_2__set__(((struct BitBoardCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5BLACK_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  std::uint64_t __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_v_self->BLACK = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.BLACK.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitcalc.pyx":16
+ *     # Class variables.
+ *     cdef public uint64_t BLACK
+ *     cdef public uint64_t WHITE             # <<<<<<<<<<<<<<
+ *     cdef public uint64_t INIT_BLACK
+ *     cdef public uint64_t INIT_WHITE
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE___get__(((struct BitBoardCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE___get__(struct BitBoardCObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->WHITE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.WHITE.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE_2__set__(((struct BitBoardCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_5WHITE_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  std::uint64_t __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_v_self->WHITE = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.WHITE.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitcalc.pyx":17
+ *     cdef public uint64_t BLACK
+ *     cdef public uint64_t WHITE
+ *     cdef public uint64_t INIT_BLACK             # <<<<<<<<<<<<<<
+ *     cdef public uint64_t INIT_WHITE
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK___get__(((struct BitBoardCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK___get__(struct BitBoardCObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->INIT_BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.INIT_BLACK.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_2__set__(((struct BitBoardCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  std::uint64_t __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_v_self->INIT_BLACK = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.INIT_BLACK.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitcalc.pyx":18
+ *     cdef public uint64_t WHITE
+ *     cdef public uint64_t INIT_BLACK
+ *     cdef public uint64_t INIT_WHITE             # <<<<<<<<<<<<<<
+ * 
+ *     # Instance variables.
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE___get__(((struct BitBoardCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE___get__(struct BitBoardCObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->INIT_WHITE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.INIT_WHITE.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_2__set__(((struct BitBoardCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_2__set__(struct BitBoardCObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  std::uint64_t __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_v_self->INIT_WHITE = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("bitboard.bitcalc.BitBoardC.INIT_WHITE.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -5567,6 +6273,62 @@ static void __pyx_tp_dealloc_8bitboard_7bitcalc_BitBoardC(PyObject *o) {
   (*Py_TYPE(o)->tp_free)(o);
 }
 
+static PyObject *__pyx_getprop_8bitboard_7bitcalc_9BitBoardC_BLACK(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_1__get__(o);
+}
+
+static int __pyx_setprop_8bitboard_7bitcalc_9BitBoardC_BLACK(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5BLACK_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_8bitboard_7bitcalc_9BitBoardC_WHITE(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_1__get__(o);
+}
+
+static int __pyx_setprop_8bitboard_7bitcalc_9BitBoardC_WHITE(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_5WHITE_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_8bitboard_7bitcalc_9BitBoardC_INIT_BLACK(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_1__get__(o);
+}
+
+static int __pyx_setprop_8bitboard_7bitcalc_9BitBoardC_INIT_BLACK(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_BLACK_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_8bitboard_7bitcalc_9BitBoardC_INIT_WHITE(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_1__get__(o);
+}
+
+static int __pyx_setprop_8bitboard_7bitcalc_9BitBoardC_INIT_WHITE(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_10INIT_WHITE_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
 static PyObject *__pyx_getprop_8bitboard_7bitcalc_9BitBoardC__black_board(PyObject *o, CYTHON_UNUSED void *x) {
   return __pyx_pw_8bitboard_7bitcalc_9BitBoardC_12_black_board_1__get__(o);
 }
@@ -5613,6 +6375,10 @@ static PyMethodDef __pyx_methods_8bitboard_7bitcalc_BitBoardC[] = {
 };
 
 static struct PyGetSetDef __pyx_getsets_8bitboard_7bitcalc_BitBoardC[] = {
+  {(char *)"BLACK", __pyx_getprop_8bitboard_7bitcalc_9BitBoardC_BLACK, __pyx_setprop_8bitboard_7bitcalc_9BitBoardC_BLACK, (char *)0, 0},
+  {(char *)"WHITE", __pyx_getprop_8bitboard_7bitcalc_9BitBoardC_WHITE, __pyx_setprop_8bitboard_7bitcalc_9BitBoardC_WHITE, (char *)0, 0},
+  {(char *)"INIT_BLACK", __pyx_getprop_8bitboard_7bitcalc_9BitBoardC_INIT_BLACK, __pyx_setprop_8bitboard_7bitcalc_9BitBoardC_INIT_BLACK, (char *)0, 0},
+  {(char *)"INIT_WHITE", __pyx_getprop_8bitboard_7bitcalc_9BitBoardC_INIT_WHITE, __pyx_setprop_8bitboard_7bitcalc_9BitBoardC_INIT_WHITE, (char *)0, 0},
   {(char *)"_black_board", __pyx_getprop_8bitboard_7bitcalc_9BitBoardC__black_board, __pyx_setprop_8bitboard_7bitcalc_9BitBoardC__black_board, (char *)0, 0},
   {(char *)"_white_board", __pyx_getprop_8bitboard_7bitcalc_9BitBoardC__white_board, __pyx_setprop_8bitboard_7bitcalc_9BitBoardC__white_board, (char *)0, 0},
   {0, 0, 0, 0, 0}
@@ -5770,7 +6536,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 136, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -5855,12 +6621,12 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtabptr_8bitboard_7bitcalc_BitBoardC = &__pyx_vtable_8bitboard_7bitcalc_BitBoardC;
   __pyx_vtable_8bitboard_7bitcalc_BitBoardC._bit_count = (std::uint64_t (*)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC__bit_count;
   __pyx_vtable_8bitboard_7bitcalc_BitBoardC._check_surround = (std::uint64_t (*)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC__check_surround;
-  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.simulate_play = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct BitBoardCObject *, int, std::uint64_t, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_simulate_play;
+  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.simulate_play = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct BitBoardCObject *, int, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play *__pyx_optional_args))__pyx_f_8bitboard_7bitcalc_9BitBoardC_simulate_play;
   __pyx_vtable_8bitboard_7bitcalc_BitBoardC.update_board = (void (*)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_update_board;
-  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.count_disks = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_count_disks;
-  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.reversible_area = (std::uint64_t (*)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area;
-  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.is_reversible = (int (*)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible;
-  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.turn_playable = (int (*)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable;
+  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.count_disks = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct BitBoardCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks *__pyx_optional_args))__pyx_f_8bitboard_7bitcalc_9BitBoardC_count_disks;
+  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.reversible_area = (std::uint64_t (*)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area *__pyx_optional_args))__pyx_f_8bitboard_7bitcalc_9BitBoardC_reversible_area;
+  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.is_reversible = (int (*)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible *__pyx_optional_args))__pyx_f_8bitboard_7bitcalc_9BitBoardC_is_reversible;
+  __pyx_vtable_8bitboard_7bitcalc_BitBoardC.turn_playable = (int (*)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable *__pyx_optional_args))__pyx_f_8bitboard_7bitcalc_9BitBoardC_turn_playable;
   __pyx_vtable_8bitboard_7bitcalc_BitBoardC.return_board = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct BitBoardCObject *, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_return_board;
   __pyx_vtable_8bitboard_7bitcalc_BitBoardC.return_player_board = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct BitBoardCObject *, int, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_return_player_board;
   __pyx_vtable_8bitboard_7bitcalc_BitBoardC.load_board = (PyObject *(*)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_7bitcalc_9BitBoardC_load_board;

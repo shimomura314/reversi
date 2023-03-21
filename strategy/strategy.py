@@ -4,7 +4,6 @@ from bitboard import OthelloGame
 
 from .maximize import Maximize
 from .minimize import Minimize
-from .minmax import Minmax
 from .minmaxcalc import MinmaxC
 from .random import Random
 

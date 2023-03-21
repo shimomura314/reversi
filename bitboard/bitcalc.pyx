@@ -12,10 +12,10 @@ cdef extern from "<cstdint>" namespace "std":
 cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
 
     # Class variables.
-    cdef uint64_t BLACK
-    cdef uint64_t WHITE
-    cdef uint64_t INIT_BLACK
-    cdef uint64_t INIT_WHITE
+    cdef public uint64_t BLACK
+    cdef public uint64_t WHITE
+    cdef public uint64_t INIT_BLACK
+    cdef public uint64_t INIT_WHITE
 
     # Instance variables.
     cdef public uint64_t _black_board
@@ -36,19 +36,19 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
     cpdef (uint64_t, uint64_t) simulate_play(
         self, int turn, uint64_t put_loc,
-        uint64_t black_board, uint64_t white_board,
+        uint64_t black_board = 0, uint64_t white_board = 0,
         )
     cpdef void update_board(self, uint64_t black_board, uint64_t white_board)
     cpdef (uint64_t, uint64_t) count_disks(
-            self, uint64_t black_board, uint64_t white_board)
+            self, uint64_t black_board = 0, uint64_t white_board = 0)
     cpdef uint64_t reversible_area(
-        self, uint64_t turn, uint64_t black_board, uint64_t white_board)
+        self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0)
     cpdef bint is_reversible(
         self, uint64_t turn, uint64_t put_loc,
-        uint64_t black_board, uint64_t white_board
+        uint64_t black_board = 0, uint64_t white_board = 0,
         )
     cpdef bint turn_playable(
-        self, uint64_t turn, uint64_t black_board, uint64_t white_board)
+        self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0)
     cpdef (uint64_t, uint64_t) return_board(self)
     cpdef (uint64_t, uint64_t) return_player_board(self, int turn)
     cpdef load_board(self, uint64_t black_board, uint64_t white_board)
@@ -107,7 +107,7 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
 
     cpdef (uint64_t, uint64_t) simulate_play(
             self, int turn, uint64_t put_loc,
-            uint64_t black_board, uint64_t white_board,
+            uint64_t black_board = 0, uint64_t white_board = 0,
             ):
         """Simulate the next turn.
 
@@ -124,6 +124,10 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
         -------
         reversed_black_board, reversed_white_board : list of int
         """
+        if black_board  == 0 and white_board == 0:
+            black_board = self._black_board
+            white_board = self._white_board
+
         cdef uint64_t reverse_bit = 0
         cdef uint64_t reverse_bit_
         cdef uint64_t border_bit
@@ -168,7 +172,7 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
         self._white_board = white_board
 
     cpdef (uint64_t, uint64_t) count_disks(
-            self, uint64_t black_board, uint64_t white_board):
+            self, uint64_t black_board = 0, uint64_t white_board = 0):
         """Returns black and white's disk number.
 
         Parameters
@@ -176,10 +180,14 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
         black_board, white_board : int (optional)
             64-bit intager.
         """
+        if black_board  == 0 and white_board == 0:
+            black_board = self._black_board
+            white_board = self._white_board
+
         return self._bit_count(black_board), self._bit_count(white_board)
 
     cpdef uint64_t reversible_area(
-            self, uint64_t turn, uint64_t black_board, uint64_t white_board):
+            self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
         """Returns reversible area.
 
         Parameters
@@ -194,6 +202,10 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
         reversible : uint64_t
             Represents board of reversible positions.
         """
+        if black_board  == 0 and white_board == 0:
+            black_board = self._black_board
+            white_board = self._white_board
+
         cdef uint64_t *CONST = [
             0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
         ]
@@ -279,7 +291,7 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
 
     cpdef bint is_reversible(
             self, uint64_t turn, uint64_t put_loc,
-            uint64_t black_board, uint64_t white_board
+            uint64_t black_board = 0, uint64_t white_board = 0,
             ):
         """Return wheather you can put disk on (x,y) or not.
 
@@ -296,14 +308,15 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
         -------
         is_reversible : bool
         """
-        if black_board is None:
+        if black_board  == 0 and white_board == 0:
             black_board = self._black_board
             white_board = self._white_board
+
         reversible = self.reversible_area(turn, black_board, white_board)
         return (put_loc & reversible) == put_loc
 
     cpdef bint turn_playable(
-            self, uint64_t turn, uint64_t black_board, uint64_t white_board):
+            self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
         """Return wheather you can put disk or not.
 
         Parameters
@@ -315,9 +328,10 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
         black_board, white_board : int (optional)
             64-bit intager.
         """
-        if black_board is None:
+        if black_board  == 0 and white_board == 0:
             black_board = self._black_board
             white_board = self._white_board
+
         reversible = self.reversible_area(turn, black_board, white_board)
         return reversible != 0
 
