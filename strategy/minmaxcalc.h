@@ -6,7 +6,7 @@
 #include "Python.h"
 struct MinmaxCObject;
 
-/* "strategy/minmaxcalc.pyx":19
+/* "strategy/minmaxcalc.pyx":27
  * 
  * 
  * cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:             # <<<<<<<<<<<<<<

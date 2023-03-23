@@ -11,12 +11,12 @@ from bitboard import OthelloGame
 from matching import TrueSkill
 from strategy import Strategy
 
-repeat = 20
+repeat = 5
 STRAT = [
     "random",
-    "maximize",
-    "minimize",
-    "min-max short",
+    # "maximize",
+    # "minimize",
+    # "min-max short",
     "min-max",
     "min-max long",
 ]
@@ -146,6 +146,6 @@ def runby1():
 
 
 if __name__ == "__main__":
-    runMP(plot=True)
+    # runMP(plot=True)
     # runby1()
-    # cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)
+    cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)

@@ -29,7 +29,8 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cdef public int turn
     cdef public uint64_t reversible
     cdef public str result
-    cdef int _disk_count[2]
+    cdef int _count_player
+    cdef int _count_opponent
     cdef int _pass_cnt[2]
     cdef bint _player_auto
     cdef object _strategy_player
@@ -40,7 +41,7 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     # Declaration of methods.
     cpdef void play_turn(self, int put_loc)
     cpdef (int, int) update_count(self)
-    cpdef bint judge_game(self, list disk_count = [])
+    cpdef bint judge_game(self, int player = 0, int opponent = 0)
     cpdef void auto_mode(self, bint automode = True)
     cpdef void load_strategy(self, object Strategy)
     cpdef void change_strategy(self, str strategy, bint is_player=False)
@@ -77,7 +78,8 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         self.result = "start"
 
         # Counter.
-        self._disk_count = [2, 2]
+        self._count_player = 2
+        self._count_opponent = 2
         self._pass_cnt = [0, 0]  # [white, black]
 
         # Mode.
@@ -127,27 +129,30 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         cdef int count_board[2]
         count_board = self.board.count_disks()
         if self._player_clr == 0:
-            self._disk_count = [count_board[0], count_board[1]]
+            self._count_player = count_board[0]
+            self._count_opponent = count_board[1]
             return count_board[0], count_board[1]
         else:
-            self._disk_count = [count_board[1], count_board[0]]
+            self._count_player = count_board[1]
+            self._count_opponent = count_board[0]
             return count_board[1], count_board[0]
 
-    cpdef bint judge_game(self, list disk_count = []):
+    cpdef bint judge_game(self, int player = 0, int opponent = 0):
         """Judgement of game."""
-        if disk_count == []:
-            disk_count = self._disk_count
+        if player == 0 and opponent == 0:
+            player = self._count_player
+            opponent = self._count_opponent
 
         # if self._pass_cnt >= 2 or sum(disk_count) == 64:
         cdef uint64_t black, white
         black = self.board.reversible_area(0)
         white = self.board.reversible_area(1)
-        if (black == 0 and white == 0) or sum(disk_count) == 64:
-            if disk_count[0] == disk_count[1]:
+        if (black == 0 and white == 0) or (player+opponent) == 64:
+            if player == opponent:
                 self.result = "DRAW"
-            if disk_count[0] > disk_count[1]:
+            if player > opponent:
                 self.result = "WIN"
-            if disk_count[0] < disk_count[1]:
+            if player < opponent:
                 self.result = "LOSE"
             return True
         return False

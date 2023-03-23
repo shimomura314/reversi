@@ -23,7 +23,8 @@ struct OthelloGameCObject {
   int turn;
   std::uint64_t reversible;
   PyObject *result;
-  int _disk_count[2];
+  int _count_player;
+  int _count_opponent;
   int _pass_cnt[2];
   int _player_auto;
   PyObject *_strategy_player;
