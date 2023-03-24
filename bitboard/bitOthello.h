@@ -18,7 +18,10 @@ struct OthelloGameCObject {
   struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *__pyx_vtab;
   int BLACK;
   int WHITE;
-  PyObject *board;
+  std::uint64_t INIT_BLACK;
+  std::uint64_t INIT_WHITE;
+  std::uint64_t _black_board;
+  std::uint64_t _white_board;
   int _player_clr;
   int turn;
   std::uint64_t reversible;

@@ -482,7 +482,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         cdef uint64_t new_black_board
         cdef uint64_t new_white_board
 
-        black_board, white_board = othello.board.return_board()
+        black_board, white_board = othello.return_board()
         cdef int turn = othello.turn
         self._player_clr = turn
         self._count_pass = 0

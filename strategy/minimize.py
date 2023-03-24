@@ -17,9 +17,9 @@ class Minimize:
             if (pow(2, num)) & othello.reversible:
                 candidates.append(num)
         for candidate in candidates:
-            new_board = othello.board.simulate_play(
+            new_board = othello.simulate_play(
                 othello.turn, candidate)
-            counter = othello.board.count_disks(*new_board)
+            counter = othello.count_disks(*new_board)
             if min_merit > counter[turn]:
                 min_strategy = [candidate]
                 min_merit = counter[turn]

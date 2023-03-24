@@ -980,23 +980,26 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "bitboard\\bitothello.pyx",
-  "bitboard\\bitothello.pxd",
   "stringsource",
-  "bitboard\\bitcalc.pxd",
+  "bitboard\\bitothello.pxd",
 };
 
 /*--- Type declarations ---*/
-struct BitBoardCObject;
 struct OthelloGameCObject;
 struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
 typedef struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play;
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks;
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area;
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible;
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play;
+struct __pyx_ctuple_int__and_int;
+typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy;
 
-/* "bitcalc.pxd":20
+/* "bitboard/bitothello.pxd":32
  *     cpdef uint64_t _bit_count(self, uint64_t x)
  *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
  *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
@@ -1007,82 +1010,69 @@ struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t {
   std::uint64_t f0;
   std::uint64_t f1;
 };
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play {
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play {
   int __pyx_n;
   std::uint64_t black_board;
   std::uint64_t white_board;
 };
 
-/* "bitcalc.pxd":25
+/* "bitboard/bitothello.pxd":37
  *         )
  *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board)
- *     cpdef (uint64_t, uint64_t) count_disks(             # <<<<<<<<<<<<<<
+ *     cpdef (int, int) count_disks(             # <<<<<<<<<<<<<<
  *             self, uint64_t black_board=?, uint64_t white_board=?)
  *     cpdef uint64_t reversible_area(
  */
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks {
+struct __pyx_ctuple_int__and_int {
+  int f0;
+  int f1;
+};
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks {
   int __pyx_n;
   std::uint64_t black_board;
   std::uint64_t white_board;
 };
 
-/* "bitcalc.pxd":27
- *     cpdef (uint64_t, uint64_t) count_disks(
+/* "bitboard/bitothello.pxd":39
+ *     cpdef (int, int) count_disks(
  *             self, uint64_t black_board=?, uint64_t white_board=?)
  *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
  *         self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
  *     cpdef bint is_reversible(
  */
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area {
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area {
   int __pyx_n;
   std::uint64_t black_board;
   std::uint64_t white_board;
 };
 
-/* "bitcalc.pxd":29
+/* "bitboard/bitothello.pxd":41
  *     cpdef uint64_t reversible_area(
  *         self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
  *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
  *         self, uint64_t turn, uint64_t put_loc,
  *         uint64_t black_board=?, uint64_t white_board=?,
  */
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible {
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible {
   int __pyx_n;
   std::uint64_t black_board;
   std::uint64_t white_board;
 };
 
-/* "bitcalc.pxd":33
+/* "bitboard/bitothello.pxd":45
  *         uint64_t black_board=?, uint64_t white_board=?,
  *         )
  *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
  *         self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
  *     cpdef (uint64_t, uint64_t) return_board(self)
  */
-struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable {
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable {
   int __pyx_n;
   std::uint64_t black_board;
   std::uint64_t white_board;
 };
-struct __pyx_ctuple_int__and_int;
-typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
-struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game;
-struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode;
-struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy;
 
-/* "bitboard/bitothello.pxd":26
- *     # Declaration of methods.
- *     cpdef void play_turn(self, int put_loc)
- *     cpdef (int, int) update_count(self)             # <<<<<<<<<<<<<<
- *     cpdef bint judge_game(self, int player=?, int opponent=?)
- *     cpdef void auto_mode(self, bint automode=?)
- */
-struct __pyx_ctuple_int__and_int {
-  int f0;
-  int f1;
-};
-
-/* "bitboard/bitothello.pxd":27
+/* "bitboard/bitothello.pxd":54
  *     cpdef void play_turn(self, int put_loc)
  *     cpdef (int, int) update_count(self)
  *     cpdef bint judge_game(self, int player=?, int opponent=?)             # <<<<<<<<<<<<<<
@@ -1095,7 +1085,7 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game {
   int opponent;
 };
 
-/* "bitboard/bitothello.pxd":28
+/* "bitboard/bitothello.pxd":55
  *     cpdef (int, int) update_count(self)
  *     cpdef bint judge_game(self, int player=?, int opponent=?)
  *     cpdef void auto_mode(self, bint automode=?)             # <<<<<<<<<<<<<<
@@ -1107,7 +1097,7 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode {
   int automode;
 };
 
-/* "bitboard/bitothello.pxd":30
+/* "bitboard/bitothello.pxd":57
  *     cpdef void auto_mode(self, bint automode=?)
  *     cpdef void load_strategy(self, object Strategy)
  *     cpdef void change_strategy(self, str strategy, bint is_player=?)             # <<<<<<<<<<<<<<
@@ -1118,26 +1108,6 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy {
   int __pyx_n;
   int is_player;
 };
-
-/* "bitcalc.pxd":5
- * 
- * 
- * cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:             # <<<<<<<<<<<<<<
- * 
- *     # Class variables.
- */
-struct BitBoardCObject {
-  PyObject_HEAD
-  struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *__pyx_vtab;
-  std::uint64_t BLACK;
-  std::uint64_t WHITE;
-  std::uint64_t INIT_BLACK;
-  std::uint64_t INIT_WHITE;
-  std::uint64_t _black_board;
-  std::uint64_t _white_board;
-};
-
-__PYX_EXTERN_C DL_EXPORT(PyTypeObject) BitBoardCType;
 
 /* "bitboard/bitothello.pxd":5
  * 
@@ -1151,7 +1121,10 @@ struct OthelloGameCObject {
   struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *__pyx_vtab;
   int BLACK;
   int WHITE;
-  PyObject *board;
+  std::uint64_t INIT_BLACK;
+  std::uint64_t INIT_WHITE;
+  std::uint64_t _black_board;
+  std::uint64_t _white_board;
   int _player_clr;
   int turn;
   std::uint64_t reversible;
@@ -1168,42 +1141,28 @@ struct OthelloGameCObject {
 
 __PYX_EXTERN_C DL_EXPORT(PyTypeObject) OthelloGameCType;
 
-__PYX_EXTERN_C DL_EXPORT(PyTypeObject) BitBoardCType;
-
-/* "bitcalc.pxd":5
- * 
- * 
- * cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:             # <<<<<<<<<<<<<<
- * 
- *     # Class variables.
- */
-
-struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC {
-  std::uint64_t (*_bit_count)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch);
-  std::uint64_t (*_check_surround)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
-  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*simulate_play)(struct BitBoardCObject *, int, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_simulate_play *__pyx_optional_args);
-  void (*update_board)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
-  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*count_disks)(struct BitBoardCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_count_disks *__pyx_optional_args);
-  std::uint64_t (*reversible_area)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_reversible_area *__pyx_optional_args);
-  int (*is_reversible)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_is_reversible *__pyx_optional_args);
-  int (*turn_playable)(struct BitBoardCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_7bitcalc_9BitBoardC_turn_playable *__pyx_optional_args);
-  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_board)(struct BitBoardCObject *, int __pyx_skip_dispatch);
-  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_player_board)(struct BitBoardCObject *, int, int __pyx_skip_dispatch);
-  PyObject *(*load_board)(struct BitBoardCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
-};
-static struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *__pyx_vtabptr_8bitboard_7bitcalc_BitBoardC;
-
 __PYX_EXTERN_C DL_EXPORT(PyTypeObject) OthelloGameCType;
 
-/* "bitboard/bitothello.pyx":17
+/* "bitboard/bitothello.pyx":15
  * 
  * 
  * cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType]:             # <<<<<<<<<<<<<<
  * 
- *     def __init__(self, str player_clr="black"):
+ *     def __cinit__(self):
  */
 
 struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC {
+  std::uint64_t (*_bit_count)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch);
+  std::uint64_t (*_check_surround)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*simulate_play)(struct OthelloGameCObject *, int, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play *__pyx_optional_args);
+  void (*update_board)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
+  __pyx_ctuple_int__and_int (*count_disks)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks *__pyx_optional_args);
+  std::uint64_t (*reversible_area)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area *__pyx_optional_args);
+  int (*is_reversible)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible *__pyx_optional_args);
+  int (*turn_playable)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable *__pyx_optional_args);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_board)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_player_board)(struct OthelloGameCObject *, int, int __pyx_skip_dispatch);
+  PyObject *(*load_board)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
   void (*play_turn)(struct OthelloGameCObject *, int, int __pyx_skip_dispatch);
   __pyx_ctuple_int__and_int (*update_count)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
   int (*judge_game)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game *__pyx_optional_args);
@@ -1293,6 +1252,13 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
 /* GetBuiltinName.proto */
 static PyObject *__Pyx_GetBuiltinName(PyObject *name);
 
+/* RaiseArgTupleInvalid.proto */
+static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
+    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
+
+/* KeywordStringCheck.proto */
+static int __Pyx_CheckKeywordStrings(PyObject *kwdict, const char* function_name, int kw_allowed);
+
 /* RaiseDoubleKeywords.proto */
 static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
 
@@ -1301,65 +1267,11 @@ static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
     PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
     const char* function_name);
 
-/* RaiseArgTupleInvalid.proto */
-static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
-    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
-
 /* ArgTypeTest.proto */
 #define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
     ((likely((Py_TYPE(obj) == type) | (none_allowed && (obj == Py_None)))) ? 1 :\
         __Pyx__ArgTypeTest(obj, type, name, exact))
 static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
-
-/* PyFunctionFastCall.proto */
-#if CYTHON_FAST_PYCALL
-#define __Pyx_PyFunction_FastCall(func, args, nargs)\
-    __Pyx_PyFunction_FastCallDict((func), (args), (nargs), NULL)
-#if 1 || PY_VERSION_HEX < 0x030600B1
-static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs);
-#else
-#define __Pyx_PyFunction_FastCallDict(func, args, nargs, kwargs) _PyFunction_FastCallDict(func, args, nargs, kwargs)
-#endif
-#define __Pyx_BUILD_ASSERT_EXPR(cond)\
-    (sizeof(char [1 - 2*!(cond)]) - 1)
-#ifndef Py_MEMBER_SIZE
-#define Py_MEMBER_SIZE(type, member) sizeof(((type *)0)->member)
-#endif
-#if CYTHON_FAST_PYCALL
-  static size_t __pyx_pyframe_localsplus_offset = 0;
-  #include "frameobject.h"
-#if PY_VERSION_HEX >= 0x030b00a6
-  #ifndef Py_BUILD_CORE
-    #define Py_BUILD_CORE 1
-  #endif
-  #include "internal/pycore_frame.h"
-#endif
-  #define __Pxy_PyFrame_Initialize_Offsets()\
-    ((void)__Pyx_BUILD_ASSERT_EXPR(sizeof(PyFrameObject) == offsetof(PyFrameObject, f_localsplus) + Py_MEMBER_SIZE(PyFrameObject, f_localsplus)),\
-     (void)(__pyx_pyframe_localsplus_offset = ((size_t)PyFrame_Type.tp_basicsize) - Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
-  #define __Pyx_PyFrame_GetLocalsplus(frame)\
-    (assert(__pyx_pyframe_localsplus_offset), (PyObject **)(((char *)(frame)) + __pyx_pyframe_localsplus_offset))
-#endif // CYTHON_FAST_PYCALL
-#endif
-
-/* PyObjectCall.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
-#else
-#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
-#endif
-
-/* PyObjectCallMethO.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg);
-#endif
-
-/* PyObjectCallNoArg.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
-#else
-#define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
-#endif
 
 /* IncludeStringH.proto */
 #include <string.h>
@@ -1424,8 +1336,51 @@ static CYTHON_INLINE PyObject *__Pyx_PyCFunction_FastCall(PyObject *func, PyObje
 #define __Pyx_PyCFunction_FastCall(func, args, nargs)  (assert(0), NULL)
 #endif
 
+/* PyFunctionFastCall.proto */
+#if CYTHON_FAST_PYCALL
+#define __Pyx_PyFunction_FastCall(func, args, nargs)\
+    __Pyx_PyFunction_FastCallDict((func), (args), (nargs), NULL)
+#if 1 || PY_VERSION_HEX < 0x030600B1
+static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs);
+#else
+#define __Pyx_PyFunction_FastCallDict(func, args, nargs, kwargs) _PyFunction_FastCallDict(func, args, nargs, kwargs)
+#endif
+#define __Pyx_BUILD_ASSERT_EXPR(cond)\
+    (sizeof(char [1 - 2*!(cond)]) - 1)
+#ifndef Py_MEMBER_SIZE
+#define Py_MEMBER_SIZE(type, member) sizeof(((type *)0)->member)
+#endif
+#if CYTHON_FAST_PYCALL
+  static size_t __pyx_pyframe_localsplus_offset = 0;
+  #include "frameobject.h"
+#if PY_VERSION_HEX >= 0x030b00a6
+  #ifndef Py_BUILD_CORE
+    #define Py_BUILD_CORE 1
+  #endif
+  #include "internal/pycore_frame.h"
+#endif
+  #define __Pxy_PyFrame_Initialize_Offsets()\
+    ((void)__Pyx_BUILD_ASSERT_EXPR(sizeof(PyFrameObject) == offsetof(PyFrameObject, f_localsplus) + Py_MEMBER_SIZE(PyFrameObject, f_localsplus)),\
+     (void)(__pyx_pyframe_localsplus_offset = ((size_t)PyFrame_Type.tp_basicsize) - Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
+  #define __Pyx_PyFrame_GetLocalsplus(frame)\
+    (assert(__pyx_pyframe_localsplus_offset), (PyObject **)(((char *)(frame)) + __pyx_pyframe_localsplus_offset))
+#endif // CYTHON_FAST_PYCALL
+#endif
+
+/* PyObjectCall.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
+#else
+#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
+#endif
+
 /* PyObjectCall2Args.proto */
 static CYTHON_UNUSED PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2);
+
+/* PyObjectCallMethO.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg);
+#endif
 
 /* PyObjectCallOneArg.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg);
@@ -1469,20 +1424,20 @@ static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject 
 /* RaiseException.proto */
 static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
 
+/* WriteUnraisableException.proto */
+static void __Pyx_WriteUnraisable(const char *name, int clineno,
+                                  int lineno, const char *filename,
+                                  int full_traceback, int nogil);
+
+/* PyObjectCallNoArg.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
+#else
+#define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
+#endif
+
 /* pow2.proto */
 #define __Pyx_PyNumber_Power2(a, b) PyNumber_Power(a, b, Py_None)
-
-/* RaiseTooManyValuesToUnpack.proto */
-static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected);
-
-/* RaiseNeedMoreValuesToUnpack.proto */
-static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index);
-
-/* IterFinish.proto */
-static CYTHON_INLINE int __Pyx_IterFinish(void);
-
-/* UnpackItemEndCheck.proto */
-static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected);
 
 /* ListAppend.proto */
 #if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
@@ -1509,11 +1464,6 @@ static PyObject* __Pyx_PyObject_CallMethod1(PyObject* obj, PyObject* method_name
 
 /* append.proto */
 static CYTHON_INLINE int __Pyx_PyObject_Append(PyObject* L, PyObject* x);
-
-/* WriteUnraisableException.proto */
-static void __Pyx_WriteUnraisable(const char *name, int clineno,
-                                  int lineno, const char *filename,
-                                  int full_traceback, int nogil);
 
 /* ListCompAppend.proto */
 #if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
@@ -1579,35 +1529,6 @@ static PyObject* __Pyx__CallUnboundCMethod0(__Pyx_CachedCFunction* cfunc, PyObje
 #define __Pyx_CallUnboundCMethod0(cfunc, self)  __Pyx__CallUnboundCMethod0(cfunc, self)
 #endif
 
-/* PyErrExceptionMatches.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_PyErr_ExceptionMatches(err) __Pyx_PyErr_ExceptionMatchesInState(__pyx_tstate, err)
-static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err);
-#else
-#define __Pyx_PyErr_ExceptionMatches(err)  PyErr_ExceptionMatches(err)
-#endif
-
-/* GetAttr.proto */
-static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *, PyObject *);
-
-/* GetAttr3.proto */
-static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *, PyObject *, PyObject *);
-
-/* PySequenceContains.proto */
-static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* seq, int eq) {
-    int result = PySequence_Contains(seq, item);
-    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
-}
-
-/* Import.proto */
-static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
-
-/* ImportFrom.proto */
-static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
-
-/* HasAttr.proto */
-static CYTHON_INLINE int __Pyx_HasAttr(PyObject *, PyObject *);
-
 /* GetTopmostException.proto */
 #if CYTHON_USE_EXC_INFO_STACK
 static _PyErr_StackItem * __Pyx_PyErr_GetTopmostException(PyThreadState *tstate);
@@ -1622,6 +1543,14 @@ static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject 
 #else
 #define __Pyx_ExceptionSave(type, value, tb)   PyErr_GetExcInfo(type, value, tb)
 #define __Pyx_ExceptionReset(type, value, tb)  PyErr_SetExcInfo(type, value, tb)
+#endif
+
+/* PyErrExceptionMatches.proto */
+#if CYTHON_FAST_THREAD_STATE
+#define __Pyx_PyErr_ExceptionMatches(err) __Pyx_PyErr_ExceptionMatchesInState(__pyx_tstate, err)
+static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err);
+#else
+#define __Pyx_PyErr_ExceptionMatches(err)  PyErr_ExceptionMatches(err)
 #endif
 
 /* PyObject_GenericGetAttrNoDict.proto */
@@ -1647,19 +1576,11 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStrNoError(PyObject* obj, P
 /* SetupReduce.proto */
 static int __Pyx_setup_reduce(PyObject* type_obj);
 
-/* TypeImport.proto */
-#ifndef __PYX_HAVE_RT_ImportType_proto
-#define __PYX_HAVE_RT_ImportType_proto
-enum __Pyx_ImportType_CheckSize {
-   __Pyx_ImportType_CheckSize_Error = 0,
-   __Pyx_ImportType_CheckSize_Warn = 1,
-   __Pyx_ImportType_CheckSize_Ignore = 2
-};
-static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name, const char *class_name, size_t size, enum __Pyx_ImportType_CheckSize check_size);
-#endif
+/* Import.proto */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
-/* GetVTable.proto */
-static void* __Pyx_GetVtable(PyObject *dict);
+/* ImportFrom.proto */
+static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
 
 /* CLineInTraceback.proto */
 #ifdef CYTHON_CLINE_IN_TRACEBACK
@@ -1693,13 +1614,19 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 #endif
 
 /* FromPyCTupleUtility.proto */
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(PyObject *);
+
+/* ToPyCTupleUtility.proto */
+static PyObject* __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t);
+
+/* FromPyCTupleUtility.proto */
 static __pyx_ctuple_int__and_int __pyx_convert__from_py___pyx_ctuple_int__and_int(PyObject *);
 
 /* ToPyCTupleUtility.proto */
 static PyObject* __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_ctuple_int__and_int);
 
-/* CIntToPy.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
+/* CIntFromPy.proto */
+static CYTHON_INLINE std::uint64_t __Pyx_PyInt_As_std_3a__3a_uint64_t(PyObject *);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
@@ -1707,17 +1634,17 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_std_3a__3a_uint64_t(std::uint64_t value);
 
-/* CIntFromPy.proto */
-static CYTHON_INLINE std::uint64_t __Pyx_PyInt_As_std_3a__3a_uint64_t(PyObject *);
+/* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
 
-/* CIntToPy.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
-
 /* CIntFromPy.proto */
 static CYTHON_INLINE size_t __Pyx_PyInt_As_size_t(PyObject *);
+
+/* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* FastTypeChecks.proto */
 #if CYTHON_COMPILING_IN_CPYTHON
@@ -1738,6 +1665,17 @@ static int __Pyx_check_binary_version(void);
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
+static std::uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC__bit_count(CYTHON_UNUSED struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_x, int __pyx_skip_dispatch); /* proto*/
+static std::uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC__check_surround(CYTHON_UNUSED struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_direction, int __pyx_skip_dispatch); /* proto*/
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC_simulate_play(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play *__pyx_optional_args); /* proto*/
+static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_update_board(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
+static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_count_disks(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks *__pyx_optional_args); /* proto*/
+static std::uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC_reversible_area(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area *__pyx_optional_args); /* proto*/
+static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_is_reversible(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible *__pyx_optional_args); /* proto*/
+static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_turn_playable(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable *__pyx_optional_args); /* proto*/
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_board(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_player_board(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_turn, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_load_board(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch); /* proto*/
 static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_put_loc, int __pyx_skip_dispatch); /* proto*/
 static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_update_count(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game *__pyx_optional_args); /* proto*/
@@ -1751,16 +1689,12 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
 static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, PyObject *__pyx_v_board_log, PyObject *__pyx_v_board_back, int __pyx_skip_dispatch); /* proto*/
 
-/* Module declarations from 'bitboard.bitcalc' */
-static PyTypeObject *__pyx_ptype_8bitboard_7bitcalc_BitBoardC = 0;
-
 /* Module declarations from 'bitboard.bitothello' */
 static PyTypeObject *__pyx_ptype_8bitboard_10bitothello_OthelloGameC = 0;
-static PyObject *__pyx_f_8bitboard_10bitothello___pyx_unpickle_OthelloGameC__set_state(struct OthelloGameCObject *, PyObject *); /*proto*/
-static CYTHON_INLINE PyObject *__Pyx_carray_to_py_int(int *, Py_ssize_t); /*proto*/
-static CYTHON_INLINE PyObject *__Pyx_carray_to_tuple_int(int *, Py_ssize_t); /*proto*/
 static int __Pyx_carray_from_py_int(PyObject *, int *, Py_ssize_t); /*proto*/
 static int __Pyx_carray_from_py_int___5b_8_5d_(PyObject *, int (*)[8], Py_ssize_t); /*proto*/
+static CYTHON_INLINE PyObject *__Pyx_carray_to_py_int(int *, Py_ssize_t); /*proto*/
+static CYTHON_INLINE PyObject *__Pyx_carray_to_tuple_int(int *, Py_ssize_t); /*proto*/
 static CYTHON_INLINE PyObject *__Pyx_carray_to_py_int___5b_8_5d_(int (*)[8], Py_ssize_t); /*proto*/
 static CYTHON_INLINE PyObject *__Pyx_carray_to_tuple_int___5b_8_5d_(int (*)[8], Py_ssize_t); /*proto*/
 #define __Pyx_MODULE_NAME "bitboard.bitothello"
@@ -1769,9 +1703,9 @@ int __pyx_module_is_main_bitboard__bitothello = 0;
 
 /* Implementation of 'bitboard.bitothello' */
 static PyObject *__pyx_builtin_KeyError;
+static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_AssertionError;
 static PyObject *__pyx_builtin_ValueError;
-static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_map;
 static PyObject *__pyx_builtin_TypeError;
 static PyObject *__pyx_builtin_OverflowError;
@@ -1782,16 +1716,15 @@ static const char __pyx_k__2[] = " - ";
 static const char __pyx_k_Log[] = "Log:";
 static const char __pyx_k_WIN[] = "WIN";
 static const char __pyx_k_map[] = "map";
-static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_DRAW[] = "DRAW";
 static const char __pyx_k_LOSE[] = "LOSE";
 static const char __pyx_k_copy[] = "copy";
-static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_info[] = "info";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_turn[] = "turn";
 static const char __pyx_k_black[] = "black";
 static const char __pyx_k_debug[] = "debug";
 static const char __pyx_k_deque[] = "deque";
@@ -1802,30 +1735,29 @@ static const char __pyx_k_append[] = "append";
 static const char __pyx_k_choice[] = "choice";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_logger[] = "logger";
-static const char __pyx_k_pickle[] = "pickle";
 static const char __pyx_k_player[] = "player";
 static const char __pyx_k_random[] = "random";
 static const char __pyx_k_reduce[] = "__reduce__";
-static const char __pyx_k_update[] = "update";
 static const char __pyx_k_logging[] = "logging";
+static const char __pyx_k_put_loc[] = "put_loc";
 static const char __pyx_k_warning[] = "warning";
 static const char __pyx_k_KeyError[] = "KeyError";
 static const char __pyx_k_automode[] = "automode";
 static const char __pyx_k_deepcopy[] = "deepcopy";
 static const char __pyx_k_getstate[] = "__getstate__";
 static const char __pyx_k_opponent[] = "opponent";
-static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_selecter[] = "selecter";
 static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_strategy[] = "strategy";
 static const char __pyx_k_TypeError[] = "TypeError";
 static const char __pyx_k_auto_mode[] = "auto_mode";
+static const char __pyx_k_bit_count[] = "_bit_count";
 static const char __pyx_k_board_log[] = "board_log";
+static const char __pyx_k_direction[] = "direction";
 static const char __pyx_k_enumerate[] = "enumerate";
 static const char __pyx_k_getLogger[] = "getLogger";
 static const char __pyx_k_is_player[] = "is_player";
 static const char __pyx_k_play_turn[] = "play_turn";
-static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_redo_turn[] = "redo_turn";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_undo_turn[] = "undo_turn";
@@ -1836,10 +1768,8 @@ static const char __pyx_k_judge_game[] = "judge_game";
 static const char __pyx_k_load_board[] = "load_board";
 static const char __pyx_k_load_state[] = "load_state";
 static const char __pyx_k_player_clr[] = "player_clr";
-static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_Game_starts[] = "Game starts.";
-static const char __pyx_k_PickleError[] = "PickleError";
 static const char __pyx_k_black_board[] = "black_board";
 static const char __pyx_k_collections[] = "collections";
 static const char __pyx_k_count_disks[] = "count_disks";
@@ -1847,10 +1777,8 @@ static const char __pyx_k_return_turn[] = "return_turn";
 static const char __pyx_k_white_board[] = "white_board";
 static const char __pyx_k_OthelloGameC[] = "OthelloGameC";
 static const char __pyx_k_process_game[] = "process_game";
-static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_return_board[] = "return_board";
 static const char __pyx_k_set_strategy[] = "set_strategy";
-static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_update_board[] = "update_board";
 static const char __pyx_k_update_count[] = "update_count";
 static const char __pyx_k_OverflowError[] = "OverflowError";
@@ -1861,24 +1789,23 @@ static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_simulate_play[] = "simulate_play";
 static const char __pyx_k_turn_playable[] = "turn_playable";
 static const char __pyx_k_AssertionError[] = "AssertionError";
+static const char __pyx_k_check_surround[] = "_check_surround";
 static const char __pyx_k_change_strategy[] = "change_strategy";
-static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_reversible_area[] = "reversible_area";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_bitboard_bitothello[] = "bitboard.bitothello";
+static const char __pyx_k_return_player_board[] = "return_player_board";
 static const char __pyx_k_CPU_s_turn_was_passed[] = "CPU's turn was passed.";
 static const char __pyx_k_The_board_was_advanced[] = "The board was advanced.";
 static const char __pyx_k_Player_s_turn_was_passed[] = "Player's turn was passed.";
 static const char __pyx_k_The_board_was_playbacked[] = "The board was playbacked.";
-static const char __pyx_k_pyx_unpickle_OthelloGameC[] = "__pyx_unpickle_OthelloGameC";
 static const char __pyx_k_Game_was_judged_as_the_end[] = "Game was judged as the end.";
 static const char __pyx_k_The_board_can_not_be_advanced[] = "The board can not be advanced.";
 static const char __pyx_k_The_board_can_not_be_playbacked[] = "The board can not be playbacked.";
 static const char __pyx_k_CPU_s_turn_was_processed_automat[] = "CPU's turn was processed automatically.";
-static const char __pyx_k_Incompatible_checksums_0x_x_vs_0[] = "Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))";
 static const char __pyx_k_Player_s_turn_was_processed_auto[] = "Player's turn was processed automatically.";
 static const char __pyx_k_cythonize_3_a_i_itboard_itothell[] = "cythonize -3 -a -i .\010itboard\010itothello.pyx";
+static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
 static PyObject *__pyx_kp_u_;
 static PyObject *__pyx_n_s_AssertionError;
 static PyObject *__pyx_kp_u_CPU_s_turn_was_passed;
@@ -1886,14 +1813,12 @@ static PyObject *__pyx_kp_u_CPU_s_turn_was_processed_automat;
 static PyObject *__pyx_n_u_DRAW;
 static PyObject *__pyx_kp_u_Game_starts;
 static PyObject *__pyx_kp_u_Game_was_judged_as_the_end;
-static PyObject *__pyx_kp_s_Incompatible_checksums_0x_x_vs_0;
 static PyObject *__pyx_n_s_IndexError;
 static PyObject *__pyx_n_s_KeyError;
 static PyObject *__pyx_n_u_LOSE;
 static PyObject *__pyx_kp_u_Log;
 static PyObject *__pyx_n_s_OthelloGameC;
 static PyObject *__pyx_n_s_OverflowError;
-static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_kp_u_Player_s_turn_was_passed;
 static PyObject *__pyx_kp_u_Player_s_turn_was_processed_auto;
 static PyObject *__pyx_kp_u_The_board_can_not_be_advanced;
@@ -1907,12 +1832,13 @@ static PyObject *__pyx_kp_u__2;
 static PyObject *__pyx_n_s_append;
 static PyObject *__pyx_n_s_auto_mode;
 static PyObject *__pyx_n_s_automode;
-static PyObject *__pyx_n_s_bitboard_bitothello;
+static PyObject *__pyx_n_s_bit_count;
 static PyObject *__pyx_n_u_black;
 static PyObject *__pyx_n_s_black_board;
 static PyObject *__pyx_n_s_board_back;
 static PyObject *__pyx_n_s_board_log;
 static PyObject *__pyx_n_s_change_strategy;
+static PyObject *__pyx_n_s_check_surround;
 static PyObject *__pyx_n_s_choice;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_collections;
@@ -1921,7 +1847,7 @@ static PyObject *__pyx_n_s_count_disks;
 static PyObject *__pyx_n_s_debug;
 static PyObject *__pyx_n_s_deepcopy;
 static PyObject *__pyx_n_s_deque;
-static PyObject *__pyx_n_s_dict;
+static PyObject *__pyx_n_s_direction;
 static PyObject *__pyx_n_s_display_board;
 static PyObject *__pyx_n_s_enumerate;
 static PyObject *__pyx_n_s_getLogger;
@@ -1939,20 +1865,14 @@ static PyObject *__pyx_n_s_logging;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_map;
 static PyObject *__pyx_n_s_name;
-static PyObject *__pyx_n_s_new;
+static PyObject *__pyx_kp_s_no_default___reduce___due_to_non;
 static PyObject *__pyx_n_s_opponent;
-static PyObject *__pyx_n_s_pickle;
 static PyObject *__pyx_n_s_play_turn;
 static PyObject *__pyx_n_s_player;
 static PyObject *__pyx_n_s_player_clr;
 static PyObject *__pyx_n_s_pop;
 static PyObject *__pyx_n_s_process_game;
-static PyObject *__pyx_n_s_pyx_PickleError;
-static PyObject *__pyx_n_s_pyx_checksum;
-static PyObject *__pyx_n_s_pyx_result;
-static PyObject *__pyx_n_s_pyx_state;
-static PyObject *__pyx_n_s_pyx_type;
-static PyObject *__pyx_n_s_pyx_unpickle_OthelloGameC;
+static PyObject *__pyx_n_s_put_loc;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_random;
 static PyObject *__pyx_n_u_random;
@@ -1962,6 +1882,7 @@ static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
 static PyObject *__pyx_n_s_return_board;
+static PyObject *__pyx_n_s_return_player_board;
 static PyObject *__pyx_n_s_return_turn;
 static PyObject *__pyx_n_s_reversible_area;
 static PyObject *__pyx_n_s_selecter;
@@ -1971,36 +1892,52 @@ static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_simulate_play;
 static PyObject *__pyx_n_u_start;
 static PyObject *__pyx_n_s_strategy;
-static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_test;
+static PyObject *__pyx_n_s_turn;
 static PyObject *__pyx_n_s_turn_playable;
 static PyObject *__pyx_n_s_undo_turn;
-static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_n_s_update_board;
 static PyObject *__pyx_n_s_update_count;
 static PyObject *__pyx_n_s_warning;
 static PyObject *__pyx_n_u_white;
 static PyObject *__pyx_n_s_white_board;
-static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_player_clr); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_2play_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_put_loc); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4update_count(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_6judge_game(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_player, int __pyx_v_opponent); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_8auto_mode(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_automode); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10load_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_Strategy); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12change_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_strategy, int __pyx_v_is_player); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_14process_game(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_16display_board(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_18undo_turn(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_20redo_turn(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_turn(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_24load_state(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, PyObject *__pyx_v_board_log, PyObject *__pyx_v_board_back); /* proto */
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___cinit__(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_2__init__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_player_clr); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4_bit_count(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_x); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_6_check_surround(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_direction); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_8simulate_play(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10update_board(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12count_disks(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_14reversible_area(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_16is_reversible(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_18turn_playable(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_20return_board(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_player_board(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_turn); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_24load_board(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_26play_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_put_loc); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_28update_count(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_30judge_game(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_player, int __pyx_v_opponent); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_32auto_mode(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_automode); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_34load_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_Strategy); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_36change_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_strategy, int __pyx_v_is_player); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_38process_game(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_40display_board(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_42undo_turn(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_44redo_turn(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_46return_turn(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_48load_state(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, PyObject *__pyx_v_board_log, PyObject *__pyx_v_board_back); /* proto */
 static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_5BLACK___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
 static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5BLACK_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_5WHITE___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
 static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5WHITE_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board_4__del__(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_black_board___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_black_board_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_white_board___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_white_board_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4turn___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
 static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_4turn_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10reversible___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
@@ -2008,33 +1945,107 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10reversible_2__set__(
 static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_6result___get__(struct OthelloGameCObject *__pyx_v_self); /* proto */
 static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_6result_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
 static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_6result_4__del__(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_26__reduce_cython__(struct OthelloGameCObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_28__setstate_cython__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_8bitboard_10bitothello___pyx_unpickle_OthelloGameC(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_50__reduce_cython__(CYTHON_UNUSED struct OthelloGameCObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_52__setstate_cython__(CYTHON_UNUSED struct OthelloGameCObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_tp_new_8bitboard_10bitothello_OthelloGameC(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static __Pyx_CachedCFunction __pyx_umethod_PyList_Type_pop = {0, &__pyx_n_s_pop, 0, 0, 0};
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_2;
-static PyObject *__pyx_int_49031627;
-static PyObject *__pyx_int_134295932;
-static PyObject *__pyx_int_234113068;
 static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_tuple__4;
-static PyObject *__pyx_codeobj__5;
 /* Late includes */
 
-/* "bitboard/bitothello.pyx":19
+/* "bitboard/bitothello.pyx":17
  * cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType]:
  * 
- *     def __init__(self, str player_clr="black"):             # <<<<<<<<<<<<<<
- *         # Set a board.
- *         BLACK = BitBoard().BLACK
+ *     def __cinit__(self):             # <<<<<<<<<<<<<<
+ *         self.BLACK = 0
+ *         self.WHITE = 1
  */
 
 /* Python wrapper */
-static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
+  if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
+    __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
+  if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC___cinit__(((struct OthelloGameCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___cinit__(struct OthelloGameCObject *__pyx_v_self) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__cinit__", 0);
+
+  /* "bitboard/bitothello.pyx":18
+ * 
+ *     def __cinit__(self):
+ *         self.BLACK = 0             # <<<<<<<<<<<<<<
+ *         self.WHITE = 1
+ *         self.INIT_BLACK = 0x0000000810000000ULL
+ */
+  __pyx_v_self->BLACK = 0;
+
+  /* "bitboard/bitothello.pyx":19
+ *     def __cinit__(self):
+ *         self.BLACK = 0
+ *         self.WHITE = 1             # <<<<<<<<<<<<<<
+ *         self.INIT_BLACK = 0x0000000810000000ULL
+ *         self.INIT_WHITE = 0x0000001008000000ULL
+ */
+  __pyx_v_self->WHITE = 1;
+
+  /* "bitboard/bitothello.pyx":20
+ *         self.BLACK = 0
+ *         self.WHITE = 1
+ *         self.INIT_BLACK = 0x0000000810000000ULL             # <<<<<<<<<<<<<<
+ *         self.INIT_WHITE = 0x0000001008000000ULL
+ * 
+ */
+  __pyx_v_self->INIT_BLACK = 0x0000000810000000ULL;
+
+  /* "bitboard/bitothello.pyx":21
+ *         self.WHITE = 1
+ *         self.INIT_BLACK = 0x0000000810000000ULL
+ *         self.INIT_WHITE = 0x0000001008000000ULL             # <<<<<<<<<<<<<<
+ * 
+ *     def __init__(self, str player_clr="black"):
+ */
+  __pyx_v_self->INIT_WHITE = 0x0000001008000000ULL;
+
+  /* "bitboard/bitothello.pyx":17
+ * cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType]:
+ * 
+ *     def __cinit__(self):             # <<<<<<<<<<<<<<
+ *         self.BLACK = 0
+ *         self.WHITE = 1
+ */
+
+  /* function exit code */
+  __pyx_r = 0;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":23
+ *         self.INIT_WHITE = 0x0000001008000000ULL
+ * 
+ *     def __init__(self, str player_clr="black"):             # <<<<<<<<<<<<<<
+ *         # Set a board.
+ *         self._black_board = 0x0000000810000000ULL
+ */
+
+/* Python wrapper */
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_3__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_player_clr = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -2064,7 +2075,7 @@ static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__init__(PyObject *__
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 19, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 23, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -2078,14 +2089,14 @@ static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__init__(PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 19, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_player_clr), (&PyUnicode_Type), 1, "player_clr", 1))) __PYX_ERR(0, 19, __pyx_L1_error)
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_player_clr);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_player_clr), (&PyUnicode_Type), 1, "player_clr", 1))) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_2__init__(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_player_clr);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2096,169 +2107,133 @@ static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__init__(PyObject *__
   return __pyx_r;
 }
 
-static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_player_clr) {
-  CYTHON_UNUSED PyObject *__pyx_v_BLACK = NULL;
-  CYTHON_UNUSED PyObject *__pyx_v_WHITE = NULL;
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_2__init__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_player_clr) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
+  int __pyx_t_1;
+  int __pyx_t_2;
   int __pyx_t_3;
-  int __pyx_t_4;
-  std::uint64_t __pyx_t_5;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
-  int __pyx_t_8;
-  int __pyx_t_9[2];
+  int __pyx_t_8[2];
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "bitboard/bitothello.pyx":21
+  /* "bitboard/bitothello.pyx":25
  *     def __init__(self, str player_clr="black"):
  *         # Set a board.
- *         BLACK = BitBoard().BLACK             # <<<<<<<<<<<<<<
- *         WHITE = BitBoard().WHITE
+ *         self._black_board = 0x0000000810000000ULL             # <<<<<<<<<<<<<<
+ *         self._white_board = 0x0000001008000000ULL
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_8bitboard_7bitcalc_BitBoardC)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_std_3a__3a_uint64_t(((struct BitBoardCObject *)__pyx_t_1)->BLACK); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_BLACK = __pyx_t_2;
-  __pyx_t_2 = 0;
+  __pyx_v_self->_black_board = 0x0000000810000000ULL;
 
-  /* "bitboard/bitothello.pyx":22
+  /* "bitboard/bitothello.pyx":26
  *         # Set a board.
- *         BLACK = BitBoard().BLACK
- *         WHITE = BitBoard().WHITE             # <<<<<<<<<<<<<<
- * 
- *         self.board = BitBoard()
- */
-  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_8bitboard_7bitcalc_BitBoardC)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(((struct BitBoardCObject *)__pyx_t_2)->WHITE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_v_WHITE = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "bitboard/bitothello.pyx":24
- *         WHITE = BitBoard().WHITE
- * 
- *         self.board = BitBoard()             # <<<<<<<<<<<<<<
+ *         self._black_board = 0x0000000810000000ULL
+ *         self._white_board = 0x0000001008000000ULL             # <<<<<<<<<<<<<<
  * 
  *         # Black or white.
  */
-  __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_8bitboard_7bitcalc_BitBoardC)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_GOTREF(__pyx_v_self->board);
-  __Pyx_DECREF(__pyx_v_self->board);
-  __pyx_v_self->board = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "bitboard/bitothello.pyx":27
- * 
- *         # Black or white.
- *         if player_clr == "black":             # <<<<<<<<<<<<<<
- *             self._player_clr = BitBoard().BLACK
- *         elif player_clr == "white":
- */
-  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_v_player_clr, __pyx_n_u_black, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 27, __pyx_L1_error)
-  __pyx_t_4 = (__pyx_t_3 != 0);
-  if (__pyx_t_4) {
-
-    /* "bitboard/bitothello.pyx":28
- *         # Black or white.
- *         if player_clr == "black":
- *             self._player_clr = BitBoard().BLACK             # <<<<<<<<<<<<<<
- *         elif player_clr == "white":
- *             self._player_clr = BitBoard().WHITE
- */
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_8bitboard_7bitcalc_BitBoardC)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = ((struct BitBoardCObject *)__pyx_t_1)->BLACK;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_v_self->_player_clr = __pyx_t_5;
-
-    /* "bitboard/bitothello.pyx":27
- * 
- *         # Black or white.
- *         if player_clr == "black":             # <<<<<<<<<<<<<<
- *             self._player_clr = BitBoard().BLACK
- *         elif player_clr == "white":
- */
-    goto __pyx_L3;
-  }
+  __pyx_v_self->_white_board = 0x0000001008000000ULL;
 
   /* "bitboard/bitothello.pyx":29
- *         if player_clr == "black":
- *             self._player_clr = BitBoard().BLACK
- *         elif player_clr == "white":             # <<<<<<<<<<<<<<
- *             self._player_clr = BitBoard().WHITE
- *         elif player_clr == "random":
+ * 
+ *         # Black or white.
+ *         if player_clr == "black":             # <<<<<<<<<<<<<<
+ *             self._player_clr = self.BLACK
+ *         elif player_clr == "white":
  */
-  __pyx_t_4 = (__Pyx_PyUnicode_Equals(__pyx_v_player_clr, __pyx_n_u_white, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 29, __pyx_L1_error)
-  __pyx_t_3 = (__pyx_t_4 != 0);
-  if (__pyx_t_3) {
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_player_clr, __pyx_n_u_black, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_2 = (__pyx_t_1 != 0);
+  if (__pyx_t_2) {
 
     /* "bitboard/bitothello.pyx":30
- *             self._player_clr = BitBoard().BLACK
+ *         # Black or white.
+ *         if player_clr == "black":
+ *             self._player_clr = self.BLACK             # <<<<<<<<<<<<<<
  *         elif player_clr == "white":
- *             self._player_clr = BitBoard().WHITE             # <<<<<<<<<<<<<<
- *         elif player_clr == "random":
- *             self._player_clr = random.choice([0, 1])
+ *             self._player_clr = self.WHITE
  */
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_8bitboard_7bitcalc_BitBoardC)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = ((struct BitBoardCObject *)__pyx_t_1)->WHITE;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_v_self->_player_clr = __pyx_t_5;
+    __pyx_t_3 = __pyx_v_self->BLACK;
+    __pyx_v_self->_player_clr = __pyx_t_3;
 
     /* "bitboard/bitothello.pyx":29
- *         if player_clr == "black":
- *             self._player_clr = BitBoard().BLACK
- *         elif player_clr == "white":             # <<<<<<<<<<<<<<
- *             self._player_clr = BitBoard().WHITE
- *         elif player_clr == "random":
+ * 
+ *         # Black or white.
+ *         if player_clr == "black":             # <<<<<<<<<<<<<<
+ *             self._player_clr = self.BLACK
+ *         elif player_clr == "white":
  */
     goto __pyx_L3;
   }
 
   /* "bitboard/bitothello.pyx":31
+ *         if player_clr == "black":
+ *             self._player_clr = self.BLACK
+ *         elif player_clr == "white":             # <<<<<<<<<<<<<<
+ *             self._player_clr = self.WHITE
+ *         elif player_clr == "random":
+ */
+  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_player_clr, __pyx_n_u_white, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_1 = (__pyx_t_2 != 0);
+  if (__pyx_t_1) {
+
+    /* "bitboard/bitothello.pyx":32
+ *             self._player_clr = self.BLACK
  *         elif player_clr == "white":
- *             self._player_clr = BitBoard().WHITE
+ *             self._player_clr = self.WHITE             # <<<<<<<<<<<<<<
+ *         elif player_clr == "random":
+ *             self._player_clr = random.choice([0, 1])
+ */
+    __pyx_t_3 = __pyx_v_self->WHITE;
+    __pyx_v_self->_player_clr = __pyx_t_3;
+
+    /* "bitboard/bitothello.pyx":31
+ *         if player_clr == "black":
+ *             self._player_clr = self.BLACK
+ *         elif player_clr == "white":             # <<<<<<<<<<<<<<
+ *             self._player_clr = self.WHITE
+ *         elif player_clr == "random":
+ */
+    goto __pyx_L3;
+  }
+
+  /* "bitboard/bitothello.pyx":33
+ *         elif player_clr == "white":
+ *             self._player_clr = self.WHITE
  *         elif player_clr == "random":             # <<<<<<<<<<<<<<
  *             self._player_clr = random.choice([0, 1])
  *         else:
  */
-  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_v_player_clr, __pyx_n_u_random, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 31, __pyx_L1_error)
-  __pyx_t_4 = (__pyx_t_3 != 0);
-  if (likely(__pyx_t_4)) {
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_player_clr, __pyx_n_u_random, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_2 = (__pyx_t_1 != 0);
+  if (likely(__pyx_t_2)) {
 
-    /* "bitboard/bitothello.pyx":32
- *             self._player_clr = BitBoard().WHITE
+    /* "bitboard/bitothello.pyx":34
+ *             self._player_clr = self.WHITE
  *         elif player_clr == "random":
  *             self._player_clr = random.choice([0, 1])             # <<<<<<<<<<<<<<
  *         else:
  *             raise KeyError
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_random); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_choice); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 32, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_random); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_choice); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = PyList_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
-    PyList_SET_ITEM(__pyx_t_2, 0, __pyx_int_0);
+    PyList_SET_ITEM(__pyx_t_5, 0, __pyx_int_0);
     __Pyx_INCREF(__pyx_int_1);
     __Pyx_GIVEREF(__pyx_int_1);
-    PyList_SET_ITEM(__pyx_t_2, 1, __pyx_int_1);
+    PyList_SET_ITEM(__pyx_t_5, 1, __pyx_int_1);
     __pyx_t_7 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
       __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
@@ -2269,19 +2244,19 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
         __Pyx_DECREF_SET(__pyx_t_6, function);
       }
     }
-    __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_2);
+    __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_5);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_v_self->_player_clr = __pyx_t_8;
+    __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_v_self->_player_clr = __pyx_t_3;
 
-    /* "bitboard/bitothello.pyx":31
+    /* "bitboard/bitothello.pyx":33
  *         elif player_clr == "white":
- *             self._player_clr = BitBoard().WHITE
+ *             self._player_clr = self.WHITE
  *         elif player_clr == "random":             # <<<<<<<<<<<<<<
  *             self._player_clr = random.choice([0, 1])
  *         else:
@@ -2289,7 +2264,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
     goto __pyx_L3;
   }
 
-  /* "bitboard/bitothello.pyx":34
+  /* "bitboard/bitothello.pyx":36
  *             self._player_clr = random.choice([0, 1])
  *         else:
  *             raise KeyError             # <<<<<<<<<<<<<<
@@ -2298,11 +2273,11 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
  */
   /*else*/ {
     __Pyx_Raise(__pyx_builtin_KeyError, 0, 0, 0);
-    __PYX_ERR(0, 34, __pyx_L1_error)
+    __PYX_ERR(0, 36, __pyx_L1_error)
   }
   __pyx_L3:;
 
-  /* "bitboard/bitothello.pyx":37
+  /* "bitboard/bitothello.pyx":39
  * 
  *         # States of game.
  *         self.turn = 0             # <<<<<<<<<<<<<<
@@ -2311,7 +2286,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
  */
   __pyx_v_self->turn = 0;
 
-  /* "bitboard/bitothello.pyx":38
+  /* "bitboard/bitothello.pyx":40
  *         # States of game.
  *         self.turn = 0
  *         self.reversible = 0             # <<<<<<<<<<<<<<
@@ -2320,7 +2295,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
  */
   __pyx_v_self->reversible = 0;
 
-  /* "bitboard/bitothello.pyx":39
+  /* "bitboard/bitothello.pyx":41
  *         self.turn = 0
  *         self.reversible = 0
  *         self.result = "start"             # <<<<<<<<<<<<<<
@@ -2333,7 +2308,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
   __Pyx_DECREF(__pyx_v_self->result);
   __pyx_v_self->result = __pyx_n_u_start;
 
-  /* "bitboard/bitothello.pyx":42
+  /* "bitboard/bitothello.pyx":44
  * 
  *         # Counter.
  *         self._count_player = 2             # <<<<<<<<<<<<<<
@@ -2342,7 +2317,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
  */
   __pyx_v_self->_count_player = 2;
 
-  /* "bitboard/bitothello.pyx":43
+  /* "bitboard/bitothello.pyx":45
  *         # Counter.
  *         self._count_player = 2
  *         self._count_opponent = 2             # <<<<<<<<<<<<<<
@@ -2351,18 +2326,18 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
  */
   __pyx_v_self->_count_opponent = 2;
 
-  /* "bitboard/bitothello.pyx":44
+  /* "bitboard/bitothello.pyx":46
  *         self._count_player = 2
  *         self._count_opponent = 2
  *         self._pass_cnt = [0, 0]  # [white, black]             # <<<<<<<<<<<<<<
  * 
  *         # Mode.
  */
-  __pyx_t_9[0] = 0;
-  __pyx_t_9[1] = 0;
-  memcpy(&(__pyx_v_self->_pass_cnt[0]), __pyx_t_9, sizeof(__pyx_v_self->_pass_cnt[0]) * (2));
+  __pyx_t_8[0] = 0;
+  __pyx_t_8[1] = 0;
+  memcpy(&(__pyx_v_self->_pass_cnt[0]), __pyx_t_8, sizeof(__pyx_v_self->_pass_cnt[0]) * (2));
 
-  /* "bitboard/bitothello.pyx":47
+  /* "bitboard/bitothello.pyx":49
  * 
  *         # Mode.
  *         self._player_auto = False             # <<<<<<<<<<<<<<
@@ -2371,157 +2346,146 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC___init__(struct Othell
  */
   __pyx_v_self->_player_auto = 0;
 
-  /* "bitboard/bitothello.pyx":48
+  /* "bitboard/bitothello.pyx":50
  *         # Mode.
  *         self._player_auto = False
  *         logger.info("Game starts.")             # <<<<<<<<<<<<<<
  * 
  *         # Logger.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_logger); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_logger); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_info); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_6 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
     if (likely(__pyx_t_6)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_6);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __Pyx_DECREF_SET(__pyx_t_5, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_6, __pyx_kp_u_Game_starts) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_Game_starts);
+  __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_kp_u_Game_starts) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_kp_u_Game_starts);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":51
+  /* "bitboard/bitothello.pyx":53
  * 
  *         # Logger.
  *         self._board_log = deque([])             # <<<<<<<<<<<<<<
  *         self._board_back = deque([])
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_deque); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_deque); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_2);
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_5);
     if (likely(__pyx_t_7)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_7);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __Pyx_DECREF_SET(__pyx_t_5, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6);
+  __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GIVEREF(__pyx_t_1);
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_GIVEREF(__pyx_t_4);
   __Pyx_GOTREF(__pyx_v_self->_board_log);
   __Pyx_DECREF(__pyx_v_self->_board_log);
-  __pyx_v_self->_board_log = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_v_self->_board_log = __pyx_t_4;
+  __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":52
+  /* "bitboard/bitothello.pyx":54
  *         # Logger.
  *         self._board_log = deque([])
  *         self._board_back = deque([])             # <<<<<<<<<<<<<<
  * 
- *     cpdef void play_turn(self, int put_loc):
+ *     # Difinitions of methods.
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_deque); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_deque); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_2);
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_5);
     if (likely(__pyx_t_7)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_7);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __Pyx_DECREF_SET(__pyx_t_5, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6);
+  __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GIVEREF(__pyx_t_1);
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_GIVEREF(__pyx_t_4);
   __Pyx_GOTREF(__pyx_v_self->_board_back);
   __Pyx_DECREF(__pyx_v_self->_board_back);
-  __pyx_v_self->_board_back = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_v_self->_board_back = __pyx_t_4;
+  __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":19
- * cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType]:
+  /* "bitboard/bitothello.pyx":23
+ *         self.INIT_WHITE = 0x0000001008000000ULL
  * 
  *     def __init__(self, str player_clr="black"):             # <<<<<<<<<<<<<<
  *         # Set a board.
- *         BLACK = BitBoard().BLACK
+ *         self._black_board = 0x0000000810000000ULL
  */
 
   /* function exit code */
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_BLACK);
-  __Pyx_XDECREF(__pyx_v_WHITE);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":54
- *         self._board_back = deque([])
+/* "bitboard/bitothello.pyx":57
  * 
- *     cpdef void play_turn(self, int put_loc):             # <<<<<<<<<<<<<<
- *         """You can put disk and reverse opponent's disk.
+ *     # Difinitions of methods.
+ *     cpdef uint64_t _bit_count(self, uint64_t x):             # <<<<<<<<<<<<<<
+ *         """Count the number of bit awaking.
  * 
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_3play_turn(PyObject *__pyx_v_self, PyObject *__pyx_arg_put_loc); /*proto*/
-static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_put_loc, int __pyx_skip_dispatch) {
-  std::uint64_t __pyx_v_put_loc_;
-  std::uint64_t __pyx_v_next_black_board;
-  std::uint64_t __pyx_v_next_white_board;
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5_bit_count(PyObject *__pyx_v_self, PyObject *__pyx_arg_x); /*proto*/
+static std::uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC__bit_count(CYTHON_UNUSED struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_x, int __pyx_skip_dispatch) {
+  std::uint64_t __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
-  int __pyx_t_6;
-  int __pyx_t_7;
-  std::uint64_t __pyx_t_8;
-  int __pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  PyObject *(*__pyx_t_11)(PyObject *);
-  std::uint64_t __pyx_t_12;
-  int __pyx_t_13;
+  std::uint64_t __pyx_t_6;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("play_turn", 0);
+  __Pyx_RefNannySetupContext("_bit_count", 0);
   /* Check if called by wrapper */
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
@@ -2531,10 +2495,10 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_play_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_bit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_3play_turn)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_put_loc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5_bit_count)) {
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -2550,7 +2514,3976 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
         __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_6 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_6 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 57, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_6;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":67
+ * 
+ *         # Distributing by 2-bit, express the number of bits using 2-bit.
+ *         x -= (x >> 1) & 0x5555555555555555ULL             # <<<<<<<<<<<<<<
+ *         # Upper 2-bit + lower 2-bit.
+ *         x = (x & 0x3333333333333333ULL) + ((x >> 2) & 0x3333333333333333ULL)
+ */
+  __pyx_v_x = (__pyx_v_x - ((__pyx_v_x >> 1) & 0x5555555555555555ULL));
+
+  /* "bitboard/bitothello.pyx":69
+ *         x -= (x >> 1) & 0x5555555555555555ULL
+ *         # Upper 2-bit + lower 2-bit.
+ *         x = (x & 0x3333333333333333ULL) + ((x >> 2) & 0x3333333333333333ULL)             # <<<<<<<<<<<<<<
+ *         # Upper 4-bit + lower 4-bit.
+ *         x = (x + (x >> 4)) & 0x0f0f0f0f0f0f0f0fULL
+ */
+  __pyx_v_x = ((__pyx_v_x & 0x3333333333333333ULL) + ((__pyx_v_x >> 2) & 0x3333333333333333ULL));
+
+  /* "bitboard/bitothello.pyx":71
+ *         x = (x & 0x3333333333333333ULL) + ((x >> 2) & 0x3333333333333333ULL)
+ *         # Upper 4-bit + lower 4-bit.
+ *         x = (x + (x >> 4)) & 0x0f0f0f0f0f0f0f0fULL             # <<<<<<<<<<<<<<
+ *         # Upper 8-bit + lower 8-bit.
+ *         x += x >> 8
+ */
+  __pyx_v_x = ((__pyx_v_x + (__pyx_v_x >> 4)) & 0x0f0f0f0f0f0f0f0fULL);
+
+  /* "bitboard/bitothello.pyx":73
+ *         x = (x + (x >> 4)) & 0x0f0f0f0f0f0f0f0fULL
+ *         # Upper 8-bit + lower 8-bit.
+ *         x += x >> 8             # <<<<<<<<<<<<<<
+ *         # Upper 16-bit + lower 16-bit.
+ *         x += x >> 16
+ */
+  __pyx_v_x = (__pyx_v_x + (__pyx_v_x >> 8));
+
+  /* "bitboard/bitothello.pyx":75
+ *         x += x >> 8
+ *         # Upper 16-bit + lower 16-bit.
+ *         x += x >> 16             # <<<<<<<<<<<<<<
+ *         # Upper 32-bit + lower 32-bit.
+ *         x += x >> 32
+ */
+  __pyx_v_x = (__pyx_v_x + (__pyx_v_x >> 16));
+
+  /* "bitboard/bitothello.pyx":77
+ *         x += x >> 16
+ *         # Upper 32-bit + lower 32-bit.
+ *         x += x >> 32             # <<<<<<<<<<<<<<
+ *         return x & 0x0000007fULL
+ * 
+ */
+  __pyx_v_x = (__pyx_v_x + (__pyx_v_x >> 32));
+
+  /* "bitboard/bitothello.pyx":78
+ *         # Upper 32-bit + lower 32-bit.
+ *         x += x >> 32
+ *         return x & 0x0000007fULL             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction):
+ */
+  __pyx_r = (__pyx_v_x & 0x0000007fULL);
+  goto __pyx_L0;
+
+  /* "bitboard/bitothello.pyx":57
+ * 
+ *     # Difinitions of methods.
+ *     cpdef uint64_t _bit_count(self, uint64_t x):             # <<<<<<<<<<<<<<
+ *         """Count the number of bit awaking.
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC._bit_count", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5_bit_count(PyObject *__pyx_v_self, PyObject *__pyx_arg_x); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_4_bit_count[] = "Count the number of bit awaking.\n\n        Parameters\n        ----------\n        x : uint64_t\n            64-bit intager which represents the location of disk.\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5_bit_count(PyObject *__pyx_v_self, PyObject *__pyx_arg_x) {
+  std::uint64_t __pyx_v_x;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_bit_count (wrapper)", 0);
+  assert(__pyx_arg_x); {
+    __pyx_v_x = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_arg_x); if (unlikely((__pyx_v_x == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 57, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC._bit_count", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_4_bit_count(((struct OthelloGameCObject *)__pyx_v_self), ((std::uint64_t)__pyx_v_x));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4_bit_count(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_x) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("_bit_count", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8bitboard_10bitothello_12OthelloGameC__bit_count(__pyx_v_self, __pyx_v_x, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC._bit_count", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":80
+ *         return x & 0x0000007fULL
+ * 
+ *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction):             # <<<<<<<<<<<<<<
+ *         """Check neighbor disk is reversible or not.
+ * 
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7_check_surround(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static std::uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC__check_surround(CYTHON_UNUSED struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_direction, int __pyx_skip_dispatch) {
+  std::uint64_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  int __pyx_t_7;
+  PyObject *__pyx_t_8 = NULL;
+  std::uint64_t __pyx_t_9;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("_check_surround", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_check_surround); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7_check_surround)) {
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_direction); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
+        __pyx_t_7 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+          if (likely(__pyx_t_6)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+            __Pyx_INCREF(__pyx_t_6);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_5, function);
+            __pyx_t_7 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_5)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 80, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_8);
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_8, 0+__pyx_t_7, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_t_9 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_9 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_9;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":90
+ *             Intager from 0 to 7.
+ *         """
+ *         if direction == 0:  # Upper             # <<<<<<<<<<<<<<
+ *             return (put_loc << 8) & 0xffffffffffffff00ULL
+ *         elif direction == 1:  # Upper right
+ */
+  switch (__pyx_v_direction) {
+    case 0:
+
+    /* "bitboard/bitothello.pyx":91
+ *         """
+ *         if direction == 0:  # Upper
+ *             return (put_loc << 8) & 0xffffffffffffff00ULL             # <<<<<<<<<<<<<<
+ *         elif direction == 1:  # Upper right
+ *             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL
+ */
+    __pyx_r = ((__pyx_v_put_loc << 8) & 0xffffffffffffff00ULL);
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":90
+ *             Intager from 0 to 7.
+ *         """
+ *         if direction == 0:  # Upper             # <<<<<<<<<<<<<<
+ *             return (put_loc << 8) & 0xffffffffffffff00ULL
+ *         elif direction == 1:  # Upper right
+ */
+    break;
+    case 1:
+
+    /* "bitboard/bitothello.pyx":93
+ *             return (put_loc << 8) & 0xffffffffffffff00ULL
+ *         elif direction == 1:  # Upper right
+ *             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL             # <<<<<<<<<<<<<<
+ *         elif direction == 2:  # Right
+ *             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL
+ */
+    __pyx_r = ((__pyx_v_put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL);
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":92
+ *         if direction == 0:  # Upper
+ *             return (put_loc << 8) & 0xffffffffffffff00ULL
+ *         elif direction == 1:  # Upper right             # <<<<<<<<<<<<<<
+ *             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL
+ *         elif direction == 2:  # Right
+ */
+    break;
+    case 2:
+
+    /* "bitboard/bitothello.pyx":95
+ *             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL
+ *         elif direction == 2:  # Right
+ *             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL             # <<<<<<<<<<<<<<
+ *         elif direction == 3:  # Lower right
+ *             return (put_loc >> 9) & 0x007f7f7f7f7f7f7fULL
+ */
+    __pyx_r = ((__pyx_v_put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL);
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":94
+ *         elif direction == 1:  # Upper right
+ *             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL
+ *         elif direction == 2:  # Right             # <<<<<<<<<<<<<<
+ *             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL
+ *         elif direction == 3:  # Lower right
+ */
+    break;
+    case 3:
+
+    /* "bitboard/bitothello.pyx":97
+ *             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL
+ *         elif direction == 3:  # Lower right
+ *             return (put_loc >> 9) & 0x007f7f7f7f7f7f7fULL             # <<<<<<<<<<<<<<
+ *         elif direction == 4:  # Lower
+ *             return (put_loc >> 8) & 0x00ffffffffffffffULL
+ */
+    __pyx_r = ((__pyx_v_put_loc >> 9) & 0x007f7f7f7f7f7f7fULL);
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":96
+ *         elif direction == 2:  # Right
+ *             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL
+ *         elif direction == 3:  # Lower right             # <<<<<<<<<<<<<<
+ *             return (put_loc >> 9) & 0x007f7f7f7f7f7f7fULL
+ *         elif direction == 4:  # Lower
+ */
+    break;
+    case 4:
+
+    /* "bitboard/bitothello.pyx":99
+ *             return (put_loc >> 9) & 0x007f7f7f7f7f7f7fULL
+ *         elif direction == 4:  # Lower
+ *             return (put_loc >> 8) & 0x00ffffffffffffffULL             # <<<<<<<<<<<<<<
+ *         elif direction == 5:  # Lower left
+ *             return (put_loc >> 7) & 0x00fefefefefefefeULL
+ */
+    __pyx_r = ((__pyx_v_put_loc >> 8) & 0x00ffffffffffffffULL);
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":98
+ *         elif direction == 3:  # Lower right
+ *             return (put_loc >> 9) & 0x007f7f7f7f7f7f7fULL
+ *         elif direction == 4:  # Lower             # <<<<<<<<<<<<<<
+ *             return (put_loc >> 8) & 0x00ffffffffffffffULL
+ *         elif direction == 5:  # Lower left
+ */
+    break;
+    case 5:
+
+    /* "bitboard/bitothello.pyx":101
+ *             return (put_loc >> 8) & 0x00ffffffffffffffULL
+ *         elif direction == 5:  # Lower left
+ *             return (put_loc >> 7) & 0x00fefefefefefefeULL             # <<<<<<<<<<<<<<
+ *         elif direction == 6:  # Left
+ *             return (put_loc << 1) & 0xfefefefefefefefeULL
+ */
+    __pyx_r = ((__pyx_v_put_loc >> 7) & 0x00fefefefefefefeULL);
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":100
+ *         elif direction == 4:  # Lower
+ *             return (put_loc >> 8) & 0x00ffffffffffffffULL
+ *         elif direction == 5:  # Lower left             # <<<<<<<<<<<<<<
+ *             return (put_loc >> 7) & 0x00fefefefefefefeULL
+ *         elif direction == 6:  # Left
+ */
+    break;
+    case 6:
+
+    /* "bitboard/bitothello.pyx":103
+ *             return (put_loc >> 7) & 0x00fefefefefefefeULL
+ *         elif direction == 6:  # Left
+ *             return (put_loc << 1) & 0xfefefefefefefefeULL             # <<<<<<<<<<<<<<
+ *         elif direction == 7:  # Upper left
+ *             return (put_loc << 9) & 0xfefefefefefefe00ULL
+ */
+    __pyx_r = ((__pyx_v_put_loc << 1) & 0xfefefefefefefefeULL);
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":102
+ *         elif direction == 5:  # Lower left
+ *             return (put_loc >> 7) & 0x00fefefefefefefeULL
+ *         elif direction == 6:  # Left             # <<<<<<<<<<<<<<
+ *             return (put_loc << 1) & 0xfefefefefefefefeULL
+ *         elif direction == 7:  # Upper left
+ */
+    break;
+    case 7:
+
+    /* "bitboard/bitothello.pyx":105
+ *             return (put_loc << 1) & 0xfefefefefefefefeULL
+ *         elif direction == 7:  # Upper left
+ *             return (put_loc << 9) & 0xfefefefefefefe00ULL             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef (uint64_t, uint64_t) simulate_play(
+ */
+    __pyx_r = ((__pyx_v_put_loc << 9) & 0xfefefefefefefe00ULL);
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":104
+ *         elif direction == 6:  # Left
+ *             return (put_loc << 1) & 0xfefefefefefefefeULL
+ *         elif direction == 7:  # Upper left             # <<<<<<<<<<<<<<
+ *             return (put_loc << 9) & 0xfefefefefefefe00ULL
+ * 
+ */
+    break;
+    default: break;
+  }
+
+  /* "bitboard/bitothello.pyx":80
+ *         return x & 0x0000007fULL
+ * 
+ *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction):             # <<<<<<<<<<<<<<
+ *         """Check neighbor disk is reversible or not.
+ * 
+ */
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC._check_surround", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7_check_surround(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_6_check_surround[] = "Check neighbor disk is reversible or not.\n\n        Parameters\n        ----------\n        put_loc : uint64_t\n            64-bit intager which represents the location of disk.\n        direction : uint64_t\n            Intager from 0 to 7.\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7_check_surround(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  std::uint64_t __pyx_v_put_loc;
+  std::uint64_t __pyx_v_direction;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_check_surround (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_put_loc,&__pyx_n_s_direction,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_put_loc)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_direction)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("_check_surround", 1, 2, 2, 1); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "_check_surround") < 0)) __PYX_ERR(0, 80, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_direction = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_direction == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("_check_surround", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 80, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC._check_surround", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_6_check_surround(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_put_loc, __pyx_v_direction);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_6_check_surround(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_direction) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("_check_surround", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8bitboard_10bitothello_12OthelloGameC__check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC._check_surround", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":107
+ *             return (put_loc << 9) & 0xfefefefefefefe00ULL
+ * 
+ *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
+ *             self, int turn, uint64_t put_loc,
+ *             uint64_t black_board = 0, uint64_t white_board = 0,
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9simulate_play(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC_simulate_play(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_reverse_bit;
+  std::uint64_t __pyx_v_reverse_bit_;
+  std::uint64_t __pyx_v_border_bit;
+  long __pyx_v_direction;
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  int __pyx_t_9;
+  PyObject *__pyx_t_10 = NULL;
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_11;
+  int __pyx_t_12;
+  int __pyx_t_13;
+  std::uint64_t __pyx_t_14;
+  long __pyx_t_15;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("simulate_play", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simulate_play); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9simulate_play)) {
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __pyx_t_6 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_7 = __pyx_t_1; __pyx_t_8 = NULL;
+        __pyx_t_9 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+          __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_7);
+          if (likely(__pyx_t_8)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+            __Pyx_INCREF(__pyx_t_8);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_7, function);
+            __pyx_t_9 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_7)) {
+          PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
+          PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 107, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_10);
+          if (__pyx_t_8) {
+            __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_10, 0+__pyx_t_9, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_9, __pyx_t_4);
+          __Pyx_GIVEREF(__pyx_t_5);
+          PyTuple_SET_ITEM(__pyx_t_10, 2+__pyx_t_9, __pyx_t_5);
+          __Pyx_GIVEREF(__pyx_t_6);
+          PyTuple_SET_ITEM(__pyx_t_10, 3+__pyx_t_9, __pyx_t_6);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_5 = 0;
+          __pyx_t_6 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_t_11 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 107, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_11;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":126
+ *         reversed_black_board, reversed_white_board : list of int
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  __pyx_t_13 = ((__pyx_v_black_board == 0) != 0);
+  if (__pyx_t_13) {
+  } else {
+    __pyx_t_12 = __pyx_t_13;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_13 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_12 = __pyx_t_13;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_12) {
+
+    /* "bitboard/bitothello.pyx":127
+ *         """
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board             # <<<<<<<<<<<<<<
+ *             white_board = self._white_board
+ * 
+ */
+    __pyx_t_14 = __pyx_v_self->_black_board;
+    __pyx_v_black_board = __pyx_t_14;
+
+    /* "bitboard/bitothello.pyx":128
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board
+ *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *         cdef uint64_t reverse_bit = 0
+ */
+    __pyx_t_14 = __pyx_v_self->_white_board;
+    __pyx_v_white_board = __pyx_t_14;
+
+    /* "bitboard/bitothello.pyx":126
+ *         reversed_black_board, reversed_white_board : list of int
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  }
+
+  /* "bitboard/bitothello.pyx":130
+ *             white_board = self._white_board
+ * 
+ *         cdef uint64_t reverse_bit = 0             # <<<<<<<<<<<<<<
+ *         cdef uint64_t reverse_bit_
+ *         cdef uint64_t border_bit
+ */
+  __pyx_v_reverse_bit = 0;
+
+  /* "bitboard/bitothello.pyx":133
+ *         cdef uint64_t reverse_bit_
+ *         cdef uint64_t border_bit
+ *         if turn == 0:             # <<<<<<<<<<<<<<
+ *             # Player is black_board.
+ *             for direction in range(8):
+ */
+  __pyx_t_12 = ((__pyx_v_turn == 0) != 0);
+  if (__pyx_t_12) {
+
+    /* "bitboard/bitothello.pyx":135
+ *         if turn == 0:
+ *             # Player is black_board.
+ *             for direction in range(8):             # <<<<<<<<<<<<<<
+ *                 reverse_bit_ = 0
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
+ */
+    for (__pyx_t_15 = 0; __pyx_t_15 < 8; __pyx_t_15+=1) {
+      __pyx_v_direction = __pyx_t_15;
+
+      /* "bitboard/bitothello.pyx":136
+ *             # Player is black_board.
+ *             for direction in range(8):
+ *                 reverse_bit_ = 0             # <<<<<<<<<<<<<<
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
+ *                 while border_bit & white_board:
+ */
+      __pyx_v_reverse_bit_ = 0;
+
+      /* "bitboard/bitothello.pyx":137
+ *             for direction in range(8):
+ *                 reverse_bit_ = 0
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)             # <<<<<<<<<<<<<<
+ *                 while border_bit & white_board:
+ *                     reverse_bit_ |= border_bit
+ */
+      __pyx_v_border_bit = ((std::uint64_t)((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 0));
+
+      /* "bitboard/bitothello.pyx":138
+ *                 reverse_bit_ = 0
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
+ *                 while border_bit & white_board:             # <<<<<<<<<<<<<<
+ *                     reverse_bit_ |= border_bit
+ *                     border_bit = self._check_surround(border_bit, direction)
+ */
+      while (1) {
+        __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_white_board) != 0);
+        if (!__pyx_t_12) break;
+
+        /* "bitboard/bitothello.pyx":139
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
+ *                 while border_bit & white_board:
+ *                     reverse_bit_ |= border_bit             # <<<<<<<<<<<<<<
+ *                     border_bit = self._check_surround(border_bit, direction)
+ *                 # If player's disk is opposite side.
+ */
+        __pyx_v_reverse_bit_ = (__pyx_v_reverse_bit_ | __pyx_v_border_bit);
+
+        /* "bitboard/bitothello.pyx":140
+ *                 while border_bit & white_board:
+ *                     reverse_bit_ |= border_bit
+ *                     border_bit = self._check_surround(border_bit, direction)             # <<<<<<<<<<<<<<
+ *                 # If player's disk is opposite side.
+ *                 if border_bit & black_board:
+ */
+        __pyx_v_border_bit = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_border_bit, __pyx_v_direction, 0);
+      }
+
+      /* "bitboard/bitothello.pyx":142
+ *                     border_bit = self._check_surround(border_bit, direction)
+ *                 # If player's disk is opposite side.
+ *                 if border_bit & black_board:             # <<<<<<<<<<<<<<
+ *                     reverse_bit |= reverse_bit_
+ *             black_board ^= (put_loc | reverse_bit)
+ */
+      __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_black_board) != 0);
+      if (__pyx_t_12) {
+
+        /* "bitboard/bitothello.pyx":143
+ *                 # If player's disk is opposite side.
+ *                 if border_bit & black_board:
+ *                     reverse_bit |= reverse_bit_             # <<<<<<<<<<<<<<
+ *             black_board ^= (put_loc | reverse_bit)
+ *             white_board ^= reverse_bit
+ */
+        __pyx_v_reverse_bit = (__pyx_v_reverse_bit | __pyx_v_reverse_bit_);
+
+        /* "bitboard/bitothello.pyx":142
+ *                     border_bit = self._check_surround(border_bit, direction)
+ *                 # If player's disk is opposite side.
+ *                 if border_bit & black_board:             # <<<<<<<<<<<<<<
+ *                     reverse_bit |= reverse_bit_
+ *             black_board ^= (put_loc | reverse_bit)
+ */
+      }
+    }
+
+    /* "bitboard/bitothello.pyx":144
+ *                 if border_bit & black_board:
+ *                     reverse_bit |= reverse_bit_
+ *             black_board ^= (put_loc | reverse_bit)             # <<<<<<<<<<<<<<
+ *             white_board ^= reverse_bit
+ *         else:
+ */
+    __pyx_v_black_board = (__pyx_v_black_board ^ (__pyx_v_put_loc | __pyx_v_reverse_bit));
+
+    /* "bitboard/bitothello.pyx":145
+ *                     reverse_bit |= reverse_bit_
+ *             black_board ^= (put_loc | reverse_bit)
+ *             white_board ^= reverse_bit             # <<<<<<<<<<<<<<
+ *         else:
+ *             # Player is white_board.
+ */
+    __pyx_v_white_board = (__pyx_v_white_board ^ __pyx_v_reverse_bit);
+
+    /* "bitboard/bitothello.pyx":133
+ *         cdef uint64_t reverse_bit_
+ *         cdef uint64_t border_bit
+ *         if turn == 0:             # <<<<<<<<<<<<<<
+ *             # Player is black_board.
+ *             for direction in range(8):
+ */
+    goto __pyx_L6;
+  }
+
+  /* "bitboard/bitothello.pyx":148
+ *         else:
+ *             # Player is white_board.
+ *             for direction in range(8):             # <<<<<<<<<<<<<<
+ *                 reverse_bit_ = 0
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
+ */
+  /*else*/ {
+    for (__pyx_t_15 = 0; __pyx_t_15 < 8; __pyx_t_15+=1) {
+      __pyx_v_direction = __pyx_t_15;
+
+      /* "bitboard/bitothello.pyx":149
+ *             # Player is white_board.
+ *             for direction in range(8):
+ *                 reverse_bit_ = 0             # <<<<<<<<<<<<<<
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
+ *                 while border_bit & black_board:
+ */
+      __pyx_v_reverse_bit_ = 0;
+
+      /* "bitboard/bitothello.pyx":150
+ *             for direction in range(8):
+ *                 reverse_bit_ = 0
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)             # <<<<<<<<<<<<<<
+ *                 while border_bit & black_board:
+ *                     reverse_bit_ |= border_bit
+ */
+      __pyx_v_border_bit = ((std::uint64_t)((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 0));
+
+      /* "bitboard/bitothello.pyx":151
+ *                 reverse_bit_ = 0
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
+ *                 while border_bit & black_board:             # <<<<<<<<<<<<<<
+ *                     reverse_bit_ |= border_bit
+ *                     border_bit = self._check_surround(border_bit, direction)
+ */
+      while (1) {
+        __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_black_board) != 0);
+        if (!__pyx_t_12) break;
+
+        /* "bitboard/bitothello.pyx":152
+ *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
+ *                 while border_bit & black_board:
+ *                     reverse_bit_ |= border_bit             # <<<<<<<<<<<<<<
+ *                     border_bit = self._check_surround(border_bit, direction)
+ *                 # If player's disk is opposite side.
+ */
+        __pyx_v_reverse_bit_ = (__pyx_v_reverse_bit_ | __pyx_v_border_bit);
+
+        /* "bitboard/bitothello.pyx":153
+ *                 while border_bit & black_board:
+ *                     reverse_bit_ |= border_bit
+ *                     border_bit = self._check_surround(border_bit, direction)             # <<<<<<<<<<<<<<
+ *                 # If player's disk is opposite side.
+ *                 if border_bit & white_board:
+ */
+        __pyx_v_border_bit = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_border_bit, __pyx_v_direction, 0);
+      }
+
+      /* "bitboard/bitothello.pyx":155
+ *                     border_bit = self._check_surround(border_bit, direction)
+ *                 # If player's disk is opposite side.
+ *                 if border_bit & white_board:             # <<<<<<<<<<<<<<
+ *                     reverse_bit |= reverse_bit_
+ *             white_board ^= (put_loc | reverse_bit)
+ */
+      __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_white_board) != 0);
+      if (__pyx_t_12) {
+
+        /* "bitboard/bitothello.pyx":156
+ *                 # If player's disk is opposite side.
+ *                 if border_bit & white_board:
+ *                     reverse_bit |= reverse_bit_             # <<<<<<<<<<<<<<
+ *             white_board ^= (put_loc | reverse_bit)
+ *             black_board ^= reverse_bit
+ */
+        __pyx_v_reverse_bit = (__pyx_v_reverse_bit | __pyx_v_reverse_bit_);
+
+        /* "bitboard/bitothello.pyx":155
+ *                     border_bit = self._check_surround(border_bit, direction)
+ *                 # If player's disk is opposite side.
+ *                 if border_bit & white_board:             # <<<<<<<<<<<<<<
+ *                     reverse_bit |= reverse_bit_
+ *             white_board ^= (put_loc | reverse_bit)
+ */
+      }
+    }
+
+    /* "bitboard/bitothello.pyx":157
+ *                 if border_bit & white_board:
+ *                     reverse_bit |= reverse_bit_
+ *             white_board ^= (put_loc | reverse_bit)             # <<<<<<<<<<<<<<
+ *             black_board ^= reverse_bit
+ * 
+ */
+    __pyx_v_white_board = (__pyx_v_white_board ^ (__pyx_v_put_loc | __pyx_v_reverse_bit));
+
+    /* "bitboard/bitothello.pyx":158
+ *                     reverse_bit |= reverse_bit_
+ *             white_board ^= (put_loc | reverse_bit)
+ *             black_board ^= reverse_bit             # <<<<<<<<<<<<<<
+ * 
+ *         return black_board, white_board
+ */
+    __pyx_v_black_board = (__pyx_v_black_board ^ __pyx_v_reverse_bit);
+  }
+  __pyx_L6:;
+
+  /* "bitboard/bitothello.pyx":160
+ *             black_board ^= reverse_bit
+ * 
+ *         return black_board, white_board             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board):
+ */
+  __pyx_t_11.f0 = __pyx_v_black_board;
+  __pyx_t_11.f1 = __pyx_v_white_board;
+  __pyx_r = __pyx_t_11;
+  goto __pyx_L0;
+
+  /* "bitboard/bitothello.pyx":107
+ *             return (put_loc << 9) & 0xfefefefefefefe00ULL
+ * 
+ *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
+ *             self, int turn, uint64_t put_loc,
+ *             uint64_t black_board = 0, uint64_t white_board = 0,
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.simulate_play", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9simulate_play(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_8simulate_play[] = "Simulate the next turn.\n\n        Parameters\n        ----------\n        turn : int\n            If black is on turn, 1. If white, 0.\n        put_loc : int\n            64-bit intager which represents the location of disk.\n        black_board, white_board : int\n            If board is not synchronized with the instance, enter it manually.\n\n        Returns\n        -------\n        reversed_black_board, reversed_white_board : list of int\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9simulate_play(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  int __pyx_v_turn;
+  std::uint64_t __pyx_v_put_loc;
+  std::uint64_t __pyx_v_black_board;
+  std::uint64_t __pyx_v_white_board;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("simulate_play (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_turn,&__pyx_n_s_put_loc,&__pyx_n_s_black_board,&__pyx_n_s_white_board,0};
+    PyObject* values[4] = {0,0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_put_loc)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("simulate_play", 0, 2, 4, 1); __PYX_ERR(0, 107, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[2] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[3] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "simulate_play") < 0)) __PYX_ERR(0, 107, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_turn = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
+    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
+    if (values[2]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[3]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("simulate_play", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 107, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.simulate_play", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_8simulate_play(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_turn, __pyx_v_put_loc, __pyx_v_black_board, __pyx_v_white_board);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_8simulate_play(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("simulate_play", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC->simulate_play(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, 1, &__pyx_t_2); 
+  __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.simulate_play", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":162
+ *         return black_board, white_board
+ * 
+ *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
+ *         """Put a disk and reverse opponent disks.
+ * 
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11update_board(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_update_board(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch) {
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  int __pyx_t_7;
+  PyObject *__pyx_t_8 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("update_board", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11update_board)) {
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 162, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
+        __pyx_t_7 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+          if (likely(__pyx_t_6)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+            __Pyx_INCREF(__pyx_t_6);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_5, function);
+            __pyx_t_7 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_5)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 162, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_8);
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_8, 0+__pyx_t_7, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":170
+ *             64-bit intager.
+ *         """
+ *         self._black_board = black_board             # <<<<<<<<<<<<<<
+ *         self._white_board = white_board
+ * 
+ */
+  __pyx_v_self->_black_board = __pyx_v_black_board;
+
+  /* "bitboard/bitothello.pyx":171
+ *         """
+ *         self._black_board = black_board
+ *         self._white_board = white_board             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef (int, int) count_disks(
+ */
+  __pyx_v_self->_white_board = __pyx_v_white_board;
+
+  /* "bitboard/bitothello.pyx":162
+ *         return black_board, white_board
+ * 
+ *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
+ *         """Put a disk and reverse opponent disks.
+ * 
+ */
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.update_board", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11update_board(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_10update_board[] = "Put a disk and reverse opponent disks.\n\n        Parameters\n        ----------\n        black_board, white_board : int\n            64-bit intager.\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11update_board(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  std::uint64_t __pyx_v_black_board;
+  std::uint64_t __pyx_v_white_board;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("update_board (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_black_board,&__pyx_n_s_white_board,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("update_board", 1, 2, 2, 1); __PYX_ERR(0, 162, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update_board") < 0)) __PYX_ERR(0, 162, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 162, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 162, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("update_board", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 162, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.update_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10update_board(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_black_board, __pyx_v_white_board);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10update_board(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("update_board", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_10bitothello_12OthelloGameC_update_board(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.update_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":173
+ *         self._white_board = white_board
+ * 
+ *     cpdef (int, int) count_disks(             # <<<<<<<<<<<<<<
+ *             self, uint64_t black_board = 0, uint64_t white_board = 0):
+ *         """Returns black and white's disk number.
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13count_disks(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_count_disks(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
+  __pyx_ctuple_int__and_int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  int __pyx_t_7;
+  PyObject *__pyx_t_8 = NULL;
+  __pyx_ctuple_int__and_int __pyx_t_9;
+  int __pyx_t_10;
+  int __pyx_t_11;
+  std::uint64_t __pyx_t_12;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("count_disks", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_count_disks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13count_disks)) {
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 173, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
+        __pyx_t_7 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+          if (likely(__pyx_t_6)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+            __Pyx_INCREF(__pyx_t_6);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_5, function);
+            __pyx_t_7 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_5)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 173, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 173, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 173, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_8);
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_8, 0+__pyx_t_7, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 173, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_t_9 = __pyx_convert__from_py___pyx_ctuple_int__and_int(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 173, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_9;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":182
+ *             64-bit intager.
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  __pyx_t_11 = ((__pyx_v_black_board == 0) != 0);
+  if (__pyx_t_11) {
+  } else {
+    __pyx_t_10 = __pyx_t_11;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_11 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_10 = __pyx_t_11;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_10) {
+
+    /* "bitboard/bitothello.pyx":183
+ *         """
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board             # <<<<<<<<<<<<<<
+ *             white_board = self._white_board
+ * 
+ */
+    __pyx_t_12 = __pyx_v_self->_black_board;
+    __pyx_v_black_board = __pyx_t_12;
+
+    /* "bitboard/bitothello.pyx":184
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board
+ *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *         return self._bit_count(black_board), self._bit_count(white_board)
+ */
+    __pyx_t_12 = __pyx_v_self->_white_board;
+    __pyx_v_white_board = __pyx_t_12;
+
+    /* "bitboard/bitothello.pyx":182
+ *             64-bit intager.
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  }
+
+  /* "bitboard/bitothello.pyx":186
+ *             white_board = self._white_board
+ * 
+ *         return self._bit_count(black_board), self._bit_count(white_board)             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef uint64_t reversible_area(
+ */
+  __pyx_t_9.f0 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->_bit_count(__pyx_v_self, __pyx_v_black_board, 0);
+  __pyx_t_9.f1 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->_bit_count(__pyx_v_self, __pyx_v_white_board, 0);
+  __pyx_r = __pyx_t_9;
+  goto __pyx_L0;
+
+  /* "bitboard/bitothello.pyx":173
+ *         self._white_board = white_board
+ * 
+ *     cpdef (int, int) count_disks(             # <<<<<<<<<<<<<<
+ *             self, uint64_t black_board = 0, uint64_t white_board = 0):
+ *         """Returns black and white's disk number.
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.count_disks", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13count_disks(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_12count_disks[] = "Returns black and white's disk number.\n\n        Parameters\n        ----------\n        black_board, white_board : int (optional)\n            64-bit intager.\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13count_disks(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  std::uint64_t __pyx_v_black_board;
+  std::uint64_t __pyx_v_white_board;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("count_disks (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_black_board,&__pyx_n_s_white_board,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[0] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[1] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "count_disks") < 0)) __PYX_ERR(0, 173, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    if (values[0]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 174, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[1]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 174, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("count_disks", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 173, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.count_disks", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12count_disks(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_black_board, __pyx_v_white_board);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12count_disks(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __pyx_ctuple_int__and_int __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("count_disks", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC->count_disks(__pyx_v_self, 1, &__pyx_t_2); 
+  __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.count_disks", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":188
+ *         return self._bit_count(black_board), self._bit_count(white_board)
+ * 
+ *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
+ *             self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
+ *         """Returns reversible area.
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15reversible_area(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static std::uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC_reversible_area(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
+  std::uint64_t *__pyx_v_CONST;
+  std::uint64_t *__pyx_v_board;
+  std::uint64_t __pyx_v_blank_board;
+  std::uint64_t __pyx_v_horiz_brd;
+  std::uint64_t __pyx_v_vert_brd;
+  std::uint64_t __pyx_v_all_border;
+  std::uint64_t __pyx_v_one_rv;
+  std::uint64_t __pyx_v_reversible;
+  std::uint64_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  int __pyx_t_8;
+  PyObject *__pyx_t_9 = NULL;
+  std::uint64_t __pyx_t_10;
+  int __pyx_t_11;
+  int __pyx_t_12;
+  std::uint64_t __pyx_t_13[3];
+  std::uint64_t __pyx_t_14[2];
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("reversible_area", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15reversible_area)) {
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 188, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 188, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_6 = __pyx_t_1; __pyx_t_7 = NULL;
+        __pyx_t_8 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+            __Pyx_INCREF(__pyx_t_7);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_6, function);
+            __pyx_t_8 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_6)) {
+          PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
+          PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 188, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_9);
+          if (__pyx_t_7) {
+            __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_8, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, __pyx_t_4);
+          __Pyx_GIVEREF(__pyx_t_5);
+          PyTuple_SET_ITEM(__pyx_t_9, 2+__pyx_t_8, __pyx_t_5);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_5 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_10 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_10 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 188, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_10;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":204
+ *             Represents board of reversible positions.
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  __pyx_t_12 = ((__pyx_v_black_board == 0) != 0);
+  if (__pyx_t_12) {
+  } else {
+    __pyx_t_11 = __pyx_t_12;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_12 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_11 = __pyx_t_12;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_11) {
+
+    /* "bitboard/bitothello.pyx":205
+ *         """
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board             # <<<<<<<<<<<<<<
+ *             white_board = self._white_board
+ * 
+ */
+    __pyx_t_10 = __pyx_v_self->_black_board;
+    __pyx_v_black_board = __pyx_t_10;
+
+    /* "bitboard/bitothello.pyx":206
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board
+ *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *         cdef uint64_t *CONST = [
+ */
+    __pyx_t_10 = __pyx_v_self->_white_board;
+    __pyx_v_white_board = __pyx_t_10;
+
+    /* "bitboard/bitothello.pyx":204
+ *             Represents board of reversible positions.
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  }
+
+  /* "bitboard/bitothello.pyx":208
+ *             white_board = self._white_board
+ * 
+ *         cdef uint64_t *CONST = [             # <<<<<<<<<<<<<<
+ *             0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
+ *         ]
+ */
+  __pyx_t_13[0] = 0x7e7e7e7e7e7e7e7eULL;
+  __pyx_t_13[1] = 0x00ffffffffffff00ULL;
+  __pyx_t_13[2] = 0x007e7e7e7e7e7e00ULL;
+  __pyx_v_CONST = __pyx_t_13;
+
+  /* "bitboard/bitothello.pyx":211
+ *             0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
+ *         ]
+ *         cdef uint64_t *board = [black_board, white_board]             # <<<<<<<<<<<<<<
+ *         cdef uint64_t blank_board = ~(board[0] | board[1])
+ * 
+ */
+  __pyx_t_14[0] = __pyx_v_black_board;
+  __pyx_t_14[1] = __pyx_v_white_board;
+  __pyx_v_board = __pyx_t_14;
+
+  /* "bitboard/bitothello.pyx":212
+ *         ]
+ *         cdef uint64_t *board = [black_board, white_board]
+ *         cdef uint64_t blank_board = ~(board[0] | board[1])             # <<<<<<<<<<<<<<
+ * 
+ *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
+ */
+  __pyx_v_blank_board = (~((__pyx_v_board[0]) | (__pyx_v_board[1])));
+
+  /* "bitboard/bitothello.pyx":214
+ *         cdef uint64_t blank_board = ~(board[0] | board[1])
+ * 
+ *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]             # <<<<<<<<<<<<<<
+ *         cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]
+ *         cdef uint64_t all_border = board[turn ^ 1] & CONST[2]
+ */
+  __pyx_v_horiz_brd = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[0]));
+
+  /* "bitboard/bitothello.pyx":215
+ * 
+ *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
+ *         cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]             # <<<<<<<<<<<<<<
+ *         cdef uint64_t all_border = board[turn ^ 1] & CONST[2]
+ * 
+ */
+  __pyx_v_vert_brd = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[1]));
+
+  /* "bitboard/bitothello.pyx":216
+ *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
+ *         cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]
+ *         cdef uint64_t all_border = board[turn ^ 1] & CONST[2]             # <<<<<<<<<<<<<<
+ * 
+ *         # Upper
+ */
+  __pyx_v_all_border = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[2]));
+
+  /* "bitboard/bitothello.pyx":219
+ * 
+ *         # Upper
+ *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_horiz_brd & ((__pyx_v_board[__pyx_v_turn]) << 1));
+
+  /* "bitboard/bitothello.pyx":220
+ *         # Upper
+ *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
+
+  /* "bitboard/bitothello.pyx":221
+ *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
+
+  /* "bitboard/bitothello.pyx":222
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
+
+  /* "bitboard/bitothello.pyx":223
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         cdef uint64_t reversible = blank_board & (one_rv << 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
+
+  /* "bitboard/bitothello.pyx":224
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
+ *         cdef uint64_t reversible = blank_board & (one_rv << 1)
+ * 
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
+
+  /* "bitboard/bitothello.pyx":225
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         cdef uint64_t reversible = blank_board & (one_rv << 1)             # <<<<<<<<<<<<<<
+ * 
+ *         # Lower
+ */
+  __pyx_v_reversible = (__pyx_v_blank_board & (__pyx_v_one_rv << 1));
+
+  /* "bitboard/bitothello.pyx":228
+ * 
+ *         # Lower
+ *         one_rv = horiz_brd & (board[turn] >> 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_horiz_brd & ((__pyx_v_board[__pyx_v_turn]) >> 1));
+
+  /* "bitboard/bitothello.pyx":229
+ *         # Lower
+ *         one_rv = horiz_brd & (board[turn] >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
+
+  /* "bitboard/bitothello.pyx":230
+ *         one_rv = horiz_brd & (board[turn] >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
+
+  /* "bitboard/bitothello.pyx":231
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
+
+  /* "bitboard/bitothello.pyx":232
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         reversible |= blank_board & (one_rv >> 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
+
+  /* "bitboard/bitothello.pyx":233
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
+ *         reversible |= blank_board & (one_rv >> 1)
+ * 
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
+
+  /* "bitboard/bitothello.pyx":234
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         reversible |= blank_board & (one_rv >> 1)             # <<<<<<<<<<<<<<
+ * 
+ *         # Left
+ */
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 1)));
+
+  /* "bitboard/bitothello.pyx":237
+ * 
+ *         # Left
+ *         one_rv = vert_brd & (board[turn] << 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_vert_brd & ((__pyx_v_board[__pyx_v_turn]) << 8));
+
+  /* "bitboard/bitothello.pyx":238
+ *         # Left
+ *         one_rv = vert_brd & (board[turn] << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
+
+  /* "bitboard/bitothello.pyx":239
+ *         one_rv = vert_brd & (board[turn] << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
+
+  /* "bitboard/bitothello.pyx":240
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
+
+  /* "bitboard/bitothello.pyx":241
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         reversible |= blank_board & (one_rv << 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
+
+  /* "bitboard/bitothello.pyx":242
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
+ *         reversible |= blank_board & (one_rv << 8)
+ * 
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
+
+  /* "bitboard/bitothello.pyx":243
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         reversible |= blank_board & (one_rv << 8)             # <<<<<<<<<<<<<<
+ * 
+ *         # Right
+ */
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 8)));
+
+  /* "bitboard/bitothello.pyx":246
+ * 
+ *         # Right
+ *         one_rv = vert_brd & (board[turn] >> 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_vert_brd & ((__pyx_v_board[__pyx_v_turn]) >> 8));
+
+  /* "bitboard/bitothello.pyx":247
+ *         # Right
+ *         one_rv = vert_brd & (board[turn] >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
+
+  /* "bitboard/bitothello.pyx":248
+ *         one_rv = vert_brd & (board[turn] >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
+
+  /* "bitboard/bitothello.pyx":249
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
+
+  /* "bitboard/bitothello.pyx":250
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         reversible |= blank_board & (one_rv >> 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
+
+  /* "bitboard/bitothello.pyx":251
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
+ *         reversible |= blank_board & (one_rv >> 8)
+ * 
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
+
+  /* "bitboard/bitothello.pyx":252
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         reversible |= blank_board & (one_rv >> 8)             # <<<<<<<<<<<<<<
+ * 
+ *         # Upper right
+ */
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 8)));
+
+  /* "bitboard/bitothello.pyx":255
+ * 
+ *         # Upper right
+ *         one_rv = all_border & (board[turn] << 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) << 7));
+
+  /* "bitboard/bitothello.pyx":256
+ *         # Upper right
+ *         one_rv = all_border & (board[turn] << 7)
+ *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
+
+  /* "bitboard/bitothello.pyx":257
+ *         one_rv = all_border & (board[turn] << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
+
+  /* "bitboard/bitothello.pyx":258
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
+
+  /* "bitboard/bitothello.pyx":259
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 7)
+ *         reversible |= blank_board & (one_rv << 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
+
+  /* "bitboard/bitothello.pyx":260
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
+ *         reversible |= blank_board & (one_rv << 7)
+ * 
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
+
+  /* "bitboard/bitothello.pyx":261
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ *         reversible |= blank_board & (one_rv << 7)             # <<<<<<<<<<<<<<
+ * 
+ *         # Upper left
+ */
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 7)));
+
+  /* "bitboard/bitothello.pyx":264
+ * 
+ *         # Upper left
+ *         one_rv = all_border & (board[turn] << 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) << 9));
+
+  /* "bitboard/bitothello.pyx":265
+ *         # Upper left
+ *         one_rv = all_border & (board[turn] << 9)
+ *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
+
+  /* "bitboard/bitothello.pyx":266
+ *         one_rv = all_border & (board[turn] << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
+
+  /* "bitboard/bitothello.pyx":267
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
+
+  /* "bitboard/bitothello.pyx":268
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 9)
+ *         reversible |= blank_board & (one_rv << 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
+
+  /* "bitboard/bitothello.pyx":269
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
+ *         reversible |= blank_board & (one_rv << 9)
+ * 
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
+
+  /* "bitboard/bitothello.pyx":270
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ *         reversible |= blank_board & (one_rv << 9)             # <<<<<<<<<<<<<<
+ * 
+ *         # Lower right
+ */
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 9)));
+
+  /* "bitboard/bitothello.pyx":273
+ * 
+ *         # Lower right
+ *         one_rv = all_border & (board[turn] >> 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) >> 9));
+
+  /* "bitboard/bitothello.pyx":274
+ *         # Lower right
+ *         one_rv = all_border & (board[turn] >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
+
+  /* "bitboard/bitothello.pyx":275
+ *         one_rv = all_border & (board[turn] >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
+
+  /* "bitboard/bitothello.pyx":276
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
+
+  /* "bitboard/bitothello.pyx":277
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         reversible |= blank_board & (one_rv >> 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
+
+  /* "bitboard/bitothello.pyx":278
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
+ *         reversible |= blank_board & (one_rv >> 9)
+ * 
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
+
+  /* "bitboard/bitothello.pyx":279
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         reversible |= blank_board & (one_rv >> 9)             # <<<<<<<<<<<<<<
+ * 
+ *         # Lower left
+ */
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 9)));
+
+  /* "bitboard/bitothello.pyx":282
+ * 
+ *         # Lower left
+ *         one_rv = all_border & (board[turn] >> 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) >> 7));
+
+  /* "bitboard/bitothello.pyx":283
+ *         # Lower left
+ *         one_rv = all_border & (board[turn] >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
+
+  /* "bitboard/bitothello.pyx":284
+ *         one_rv = all_border & (board[turn] >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
+
+  /* "bitboard/bitothello.pyx":285
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
+
+  /* "bitboard/bitothello.pyx":286
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         reversible |= blank_board & (one_rv >> 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
+
+  /* "bitboard/bitothello.pyx":287
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
+ *         reversible |= blank_board & (one_rv >> 7)
+ *         return reversible
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
+
+  /* "bitboard/bitothello.pyx":288
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         reversible |= blank_board & (one_rv >> 7)             # <<<<<<<<<<<<<<
+ *         return reversible
+ * 
+ */
+  __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 7)));
+
+  /* "bitboard/bitothello.pyx":289
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         reversible |= blank_board & (one_rv >> 7)
+ *         return reversible             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef bint is_reversible(
+ */
+  __pyx_r = __pyx_v_reversible;
+  goto __pyx_L0;
+
+  /* "bitboard/bitothello.pyx":188
+ *         return self._bit_count(black_board), self._bit_count(white_board)
+ * 
+ *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
+ *             self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
+ *         """Returns reversible area.
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.reversible_area", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15reversible_area(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_14reversible_area[] = "Returns reversible area.\n\n        Parameters\n        ----------\n        turn : uint64_t\n            If black is on turn, 1. If white, 0.\n        black_board, white_board : uint64_t\n            If board is not synchronized with the instance, enter it manually.\n\n        Returns\n        -------\n        reversible : uint64_t\n            Represents board of reversible positions.\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15reversible_area(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  std::uint64_t __pyx_v_turn;
+  std::uint64_t __pyx_v_black_board;
+  std::uint64_t __pyx_v_white_board;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("reversible_area (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_turn,&__pyx_n_s_black_board,&__pyx_n_s_white_board,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[1] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[2] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "reversible_area") < 0)) __PYX_ERR(0, 188, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 189, __pyx_L3_error)
+    if (values[1]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 189, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[2]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 189, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("reversible_area", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 188, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.reversible_area", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_14reversible_area(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_14reversible_area(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  std::uint64_t __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("reversible_area", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC->reversible_area(__pyx_v_self, __pyx_v_turn, 1, &__pyx_t_2); 
+  __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.reversible_area", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":291
+ *         return reversible
+ * 
+ *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
+ *             self, uint64_t turn, uint64_t put_loc,
+ *             uint64_t black_board = 0, uint64_t white_board = 0,
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17is_reversible(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_is_reversible(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_reversible;
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  int __pyx_t_9;
+  PyObject *__pyx_t_10 = NULL;
+  int __pyx_t_11;
+  int __pyx_t_12;
+  std::uint64_t __pyx_t_13;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area __pyx_t_14;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("is_reversible", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_reversible); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17is_reversible)) {
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 291, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 291, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __pyx_t_6 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 291, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_7 = __pyx_t_1; __pyx_t_8 = NULL;
+        __pyx_t_9 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+          __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_7);
+          if (likely(__pyx_t_8)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+            __Pyx_INCREF(__pyx_t_8);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_7, function);
+            __pyx_t_9 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_7)) {
+          PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
+          PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 291, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_10);
+          if (__pyx_t_8) {
+            __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_10, 0+__pyx_t_9, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_9, __pyx_t_4);
+          __Pyx_GIVEREF(__pyx_t_5);
+          PyTuple_SET_ITEM(__pyx_t_10, 2+__pyx_t_9, __pyx_t_5);
+          __Pyx_GIVEREF(__pyx_t_6);
+          PyTuple_SET_ITEM(__pyx_t_10, 3+__pyx_t_9, __pyx_t_6);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_5 = 0;
+          __pyx_t_6 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 291, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_11;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":310
+ *         is_reversible : bool
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  __pyx_t_12 = ((__pyx_v_black_board == 0) != 0);
+  if (__pyx_t_12) {
+  } else {
+    __pyx_t_11 = __pyx_t_12;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_12 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_11 = __pyx_t_12;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_11) {
+
+    /* "bitboard/bitothello.pyx":311
+ *         """
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board             # <<<<<<<<<<<<<<
+ *             white_board = self._white_board
+ * 
+ */
+    __pyx_t_13 = __pyx_v_self->_black_board;
+    __pyx_v_black_board = __pyx_t_13;
+
+    /* "bitboard/bitothello.pyx":312
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board
+ *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *         reversible = self.reversible_area(turn, black_board, white_board)
+ */
+    __pyx_t_13 = __pyx_v_self->_white_board;
+    __pyx_v_white_board = __pyx_t_13;
+
+    /* "bitboard/bitothello.pyx":310
+ *         is_reversible : bool
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  }
+
+  /* "bitboard/bitothello.pyx":314
+ *             white_board = self._white_board
+ * 
+ *         reversible = self.reversible_area(turn, black_board, white_board)             # <<<<<<<<<<<<<<
+ *         return (put_loc & reversible) == put_loc
+ * 
+ */
+  __pyx_t_14.__pyx_n = 2;
+  __pyx_t_14.black_board = __pyx_v_black_board;
+  __pyx_t_14.white_board = __pyx_v_white_board;
+  __pyx_t_13 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, 0, &__pyx_t_14); 
+  __pyx_v_reversible = __pyx_t_13;
+
+  /* "bitboard/bitothello.pyx":315
+ * 
+ *         reversible = self.reversible_area(turn, black_board, white_board)
+ *         return (put_loc & reversible) == put_loc             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef bint turn_playable(
+ */
+  __pyx_r = ((__pyx_v_put_loc & __pyx_v_reversible) == __pyx_v_put_loc);
+  goto __pyx_L0;
+
+  /* "bitboard/bitothello.pyx":291
+ *         return reversible
+ * 
+ *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
+ *             self, uint64_t turn, uint64_t put_loc,
+ *             uint64_t black_board = 0, uint64_t white_board = 0,
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.is_reversible", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17is_reversible(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_16is_reversible[] = "Return wheather you can put disk on (x,y) or not.\n\n        Parameters\n        ----------\n        turn : int\n            If black is on turn, 1. If white, 0.\n        put_loc : int\n            64-bit intager which represents the location of disk.\n        black_board, white_board : int (optional)\n            64-bit intager.\n\n        Returns\n        -------\n        is_reversible : bool\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17is_reversible(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  std::uint64_t __pyx_v_turn;
+  std::uint64_t __pyx_v_put_loc;
+  std::uint64_t __pyx_v_black_board;
+  std::uint64_t __pyx_v_white_board;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("is_reversible (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_turn,&__pyx_n_s_put_loc,&__pyx_n_s_black_board,&__pyx_n_s_white_board,0};
+    PyObject* values[4] = {0,0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_put_loc)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("is_reversible", 0, 2, 4, 1); __PYX_ERR(0, 291, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[2] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[3] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "is_reversible") < 0)) __PYX_ERR(0, 291, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 292, __pyx_L3_error)
+    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 292, __pyx_L3_error)
+    if (values[2]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 293, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[3]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 293, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("is_reversible", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 291, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.is_reversible", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_16is_reversible(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_turn, __pyx_v_put_loc, __pyx_v_black_board, __pyx_v_white_board);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_16is_reversible(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("is_reversible", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC->is_reversible(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, 1, &__pyx_t_2); 
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.is_reversible", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":317
+ *         return (put_loc & reversible) == put_loc
+ * 
+ *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
+ *             self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
+ *         """Return wheather you can put disk or not.
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19turn_playable(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_turn_playable(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable *__pyx_optional_args) {
+  std::uint64_t __pyx_v_black_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_white_board = ((std::uint64_t)0);
+  std::uint64_t __pyx_v_reversible;
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  int __pyx_t_8;
+  PyObject *__pyx_t_9 = NULL;
+  int __pyx_t_10;
+  int __pyx_t_11;
+  std::uint64_t __pyx_t_12;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area __pyx_t_13;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("turn_playable", 0);
+  if (__pyx_optional_args) {
+    if (__pyx_optional_args->__pyx_n > 0) {
+      __pyx_v_black_board = __pyx_optional_args->black_board;
+      if (__pyx_optional_args->__pyx_n > 1) {
+        __pyx_v_white_board = __pyx_optional_args->white_board;
+      }
+    }
+  }
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_turn_playable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19turn_playable)) {
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 317, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 317, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 317, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_6 = __pyx_t_1; __pyx_t_7 = NULL;
+        __pyx_t_8 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+            __Pyx_INCREF(__pyx_t_7);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_6, function);
+            __pyx_t_8 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_6)) {
+          PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
+          PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 317, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_9);
+          if (__pyx_t_7) {
+            __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_8, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, __pyx_t_4);
+          __Pyx_GIVEREF(__pyx_t_5);
+          PyTuple_SET_ITEM(__pyx_t_9, 2+__pyx_t_8, __pyx_t_5);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_5 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 317, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_10;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":330
+ *             64-bit intager.
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  __pyx_t_11 = ((__pyx_v_black_board == 0) != 0);
+  if (__pyx_t_11) {
+  } else {
+    __pyx_t_10 = __pyx_t_11;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_11 = ((__pyx_v_white_board == 0) != 0);
+  __pyx_t_10 = __pyx_t_11;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_10) {
+
+    /* "bitboard/bitothello.pyx":331
+ *         """
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board             # <<<<<<<<<<<<<<
+ *             white_board = self._white_board
+ * 
+ */
+    __pyx_t_12 = __pyx_v_self->_black_board;
+    __pyx_v_black_board = __pyx_t_12;
+
+    /* "bitboard/bitothello.pyx":332
+ *         if black_board  == 0 and white_board == 0:
+ *             black_board = self._black_board
+ *             white_board = self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *         reversible = self.reversible_area(turn, black_board, white_board)
+ */
+    __pyx_t_12 = __pyx_v_self->_white_board;
+    __pyx_v_white_board = __pyx_t_12;
+
+    /* "bitboard/bitothello.pyx":330
+ *             64-bit intager.
+ *         """
+ *         if black_board  == 0 and white_board == 0:             # <<<<<<<<<<<<<<
+ *             black_board = self._black_board
+ *             white_board = self._white_board
+ */
+  }
+
+  /* "bitboard/bitothello.pyx":334
+ *             white_board = self._white_board
+ * 
+ *         reversible = self.reversible_area(turn, black_board, white_board)             # <<<<<<<<<<<<<<
+ *         return reversible != 0
+ * 
+ */
+  __pyx_t_13.__pyx_n = 2;
+  __pyx_t_13.black_board = __pyx_v_black_board;
+  __pyx_t_13.white_board = __pyx_v_white_board;
+  __pyx_t_12 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, 0, &__pyx_t_13); 
+  __pyx_v_reversible = __pyx_t_12;
+
+  /* "bitboard/bitothello.pyx":335
+ * 
+ *         reversible = self.reversible_area(turn, black_board, white_board)
+ *         return reversible != 0             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef (uint64_t, uint64_t) return_board(self):
+ */
+  __pyx_r = (__pyx_v_reversible != 0);
+  goto __pyx_L0;
+
+  /* "bitboard/bitothello.pyx":317
+ *         return (put_loc & reversible) == put_loc
+ * 
+ *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
+ *             self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
+ *         """Return wheather you can put disk or not.
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.turn_playable", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19turn_playable(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_18turn_playable[] = "Return wheather you can put disk or not.\n\n        Parameters\n        ----------\n        turn : int\n            If black is on turn, 1. If white, 0.\n        put_loc : int\n            64-bit intager which represents the location of disk.\n        black_board, white_board : int (optional)\n            64-bit intager.\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19turn_playable(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  std::uint64_t __pyx_v_turn;
+  std::uint64_t __pyx_v_black_board;
+  std::uint64_t __pyx_v_white_board;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("turn_playable (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_turn,&__pyx_n_s_black_board,&__pyx_n_s_white_board,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_turn)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board);
+          if (value) { values[1] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board);
+          if (value) { values[2] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "turn_playable") < 0)) __PYX_ERR(0, 317, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 318, __pyx_L3_error)
+    if (values[1]) {
+      __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 318, __pyx_L3_error)
+    } else {
+      __pyx_v_black_board = ((std::uint64_t)0);
+    }
+    if (values[2]) {
+      __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 318, __pyx_L3_error)
+    } else {
+      __pyx_v_white_board = ((std::uint64_t)0);
+    }
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("turn_playable", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 317, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.turn_playable", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_18turn_playable(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_18turn_playable(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("turn_playable", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2.__pyx_n = 2;
+  __pyx_t_2.black_board = __pyx_v_black_board;
+  __pyx_t_2.white_board = __pyx_v_white_board;
+  __pyx_t_1 = __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC->turn_playable(__pyx_v_self, __pyx_v_turn, 1, &__pyx_t_2); 
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.turn_playable", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":337
+ *         return reversible != 0
+ * 
+ *     cpdef (uint64_t, uint64_t) return_board(self):             # <<<<<<<<<<<<<<
+ *         return self._black_board, self._white_board
+ * 
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21return_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_board(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch) {
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_5;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("return_board", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_return_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21return_board)) {
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+          if (likely(__pyx_t_4)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+            __Pyx_INCREF(__pyx_t_4);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_3, function);
+          }
+        }
+        __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __pyx_t_5 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 337, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_5;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":338
+ * 
+ *     cpdef (uint64_t, uint64_t) return_board(self):
+ *         return self._black_board, self._white_board             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):
+ */
+  __pyx_t_5.f0 = __pyx_v_self->_black_board;
+  __pyx_t_5.f1 = __pyx_v_self->_white_board;
+  __pyx_r = __pyx_t_5;
+  goto __pyx_L0;
+
+  /* "bitboard/bitothello.pyx":337
+ *         return reversible != 0
+ * 
+ *     cpdef (uint64_t, uint64_t) return_board(self):             # <<<<<<<<<<<<<<
+ *         return self._black_board, self._white_board
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.return_board", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21return_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21return_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("return_board (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_20return_board(((struct OthelloGameCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_20return_board(struct OthelloGameCObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("return_board", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8bitboard_10bitothello_12OthelloGameC_return_board(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.return_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":340
+ *         return self._black_board, self._white_board
+ * 
+ *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):             # <<<<<<<<<<<<<<
+ *         if turn == 0:
+ *             return self._black_board, self._white_board
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_player_board(PyObject *__pyx_v_self, PyObject *__pyx_arg_turn); /*proto*/
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_player_board(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_turn, int __pyx_skip_dispatch) {
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_6;
+  int __pyx_t_7;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("return_player_board", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_return_player_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_player_board)) {
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_5)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_5);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+          }
+        }
+        __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __pyx_t_6 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 340, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_6;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":341
+ * 
+ *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):
+ *         if turn == 0:             # <<<<<<<<<<<<<<
+ *             return self._black_board, self._white_board
+ *         else:
+ */
+  __pyx_t_7 = ((__pyx_v_turn == 0) != 0);
+  if (__pyx_t_7) {
+
+    /* "bitboard/bitothello.pyx":342
+ *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):
+ *         if turn == 0:
+ *             return self._black_board, self._white_board             # <<<<<<<<<<<<<<
+ *         else:
+ *             return self._white_board, self._black_board
+ */
+    __pyx_t_6.f0 = __pyx_v_self->_black_board;
+    __pyx_t_6.f1 = __pyx_v_self->_white_board;
+    __pyx_r = __pyx_t_6;
+    goto __pyx_L0;
+
+    /* "bitboard/bitothello.pyx":341
+ * 
+ *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):
+ *         if turn == 0:             # <<<<<<<<<<<<<<
+ *             return self._black_board, self._white_board
+ *         else:
+ */
+  }
+
+  /* "bitboard/bitothello.pyx":344
+ *             return self._black_board, self._white_board
+ *         else:
+ *             return self._white_board, self._black_board             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):
+ */
+  /*else*/ {
+    __pyx_t_6.f0 = __pyx_v_self->_white_board;
+    __pyx_t_6.f1 = __pyx_v_self->_black_board;
+    __pyx_r = __pyx_t_6;
+    goto __pyx_L0;
+  }
+
+  /* "bitboard/bitothello.pyx":340
+ *         return self._black_board, self._white_board
+ * 
+ *     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):             # <<<<<<<<<<<<<<
+ *         if turn == 0:
+ *             return self._black_board, self._white_board
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.return_player_board", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_player_board(PyObject *__pyx_v_self, PyObject *__pyx_arg_turn); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_player_board(PyObject *__pyx_v_self, PyObject *__pyx_arg_turn) {
+  int __pyx_v_turn;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("return_player_board (wrapper)", 0);
+  assert(__pyx_arg_turn); {
+    __pyx_v_turn = __Pyx_PyInt_As_int(__pyx_arg_turn); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 340, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.return_player_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_player_board(((struct OthelloGameCObject *)__pyx_v_self), ((int)__pyx_v_turn));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_player_board(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_turn) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("return_player_board", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8bitboard_10bitothello_12OthelloGameC_return_player_board(__pyx_v_self, __pyx_v_turn, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.return_player_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":346
+ *             return self._white_board, self._black_board
+ * 
+ *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
+ *         self._black_board = black_board
+ *         self._white_board = white_board
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_board(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_load_board(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_skip_dispatch) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  int __pyx_t_7;
+  PyObject *__pyx_t_8 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("load_board", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_board)) {
+        __Pyx_XDECREF(__pyx_r);
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 346, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
+        __pyx_t_7 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
+          if (likely(__pyx_t_6)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+            __Pyx_INCREF(__pyx_t_6);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_5, function);
+            __pyx_t_7 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_5)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 346, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_8);
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_8, 0+__pyx_t_7, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_4);
+          PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
+          __pyx_t_3 = 0;
+          __pyx_t_4 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_r = __pyx_t_2;
+        __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "bitboard/bitothello.pyx":347
+ * 
+ *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):
+ *         self._black_board = black_board             # <<<<<<<<<<<<<<
+ *         self._white_board = white_board
+ * 
+ */
+  __pyx_v_self->_black_board = __pyx_v_black_board;
+
+  /* "bitboard/bitothello.pyx":348
+ *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):
+ *         self._black_board = black_board
+ *         self._white_board = white_board             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef void play_turn(self, int put_loc):
+ */
+  __pyx_v_self->_white_board = __pyx_v_white_board;
+
+  /* "bitboard/bitothello.pyx":346
+ *             return self._white_board, self._black_board
+ * 
+ *     cpdef load_board(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
+ *         self._black_board = black_board
+ *         self._white_board = white_board
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.load_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_board(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_board(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  std::uint64_t __pyx_v_black_board;
+  std::uint64_t __pyx_v_white_board;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("load_board (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_black_board,&__pyx_n_s_white_board,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("load_board", 1, 2, 2, 1); __PYX_ERR(0, 346, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "load_board") < 0)) __PYX_ERR(0, 346, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 346, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 346, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("load_board", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 346, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.load_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_24load_board(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_black_board, __pyx_v_white_board);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_24load_board(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("load_board", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_board(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.load_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pyx":350
+ *         self._white_board = white_board
+ * 
+ *     cpdef void play_turn(self, int put_loc):             # <<<<<<<<<<<<<<
+ *         """You can put disk and reverse opponent's disk.
+ * 
+ */
+
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_27play_turn(PyObject *__pyx_v_self, PyObject *__pyx_arg_put_loc); /*proto*/
+static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_put_loc, int __pyx_skip_dispatch) {
+  std::uint64_t __pyx_v_put_loc_;
+  std::uint64_t __pyx_v_next_black_board;
+  std::uint64_t __pyx_v_next_white_board;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_6;
+  int __pyx_t_7;
+  std::uint64_t __pyx_t_8;
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_9;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play __pyx_t_10;
+  std::uint64_t __pyx_t_11;
+  int __pyx_t_12;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("play_turn", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_play_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_27play_turn)) {
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_put_loc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_5)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_5);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+          }
+        }
+        __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -2570,7 +6503,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":62
+  /* "bitboard/bitothello.pyx":358
  *             Integer from 0 to 63.
  *         """
  *         if not (0 <= put_loc <= 63):             # <<<<<<<<<<<<<<
@@ -2584,7 +6517,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
   __pyx_t_7 = ((!(__pyx_t_6 != 0)) != 0);
   if (unlikely(__pyx_t_7)) {
 
-    /* "bitboard/bitothello.pyx":63
+    /* "bitboard/bitothello.pyx":359
  *         """
  *         if not (0 <= put_loc <= 63):
  *             raise AssertionError             # <<<<<<<<<<<<<<
@@ -2592,9 +6525,9 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
  *         cdef uint64_t put_loc_ = pow(2, put_loc)
  */
     __Pyx_Raise(__pyx_builtin_AssertionError, 0, 0, 0);
-    __PYX_ERR(0, 63, __pyx_L1_error)
+    __PYX_ERR(0, 359, __pyx_L1_error)
 
-    /* "bitboard/bitothello.pyx":62
+    /* "bitboard/bitothello.pyx":358
  *             Integer from 0 to 63.
  *         """
  *         if not (0 <= put_loc <= 63):             # <<<<<<<<<<<<<<
@@ -2603,299 +6536,121 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
  */
   }
 
-  /* "bitboard/bitothello.pyx":65
+  /* "bitboard/bitothello.pyx":361
  *             raise AssertionError
  *         # cdef uint64_t put_loc_ = 1i64 << put_loc
  *         cdef uint64_t put_loc_ = pow(2, put_loc)             # <<<<<<<<<<<<<<
  *         cdef uint64_t next_black_board, next_white_board
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_put_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_put_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyNumber_Power2(__pyx_int_2, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyNumber_Power2(__pyx_int_2, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_8 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_8 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_8 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_put_loc_ = __pyx_t_8;
 
-  /* "bitboard/bitothello.pyx":71
+  /* "bitboard/bitothello.pyx":367
  * 
  *         # If input value is not valid, raise an error.
- *         if not self.board.is_reversible(self.turn, put_loc_):             # <<<<<<<<<<<<<<
+ *         if not self.is_reversible(self.turn, put_loc_):             # <<<<<<<<<<<<<<
  *             raise ValueError
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_is_reversible); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc_); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = NULL;
-  __pyx_t_9 = 0;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_5)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-      __pyx_t_9 = 1;
-    }
-  }
-  #if CYTHON_FAST_PYCALL
-  if (PyFunction_Check(__pyx_t_1)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_4, __pyx_t_3};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else
-  #endif
-  #if CYTHON_FAST_PYCCALL
-  if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_4, __pyx_t_3};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else
-  #endif
-  {
-    __pyx_t_10 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 71, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_10);
-    if (__pyx_t_5) {
-      __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_5); __pyx_t_5 = NULL;
-    }
-    __Pyx_GIVEREF(__pyx_t_4);
-    PyTuple_SET_ITEM(__pyx_t_10, 0+__pyx_t_9, __pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_9, __pyx_t_3);
-    __pyx_t_4 = 0;
-    __pyx_t_3 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 71, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = ((!__pyx_t_7) != 0);
-  if (unlikely(__pyx_t_6)) {
+  __pyx_t_7 = ((!(((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->is_reversible(__pyx_v_self, __pyx_v_self->turn, __pyx_v_put_loc_, 0, NULL) != 0)) != 0);
+  if (unlikely(__pyx_t_7)) {
 
-    /* "bitboard/bitothello.pyx":72
+    /* "bitboard/bitothello.pyx":368
  *         # If input value is not valid, raise an error.
- *         if not self.board.is_reversible(self.turn, put_loc_):
+ *         if not self.is_reversible(self.turn, put_loc_):
  *             raise ValueError             # <<<<<<<<<<<<<<
  * 
- *         next_black_board, next_white_board = self.board.simulate_play(
+ *         next_black_board, next_white_board = self.simulate_play(
  */
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
-    __PYX_ERR(0, 72, __pyx_L1_error)
+    __PYX_ERR(0, 368, __pyx_L1_error)
 
-    /* "bitboard/bitothello.pyx":71
+    /* "bitboard/bitothello.pyx":367
  * 
  *         # If input value is not valid, raise an error.
- *         if not self.board.is_reversible(self.turn, put_loc_):             # <<<<<<<<<<<<<<
+ *         if not self.is_reversible(self.turn, put_loc_):             # <<<<<<<<<<<<<<
  *             raise ValueError
  * 
  */
   }
 
-  /* "bitboard/bitothello.pyx":74
+  /* "bitboard/bitothello.pyx":370
  *             raise ValueError
  * 
- *         next_black_board, next_white_board = self.board.simulate_play(             # <<<<<<<<<<<<<<
+ *         next_black_board, next_white_board = self.simulate_play(             # <<<<<<<<<<<<<<
  *             self.turn, put_loc_, 0, 0)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_simulate_play); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-
-  /* "bitboard/bitothello.pyx":75
- * 
- *         next_black_board, next_white_board = self.board.simulate_play(
- *             self.turn, put_loc_, 0, 0)             # <<<<<<<<<<<<<<
- * 
- *         if self._player_clr == self.turn:
- */
-  __pyx_t_10 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc_); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = NULL;
-  __pyx_t_9 = 0;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_4)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-      __pyx_t_9 = 1;
-    }
-  }
-  #if CYTHON_FAST_PYCALL
-  if (PyFunction_Check(__pyx_t_1)) {
-    PyObject *__pyx_temp[5] = {__pyx_t_4, __pyx_t_10, __pyx_t_3, __pyx_int_0, __pyx_int_0};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else
-  #endif
-  #if CYTHON_FAST_PYCCALL
-  if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
-    PyObject *__pyx_temp[5] = {__pyx_t_4, __pyx_t_10, __pyx_t_3, __pyx_int_0, __pyx_int_0};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else
-  #endif
-  {
-    __pyx_t_5 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    if (__pyx_t_4) {
-      __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
-    }
-    __Pyx_GIVEREF(__pyx_t_10);
-    PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_9, __pyx_t_10);
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_9, __pyx_t_3);
-    __Pyx_INCREF(__pyx_int_0);
-    __Pyx_GIVEREF(__pyx_int_0);
-    PyTuple_SET_ITEM(__pyx_t_5, 2+__pyx_t_9, __pyx_int_0);
-    __Pyx_INCREF(__pyx_int_0);
-    __Pyx_GIVEREF(__pyx_int_0);
-    PyTuple_SET_ITEM(__pyx_t_5, 3+__pyx_t_9, __pyx_int_0);
-    __pyx_t_10 = 0;
-    __pyx_t_3 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
-    PyObject* sequence = __pyx_t_2;
-    Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
-    if (unlikely(size != 2)) {
-      if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 74, __pyx_L1_error)
-    }
-    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    if (likely(PyTuple_CheckExact(sequence))) {
-      __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
-      __pyx_t_5 = PyTuple_GET_ITEM(sequence, 1); 
-    } else {
-      __pyx_t_1 = PyList_GET_ITEM(sequence, 0); 
-      __pyx_t_5 = PyList_GET_ITEM(sequence, 1); 
-    }
-    __Pyx_INCREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_t_5);
-    #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    #endif
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  } else {
-    Py_ssize_t index = -1;
-    __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_11 = Py_TYPE(__pyx_t_3)->tp_iternext;
-    index = 0; __pyx_t_1 = __pyx_t_11(__pyx_t_3); if (unlikely(!__pyx_t_1)) goto __pyx_L5_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_1);
-    index = 1; __pyx_t_5 = __pyx_t_11(__pyx_t_3); if (unlikely(!__pyx_t_5)) goto __pyx_L5_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_5);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_3), 2) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
-    __pyx_t_11 = NULL;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    goto __pyx_L6_unpacking_done;
-    __pyx_L5_unpacking_failed:;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_11 = NULL;
-    if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 74, __pyx_L1_error)
-    __pyx_L6_unpacking_done:;
-  }
-
-  /* "bitboard/bitothello.pyx":74
- *             raise ValueError
- * 
- *         next_black_board, next_white_board = self.board.simulate_play(             # <<<<<<<<<<<<<<
- *             self.turn, put_loc_, 0, 0)
- * 
- */
-  __pyx_t_8 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_1); if (unlikely((__pyx_t_8 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 74, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_12 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_5); if (unlikely((__pyx_t_12 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 74, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_10.__pyx_n = 2;
+  __pyx_t_10.black_board = 0;
+  __pyx_t_10.white_board = 0;
+  __pyx_t_9 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->simulate_play(__pyx_v_self, __pyx_v_self->turn, __pyx_v_put_loc_, 0, &__pyx_t_10); 
+  __pyx_t_8 = __pyx_t_9.f0;
+  __pyx_t_11 = __pyx_t_9.f1;
   __pyx_v_next_black_board = __pyx_t_8;
-  __pyx_v_next_white_board = __pyx_t_12;
+  __pyx_v_next_white_board = __pyx_t_11;
 
-  /* "bitboard/bitothello.pyx":77
+  /* "bitboard/bitothello.pyx":373
  *             self.turn, put_loc_, 0, 0)
  * 
  *         if self._player_clr == self.turn:             # <<<<<<<<<<<<<<
  *             # Delete roll back log which is no longer used.
  *             if self._board_back:
  */
-  __pyx_t_6 = ((__pyx_v_self->_player_clr == __pyx_v_self->turn) != 0);
-  if (__pyx_t_6) {
+  __pyx_t_7 = ((__pyx_v_self->_player_clr == __pyx_v_self->turn) != 0);
+  if (__pyx_t_7) {
 
-    /* "bitboard/bitothello.pyx":79
+    /* "bitboard/bitothello.pyx":375
  *         if self._player_clr == self.turn:
  *             # Delete roll back log which is no longer used.
  *             if self._board_back:             # <<<<<<<<<<<<<<
  *                 self._board_back = deque([])
  *             self._board_log.append([next_black_board, next_white_board])
  */
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_self->_board_back); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 79, __pyx_L1_error)
-    if (__pyx_t_6) {
+    __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_self->_board_back); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 375, __pyx_L1_error)
+    if (__pyx_t_7) {
 
-      /* "bitboard/bitothello.pyx":80
+      /* "bitboard/bitothello.pyx":376
  *             # Delete roll back log which is no longer used.
  *             if self._board_back:
  *                 self._board_back = deque([])             # <<<<<<<<<<<<<<
  *             self._board_log.append([next_black_board, next_white_board])
  * 
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_deque); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_deque); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
+      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 376, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_3 = NULL;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
-        __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_5);
+      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
+        __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
         if (likely(__pyx_t_3)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
           __Pyx_INCREF(__pyx_t_3);
           __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_5, function);
+          __Pyx_DECREF_SET(__pyx_t_1, function);
         }
       }
-      __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_3, __pyx_t_1) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_1);
+      __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_4);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 376, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_GIVEREF(__pyx_t_2);
       __Pyx_GOTREF(__pyx_v_self->_board_back);
       __Pyx_DECREF(__pyx_v_self->_board_back);
       __pyx_v_self->_board_back = __pyx_t_2;
       __pyx_t_2 = 0;
 
-      /* "bitboard/bitothello.pyx":79
+      /* "bitboard/bitothello.pyx":375
  *         if self._player_clr == self.turn:
  *             # Delete roll back log which is no longer used.
  *             if self._board_back:             # <<<<<<<<<<<<<<
@@ -2904,29 +6659,29 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
  */
     }
 
-    /* "bitboard/bitothello.pyx":81
+    /* "bitboard/bitothello.pyx":377
  *             if self._board_back:
  *                 self._board_back = deque([])
  *             self._board_log.append([next_black_board, next_white_board])             # <<<<<<<<<<<<<<
  * 
  *         # Update boards.
  */
-    __pyx_t_2 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_next_black_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_next_black_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_next_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 81, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_next_white_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 377, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 377, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2);
-    PyList_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyList_SET_ITEM(__pyx_t_1, 1, __pyx_t_5);
+    PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_1);
+    PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_1);
     __pyx_t_2 = 0;
-    __pyx_t_5 = 0;
-    __pyx_t_13 = __Pyx_PyObject_Append(__pyx_v_self->_board_log, __pyx_t_1); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 81, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = 0;
+    __pyx_t_12 = __Pyx_PyObject_Append(__pyx_v_self->_board_log, __pyx_t_4); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 377, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "bitboard/bitothello.pyx":77
+    /* "bitboard/bitothello.pyx":373
  *             self.turn, put_loc_, 0, 0)
  * 
  *         if self._player_clr == self.turn:             # <<<<<<<<<<<<<<
@@ -2935,81 +6690,26 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
  */
   }
 
-  /* "bitboard/bitothello.pyx":84
+  /* "bitboard/bitothello.pyx":380
  * 
  *         # Update boards.
- *         self.board.update_board(next_black_board, next_white_board)             # <<<<<<<<<<<<<<
+ *         self.update_board(next_black_board, next_white_board)             # <<<<<<<<<<<<<<
  *         self._pass_cnt[self.turn] = 0
  *         self.turn ^= 1
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_update_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_next_black_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_next_white_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_10 = NULL;
-  __pyx_t_9 = 0;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
-    __pyx_t_10 = PyMethod_GET_SELF(__pyx_t_5);
-    if (likely(__pyx_t_10)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-      __Pyx_INCREF(__pyx_t_10);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_5, function);
-      __pyx_t_9 = 1;
-    }
-  }
-  #if CYTHON_FAST_PYCALL
-  if (PyFunction_Check(__pyx_t_5)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_10, __pyx_t_2, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else
-  #endif
-  #if CYTHON_FAST_PYCCALL
-  if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_10, __pyx_t_2, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else
-  #endif
-  {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    if (__pyx_t_10) {
-      __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_10); __pyx_t_10 = NULL;
-    }
-    __Pyx_GIVEREF(__pyx_t_2);
-    PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_9, __pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_9, __pyx_t_3);
-    __pyx_t_2 = 0;
-    __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->update_board(__pyx_v_self, __pyx_v_next_black_board, __pyx_v_next_white_board, 0);
 
-  /* "bitboard/bitothello.pyx":85
+  /* "bitboard/bitothello.pyx":381
  *         # Update boards.
- *         self.board.update_board(next_black_board, next_white_board)
+ *         self.update_board(next_black_board, next_white_board)
  *         self._pass_cnt[self.turn] = 0             # <<<<<<<<<<<<<<
  *         self.turn ^= 1
  * 
  */
   (__pyx_v_self->_pass_cnt[__pyx_v_self->turn]) = 0;
 
-  /* "bitboard/bitothello.pyx":86
- *         self.board.update_board(next_black_board, next_white_board)
+  /* "bitboard/bitothello.pyx":382
+ *         self.update_board(next_black_board, next_white_board)
  *         self._pass_cnt[self.turn] = 0
  *         self.turn ^= 1             # <<<<<<<<<<<<<<
  * 
@@ -3017,8 +6717,8 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
  */
   __pyx_v_self->turn = (__pyx_v_self->turn ^ 1);
 
-  /* "bitboard/bitothello.pyx":54
- *         self._board_back = deque([])
+  /* "bitboard/bitothello.pyx":350
+ *         self._white_board = white_board
  * 
  *     cpdef void play_turn(self, int put_loc):             # <<<<<<<<<<<<<<
  *         """You can put disk and reverse opponent's disk.
@@ -3033,16 +6733,15 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(struct Othel
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_10);
   __Pyx_WriteUnraisable("bitboard.bitothello.OthelloGameC.play_turn", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_3play_turn(PyObject *__pyx_v_self, PyObject *__pyx_arg_put_loc); /*proto*/
-static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_2play_turn[] = "You can put disk and reverse opponent's disk.\n\n        Parameters\n        ----------\n        put_loc : int\n            Integer from 0 to 63.\n        ";
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_3play_turn(PyObject *__pyx_v_self, PyObject *__pyx_arg_put_loc) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_27play_turn(PyObject *__pyx_v_self, PyObject *__pyx_arg_put_loc); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_26play_turn[] = "You can put disk and reverse opponent's disk.\n\n        Parameters\n        ----------\n        put_loc : int\n            Integer from 0 to 63.\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_27play_turn(PyObject *__pyx_v_self, PyObject *__pyx_arg_put_loc) {
   int __pyx_v_put_loc;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -3051,7 +6750,7 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_3play_turn(PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("play_turn (wrapper)", 0);
   assert(__pyx_arg_put_loc); {
-    __pyx_v_put_loc = __Pyx_PyInt_As_int(__pyx_arg_put_loc); if (unlikely((__pyx_v_put_loc == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 54, __pyx_L3_error)
+    __pyx_v_put_loc = __Pyx_PyInt_As_int(__pyx_arg_put_loc); if (unlikely((__pyx_v_put_loc == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 350, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3059,14 +6758,14 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_3play_turn(PyObj
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_2play_turn(((struct OthelloGameCObject *)__pyx_v_self), ((int)__pyx_v_put_loc));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_26play_turn(((struct OthelloGameCObject *)__pyx_v_self), ((int)__pyx_v_put_loc));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_2play_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_put_loc) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_26play_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_put_loc) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3075,7 +6774,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_2play_turn(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("play_turn", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(__pyx_v_self, __pyx_v_put_loc, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn(__pyx_v_self, __pyx_v_put_loc, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3092,7 +6791,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_2play_turn(struc
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":88
+/* "bitboard/bitothello.pyx":384
  *         self.turn ^= 1
  * 
  *     cpdef (int, int) update_count(self):             # <<<<<<<<<<<<<<
@@ -3100,7 +6799,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_2play_turn(struc
  *         cdef int count_board[2]
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5update_count(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_29update_count(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_update_count(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch) {
   int __pyx_v_count_board[2];
   __pyx_ctuple_int__and_int __pyx_r;
@@ -3110,8 +6809,9 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   __pyx_ctuple_int__and_int __pyx_t_5;
-  int __pyx_t_6[2];
+  int __pyx_t_6;
   int __pyx_t_7;
+  int __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3125,9 +6825,9 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5update_count)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_29update_count)) {
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -3141,10 +6841,10 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 384, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __pyx_convert__from_py___pyx_ctuple_int__and_int(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 88, __pyx_L1_error)
+        __pyx_t_5 = __pyx_convert__from_py___pyx_ctuple_int__and_int(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 384, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3163,46 +6863,31 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":91
+  /* "bitboard/bitothello.pyx":387
  *         """Update counts of disks."""
  *         cdef int count_board[2]
- *         count_board = self.board.count_disks()             # <<<<<<<<<<<<<<
+ *         count_board[0], count_board[1] = self.count_disks()             # <<<<<<<<<<<<<<
  *         if self._player_clr == 0:
  *             self._count_player = count_board[0]
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_count_disks); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(__Pyx_carray_from_py_int(__pyx_t_1, __pyx_t_6, 2) < 0)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  memcpy(&(__pyx_v_count_board[0]), __pyx_t_6, sizeof(__pyx_v_count_board[0]) * (2));
+  __pyx_t_5 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->count_disks(__pyx_v_self, 0, NULL);
+  __pyx_t_6 = __pyx_t_5.f0;
+  __pyx_t_7 = __pyx_t_5.f1;
+  (__pyx_v_count_board[0]) = __pyx_t_6;
+  (__pyx_v_count_board[1]) = __pyx_t_7;
 
-  /* "bitboard/bitothello.pyx":92
+  /* "bitboard/bitothello.pyx":388
  *         cdef int count_board[2]
- *         count_board = self.board.count_disks()
+ *         count_board[0], count_board[1] = self.count_disks()
  *         if self._player_clr == 0:             # <<<<<<<<<<<<<<
  *             self._count_player = count_board[0]
  *             self._count_opponent = count_board[1]
  */
-  __pyx_t_7 = ((__pyx_v_self->_player_clr == 0) != 0);
-  if (__pyx_t_7) {
+  __pyx_t_8 = ((__pyx_v_self->_player_clr == 0) != 0);
+  if (__pyx_t_8) {
 
-    /* "bitboard/bitothello.pyx":93
- *         count_board = self.board.count_disks()
+    /* "bitboard/bitothello.pyx":389
+ *         count_board[0], count_board[1] = self.count_disks()
  *         if self._player_clr == 0:
  *             self._count_player = count_board[0]             # <<<<<<<<<<<<<<
  *             self._count_opponent = count_board[1]
@@ -3210,7 +6895,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
  */
     __pyx_v_self->_count_player = (__pyx_v_count_board[0]);
 
-    /* "bitboard/bitothello.pyx":94
+    /* "bitboard/bitothello.pyx":390
  *         if self._player_clr == 0:
  *             self._count_player = count_board[0]
  *             self._count_opponent = count_board[1]             # <<<<<<<<<<<<<<
@@ -3219,7 +6904,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
  */
     __pyx_v_self->_count_opponent = (__pyx_v_count_board[1]);
 
-    /* "bitboard/bitothello.pyx":95
+    /* "bitboard/bitothello.pyx":391
  *             self._count_player = count_board[0]
  *             self._count_opponent = count_board[1]
  *             return count_board[0], count_board[1]             # <<<<<<<<<<<<<<
@@ -3231,16 +6916,16 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
     __pyx_r = __pyx_t_5;
     goto __pyx_L0;
 
-    /* "bitboard/bitothello.pyx":92
+    /* "bitboard/bitothello.pyx":388
  *         cdef int count_board[2]
- *         count_board = self.board.count_disks()
+ *         count_board[0], count_board[1] = self.count_disks()
  *         if self._player_clr == 0:             # <<<<<<<<<<<<<<
  *             self._count_player = count_board[0]
  *             self._count_opponent = count_board[1]
  */
   }
 
-  /* "bitboard/bitothello.pyx":97
+  /* "bitboard/bitothello.pyx":393
  *             return count_board[0], count_board[1]
  *         else:
  *             self._count_player = count_board[1]             # <<<<<<<<<<<<<<
@@ -3250,7 +6935,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
   /*else*/ {
     __pyx_v_self->_count_player = (__pyx_v_count_board[1]);
 
-    /* "bitboard/bitothello.pyx":98
+    /* "bitboard/bitothello.pyx":394
  *         else:
  *             self._count_player = count_board[1]
  *             self._count_opponent = count_board[0]             # <<<<<<<<<<<<<<
@@ -3259,7 +6944,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
  */
     __pyx_v_self->_count_opponent = (__pyx_v_count_board[0]);
 
-    /* "bitboard/bitothello.pyx":99
+    /* "bitboard/bitothello.pyx":395
  *             self._count_player = count_board[1]
  *             self._count_opponent = count_board[0]
  *             return count_board[1], count_board[0]             # <<<<<<<<<<<<<<
@@ -3272,7 +6957,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
     goto __pyx_L0;
   }
 
-  /* "bitboard/bitothello.pyx":88
+  /* "bitboard/bitothello.pyx":384
  *         self.turn ^= 1
  * 
  *     cpdef (int, int) update_count(self):             # <<<<<<<<<<<<<<
@@ -3294,20 +6979,20 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_u
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5update_count(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_4update_count[] = "Update counts of disks.";
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5update_count(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_29update_count(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_28update_count[] = "Update counts of disks.";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_29update_count(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("update_count (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_4update_count(((struct OthelloGameCObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_28update_count(((struct OthelloGameCObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4update_count(struct OthelloGameCObject *__pyx_v_self) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_28update_count(struct OthelloGameCObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3316,7 +7001,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4update_count(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("update_count", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_f_8bitboard_10bitothello_12OthelloGameC_update_count(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_f_8bitboard_10bitothello_12OthelloGameC_update_count(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3333,7 +7018,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4update_count(st
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":101
+/* "bitboard/bitothello.pyx":397
  *             return count_board[1], count_board[0]
  * 
  *     cpdef bint judge_game(self, int player = 0, int opponent = 0):             # <<<<<<<<<<<<<<
@@ -3341,7 +7026,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4update_count(st
  *         if player == 0 and opponent == 0:
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7judge_game(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_31judge_game(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game *__pyx_optional_args) {
   int __pyx_v_player = ((int)0);
   int __pyx_v_opponent = ((int)0);
@@ -3359,7 +7044,6 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
   PyObject *__pyx_t_8 = NULL;
   int __pyx_t_9;
   int __pyx_t_10;
-  std::uint64_t __pyx_t_11;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3381,12 +7065,12 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_judge_game); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_judge_game); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7judge_game)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L1_error)
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_31judge_game)) {
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_opponent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_opponent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 397, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -3404,7 +7088,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3414,7 +7098,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3422,7 +7106,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 101, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 397, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -3433,12 +7117,12 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 397, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_9;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3457,7 +7141,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":103
+  /* "bitboard/bitothello.pyx":399
  *     cpdef bint judge_game(self, int player = 0, int opponent = 0):
  *         """Judgement of game."""
  *         if player == 0 and opponent == 0:             # <<<<<<<<<<<<<<
@@ -3475,7 +7159,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_9) {
 
-    /* "bitboard/bitothello.pyx":104
+    /* "bitboard/bitothello.pyx":400
  *         """Judgement of game."""
  *         if player == 0 and opponent == 0:
  *             player = self._count_player             # <<<<<<<<<<<<<<
@@ -3485,7 +7169,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
     __pyx_t_7 = __pyx_v_self->_count_player;
     __pyx_v_player = __pyx_t_7;
 
-    /* "bitboard/bitothello.pyx":105
+    /* "bitboard/bitothello.pyx":401
  *         if player == 0 and opponent == 0:
  *             player = self._count_player
  *             opponent = self._count_opponent             # <<<<<<<<<<<<<<
@@ -3495,7 +7179,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
     __pyx_t_7 = __pyx_v_self->_count_opponent;
     __pyx_v_opponent = __pyx_t_7;
 
-    /* "bitboard/bitothello.pyx":103
+    /* "bitboard/bitothello.pyx":399
  *     cpdef bint judge_game(self, int player = 0, int opponent = 0):
  *         """Judgement of game."""
  *         if player == 0 and opponent == 0:             # <<<<<<<<<<<<<<
@@ -3504,65 +7188,27 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
  */
   }
 
-  /* "bitboard/bitothello.pyx":109
+  /* "bitboard/bitothello.pyx":405
  *         # if self._pass_cnt >= 2 or sum(disk_count) == 64:
  *         cdef uint64_t black, white
- *         black = self.board.reversible_area(0)             # <<<<<<<<<<<<<<
- *         white = self.board.reversible_area(1)
+ *         black = self.reversible_area(0)             # <<<<<<<<<<<<<<
+ *         white = self.reversible_area(1)
  *         if (black == 0 and white == 0) or (player+opponent) == 64:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_5)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_int_0) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_int_0);
-  __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_11 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_1); if (unlikely((__pyx_t_11 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_black = __pyx_t_11;
+  __pyx_v_black = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, 0, 0, NULL);
 
-  /* "bitboard/bitothello.pyx":110
+  /* "bitboard/bitothello.pyx":406
  *         cdef uint64_t black, white
- *         black = self.board.reversible_area(0)
- *         white = self.board.reversible_area(1)             # <<<<<<<<<<<<<<
+ *         black = self.reversible_area(0)
+ *         white = self.reversible_area(1)             # <<<<<<<<<<<<<<
  *         if (black == 0 and white == 0) or (player+opponent) == 64:
  *             if player == opponent:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_5)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_int_1) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_int_1);
-  __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_11 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_1); if (unlikely((__pyx_t_11 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 110, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_white = __pyx_t_11;
+  __pyx_v_white = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, 1, 0, NULL);
 
-  /* "bitboard/bitothello.pyx":111
- *         black = self.board.reversible_area(0)
- *         white = self.board.reversible_area(1)
+  /* "bitboard/bitothello.pyx":407
+ *         black = self.reversible_area(0)
+ *         white = self.reversible_area(1)
  *         if (black == 0 and white == 0) or (player+opponent) == 64:             # <<<<<<<<<<<<<<
  *             if player == opponent:
  *                 self.result = "DRAW"
@@ -3584,8 +7230,8 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
   __pyx_L7_bool_binop_done:;
   if (__pyx_t_9) {
 
-    /* "bitboard/bitothello.pyx":112
- *         white = self.board.reversible_area(1)
+    /* "bitboard/bitothello.pyx":408
+ *         white = self.reversible_area(1)
  *         if (black == 0 and white == 0) or (player+opponent) == 64:
  *             if player == opponent:             # <<<<<<<<<<<<<<
  *                 self.result = "DRAW"
@@ -3594,7 +7240,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
     __pyx_t_9 = ((__pyx_v_player == __pyx_v_opponent) != 0);
     if (__pyx_t_9) {
 
-      /* "bitboard/bitothello.pyx":113
+      /* "bitboard/bitothello.pyx":409
  *         if (black == 0 and white == 0) or (player+opponent) == 64:
  *             if player == opponent:
  *                 self.result = "DRAW"             # <<<<<<<<<<<<<<
@@ -3607,8 +7253,8 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
       __Pyx_DECREF(__pyx_v_self->result);
       __pyx_v_self->result = __pyx_n_u_DRAW;
 
-      /* "bitboard/bitothello.pyx":112
- *         white = self.board.reversible_area(1)
+      /* "bitboard/bitothello.pyx":408
+ *         white = self.reversible_area(1)
  *         if (black == 0 and white == 0) or (player+opponent) == 64:
  *             if player == opponent:             # <<<<<<<<<<<<<<
  *                 self.result = "DRAW"
@@ -3616,7 +7262,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
  */
     }
 
-    /* "bitboard/bitothello.pyx":114
+    /* "bitboard/bitothello.pyx":410
  *             if player == opponent:
  *                 self.result = "DRAW"
  *             if player > opponent:             # <<<<<<<<<<<<<<
@@ -3626,7 +7272,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
     __pyx_t_9 = ((__pyx_v_player > __pyx_v_opponent) != 0);
     if (__pyx_t_9) {
 
-      /* "bitboard/bitothello.pyx":115
+      /* "bitboard/bitothello.pyx":411
  *                 self.result = "DRAW"
  *             if player > opponent:
  *                 self.result = "WIN"             # <<<<<<<<<<<<<<
@@ -3639,7 +7285,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
       __Pyx_DECREF(__pyx_v_self->result);
       __pyx_v_self->result = __pyx_n_u_WIN;
 
-      /* "bitboard/bitothello.pyx":114
+      /* "bitboard/bitothello.pyx":410
  *             if player == opponent:
  *                 self.result = "DRAW"
  *             if player > opponent:             # <<<<<<<<<<<<<<
@@ -3648,7 +7294,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
  */
     }
 
-    /* "bitboard/bitothello.pyx":116
+    /* "bitboard/bitothello.pyx":412
  *             if player > opponent:
  *                 self.result = "WIN"
  *             if player < opponent:             # <<<<<<<<<<<<<<
@@ -3658,7 +7304,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
     __pyx_t_9 = ((__pyx_v_player < __pyx_v_opponent) != 0);
     if (__pyx_t_9) {
 
-      /* "bitboard/bitothello.pyx":117
+      /* "bitboard/bitothello.pyx":413
  *                 self.result = "WIN"
  *             if player < opponent:
  *                 self.result = "LOSE"             # <<<<<<<<<<<<<<
@@ -3671,7 +7317,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
       __Pyx_DECREF(__pyx_v_self->result);
       __pyx_v_self->result = __pyx_n_u_LOSE;
 
-      /* "bitboard/bitothello.pyx":116
+      /* "bitboard/bitothello.pyx":412
  *             if player > opponent:
  *                 self.result = "WIN"
  *             if player < opponent:             # <<<<<<<<<<<<<<
@@ -3680,7 +7326,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
  */
     }
 
-    /* "bitboard/bitothello.pyx":118
+    /* "bitboard/bitothello.pyx":414
  *             if player < opponent:
  *                 self.result = "LOSE"
  *             return True             # <<<<<<<<<<<<<<
@@ -3690,16 +7336,16 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "bitboard/bitothello.pyx":111
- *         black = self.board.reversible_area(0)
- *         white = self.board.reversible_area(1)
+    /* "bitboard/bitothello.pyx":407
+ *         black = self.reversible_area(0)
+ *         white = self.reversible_area(1)
  *         if (black == 0 and white == 0) or (player+opponent) == 64:             # <<<<<<<<<<<<<<
  *             if player == opponent:
  *                 self.result = "DRAW"
  */
   }
 
-  /* "bitboard/bitothello.pyx":119
+  /* "bitboard/bitothello.pyx":415
  *                 self.result = "LOSE"
  *             return True
  *         return False             # <<<<<<<<<<<<<<
@@ -3709,7 +7355,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "bitboard/bitothello.pyx":101
+  /* "bitboard/bitothello.pyx":397
  *             return count_board[1], count_board[0]
  * 
  *     cpdef bint judge_game(self, int player = 0, int opponent = 0):             # <<<<<<<<<<<<<<
@@ -3734,9 +7380,9 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game(struct Othel
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7judge_game(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_6judge_game[] = "Judgement of game.";
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7judge_game(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_31judge_game(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_30judge_game[] = "Judgement of game.";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_31judge_game(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_player;
   int __pyx_v_opponent;
   int __pyx_lineno = 0;
@@ -3774,7 +7420,7 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7judge_game(PyOb
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "judge_game") < 0)) __PYX_ERR(0, 101, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "judge_game") < 0)) __PYX_ERR(0, 397, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3787,32 +7433,32 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7judge_game(PyOb
       }
     }
     if (values[0]) {
-      __pyx_v_player = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_player == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L3_error)
+      __pyx_v_player = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_player == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 397, __pyx_L3_error)
     } else {
       __pyx_v_player = ((int)0);
     }
     if (values[1]) {
-      __pyx_v_opponent = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_opponent == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L3_error)
+      __pyx_v_opponent = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_opponent == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 397, __pyx_L3_error)
     } else {
       __pyx_v_opponent = ((int)0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("judge_game", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 101, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("judge_game", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 397, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.judge_game", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_6judge_game(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_player, __pyx_v_opponent);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_30judge_game(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_player, __pyx_v_opponent);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_6judge_game(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_player, int __pyx_v_opponent) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_30judge_game(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_player, int __pyx_v_opponent) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -3827,7 +7473,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_6judge_game(stru
   __pyx_t_2.player = __pyx_v_player;
   __pyx_t_2.opponent = __pyx_v_opponent;
   __pyx_t_1 = __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC->judge_game(__pyx_v_self, 1, &__pyx_t_2); 
-  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -3844,7 +7490,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_6judge_game(stru
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":121
+/* "bitboard/bitothello.pyx":417
  *         return False
  * 
  *     cpdef void auto_mode(self, bint automode = True):             # <<<<<<<<<<<<<<
@@ -3852,7 +7498,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_6judge_game(stru
  *         self._player_auto = automode
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9auto_mode(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_33auto_mode(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_auto_mode(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode *__pyx_optional_args) {
   int __pyx_v_automode = ((int)1);
   __Pyx_RefNannyDeclarations
@@ -3879,10 +7525,10 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_auto_mode(struct Othel
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_auto_mode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_auto_mode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 417, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9auto_mode)) {
-        __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_v_automode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_33auto_mode)) {
+        __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_v_automode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 417, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -3898,7 +7544,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_auto_mode(struct Othel
         __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -3918,7 +7564,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_auto_mode(struct Othel
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":123
+  /* "bitboard/bitothello.pyx":419
  *     cpdef void auto_mode(self, bint automode = True):
  *         """If True is selected, the match will be played between the CPUs."""
  *         self._player_auto = automode             # <<<<<<<<<<<<<<
@@ -3927,7 +7573,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_auto_mode(struct Othel
  */
   __pyx_v_self->_player_auto = __pyx_v_automode;
 
-  /* "bitboard/bitothello.pyx":121
+  /* "bitboard/bitothello.pyx":417
  *         return False
  * 
  *     cpdef void auto_mode(self, bint automode = True):             # <<<<<<<<<<<<<<
@@ -3949,9 +7595,9 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_auto_mode(struct Othel
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9auto_mode(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_8auto_mode[] = "If True is selected, the match will be played between the CPUs.";
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9auto_mode(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_33auto_mode(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_32auto_mode[] = "If True is selected, the match will be played between the CPUs.";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_33auto_mode(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_automode;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -3980,7 +7626,7 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9auto_mode(PyObj
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "auto_mode") < 0)) __PYX_ERR(0, 121, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "auto_mode") < 0)) __PYX_ERR(0, 417, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3991,27 +7637,27 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9auto_mode(PyObj
       }
     }
     if (values[0]) {
-      __pyx_v_automode = __Pyx_PyObject_IsTrue(values[0]); if (unlikely((__pyx_v_automode == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L3_error)
+      __pyx_v_automode = __Pyx_PyObject_IsTrue(values[0]); if (unlikely((__pyx_v_automode == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 417, __pyx_L3_error)
     } else {
       __pyx_v_automode = ((int)1);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("auto_mode", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 121, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("auto_mode", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 417, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.auto_mode", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_8auto_mode(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_automode);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_32auto_mode(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_automode);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_8auto_mode(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_automode) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_32auto_mode(struct OthelloGameCObject *__pyx_v_self, int __pyx_v_automode) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode __pyx_t_1;
@@ -4024,7 +7670,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_8auto_mode(struc
   __pyx_t_1.__pyx_n = 1;
   __pyx_t_1.automode = __pyx_v_automode;
   __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC->auto_mode(__pyx_v_self, 1, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -4041,7 +7687,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_8auto_mode(struc
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":125
+/* "bitboard/bitothello.pyx":421
  *         self._player_auto = automode
  * 
  *     cpdef void load_strategy(self, object Strategy):             # <<<<<<<<<<<<<<
@@ -4049,7 +7695,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_8auto_mode(struc
  *         self._strategy_player = Strategy(self)
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11load_strategy(PyObject *__pyx_v_self, PyObject *__pyx_v_Strategy); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_35load_strategy(PyObject *__pyx_v_self, PyObject *__pyx_v_Strategy); /*proto*/
 static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_Strategy, int __pyx_skip_dispatch) {
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4069,9 +7715,9 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct O
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_strategy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_strategy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 421, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11load_strategy)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_35load_strategy)) {
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -4085,7 +7731,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct O
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_Strategy) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_Strategy);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 421, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4105,7 +7751,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct O
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":127
+  /* "bitboard/bitothello.pyx":423
  *     cpdef void load_strategy(self, object Strategy):
  *         """Set strategy class."""
  *         self._strategy_player = Strategy(self)             # <<<<<<<<<<<<<<
@@ -4125,7 +7771,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct O
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
@@ -4134,7 +7780,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct O
   __pyx_v_self->_strategy_player = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":128
+  /* "bitboard/bitothello.pyx":424
  *         """Set strategy class."""
  *         self._strategy_player = Strategy(self)
  *         self._strategy_opponent = Strategy(self)             # <<<<<<<<<<<<<<
@@ -4154,7 +7800,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct O
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
@@ -4163,7 +7809,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct O
   __pyx_v_self->_strategy_opponent = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":125
+  /* "bitboard/bitothello.pyx":421
  *         self._player_auto = automode
  * 
  *     cpdef void load_strategy(self, object Strategy):             # <<<<<<<<<<<<<<
@@ -4184,20 +7830,20 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(struct O
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11load_strategy(PyObject *__pyx_v_self, PyObject *__pyx_v_Strategy); /*proto*/
-static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_10load_strategy[] = "Set strategy class.";
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11load_strategy(PyObject *__pyx_v_self, PyObject *__pyx_v_Strategy) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_35load_strategy(PyObject *__pyx_v_self, PyObject *__pyx_v_Strategy); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_34load_strategy[] = "Set strategy class.";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_35load_strategy(PyObject *__pyx_v_self, PyObject *__pyx_v_Strategy) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("load_strategy (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10load_strategy(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v_Strategy));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_34load_strategy(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v_Strategy));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10load_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_Strategy) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_34load_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_Strategy) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4206,7 +7852,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10load_strategy(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("load_strategy", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(__pyx_v_self, __pyx_v_Strategy, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_10bitothello_12OthelloGameC_load_strategy(__pyx_v_self, __pyx_v_Strategy, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 421, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4223,7 +7869,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10load_strategy(
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":130
+/* "bitboard/bitothello.pyx":426
  *         self._strategy_opponent = Strategy(self)
  * 
  *     cpdef void change_strategy(self, str strategy, bint is_player=False):             # <<<<<<<<<<<<<<
@@ -4231,7 +7877,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10load_strategy(
  * 
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13change_strategy(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_37change_strategy(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_strategy, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy *__pyx_optional_args) {
   int __pyx_v_is_player = ((int)0);
   __Pyx_RefNannyDeclarations
@@ -4261,10 +7907,10 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_change_strategy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_change_strategy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 426, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13change_strategy)) {
-        __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_v_is_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_37change_strategy)) {
+        __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_v_is_player); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 426, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -4282,7 +7928,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_strategy, __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4291,14 +7937,14 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_strategy, __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else
         #endif
         {
-          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 130, __pyx_L1_error)
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           if (__pyx_t_5) {
             __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -4309,7 +7955,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
           __Pyx_GIVEREF(__pyx_t_3);
           PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_3);
           __pyx_t_3 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 426, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
@@ -4331,7 +7977,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":142
+  /* "bitboard/bitothello.pyx":438
  *             Default is False.
  *         """
  *         if is_player:             # <<<<<<<<<<<<<<
@@ -4341,14 +7987,14 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
   __pyx_t_8 = (__pyx_v_is_player != 0);
   if (__pyx_t_8) {
 
-    /* "bitboard/bitothello.pyx":143
+    /* "bitboard/bitothello.pyx":439
  *         """
  *         if is_player:
  *             self._strategy_player.set_strategy(strategy)             # <<<<<<<<<<<<<<
  *         else:
  *             self._strategy_opponent.set_strategy(strategy)
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_strategy_player, __pyx_n_s_set_strategy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 143, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_strategy_player, __pyx_n_s_set_strategy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_4 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4362,12 +8008,12 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_4, __pyx_v_strategy) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_strategy);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "bitboard/bitothello.pyx":142
+    /* "bitboard/bitothello.pyx":438
  *             Default is False.
  *         """
  *         if is_player:             # <<<<<<<<<<<<<<
@@ -4377,7 +8023,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
     goto __pyx_L3;
   }
 
-  /* "bitboard/bitothello.pyx":145
+  /* "bitboard/bitothello.pyx":441
  *             self._strategy_player.set_strategy(strategy)
  *         else:
  *             self._strategy_opponent.set_strategy(strategy)             # <<<<<<<<<<<<<<
@@ -4385,7 +8031,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
  *     cpdef (bint, bint) process_game(self):
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_strategy_opponent, __pyx_n_s_set_strategy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_strategy_opponent, __pyx_n_s_set_strategy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 441, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_4 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4399,14 +8045,14 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_4, __pyx_v_strategy) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_strategy);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 441, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L3:;
 
-  /* "bitboard/bitothello.pyx":130
+  /* "bitboard/bitothello.pyx":426
  *         self._strategy_opponent = Strategy(self)
  * 
  *     cpdef void change_strategy(self, str strategy, bint is_player=False):             # <<<<<<<<<<<<<<
@@ -4429,9 +8075,9 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_change_strategy(struct
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13change_strategy(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_12change_strategy[] = "You can select AI strategy from candidates below.\n\n        Parameters\n        ----------\n        strategy : str\n            random : Put disk randomly.\n            maximize : Put disk to maximize number of one's disks.\n            minimize : Put disk to minimize number of one's disks.\n        is_player : bool\n            Default is False.\n        ";
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13change_strategy(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_37change_strategy(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_36change_strategy[] = "You can select AI strategy from candidates below.\n\n        Parameters\n        ----------\n        strategy : str\n            random : Put disk randomly.\n            maximize : Put disk to maximize number of one's disks.\n            minimize : Put disk to minimize number of one's disks.\n        is_player : bool\n            Default is False.\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_37change_strategy(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_strategy = 0;
   int __pyx_v_is_player;
   int __pyx_lineno = 0;
@@ -4467,7 +8113,7 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13change_strateg
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "change_strategy") < 0)) __PYX_ERR(0, 130, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "change_strategy") < 0)) __PYX_ERR(0, 426, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4480,21 +8126,21 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13change_strateg
     }
     __pyx_v_strategy = ((PyObject*)values[0]);
     if (values[1]) {
-      __pyx_v_is_player = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_is_player == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 130, __pyx_L3_error)
+      __pyx_v_is_player = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_is_player == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 426, __pyx_L3_error)
     } else {
       __pyx_v_is_player = ((int)0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("change_strategy", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 130, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("change_strategy", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 426, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.change_strategy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_strategy), (&PyUnicode_Type), 1, "strategy", 1))) __PYX_ERR(0, 130, __pyx_L1_error)
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12change_strategy(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_strategy, __pyx_v_is_player);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_strategy), (&PyUnicode_Type), 1, "strategy", 1))) __PYX_ERR(0, 426, __pyx_L1_error)
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_36change_strategy(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_strategy, __pyx_v_is_player);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4505,7 +8151,7 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13change_strateg
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12change_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_strategy, int __pyx_v_is_player) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_36change_strategy(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_strategy, int __pyx_v_is_player) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy __pyx_t_1;
@@ -4518,7 +8164,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12change_strateg
   __pyx_t_1.__pyx_n = 1;
   __pyx_t_1.is_player = __pyx_v_is_player;
   __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC->change_strategy(__pyx_v_self, __pyx_v_strategy, 1, &__pyx_t_1); 
-  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 426, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -4535,7 +8181,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12change_strateg
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":147
+/* "bitboard/bitothello.pyx":443
  *             self._strategy_opponent.set_strategy(strategy)
  * 
  *     cpdef (bint, bint) process_game(self):             # <<<<<<<<<<<<<<
@@ -4543,7 +8189,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12change_strateg
  *         Returns
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15process_game(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_39process_game(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_process_game(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch) {
   __pyx_ctuple_int__and_int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -4553,8 +8199,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
   PyObject *__pyx_t_4 = NULL;
   __pyx_ctuple_int__and_int __pyx_t_5;
   int __pyx_t_6;
-  std::uint64_t __pyx_t_7;
-  int __pyx_t_8;
+  int __pyx_t_7;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4568,9 +8213,9 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_process_game); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_process_game); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 443, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15process_game)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_39process_game)) {
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -4584,10 +8229,10 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __pyx_convert__from_py___pyx_ctuple_int__and_int(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L1_error)
+        __pyx_t_5 = __pyx_convert__from_py___pyx_ctuple_int__and_int(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 443, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4606,7 +8251,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":153
+  /* "bitboard/bitothello.pyx":449
  *         finished, updated : bool
  *         """
  *         self.update_count()             # <<<<<<<<<<<<<<
@@ -4615,7 +8260,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
  */
   (void)(((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->update_count(__pyx_v_self, 0));
 
-  /* "bitboard/bitothello.pyx":155
+  /* "bitboard/bitothello.pyx":451
  *         self.update_count()
  * 
  *         if self.judge_game():             # <<<<<<<<<<<<<<
@@ -4625,16 +8270,16 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
   __pyx_t_6 = (((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->judge_game(__pyx_v_self, 0, NULL) != 0);
   if (__pyx_t_6) {
 
-    /* "bitboard/bitothello.pyx":156
+    /* "bitboard/bitothello.pyx":452
  * 
  *         if self.judge_game():
  *             logger.debug("Game was judged as the end.")             # <<<<<<<<<<<<<<
  *             return True, True
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -4649,12 +8294,12 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
     }
     __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_kp_u_Game_was_judged_as_the_end) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_kp_u_Game_was_judged_as_the_end);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "bitboard/bitothello.pyx":157
+    /* "bitboard/bitothello.pyx":453
  *         if self.judge_game():
  *             logger.debug("Game was judged as the end.")
  *             return True, True             # <<<<<<<<<<<<<<
@@ -4666,7 +8311,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
     __pyx_r = __pyx_t_5;
     goto __pyx_L0;
 
-    /* "bitboard/bitothello.pyx":155
+    /* "bitboard/bitothello.pyx":451
  *         self.update_count()
  * 
  *         if self.judge_game():             # <<<<<<<<<<<<<<
@@ -4675,81 +8320,38 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
  */
   }
 
-  /* "bitboard/bitothello.pyx":159
+  /* "bitboard/bitothello.pyx":455
  *             return True, True
  * 
  *         if self.turn == self._player_clr:             # <<<<<<<<<<<<<<
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):
  */
   __pyx_t_6 = ((__pyx_v_self->turn == __pyx_v_self->_player_clr) != 0);
   if (__pyx_t_6) {
 
-    /* "bitboard/bitothello.pyx":160
+    /* "bitboard/bitothello.pyx":456
  * 
  *         if self.turn == self._player_clr:
- *             self.reversible = self.board.reversible_area(self.turn)             # <<<<<<<<<<<<<<
- *             if self.board.turn_playable(self.turn):
+ *             self.reversible = self.reversible_area(self.turn)             # <<<<<<<<<<<<<<
+ *             if self.turn_playable(self.turn):
  *                 if self._player_auto:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      if (likely(__pyx_t_4)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-        __Pyx_INCREF(__pyx_t_4);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_3, function);
-      }
-    }
-    __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_7 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_1); if (unlikely((__pyx_t_7 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 160, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_v_self->reversible = __pyx_t_7;
+    __pyx_v_self->reversible = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_self->turn, 0, NULL);
 
-    /* "bitboard/bitothello.pyx":161
+    /* "bitboard/bitothello.pyx":457
  *         if self.turn == self._player_clr:
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):             # <<<<<<<<<<<<<<
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):             # <<<<<<<<<<<<<<
  *                 if self._player_auto:
  *                     logger.debug("Player's turn was processed automatically.")
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_turn_playable); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 161, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 161, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      if (likely(__pyx_t_4)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-        __Pyx_INCREF(__pyx_t_4);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_3, function);
-      }
-    }
-    __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 161, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 161, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_6 = (((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->turn_playable(__pyx_v_self, __pyx_v_self->turn, 0, NULL) != 0);
     if (__pyx_t_6) {
 
-      /* "bitboard/bitothello.pyx":162
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):
+      /* "bitboard/bitothello.pyx":458
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):
  *                 if self._player_auto:             # <<<<<<<<<<<<<<
  *                     logger.debug("Player's turn was processed automatically.")
  *                     self.play_turn(self._strategy_player.selecter(self))
@@ -4757,16 +8359,16 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
       __pyx_t_6 = (__pyx_v_self->_player_auto != 0);
       if (__pyx_t_6) {
 
-        /* "bitboard/bitothello.pyx":163
- *             if self.board.turn_playable(self.turn):
+        /* "bitboard/bitothello.pyx":459
+ *             if self.turn_playable(self.turn):
  *                 if self._player_auto:
  *                     logger.debug("Player's turn was processed automatically.")             # <<<<<<<<<<<<<<
  *                     self.play_turn(self._strategy_player.selecter(self))
  *                     return False, True
  */
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 459, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 163, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 459, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_t_3 = NULL;
@@ -4781,19 +8383,19 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
         }
         __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_kp_u_Player_s_turn_was_processed_auto) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_Player_s_turn_was_processed_auto);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 459, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "bitboard/bitothello.pyx":164
+        /* "bitboard/bitothello.pyx":460
  *                 if self._player_auto:
  *                     logger.debug("Player's turn was processed automatically.")
  *                     self.play_turn(self._strategy_player.selecter(self))             # <<<<<<<<<<<<<<
  *                     return False, True
  *                 else:
  */
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_strategy_player, __pyx_n_s_selecter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 164, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_strategy_player, __pyx_n_s_selecter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 460, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_3 = NULL;
         if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4807,14 +8409,14 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
         }
         __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 460, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 164, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 460, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->play_turn(__pyx_v_self, __pyx_t_8, 0);
+        ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->play_turn(__pyx_v_self, __pyx_t_7, 0);
 
-        /* "bitboard/bitothello.pyx":165
+        /* "bitboard/bitothello.pyx":461
  *                     logger.debug("Player's turn was processed automatically.")
  *                     self.play_turn(self._strategy_player.selecter(self))
  *                     return False, True             # <<<<<<<<<<<<<<
@@ -4826,16 +8428,16 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
         __pyx_r = __pyx_t_5;
         goto __pyx_L0;
 
-        /* "bitboard/bitothello.pyx":162
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):
+        /* "bitboard/bitothello.pyx":458
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):
  *                 if self._player_auto:             # <<<<<<<<<<<<<<
  *                     logger.debug("Player's turn was processed automatically.")
  *                     self.play_turn(self._strategy_player.selecter(self))
  */
       }
 
-      /* "bitboard/bitothello.pyx":167
+      /* "bitboard/bitothello.pyx":463
  *                     return False, True
  *                 else:
  *                     pass             # <<<<<<<<<<<<<<
@@ -4845,17 +8447,17 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
       /*else*/ {
       }
 
-      /* "bitboard/bitothello.pyx":161
+      /* "bitboard/bitothello.pyx":457
  *         if self.turn == self._player_clr:
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):             # <<<<<<<<<<<<<<
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):             # <<<<<<<<<<<<<<
  *                 if self._player_auto:
  *                     logger.debug("Player's turn was processed automatically.")
  */
       goto __pyx_L5;
     }
 
-    /* "bitboard/bitothello.pyx":169
+    /* "bitboard/bitothello.pyx":465
  *                     pass
  *             else:
  *                 logger.debug("Player's turn was passed.")             # <<<<<<<<<<<<<<
@@ -4863,9 +8465,9 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
  *                 self._pass_cnt[self.turn] += 1
  */
     /*else*/ {
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 169, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -4880,12 +8482,12 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
       }
       __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_kp_u_Player_s_turn_was_passed) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_kp_u_Player_s_turn_was_passed);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "bitboard/bitothello.pyx":170
+      /* "bitboard/bitothello.pyx":466
  *             else:
  *                 logger.debug("Player's turn was passed.")
  *                 self.turn ^= 1             # <<<<<<<<<<<<<<
@@ -4894,101 +8496,58 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
  */
       __pyx_v_self->turn = (__pyx_v_self->turn ^ 1);
 
-      /* "bitboard/bitothello.pyx":171
+      /* "bitboard/bitothello.pyx":467
  *                 logger.debug("Player's turn was passed.")
  *                 self.turn ^= 1
  *                 self._pass_cnt[self.turn] += 1             # <<<<<<<<<<<<<<
  *         else:
- *             self.reversible = self.board.reversible_area(self.turn)
+ *             self.reversible = self.reversible_area(self.turn)
  */
-      __pyx_t_8 = __pyx_v_self->turn;
-      (__pyx_v_self->_pass_cnt[__pyx_t_8]) = ((__pyx_v_self->_pass_cnt[__pyx_t_8]) + 1);
+      __pyx_t_7 = __pyx_v_self->turn;
+      (__pyx_v_self->_pass_cnt[__pyx_t_7]) = ((__pyx_v_self->_pass_cnt[__pyx_t_7]) + 1);
     }
     __pyx_L5:;
 
-    /* "bitboard/bitothello.pyx":159
+    /* "bitboard/bitothello.pyx":455
  *             return True, True
  * 
  *         if self.turn == self._player_clr:             # <<<<<<<<<<<<<<
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):
  */
     goto __pyx_L4;
   }
 
-  /* "bitboard/bitothello.pyx":173
+  /* "bitboard/bitothello.pyx":469
  *                 self._pass_cnt[self.turn] += 1
  *         else:
- *             self.reversible = self.board.reversible_area(self.turn)             # <<<<<<<<<<<<<<
- *             if self.board.turn_playable(self.turn):
+ *             self.reversible = self.reversible_area(self.turn)             # <<<<<<<<<<<<<<
+ *             if self.turn_playable(self.turn):
  *                 logger.debug("CPU's turn was processed automatically.")
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 173, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 173, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      if (likely(__pyx_t_4)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-        __Pyx_INCREF(__pyx_t_4);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_3, function);
-      }
-    }
-    __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_7 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_1); if (unlikely((__pyx_t_7 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 173, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_v_self->reversible = __pyx_t_7;
+    __pyx_v_self->reversible = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_self->turn, 0, NULL);
 
-    /* "bitboard/bitothello.pyx":174
+    /* "bitboard/bitothello.pyx":470
  *         else:
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):             # <<<<<<<<<<<<<<
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):             # <<<<<<<<<<<<<<
  *                 logger.debug("CPU's turn was processed automatically.")
  *                 self.play_turn(self._strategy_opponent.selecter(self))
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_turn_playable); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-      if (likely(__pyx_t_4)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-        __Pyx_INCREF(__pyx_t_4);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_3, function);
-      }
-    }
-    __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 174, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_6 = (((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->turn_playable(__pyx_v_self, __pyx_v_self->turn, 0, NULL) != 0);
     if (__pyx_t_6) {
 
-      /* "bitboard/bitothello.pyx":175
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):
+      /* "bitboard/bitothello.pyx":471
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):
  *                 logger.debug("CPU's turn was processed automatically.")             # <<<<<<<<<<<<<<
  *                 self.play_turn(self._strategy_opponent.selecter(self))
  *                 return False, True
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 175, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 471, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 471, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_3 = NULL;
@@ -5003,19 +8562,19 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
       }
       __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_kp_u_CPU_s_turn_was_processed_automat) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_CPU_s_turn_was_processed_automat);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 175, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 471, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "bitboard/bitothello.pyx":176
- *             if self.board.turn_playable(self.turn):
+      /* "bitboard/bitothello.pyx":472
+ *             if self.turn_playable(self.turn):
  *                 logger.debug("CPU's turn was processed automatically.")
  *                 self.play_turn(self._strategy_opponent.selecter(self))             # <<<<<<<<<<<<<<
  *                 return False, True
  *             else:
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_strategy_opponent, __pyx_n_s_selecter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 176, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_strategy_opponent, __pyx_n_s_selecter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_3 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5029,14 +8588,14 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
       }
       __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 472, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 176, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 472, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->play_turn(__pyx_v_self, __pyx_t_8, 0);
+      ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->play_turn(__pyx_v_self, __pyx_t_7, 0);
 
-      /* "bitboard/bitothello.pyx":177
+      /* "bitboard/bitothello.pyx":473
  *                 logger.debug("CPU's turn was processed automatically.")
  *                 self.play_turn(self._strategy_opponent.selecter(self))
  *                 return False, True             # <<<<<<<<<<<<<<
@@ -5048,16 +8607,16 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
       __pyx_r = __pyx_t_5;
       goto __pyx_L0;
 
-      /* "bitboard/bitothello.pyx":174
+      /* "bitboard/bitothello.pyx":470
  *         else:
- *             self.reversible = self.board.reversible_area(self.turn)
- *             if self.board.turn_playable(self.turn):             # <<<<<<<<<<<<<<
+ *             self.reversible = self.reversible_area(self.turn)
+ *             if self.turn_playable(self.turn):             # <<<<<<<<<<<<<<
  *                 logger.debug("CPU's turn was processed automatically.")
  *                 self.play_turn(self._strategy_opponent.selecter(self))
  */
     }
 
-    /* "bitboard/bitothello.pyx":179
+    /* "bitboard/bitothello.pyx":475
  *                 return False, True
  *             else:
  *                 logger.debug("CPU's turn was passed.")             # <<<<<<<<<<<<<<
@@ -5065,9 +8624,9 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
  *                 self._pass_cnt[self.turn] += 1
  */
     /*else*/ {
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 179, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 475, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 179, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 475, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -5082,12 +8641,12 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
       }
       __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_kp_u_CPU_s_turn_was_passed) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_kp_u_CPU_s_turn_was_passed);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 179, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 475, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "bitboard/bitothello.pyx":180
+      /* "bitboard/bitothello.pyx":476
  *             else:
  *                 logger.debug("CPU's turn was passed.")
  *                 self.turn ^= 1             # <<<<<<<<<<<<<<
@@ -5096,20 +8655,20 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
  */
       __pyx_v_self->turn = (__pyx_v_self->turn ^ 1);
 
-      /* "bitboard/bitothello.pyx":181
+      /* "bitboard/bitothello.pyx":477
  *                 logger.debug("CPU's turn was passed.")
  *                 self.turn ^= 1
  *                 self._pass_cnt[self.turn] += 1             # <<<<<<<<<<<<<<
  *         return False, False
  * 
  */
-      __pyx_t_8 = __pyx_v_self->turn;
-      (__pyx_v_self->_pass_cnt[__pyx_t_8]) = ((__pyx_v_self->_pass_cnt[__pyx_t_8]) + 1);
+      __pyx_t_7 = __pyx_v_self->turn;
+      (__pyx_v_self->_pass_cnt[__pyx_t_7]) = ((__pyx_v_self->_pass_cnt[__pyx_t_7]) + 1);
     }
   }
   __pyx_L4:;
 
-  /* "bitboard/bitothello.pyx":182
+  /* "bitboard/bitothello.pyx":478
  *                 self.turn ^= 1
  *                 self._pass_cnt[self.turn] += 1
  *         return False, False             # <<<<<<<<<<<<<<
@@ -5121,7 +8680,7 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
   __pyx_r = __pyx_t_5;
   goto __pyx_L0;
 
-  /* "bitboard/bitothello.pyx":147
+  /* "bitboard/bitothello.pyx":443
  *             self._strategy_opponent.set_strategy(strategy)
  * 
  *     cpdef (bint, bint) process_game(self):             # <<<<<<<<<<<<<<
@@ -5143,20 +8702,20 @@ static __pyx_ctuple_int__and_int __pyx_f_8bitboard_10bitothello_12OthelloGameC_p
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15process_game(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_14process_game[] = "\n        Returns\n        -------\n        finished, updated : bool\n        ";
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15process_game(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_39process_game(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_38process_game[] = "\n        Returns\n        -------\n        finished, updated : bool\n        ";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_39process_game(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("process_game (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_14process_game(((struct OthelloGameCObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_38process_game(((struct OthelloGameCObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_14process_game(struct OthelloGameCObject *__pyx_v_self) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_38process_game(struct OthelloGameCObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5165,7 +8724,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_14process_game(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("process_game", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_f_8bitboard_10bitothello_12OthelloGameC_process_game(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_f_8bitboard_10bitothello_12OthelloGameC_process_game(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 443, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5182,7 +8741,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_14process_game(s
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":184
+/* "bitboard/bitothello.pyx":480
  *         return False, False
  * 
  *     cpdef list display_board(self):             # <<<<<<<<<<<<<<
@@ -5190,7 +8749,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_14process_game(s
  *         cdef uint64_t black_board, white_board
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17display_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_41display_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch) {
   std::uint64_t __pyx_v_black_board;
   std::uint64_t __pyx_v_white_board;
@@ -5205,7 +8764,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  PyObject *(*__pyx_t_5)(PyObject *);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_5;
   std::uint64_t __pyx_t_6;
   std::uint64_t __pyx_t_7;
   long __pyx_t_8;
@@ -5225,9 +8784,9 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_display_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_display_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 480, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17display_board)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_41display_board)) {
         __Pyx_XDECREF(__pyx_r);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
@@ -5242,10 +8801,10 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 480, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 184, __pyx_L1_error)
+        if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 480, __pyx_L1_error)
         __pyx_r = ((PyObject*)__pyx_t_2);
         __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5264,113 +8823,49 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":190
+  /* "bitboard/bitothello.pyx":486
  * 
  * 
- *         black_board, white_board = self.board.return_board()             # <<<<<<<<<<<<<<
+ *         black_board, white_board = self.return_board()             # <<<<<<<<<<<<<<
  *         board_list = [[0 for _ in range(8)] for _ in range(8)]
  *         for row in range(8):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_return_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
-    PyObject* sequence = __pyx_t_1;
-    Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
-    if (unlikely(size != 2)) {
-      if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 190, __pyx_L1_error)
-    }
-    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    if (likely(PyTuple_CheckExact(sequence))) {
-      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0); 
-      __pyx_t_3 = PyTuple_GET_ITEM(sequence, 1); 
-    } else {
-      __pyx_t_2 = PyList_GET_ITEM(sequence, 0); 
-      __pyx_t_3 = PyList_GET_ITEM(sequence, 1); 
-    }
-    __Pyx_INCREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx_t_3);
-    #else
-    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 190, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    #endif
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  } else {
-    Py_ssize_t index = -1;
-    __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_5 = Py_TYPE(__pyx_t_4)->tp_iternext;
-    index = 0; __pyx_t_2 = __pyx_t_5(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_2);
-    index = 1; __pyx_t_3 = __pyx_t_5(__pyx_t_4); if (unlikely(!__pyx_t_3)) goto __pyx_L3_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_4), 2) < 0) __PYX_ERR(0, 190, __pyx_L1_error)
-    __pyx_t_5 = NULL;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    goto __pyx_L4_unpacking_done;
-    __pyx_L3_unpacking_failed:;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_5 = NULL;
-    if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 190, __pyx_L1_error)
-    __pyx_L4_unpacking_done:;
-  }
-  __pyx_t_6 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_6 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 190, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_7 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_3); if (unlikely((__pyx_t_7 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 190, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->return_board(__pyx_v_self, 0);
+  __pyx_t_6 = __pyx_t_5.f0;
+  __pyx_t_7 = __pyx_t_5.f1;
   __pyx_v_black_board = __pyx_t_6;
   __pyx_v_white_board = __pyx_t_7;
 
-  /* "bitboard/bitothello.pyx":191
+  /* "bitboard/bitothello.pyx":487
  * 
- *         black_board, white_board = self.board.return_board()
+ *         black_board, white_board = self.return_board()
  *         board_list = [[0 for _ in range(8)] for _ in range(8)]             # <<<<<<<<<<<<<<
  *         for row in range(8):
  *             for column in range(8):
  */
   { /* enter inner scope */
-    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 191, __pyx_L1_error)
+    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 487, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     for (__pyx_t_8 = 0; __pyx_t_8 < 8; __pyx_t_8+=1) {
       __pyx_7genexpr__pyx_v__ = __pyx_t_8;
       { /* enter inner scope */
-        __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 191, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 487, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
         for (__pyx_t_9 = 0; __pyx_t_9 < 8; __pyx_t_9+=1) {
           __pyx_8genexpr1__pyx_v__ = __pyx_t_9;
-          if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_int_0))) __PYX_ERR(0, 191, __pyx_L1_error)
+          if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_int_0))) __PYX_ERR(0, 487, __pyx_L1_error)
         }
       } /* exit inner scope */
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_3))) __PYX_ERR(0, 191, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 487, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
   } /* exit inner scope */
-  if (unlikely(__Pyx_carray_from_py_int___5b_8_5d_(__pyx_t_1, __pyx_t_10, 8) < 0)) __PYX_ERR(0, 191, __pyx_L1_error)
+  if (unlikely(__Pyx_carray_from_py_int___5b_8_5d_(__pyx_t_1, __pyx_t_10, 8) < 0)) __PYX_ERR(0, 487, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   memcpy(&(__pyx_v_board_list[0]), __pyx_t_10, sizeof(__pyx_v_board_list[0]) * (8));
 
-  /* "bitboard/bitothello.pyx":192
- *         black_board, white_board = self.board.return_board()
+  /* "bitboard/bitothello.pyx":488
+ *         black_board, white_board = self.return_board()
  *         board_list = [[0 for _ in range(8)] for _ in range(8)]
  *         for row in range(8):             # <<<<<<<<<<<<<<
  *             for column in range(8):
@@ -5379,7 +8874,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
   for (__pyx_t_8 = 0; __pyx_t_8 < 8; __pyx_t_8+=1) {
     __pyx_v_row = __pyx_t_8;
 
-    /* "bitboard/bitothello.pyx":193
+    /* "bitboard/bitothello.pyx":489
  *         board_list = [[0 for _ in range(8)] for _ in range(8)]
  *         for row in range(8):
  *             for column in range(8):             # <<<<<<<<<<<<<<
@@ -5389,7 +8884,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
     for (__pyx_t_9 = 0; __pyx_t_9 < 8; __pyx_t_9+=1) {
       __pyx_v_column = __pyx_t_9;
 
-      /* "bitboard/bitothello.pyx":194
+      /* "bitboard/bitothello.pyx":490
  *         for row in range(8):
  *             for column in range(8):
  *                 if black_board & 1:             # <<<<<<<<<<<<<<
@@ -5399,7 +8894,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
       __pyx_t_11 = ((__pyx_v_black_board & 1) != 0);
       if (__pyx_t_11) {
 
-        /* "bitboard/bitothello.pyx":195
+        /* "bitboard/bitothello.pyx":491
  *             for column in range(8):
  *                 if black_board & 1:
  *                     board_list[row][column] = 1             # <<<<<<<<<<<<<<
@@ -5408,7 +8903,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
  */
         ((__pyx_v_board_list[__pyx_v_row])[__pyx_v_column]) = 1;
 
-        /* "bitboard/bitothello.pyx":194
+        /* "bitboard/bitothello.pyx":490
  *         for row in range(8):
  *             for column in range(8):
  *                 if black_board & 1:             # <<<<<<<<<<<<<<
@@ -5417,7 +8912,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
  */
       }
 
-      /* "bitboard/bitothello.pyx":196
+      /* "bitboard/bitothello.pyx":492
  *                 if black_board & 1:
  *                     board_list[row][column] = 1
  *                 if white_board & 1:             # <<<<<<<<<<<<<<
@@ -5427,7 +8922,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
       __pyx_t_11 = ((__pyx_v_white_board & 1) != 0);
       if (__pyx_t_11) {
 
-        /* "bitboard/bitothello.pyx":197
+        /* "bitboard/bitothello.pyx":493
  *                     board_list[row][column] = 1
  *                 if white_board & 1:
  *                     board_list[row][column] = -1             # <<<<<<<<<<<<<<
@@ -5436,7 +8931,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
  */
         ((__pyx_v_board_list[__pyx_v_row])[__pyx_v_column]) = -1;
 
-        /* "bitboard/bitothello.pyx":196
+        /* "bitboard/bitothello.pyx":492
  *                 if black_board & 1:
  *                     board_list[row][column] = 1
  *                 if white_board & 1:             # <<<<<<<<<<<<<<
@@ -5445,7 +8940,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
  */
       }
 
-      /* "bitboard/bitothello.pyx":198
+      /* "bitboard/bitothello.pyx":494
  *                 if white_board & 1:
  *                     board_list[row][column] = -1
  *                 black_board = black_board >> 1             # <<<<<<<<<<<<<<
@@ -5454,7 +8949,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
  */
       __pyx_v_black_board = (__pyx_v_black_board >> 1);
 
-      /* "bitboard/bitothello.pyx":199
+      /* "bitboard/bitothello.pyx":495
  *                     board_list[row][column] = -1
  *                 black_board = black_board >> 1
  *                 white_board = white_board >> 1             # <<<<<<<<<<<<<<
@@ -5465,7 +8960,7 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
     }
   }
 
-  /* "bitboard/bitothello.pyx":200
+  /* "bitboard/bitothello.pyx":496
  *                 black_board = black_board >> 1
  *                 white_board = white_board >> 1
  *         return board_list             # <<<<<<<<<<<<<<
@@ -5473,14 +8968,14 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
  *     cpdef bint undo_turn(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_carray_to_py_int___5b_8_5d_(__pyx_v_board_list, 8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_carray_to_py_int___5b_8_5d_(__pyx_v_board_list, 8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 496, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(PyList_CheckExact(__pyx_t_1))||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 200, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_1))||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_1)->tp_name), 0))) __PYX_ERR(0, 496, __pyx_L1_error)
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "bitboard/bitothello.pyx":184
+  /* "bitboard/bitothello.pyx":480
  *         return False, False
  * 
  *     cpdef list display_board(self):             # <<<<<<<<<<<<<<
@@ -5503,20 +8998,20 @@ static PyObject *__pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(str
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17display_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_16display_board[] = "Calculate 2-dimensional arrays to be used for board display.";
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17display_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_41display_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_8bitboard_10bitothello_12OthelloGameC_40display_board[] = "Calculate 2-dimensional arrays to be used for board display.";
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_41display_board(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("display_board (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_16display_board(((struct OthelloGameCObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_40display_board(((struct OthelloGameCObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_16display_board(struct OthelloGameCObject *__pyx_v_self) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_40display_board(struct OthelloGameCObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5525,7 +9020,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_16display_board(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("display_board", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_8bitboard_10bitothello_12OthelloGameC_display_board(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 480, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5542,7 +9037,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_16display_board(
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":202
+/* "bitboard/bitothello.pyx":498
  *         return board_list
  * 
  *     cpdef bint undo_turn(self):             # <<<<<<<<<<<<<<
@@ -5550,7 +9045,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_16display_board(
  *             "Log:%s - %s" % (
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19undo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_43undo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch) {
   PyObject *__pyx_v_previous_board = NULL;
   int __pyx_r;
@@ -5578,9 +9073,9 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_undo_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 202, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_undo_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 498, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19undo_turn)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_43undo_turn)) {
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -5594,10 +9089,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 202, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 498, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 202, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 498, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5616,27 +9111,27 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":203
+  /* "bitboard/bitothello.pyx":499
  * 
  *     cpdef bint undo_turn(self):
  *         logger.debug(             # <<<<<<<<<<<<<<
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 499, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 499, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "bitboard/bitothello.pyx":204
+  /* "bitboard/bitothello.pyx":500
  *     cpdef bint undo_turn(self):
  *         logger.debug(
  *             "Log:%s - %s" % (             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),
  */
-  __pyx_t_2 = PyTuple_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 500, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = 0;
   __pyx_t_7 = 127;
@@ -5645,14 +9140,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __Pyx_GIVEREF(__pyx_kp_u_Log);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u_Log);
 
-  /* "bitboard/bitothello.pyx":205
+  /* "bitboard/bitothello.pyx":501
  *         logger.debug(
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  */
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)(&PyUnicode_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyUnicode_Type)));
@@ -5660,10 +9155,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __Pyx_INCREF(__pyx_v_self->_board_log);
   __Pyx_GIVEREF(__pyx_v_self->_board_log);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_v_self->_board_log);
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_4 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_7;
@@ -5676,14 +9171,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __Pyx_GIVEREF(__pyx_kp_u__2);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u__2);
 
-  /* "bitboard/bitothello.pyx":206
+  /* "bitboard/bitothello.pyx":502
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),             # <<<<<<<<<<<<<<
  *                 ))
  *         if not self._board_log:
  */
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)(&PyUnicode_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyUnicode_Type)));
@@ -5691,10 +9186,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __Pyx_INCREF(__pyx_v_self->_board_back);
   __Pyx_GIVEREF(__pyx_v_self->_board_back);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_v_self->_board_back);
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_t_4 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_7;
@@ -5703,14 +9198,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   PyTuple_SET_ITEM(__pyx_t_2, 3, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":204
+  /* "bitboard/bitothello.pyx":500
  *     cpdef bint undo_turn(self):
  *         logger.debug(
  *             "Log:%s - %s" % (             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),
  */
-  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_2, 4, __pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_2, 4, __pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 500, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -5726,32 +9221,32 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 499, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":208
+  /* "bitboard/bitothello.pyx":504
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  *         if not self._board_log:             # <<<<<<<<<<<<<<
  *             logger.warning("The board can not be playbacked.")
  *             return False
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_self->_board_log); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_self->_board_log); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 504, __pyx_L1_error)
   __pyx_t_9 = ((!__pyx_t_5) != 0);
   if (__pyx_t_9) {
 
-    /* "bitboard/bitothello.pyx":209
+    /* "bitboard/bitothello.pyx":505
  *                 ))
  *         if not self._board_log:
  *             logger.warning("The board can not be playbacked.")             # <<<<<<<<<<<<<<
  *             return False
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 209, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 505, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 209, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 505, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -5766,12 +9261,12 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_3, __pyx_kp_u_The_board_can_not_be_playbacked) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_kp_u_The_board_can_not_be_playbacked);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 505, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "bitboard/bitothello.pyx":210
+    /* "bitboard/bitothello.pyx":506
  *         if not self._board_log:
  *             logger.warning("The board can not be playbacked.")
  *             return False             # <<<<<<<<<<<<<<
@@ -5781,7 +9276,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "bitboard/bitothello.pyx":208
+    /* "bitboard/bitothello.pyx":504
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  *         if not self._board_log:             # <<<<<<<<<<<<<<
@@ -5790,16 +9285,16 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
  */
   }
 
-  /* "bitboard/bitothello.pyx":212
+  /* "bitboard/bitothello.pyx":508
  *             return False
  * 
  *         logger.info("The board was playbacked.")             # <<<<<<<<<<<<<<
  *         previous_board = self._board_log.pop()
- *         self._board_back.append(self.board.return_board())
+ *         self._board_back.append(self.return_board())
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_logger); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_logger); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 508, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 508, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -5814,88 +9309,73 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_kp_u_The_board_was_playbacked) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_kp_u_The_board_was_playbacked);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 508, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":213
+  /* "bitboard/bitothello.pyx":509
  * 
  *         logger.info("The board was playbacked.")
  *         previous_board = self._board_log.pop()             # <<<<<<<<<<<<<<
- *         self._board_back.append(self.board.return_board())
- *         self.board.load_board(*previous_board)
+ *         self._board_back.append(self.return_board())
+ *         self.load_board(*previous_board)
  */
-  __pyx_t_1 = __Pyx_PyObject_Pop(__pyx_v_self->_board_log); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Pop(__pyx_v_self->_board_log); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 509, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_previous_board = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":214
+  /* "bitboard/bitothello.pyx":510
  *         logger.info("The board was playbacked.")
  *         previous_board = self._board_log.pop()
- *         self._board_back.append(self.board.return_board())             # <<<<<<<<<<<<<<
- *         self.board.load_board(*previous_board)
+ *         self._board_back.append(self.return_board())             # <<<<<<<<<<<<<<
+ *         self.load_board(*previous_board)
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_return_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 214, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_4)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->return_board(__pyx_v_self, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 510, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_10 = __Pyx_PyObject_Append(__pyx_v_self->_board_back, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Append(__pyx_v_self->_board_back, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 510, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":215
+  /* "bitboard/bitothello.pyx":511
  *         previous_board = self._board_log.pop()
- *         self._board_back.append(self.board.return_board())
- *         self.board.load_board(*previous_board)             # <<<<<<<<<<<<<<
+ *         self._board_back.append(self.return_board())
+ *         self.load_board(*previous_board)             # <<<<<<<<<<<<<<
  * 
  *         logger.debug(
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_load_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PySequence_Tuple(__pyx_v_previous_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PySequence_Tuple(__pyx_v_previous_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":217
- *         self.board.load_board(*previous_board)
+  /* "bitboard/bitothello.pyx":513
+ *         self.load_board(*previous_board)
  * 
  *         logger.debug(             # <<<<<<<<<<<<<<
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 217, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_debug); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 217, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_debug); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "bitboard/bitothello.pyx":218
+  /* "bitboard/bitothello.pyx":514
  * 
  *         logger.debug(
  *             "Log:%s - %s" % (             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),
  */
-  __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_6 = 0;
   __pyx_t_7 = 127;
@@ -5904,14 +9384,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __Pyx_GIVEREF(__pyx_kp_u_Log);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_kp_u_Log);
 
-  /* "bitboard/bitothello.pyx":219
+  /* "bitboard/bitothello.pyx":515
  *         logger.debug(
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 515, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)(&PyUnicode_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyUnicode_Type)));
@@ -5919,10 +9399,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __Pyx_INCREF(__pyx_v_self->_board_log);
   __Pyx_GIVEREF(__pyx_v_self->_board_log);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_self->_board_log);
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 515, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 515, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) : __pyx_t_7;
@@ -5935,14 +9415,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __Pyx_GIVEREF(__pyx_kp_u__2);
   PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_kp_u__2);
 
-  /* "bitboard/bitothello.pyx":220
+  /* "bitboard/bitothello.pyx":516
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),             # <<<<<<<<<<<<<<
  *                 ))
  *         return True
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 516, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)(&PyUnicode_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyUnicode_Type)));
@@ -5950,10 +9430,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __Pyx_INCREF(__pyx_v_self->_board_back);
   __Pyx_GIVEREF(__pyx_v_self->_board_back);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_self->_board_back);
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 516, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 516, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) : __pyx_t_7;
@@ -5962,14 +9442,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   PyTuple_SET_ITEM(__pyx_t_3, 3, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "bitboard/bitothello.pyx":218
+  /* "bitboard/bitothello.pyx":514
  * 
  *         logger.debug(
  *             "Log:%s - %s" % (             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),
  */
-  __pyx_t_2 = __Pyx_PyUnicode_Join(__pyx_t_3, 4, __pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyUnicode_Join(__pyx_t_3, 4, __pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -5985,12 +9465,12 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 217, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":222
+  /* "bitboard/bitothello.pyx":518
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  *         return True             # <<<<<<<<<<<<<<
@@ -6000,7 +9480,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
   __pyx_r = 1;
   goto __pyx_L0;
 
-  /* "bitboard/bitothello.pyx":202
+  /* "bitboard/bitothello.pyx":498
  *         return board_list
  * 
  *     cpdef bint undo_turn(self):             # <<<<<<<<<<<<<<
@@ -6024,19 +9504,19 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(struct Othell
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19undo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19undo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_43undo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_43undo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("undo_turn (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_18undo_turn(((struct OthelloGameCObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_42undo_turn(((struct OthelloGameCObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_18undo_turn(struct OthelloGameCObject *__pyx_v_self) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_42undo_turn(struct OthelloGameCObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6045,7 +9525,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_18undo_turn(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("undo_turn", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 202, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8bitboard_10bitothello_12OthelloGameC_undo_turn(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6062,7 +9542,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_18undo_turn(stru
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":224
+/* "bitboard/bitothello.pyx":520
  *         return True
  * 
  *     cpdef bint redo_turn(self):             # <<<<<<<<<<<<<<
@@ -6070,7 +9550,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_18undo_turn(stru
  *             "Log:%s - %s" % (
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21redo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_45redo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch) {
   PyObject *__pyx_v_next_board = NULL;
   int __pyx_r;
@@ -6098,9 +9578,9 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_redo_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_redo_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 520, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21redo_turn)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_45redo_turn)) {
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -6114,10 +9594,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 520, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 224, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 520, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6136,27 +9616,27 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":225
+  /* "bitboard/bitothello.pyx":521
  * 
  *     cpdef bint redo_turn(self):
  *         logger.debug(             # <<<<<<<<<<<<<<
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_logger); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 521, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 521, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "bitboard/bitothello.pyx":226
+  /* "bitboard/bitothello.pyx":522
  *     cpdef bint redo_turn(self):
  *         logger.debug(
  *             "Log:%s - %s" % (             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),
  */
-  __pyx_t_2 = PyTuple_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 522, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = 0;
   __pyx_t_7 = 127;
@@ -6165,14 +9645,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __Pyx_GIVEREF(__pyx_kp_u_Log);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u_Log);
 
-  /* "bitboard/bitothello.pyx":227
+  /* "bitboard/bitothello.pyx":523
  *         logger.debug(
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  */
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)(&PyUnicode_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyUnicode_Type)));
@@ -6180,10 +9660,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __Pyx_INCREF(__pyx_v_self->_board_log);
   __Pyx_GIVEREF(__pyx_v_self->_board_log);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_v_self->_board_log);
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_t_4 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 523, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_7;
@@ -6196,14 +9676,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __Pyx_GIVEREF(__pyx_kp_u__2);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u__2);
 
-  /* "bitboard/bitothello.pyx":228
+  /* "bitboard/bitothello.pyx":524
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),             # <<<<<<<<<<<<<<
  *                 ))
  *         if not self._board_back:
  */
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 524, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)(&PyUnicode_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyUnicode_Type)));
@@ -6211,10 +9691,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __Pyx_INCREF(__pyx_v_self->_board_back);
   __Pyx_GIVEREF(__pyx_v_self->_board_back);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_v_self->_board_back);
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 524, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_4 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 524, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_7;
@@ -6223,14 +9703,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   PyTuple_SET_ITEM(__pyx_t_2, 3, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":226
+  /* "bitboard/bitothello.pyx":522
  *     cpdef bint redo_turn(self):
  *         logger.debug(
  *             "Log:%s - %s" % (             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),
  */
-  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_2, 4, __pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_2, 4, __pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 522, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -6246,32 +9726,32 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 521, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":230
+  /* "bitboard/bitothello.pyx":526
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  *         if not self._board_back:             # <<<<<<<<<<<<<<
  *             logger.warning("The board can not be advanced.")
  *             return False
  */
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_self->_board_back); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_self->_board_back); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 526, __pyx_L1_error)
   __pyx_t_9 = ((!__pyx_t_5) != 0);
   if (__pyx_t_9) {
 
-    /* "bitboard/bitothello.pyx":231
+    /* "bitboard/bitothello.pyx":527
  *                 ))
  *         if not self._board_back:
  *             logger.warning("The board can not be advanced.")             # <<<<<<<<<<<<<<
  *             return False
  *         logger.info("The board was advanced.")
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 231, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 527, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 231, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_warning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 527, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -6286,12 +9766,12 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_3, __pyx_kp_u_The_board_can_not_be_advanced) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_kp_u_The_board_can_not_be_advanced);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 527, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "bitboard/bitothello.pyx":232
+    /* "bitboard/bitothello.pyx":528
  *         if not self._board_back:
  *             logger.warning("The board can not be advanced.")
  *             return False             # <<<<<<<<<<<<<<
@@ -6301,7 +9781,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
     __pyx_r = 0;
     goto __pyx_L0;
 
-    /* "bitboard/bitothello.pyx":230
+    /* "bitboard/bitothello.pyx":526
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  *         if not self._board_back:             # <<<<<<<<<<<<<<
@@ -6310,16 +9790,16 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
  */
   }
 
-  /* "bitboard/bitothello.pyx":233
+  /* "bitboard/bitothello.pyx":529
  *             logger.warning("The board can not be advanced.")
  *             return False
  *         logger.info("The board was advanced.")             # <<<<<<<<<<<<<<
  *         next_board = self._board_back.pop()
- *         self._board_log.append(self.board.return_board())
+ *         self._board_log.append(self.return_board())
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_logger); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_logger); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -6334,88 +9814,73 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_kp_u_The_board_was_advanced) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_kp_u_The_board_was_advanced);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 529, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":234
+  /* "bitboard/bitothello.pyx":530
  *             return False
  *         logger.info("The board was advanced.")
  *         next_board = self._board_back.pop()             # <<<<<<<<<<<<<<
- *         self._board_log.append(self.board.return_board())
- *         self.board.load_board(*next_board)
+ *         self._board_log.append(self.return_board())
+ *         self.load_board(*next_board)
  */
-  __pyx_t_1 = __Pyx_PyObject_Pop(__pyx_v_self->_board_back); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Pop(__pyx_v_self->_board_back); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_next_board = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":235
+  /* "bitboard/bitothello.pyx":531
  *         logger.info("The board was advanced.")
  *         next_board = self._board_back.pop()
- *         self._board_log.append(self.board.return_board())             # <<<<<<<<<<<<<<
- *         self.board.load_board(*next_board)
+ *         self._board_log.append(self.return_board())             # <<<<<<<<<<<<<<
+ *         self.load_board(*next_board)
  *         logger.debug(
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_return_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 235, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_4)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->return_board(__pyx_v_self, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_10 = __Pyx_PyObject_Append(__pyx_v_self->_board_log, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_Append(__pyx_v_self->_board_log, __pyx_t_1); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 531, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":236
+  /* "bitboard/bitothello.pyx":532
  *         next_board = self._board_back.pop()
- *         self._board_log.append(self.board.return_board())
- *         self.board.load_board(*next_board)             # <<<<<<<<<<<<<<
+ *         self._board_log.append(self.return_board())
+ *         self.load_board(*next_board)             # <<<<<<<<<<<<<<
  *         logger.debug(
  *             "Log:%s - %s" % (
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_load_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 532, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PySequence_Tuple(__pyx_v_next_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PySequence_Tuple(__pyx_v_next_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 532, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 532, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":237
- *         self._board_log.append(self.board.return_board())
- *         self.board.load_board(*next_board)
+  /* "bitboard/bitothello.pyx":533
+ *         self._board_log.append(self.return_board())
+ *         self.load_board(*next_board)
  *         logger.debug(             # <<<<<<<<<<<<<<
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_logger); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 533, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_debug); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_debug); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 533, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "bitboard/bitothello.pyx":238
- *         self.board.load_board(*next_board)
+  /* "bitboard/bitothello.pyx":534
+ *         self.load_board(*next_board)
  *         logger.debug(
  *             "Log:%s - %s" % (             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),
  */
-  __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 238, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 534, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_6 = 0;
   __pyx_t_7 = 127;
@@ -6424,14 +9889,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __Pyx_GIVEREF(__pyx_kp_u_Log);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_kp_u_Log);
 
-  /* "bitboard/bitothello.pyx":239
+  /* "bitboard/bitothello.pyx":535
  *         logger.debug(
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 535, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)(&PyUnicode_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyUnicode_Type)));
@@ -6439,10 +9904,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __Pyx_INCREF(__pyx_v_self->_board_log);
   __Pyx_GIVEREF(__pyx_v_self->_board_log);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_self->_board_log);
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 535, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 535, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) : __pyx_t_7;
@@ -6455,14 +9920,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __Pyx_GIVEREF(__pyx_kp_u__2);
   PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_kp_u__2);
 
-  /* "bitboard/bitothello.pyx":240
+  /* "bitboard/bitothello.pyx":536
  *             "Log:%s - %s" % (
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),             # <<<<<<<<<<<<<<
  *                 ))
  *         return True
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 536, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)(&PyUnicode_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyUnicode_Type)));
@@ -6470,10 +9935,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __Pyx_INCREF(__pyx_v_self->_board_back);
   __Pyx_GIVEREF(__pyx_v_self->_board_back);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_self->_board_back);
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_2, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 536, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_2 = PyUnicode_Join(__pyx_kp_u_, __pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 536, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) : __pyx_t_7;
@@ -6482,14 +9947,14 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   PyTuple_SET_ITEM(__pyx_t_3, 3, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "bitboard/bitothello.pyx":238
- *         self.board.load_board(*next_board)
+  /* "bitboard/bitothello.pyx":534
+ *         self.load_board(*next_board)
  *         logger.debug(
  *             "Log:%s - %s" % (             # <<<<<<<<<<<<<<
  *                 ", ".join(map(str, self._board_log)),
  *                 ", ".join(map(str, self._board_back)),
  */
-  __pyx_t_2 = __Pyx_PyUnicode_Join(__pyx_t_3, 4, __pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 238, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyUnicode_Join(__pyx_t_3, 4, __pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 534, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -6505,12 +9970,12 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 237, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 533, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "bitboard/bitothello.pyx":242
+  /* "bitboard/bitothello.pyx":538
  *                 ", ".join(map(str, self._board_back)),
  *                 ))
  *         return True             # <<<<<<<<<<<<<<
@@ -6520,7 +9985,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
   __pyx_r = 1;
   goto __pyx_L0;
 
-  /* "bitboard/bitothello.pyx":224
+  /* "bitboard/bitothello.pyx":520
  *         return True
  * 
  *     cpdef bint redo_turn(self):             # <<<<<<<<<<<<<<
@@ -6544,19 +10009,19 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(struct Othell
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21redo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21redo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_45redo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_45redo_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("redo_turn (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_20redo_turn(((struct OthelloGameCObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_44redo_turn(((struct OthelloGameCObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_20redo_turn(struct OthelloGameCObject *__pyx_v_self) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_44redo_turn(struct OthelloGameCObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6565,7 +10030,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_20redo_turn(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("redo_turn", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 520, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6582,7 +10047,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_20redo_turn(stru
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":244
+/* "bitboard/bitothello.pyx":540
  *         return True
  * 
  *     cpdef int return_turn(self):             # <<<<<<<<<<<<<<
@@ -6590,7 +10055,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_20redo_turn(stru
  * 
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_47return_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
 static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(struct OthelloGameCObject *__pyx_v_self, int __pyx_skip_dispatch) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -6612,9 +10077,9 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(struct Othe
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_return_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_return_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 540, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_turn)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_47return_turn)) {
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -6628,10 +10093,10 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(struct Othe
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 540, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 244, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 540, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6650,7 +10115,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(struct Othe
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":245
+  /* "bitboard/bitothello.pyx":541
  * 
  *     cpdef int return_turn(self):
  *         return self._player_clr             # <<<<<<<<<<<<<<
@@ -6660,7 +10125,7 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(struct Othe
   __pyx_r = __pyx_v_self->_player_clr;
   goto __pyx_L0;
 
-  /* "bitboard/bitothello.pyx":244
+  /* "bitboard/bitothello.pyx":540
  *         return True
  * 
  *     cpdef int return_turn(self):             # <<<<<<<<<<<<<<
@@ -6682,19 +10147,19 @@ static int __pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(struct Othe
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_47return_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_47return_turn(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("return_turn (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_turn(((struct OthelloGameCObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_46return_turn(((struct OthelloGameCObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_turn(struct OthelloGameCObject *__pyx_v_self) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_46return_turn(struct OthelloGameCObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6703,7 +10168,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_turn(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("return_turn", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 540, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6720,7 +10185,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_turn(st
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pyx":251
+/* "bitboard/bitothello.pyx":547
  *     #     return black_board, white_board, self._board_log, self._board_back
  * 
  *     cpdef void load_state(             # <<<<<<<<<<<<<<
@@ -6728,7 +10193,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_22return_turn(st
  *             list board_log, list board_back):
  */
 
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_state(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_49load_state(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, PyObject *__pyx_v_board_log, PyObject *__pyx_v_board_back, int __pyx_skip_dispatch) {
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6752,12 +10217,12 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct Othe
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_state); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_load_state); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 547, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_state)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_49load_state)) {
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 547, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 251, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 547, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -6775,7 +10240,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct Othe
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_t_3, __pyx_t_4, __pyx_v_board_log, __pyx_v_board_back};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 547, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6785,7 +10250,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct Othe
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[5] = {__pyx_t_6, __pyx_t_3, __pyx_t_4, __pyx_v_board_log, __pyx_v_board_back};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 4+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 547, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6793,7 +10258,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct Othe
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 251, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(4+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 547, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -6810,7 +10275,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct Othe
           PyTuple_SET_ITEM(__pyx_t_8, 3+__pyx_t_7, __pyx_v_board_back);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 547, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -6832,125 +10297,72 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct Othe
     #endif
   }
 
-  /* "bitboard/bitothello.pyx":254
+  /* "bitboard/bitothello.pyx":550
  *             self, uint64_t black_board, uint64_t white_board,
  *             list board_log, list board_back):
- *         self.board.load_board(black_board, white_board)             # <<<<<<<<<<<<<<
+ *         self.load_board(black_board, white_board)             # <<<<<<<<<<<<<<
  *         self._board_log = copy.deepcopy(board_log)
  *         self._board_back = copy.deepcopy(board_back)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->board, __pyx_n_s_load_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 254, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 254, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_8 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 254, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_4 = NULL;
-  __pyx_t_7 = 0;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_4)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-      __pyx_t_7 = 1;
-    }
-  }
-  #if CYTHON_FAST_PYCALL
-  if (PyFunction_Check(__pyx_t_2)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_5, __pyx_t_8};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  } else
-  #endif
-  #if CYTHON_FAST_PYCCALL
-  if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-    PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_5, __pyx_t_8};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  } else
-  #endif
-  {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    if (__pyx_t_4) {
-      __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4); __pyx_t_4 = NULL;
-    }
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_3, 0+__pyx_t_7, __pyx_t_5);
-    __Pyx_GIVEREF(__pyx_t_8);
-    PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_7, __pyx_t_8);
-    __pyx_t_5 = 0;
-    __pyx_t_8 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->__pyx_vtab)->load_board(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 550, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":255
+  /* "bitboard/bitothello.pyx":551
  *             list board_log, list board_back):
- *         self.board.load_board(black_board, white_board)
+ *         self.load_board(black_board, white_board)
  *         self._board_log = copy.deepcopy(board_log)             # <<<<<<<<<<<<<<
  *         self._board_back = copy.deepcopy(board_back)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_copy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 255, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 551, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_5);
     if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_2);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_5, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_board_log) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_board_log);
+  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_2, __pyx_v_board_log) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_board_log);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_board_log);
   __Pyx_DECREF(__pyx_v_self->_board_log);
   __pyx_v_self->_board_log = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":256
- *         self.board.load_board(black_board, white_board)
+  /* "bitboard/bitothello.pyx":552
+ *         self.load_board(black_board, white_board)
  *         self._board_log = copy.deepcopy(board_log)
  *         self._board_back = copy.deepcopy(board_back)             # <<<<<<<<<<<<<<
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_copy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_copy); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_deepcopy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 552, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = NULL;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
+    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_5)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_5);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_board_back) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_board_back);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_v_board_back) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_board_back);
+  __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 552, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
@@ -6959,7 +10371,7 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct Othe
   __pyx_v_self->_board_back = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":251
+  /* "bitboard/bitothello.pyx":547
  *     #     return black_board, white_board, self._board_log, self._board_back
  * 
  *     cpdef void load_state(             # <<<<<<<<<<<<<<
@@ -6983,8 +10395,8 @@ static void __pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(struct Othe
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_state(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_state(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_49load_state(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_49load_state(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   std::uint64_t __pyx_v_black_board;
   std::uint64_t __pyx_v_white_board;
   PyObject *__pyx_v_board_log = 0;
@@ -7022,23 +10434,23 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_state(PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("load_state", 1, 4, 4, 1); __PYX_ERR(0, 251, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("load_state", 1, 4, 4, 1); __PYX_ERR(0, 547, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_board_log)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("load_state", 1, 4, 4, 2); __PYX_ERR(0, 251, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("load_state", 1, 4, 4, 2); __PYX_ERR(0, 547, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_board_back)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("load_state", 1, 4, 4, 3); __PYX_ERR(0, 251, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("load_state", 1, 4, 4, 3); __PYX_ERR(0, 547, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "load_state") < 0)) __PYX_ERR(0, 251, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "load_state") < 0)) __PYX_ERR(0, 547, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -7048,22 +10460,22 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_state(PyO
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 252, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 252, __pyx_L3_error)
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 548, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 548, __pyx_L3_error)
     __pyx_v_board_log = ((PyObject*)values[2]);
     __pyx_v_board_back = ((PyObject*)values[3]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("load_state", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 251, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("load_state", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 547, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.load_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board_log), (&PyList_Type), 1, "board_log", 1))) __PYX_ERR(0, 253, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board_back), (&PyList_Type), 1, "board_back", 1))) __PYX_ERR(0, 253, __pyx_L1_error)
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_24load_state(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_black_board, __pyx_v_white_board, __pyx_v_board_log, __pyx_v_board_back);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board_log), (&PyList_Type), 1, "board_log", 1))) __PYX_ERR(0, 549, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_board_back), (&PyList_Type), 1, "board_back", 1))) __PYX_ERR(0, 549, __pyx_L1_error)
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_48load_state(((struct OthelloGameCObject *)__pyx_v_self), __pyx_v_black_board, __pyx_v_white_board, __pyx_v_board_log, __pyx_v_board_back);
 
   /* function exit code */
   goto __pyx_L0;
@@ -7074,7 +10486,7 @@ static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_state(PyO
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_24load_state(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, PyObject *__pyx_v_board_log, PyObject *__pyx_v_board_back) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_48load_state(struct OthelloGameCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, PyObject *__pyx_v_board_log, PyObject *__pyx_v_board_back) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7083,7 +10495,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_24load_state(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("load_state", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, __pyx_v_board_log, __pyx_v_board_back, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, __pyx_v_board_log, __pyx_v_board_back, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7105,7 +10517,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_24load_state(str
  *     # Class variables.
  *     cdef public int BLACK             # <<<<<<<<<<<<<<
  *     cdef public int WHITE
- *     cdef public object board
+ *     cdef public uint64_t INIT_BLACK
  */
 
 /* Python wrapper */
@@ -7130,7 +10542,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_5BLACK___get__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7168,7 +10580,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5BLACK_2__set__(struct
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 8, __pyx_L1_error)
   __pyx_v_self->BLACK = __pyx_t_1;
 
   /* function exit code */
@@ -7186,8 +10598,8 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5BLACK_2__set__(struct
  *     # Class variables.
  *     cdef public int BLACK
  *     cdef public int WHITE             # <<<<<<<<<<<<<<
- *     cdef public object board
- *     cdef int _player_clr
+ *     cdef public uint64_t INIT_BLACK
+ *     cdef public uint64_t INIT_WHITE
  */
 
 /* Python wrapper */
@@ -7212,7 +10624,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_5WHITE___get__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->WHITE); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 9, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->WHITE); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7250,7 +10662,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5WHITE_2__set__(struct
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 9, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 9, __pyx_L1_error)
   __pyx_v_self->WHITE = __pyx_t_1;
 
   /* function exit code */
@@ -7267,34 +10679,44 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5WHITE_2__set__(struct
 /* "bitboard/bitothello.pxd":10
  *     cdef public int BLACK
  *     cdef public int WHITE
- *     cdef public object board             # <<<<<<<<<<<<<<
- *     cdef int _player_clr
- *     cdef public int turn
+ *     cdef public uint64_t INIT_BLACK             # <<<<<<<<<<<<<<
+ *     cdef public uint64_t INIT_WHITE
+ * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board___get__(((struct OthelloGameCObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK___get__(((struct OthelloGameCObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board___get__(struct OthelloGameCObject *__pyx_v_self) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK___get__(struct OthelloGameCObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_self->board);
-  __pyx_r = __pyx_v_self->board;
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->INIT_BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
   goto __pyx_L0;
 
   /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.INIT_BLACK.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -7302,65 +10724,288 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board___get__(s
 }
 
 /* Python wrapper */
-static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board_2__set__(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_2__set__(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
+  std::uint64_t __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __Pyx_INCREF(__pyx_v_value);
-  __Pyx_GIVEREF(__pyx_v_value);
-  __Pyx_GOTREF(__pyx_v_self->board);
-  __Pyx_DECREF(__pyx_v_self->board);
-  __pyx_v_self->board = __pyx_v_value;
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(2, 10, __pyx_L1_error)
+  __pyx_v_self->INIT_BLACK = __pyx_t_1;
 
   /* function exit code */
   __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.INIT_BLACK.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pxd":11
+ *     cdef public int WHITE
+ *     cdef public uint64_t INIT_BLACK
+ *     cdef public uint64_t INIT_WHITE             # <<<<<<<<<<<<<<
+ * 
+ *     # Instance variables.
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE___get__(((struct OthelloGameCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE___get__(struct OthelloGameCObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->INIT_WHITE); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.INIT_WHITE.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
 /* Python wrapper */
-static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board_4__del__(((struct OthelloGameCObject *)__pyx_v_self));
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_2__set__(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_5board_4__del__(struct OthelloGameCObject *__pyx_v_self) {
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__del__", 0);
-  __Pyx_INCREF(Py_None);
-  __Pyx_GIVEREF(Py_None);
-  __Pyx_GOTREF(__pyx_v_self->board);
-  __Pyx_DECREF(__pyx_v_self->board);
-  __pyx_v_self->board = Py_None;
+  std::uint64_t __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(2, 11, __pyx_L1_error)
+  __pyx_v_self->INIT_WHITE = __pyx_t_1;
 
   /* function exit code */
   __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.INIT_WHITE.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pxd":12
- *     cdef public object board
+/* "bitboard/bitothello.pxd":14
+ * 
+ *     # Instance variables.
+ *     cdef public uint64_t _black_board             # <<<<<<<<<<<<<<
+ *     cdef public uint64_t _white_board
+ *     cdef int _player_clr
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_black_board_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_black_board_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_black_board___get__(((struct OthelloGameCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_black_board___get__(struct OthelloGameCObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->_black_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC._black_board.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_black_board_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_black_board_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_black_board_2__set__(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_black_board_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  std::uint64_t __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(2, 14, __pyx_L1_error)
+  __pyx_v_self->_black_board = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC._black_board.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pxd":15
+ *     # Instance variables.
+ *     cdef public uint64_t _black_board
+ *     cdef public uint64_t _white_board             # <<<<<<<<<<<<<<
+ *     cdef int _player_clr
+ *     cdef public int turn
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_white_board_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_white_board_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_white_board___get__(((struct OthelloGameCObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_white_board___get__(struct OthelloGameCObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__get__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->_white_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC._white_board.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_white_board_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_white_board_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_white_board_2__set__(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_12_white_board_2__set__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v_value) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  std::uint64_t __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__set__", 0);
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(2, 15, __pyx_L1_error)
+  __pyx_v_self->_white_board = __pyx_t_1;
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC._white_board.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "bitboard/bitothello.pxd":17
+ *     cdef public uint64_t _white_board
  *     cdef int _player_clr
  *     cdef public int turn             # <<<<<<<<<<<<<<
  *     cdef public uint64_t reversible
@@ -7389,7 +11034,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_4turn___get__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7427,7 +11072,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_4turn_2__set__(struct 
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 17, __pyx_L1_error)
   __pyx_v_self->turn = __pyx_t_1;
 
   /* function exit code */
@@ -7441,7 +11086,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_4turn_2__set__(struct 
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pxd":13
+/* "bitboard/bitothello.pxd":18
  *     cdef int _player_clr
  *     cdef public int turn
  *     cdef public uint64_t reversible             # <<<<<<<<<<<<<<
@@ -7471,7 +11116,7 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_10reversible___g
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->reversible); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 13, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->reversible); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7509,7 +11154,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10reversible_2__set__(
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(1, 13, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_value); if (unlikely((__pyx_t_1 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(2, 18, __pyx_L1_error)
   __pyx_v_self->reversible = __pyx_t_1;
 
   /* function exit code */
@@ -7523,7 +11168,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_10reversible_2__set__(
   return __pyx_r;
 }
 
-/* "bitboard/bitothello.pxd":14
+/* "bitboard/bitothello.pxd":19
  *     cdef public int turn
  *     cdef public uint64_t reversible
  *     cdef public str result             # <<<<<<<<<<<<<<
@@ -7581,7 +11226,7 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_6result_2__set__(struc
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(1, 14, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(2, 19, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -7633,372 +11278,81 @@ static int __pyx_pf_8bitboard_10bitothello_12OthelloGameC_6result_4__del__(struc
 
 /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
- *     cdef tuple state
- *     cdef object _dict
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
+ * def __setstate_cython__(self, __pyx_state):
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_27__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_27__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_51__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_51__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_26__reduce_cython__(((struct OthelloGameCObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_50__reduce_cython__(((struct OthelloGameCObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_26__reduce_cython__(struct OthelloGameCObject *__pyx_v_self) {
-  PyObject *__pyx_v_state = 0;
-  PyObject *__pyx_v__dict = 0;
-  int __pyx_v_use_setstate;
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_50__reduce_cython__(CYTHON_UNUSED struct OthelloGameCObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  PyObject *__pyx_t_9 = NULL;
-  PyObject *__pyx_t_10 = NULL;
-  int __pyx_t_11;
-  int __pyx_t_12;
-  int __pyx_t_13;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__reduce_cython__", 0);
 
-  /* "(tree fragment)":5
- *     cdef object _dict
- *     cdef bint use_setstate
- *     state = (self.BLACK, self.WHITE, self._board_back, self._board_log, self._count_opponent, self._count_player, self._pass_cnt, self._player_auto, self._player_clr, self._strategy_opponent, self._strategy_player, self.board, self.result, self.reversible, self.turn)             # <<<<<<<<<<<<<<
- *     _dict = getattr(self, '__dict__', None)
- *     if _dict is not None:
- */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->BLACK); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->WHITE); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->_count_opponent); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->_count_player); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_carray_to_py_int(__pyx_v_self->_pass_cnt, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyBool_FromLong(__pyx_v_self->_player_auto); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_self->_player_clr); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_self->reversible); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_self->turn); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_10 = PyTuple_New(15); if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_2);
-  __Pyx_INCREF(__pyx_v_self->_board_back);
-  __Pyx_GIVEREF(__pyx_v_self->_board_back);
-  PyTuple_SET_ITEM(__pyx_t_10, 2, __pyx_v_self->_board_back);
-  __Pyx_INCREF(__pyx_v_self->_board_log);
-  __Pyx_GIVEREF(__pyx_v_self->_board_log);
-  PyTuple_SET_ITEM(__pyx_t_10, 3, __pyx_v_self->_board_log);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_10, 4, __pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_10, 5, __pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_5);
-  PyTuple_SET_ITEM(__pyx_t_10, 6, __pyx_t_5);
-  __Pyx_GIVEREF(__pyx_t_6);
-  PyTuple_SET_ITEM(__pyx_t_10, 7, __pyx_t_6);
-  __Pyx_GIVEREF(__pyx_t_7);
-  PyTuple_SET_ITEM(__pyx_t_10, 8, __pyx_t_7);
-  __Pyx_INCREF(__pyx_v_self->_strategy_opponent);
-  __Pyx_GIVEREF(__pyx_v_self->_strategy_opponent);
-  PyTuple_SET_ITEM(__pyx_t_10, 9, __pyx_v_self->_strategy_opponent);
-  __Pyx_INCREF(__pyx_v_self->_strategy_player);
-  __Pyx_GIVEREF(__pyx_v_self->_strategy_player);
-  PyTuple_SET_ITEM(__pyx_t_10, 10, __pyx_v_self->_strategy_player);
-  __Pyx_INCREF(__pyx_v_self->board);
-  __Pyx_GIVEREF(__pyx_v_self->board);
-  PyTuple_SET_ITEM(__pyx_t_10, 11, __pyx_v_self->board);
-  __Pyx_INCREF(__pyx_v_self->result);
-  __Pyx_GIVEREF(__pyx_v_self->result);
-  PyTuple_SET_ITEM(__pyx_t_10, 12, __pyx_v_self->result);
-  __Pyx_GIVEREF(__pyx_t_8);
-  PyTuple_SET_ITEM(__pyx_t_10, 13, __pyx_t_8);
-  __Pyx_GIVEREF(__pyx_t_9);
-  PyTuple_SET_ITEM(__pyx_t_10, 14, __pyx_t_9);
-  __pyx_t_1 = 0;
-  __pyx_t_2 = 0;
-  __pyx_t_3 = 0;
-  __pyx_t_4 = 0;
-  __pyx_t_5 = 0;
-  __pyx_t_6 = 0;
-  __pyx_t_7 = 0;
-  __pyx_t_8 = 0;
-  __pyx_t_9 = 0;
-  __pyx_v_state = ((PyObject*)__pyx_t_10);
-  __pyx_t_10 = 0;
-
-  /* "(tree fragment)":6
- *     cdef bint use_setstate
- *     state = (self.BLACK, self.WHITE, self._board_back, self._board_log, self._count_opponent, self._count_player, self._pass_cnt, self._player_auto, self._player_clr, self._strategy_opponent, self._strategy_player, self.board, self.result, self.reversible, self.turn)
- *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
- *     if _dict is not None:
- *         state += (_dict,)
- */
-  __pyx_t_10 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_10);
-  __pyx_v__dict = __pyx_t_10;
-  __pyx_t_10 = 0;
-
-  /* "(tree fragment)":7
- *     state = (self.BLACK, self.WHITE, self._board_back, self._board_log, self._count_opponent, self._count_player, self._pass_cnt, self._player_auto, self._player_clr, self._strategy_opponent, self._strategy_player, self.board, self.result, self.reversible, self.turn)
- *     _dict = getattr(self, '__dict__', None)
- *     if _dict is not None:             # <<<<<<<<<<<<<<
- *         state += (_dict,)
- *         use_setstate = True
- */
-  __pyx_t_11 = (__pyx_v__dict != Py_None);
-  __pyx_t_12 = (__pyx_t_11 != 0);
-  if (__pyx_t_12) {
-
-    /* "(tree fragment)":8
- *     _dict = getattr(self, '__dict__', None)
- *     if _dict is not None:
- *         state += (_dict,)             # <<<<<<<<<<<<<<
- *         use_setstate = True
- *     else:
- */
-    __pyx_t_10 = PyTuple_New(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_INCREF(__pyx_v__dict);
-    __Pyx_GIVEREF(__pyx_v__dict);
-    PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_v__dict);
-    __pyx_t_9 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_9);
-    __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_9));
-    __pyx_t_9 = 0;
-
-    /* "(tree fragment)":9
- *     if _dict is not None:
- *         state += (_dict,)
- *         use_setstate = True             # <<<<<<<<<<<<<<
- *     else:
- *         use_setstate = self._board_back is not None or self._board_log is not None or self._strategy_opponent is not None or self._strategy_player is not None or self.board is not None or self.result is not None
- */
-    __pyx_v_use_setstate = 1;
-
-    /* "(tree fragment)":7
- *     state = (self.BLACK, self.WHITE, self._board_back, self._board_log, self._count_opponent, self._count_player, self._pass_cnt, self._player_auto, self._player_clr, self._strategy_opponent, self._strategy_player, self.board, self.result, self.reversible, self.turn)
- *     _dict = getattr(self, '__dict__', None)
- *     if _dict is not None:             # <<<<<<<<<<<<<<
- *         state += (_dict,)
- *         use_setstate = True
- */
-    goto __pyx_L3;
-  }
-
-  /* "(tree fragment)":11
- *         use_setstate = True
- *     else:
- *         use_setstate = self._board_back is not None or self._board_log is not None or self._strategy_opponent is not None or self._strategy_player is not None or self.board is not None or self.result is not None             # <<<<<<<<<<<<<<
- *     if use_setstate:
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, None), state
- */
-  /*else*/ {
-    __pyx_t_11 = (__pyx_v_self->_board_back != Py_None);
-    __pyx_t_13 = (__pyx_t_11 != 0);
-    if (!__pyx_t_13) {
-    } else {
-      __pyx_t_12 = __pyx_t_13;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_13 = (__pyx_v_self->_board_log != Py_None);
-    __pyx_t_11 = (__pyx_t_13 != 0);
-    if (!__pyx_t_11) {
-    } else {
-      __pyx_t_12 = __pyx_t_11;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_11 = (__pyx_v_self->_strategy_opponent != Py_None);
-    __pyx_t_13 = (__pyx_t_11 != 0);
-    if (!__pyx_t_13) {
-    } else {
-      __pyx_t_12 = __pyx_t_13;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_13 = (__pyx_v_self->_strategy_player != Py_None);
-    __pyx_t_11 = (__pyx_t_13 != 0);
-    if (!__pyx_t_11) {
-    } else {
-      __pyx_t_12 = __pyx_t_11;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_11 = (__pyx_v_self->board != Py_None);
-    __pyx_t_13 = (__pyx_t_11 != 0);
-    if (!__pyx_t_13) {
-    } else {
-      __pyx_t_12 = __pyx_t_13;
-      goto __pyx_L4_bool_binop_done;
-    }
-    __pyx_t_13 = (__pyx_v_self->result != ((PyObject*)Py_None));
-    __pyx_t_11 = (__pyx_t_13 != 0);
-    __pyx_t_12 = __pyx_t_11;
-    __pyx_L4_bool_binop_done:;
-    __pyx_v_use_setstate = __pyx_t_12;
-  }
-  __pyx_L3:;
-
-  /* "(tree fragment)":12
- *     else:
- *         use_setstate = self._board_back is not None or self._board_log is not None or self._strategy_opponent is not None or self._strategy_player is not None or self.board is not None or self.result is not None
- *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, None), state
- *     else:
- */
-  __pyx_t_12 = (__pyx_v_use_setstate != 0);
-  if (__pyx_t_12) {
-
-    /* "(tree fragment)":13
- *         use_setstate = self._board_back is not None or self._board_log is not None or self._strategy_opponent is not None or self._strategy_player is not None or self.board is not None or self.result is not None
- *     if use_setstate:
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, None), state             # <<<<<<<<<<<<<<
- *     else:
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, state)
- */
-    __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_pyx_unpickle_OthelloGameC); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_10 = PyTuple_New(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_10, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_49031627);
-    __Pyx_GIVEREF(__pyx_int_49031627);
-    PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_int_49031627);
-    __Pyx_INCREF(Py_None);
-    __Pyx_GIVEREF(Py_None);
-    PyTuple_SET_ITEM(__pyx_t_10, 2, Py_None);
-    __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_GIVEREF(__pyx_t_9);
-    PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_9);
-    __Pyx_GIVEREF(__pyx_t_10);
-    PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_t_10);
-    __Pyx_INCREF(__pyx_v_state);
-    __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_8, 2, __pyx_v_state);
-    __pyx_t_9 = 0;
-    __pyx_t_10 = 0;
-    __pyx_r = __pyx_t_8;
-    __pyx_t_8 = 0;
-    goto __pyx_L0;
-
-    /* "(tree fragment)":12
- *     else:
- *         use_setstate = self._board_back is not None or self._board_log is not None or self._strategy_opponent is not None or self._strategy_player is not None or self.board is not None or self.result is not None
- *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, None), state
- *     else:
- */
-  }
-
-  /* "(tree fragment)":15
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, None), state
- *     else:
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, state)             # <<<<<<<<<<<<<<
+  /* "(tree fragment)":2
+ * def __reduce_cython__(self):
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_OthelloGameC__set_state(self, __pyx_state)
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  */
-  /*else*/ {
-    __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_pyx_unpickle_OthelloGameC); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_10 = PyTuple_New(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_10, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_49031627);
-    __Pyx_GIVEREF(__pyx_int_49031627);
-    PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_int_49031627);
-    __Pyx_INCREF(__pyx_v_state);
-    __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_10, 2, __pyx_v_state);
-    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_9);
-    __Pyx_GIVEREF(__pyx_t_8);
-    PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8);
-    __Pyx_GIVEREF(__pyx_t_10);
-    PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_10);
-    __pyx_t_8 = 0;
-    __pyx_t_10 = 0;
-    __pyx_r = __pyx_t_9;
-    __pyx_t_9 = 0;
-    goto __pyx_L0;
-  }
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_Raise(__pyx_t_1, 0, 0, 0);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __PYX_ERR(1, 2, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
- *     cdef tuple state
- *     cdef object _dict
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
+ * def __setstate_cython__(self, __pyx_state):
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_10);
   __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_state);
-  __Pyx_XDECREF(__pyx_v__dict);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "(tree fragment)":16
- *     else:
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, state)
+/* "(tree fragment)":3
+ * def __reduce_cython__(self):
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_OthelloGameC__set_state(self, __pyx_state)
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_29__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_29__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_53__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_8bitboard_10bitothello_12OthelloGameC_53__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_28__setstate_cython__(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_8bitboard_10bitothello_12OthelloGameC_52__setstate_cython__(((struct OthelloGameCObject *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_28__setstate_cython__(struct OthelloGameCObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_52__setstate_cython__(CYTHON_UNUSED struct OthelloGameCObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8007,759 +11361,29 @@ static PyObject *__pyx_pf_8bitboard_10bitothello_12OthelloGameC_28__setstate_cyt
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
-  /* "(tree fragment)":17
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, state)
+  /* "(tree fragment)":4
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_OthelloGameC__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")             # <<<<<<<<<<<<<<
  */
-  if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(2, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_8bitboard_10bitothello___pyx_unpickle_OthelloGameC__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 17, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_Raise(__pyx_t_1, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __PYX_ERR(1, 4, __pyx_L1_error)
 
-  /* "(tree fragment)":16
- *     else:
- *         return __pyx_unpickle_OthelloGameC, (type(self), 0x2ec29cb, state)
+  /* "(tree fragment)":3
+ * def __reduce_cython__(self):
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_OthelloGameC__set_state(self, __pyx_state)
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_AddTraceback("bitboard.bitothello.OthelloGameC.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "(tree fragment)":1
- * def __pyx_unpickle_OthelloGameC(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
- *     cdef object __pyx_PickleError
- *     cdef object __pyx_result
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_8bitboard_10bitothello_1__pyx_unpickle_OthelloGameC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_8bitboard_10bitothello_1__pyx_unpickle_OthelloGameC = {"__pyx_unpickle_OthelloGameC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_1__pyx_unpickle_OthelloGameC, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_8bitboard_10bitothello_1__pyx_unpickle_OthelloGameC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v___pyx_type = 0;
-  long __pyx_v___pyx_checksum;
-  PyObject *__pyx_v___pyx_state = 0;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__pyx_unpickle_OthelloGameC (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
-    PyObject* values[3] = {0,0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        CYTHON_FALLTHROUGH;
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_type)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_OthelloGameC", 1, 3, 3, 1); __PYX_ERR(2, 1, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_OthelloGameC", 1, 3, 3, 2); __PYX_ERR(2, 1, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_OthelloGameC") < 0)) __PYX_ERR(2, 1, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-    }
-    __pyx_v___pyx_type = values[0];
-    __pyx_v___pyx_checksum = __Pyx_PyInt_As_long(values[1]); if (unlikely((__pyx_v___pyx_checksum == (long)-1) && PyErr_Occurred())) __PYX_ERR(2, 1, __pyx_L3_error)
-    __pyx_v___pyx_state = values[2];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_OthelloGameC", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 1, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("bitboard.bitothello.__pyx_unpickle_OthelloGameC", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8bitboard_10bitothello___pyx_unpickle_OthelloGameC(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_8bitboard_10bitothello___pyx_unpickle_OthelloGameC(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
-  PyObject *__pyx_v___pyx_PickleError = 0;
-  PyObject *__pyx_v___pyx_result = 0;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_t_2;
-  int __pyx_t_3;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_OthelloGameC", 0);
-
-  /* "(tree fragment)":4
- *     cdef object __pyx_PickleError
- *     cdef object __pyx_result
- *     if __pyx_checksum not in (0x2ec29cb, 0xdf4482c, 0x801317c):             # <<<<<<<<<<<<<<
- *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))" % __pyx_checksum)
- */
-  __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 4, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__3, Py_NE)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 4, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = (__pyx_t_2 != 0);
-  if (__pyx_t_3) {
-
-    /* "(tree fragment)":5
- *     cdef object __pyx_result
- *     if __pyx_checksum not in (0x2ec29cb, 0xdf4482c, 0x801317c):
- *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))" % __pyx_checksum)
- *     __pyx_result = OthelloGameC.__new__(__pyx_type)
- */
-    __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 5, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_n_s_PickleError);
-    __Pyx_GIVEREF(__pyx_n_s_PickleError);
-    PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_PickleError);
-    __pyx_t_4 = __Pyx_Import(__pyx_n_s_pickle, __pyx_t_1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 5, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_4, __pyx_n_s_PickleError); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 5, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_t_1);
-    __pyx_v___pyx_PickleError = __pyx_t_1;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-    /* "(tree fragment)":6
- *     if __pyx_checksum not in (0x2ec29cb, 0xdf4482c, 0x801317c):
- *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))" % __pyx_checksum)             # <<<<<<<<<<<<<<
- *     __pyx_result = OthelloGameC.__new__(__pyx_type)
- *     if __pyx_state is not None:
- */
-    __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 6, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_0x_x_vs_0, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 6, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_INCREF(__pyx_v___pyx_PickleError);
-    __pyx_t_1 = __pyx_v___pyx_PickleError; __pyx_t_6 = NULL;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_1);
-      if (likely(__pyx_t_6)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-        __Pyx_INCREF(__pyx_t_6);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_1, function);
-      }
-    }
-    __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5);
-    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 6, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_Raise(__pyx_t_4, 0, 0, 0);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(2, 6, __pyx_L1_error)
-
-    /* "(tree fragment)":4
- *     cdef object __pyx_PickleError
- *     cdef object __pyx_result
- *     if __pyx_checksum not in (0x2ec29cb, 0xdf4482c, 0x801317c):             # <<<<<<<<<<<<<<
- *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))" % __pyx_checksum)
- */
-  }
-
-  /* "(tree fragment)":7
- *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))" % __pyx_checksum)
- *     __pyx_result = OthelloGameC.__new__(__pyx_type)             # <<<<<<<<<<<<<<
- *     if __pyx_state is not None:
- *         __pyx_unpickle_OthelloGameC__set_state(<OthelloGameC> __pyx_result, __pyx_state)
- */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_8bitboard_10bitothello_OthelloGameC), __pyx_n_s_new); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_5)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-    }
-  }
-  __pyx_t_4 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_5, __pyx_v___pyx_type) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v___pyx_type);
-  __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v___pyx_result = __pyx_t_4;
-  __pyx_t_4 = 0;
-
-  /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))" % __pyx_checksum)
- *     __pyx_result = OthelloGameC.__new__(__pyx_type)
- *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_OthelloGameC__set_state(<OthelloGameC> __pyx_result, __pyx_state)
- *     return __pyx_result
- */
-  __pyx_t_3 = (__pyx_v___pyx_state != Py_None);
-  __pyx_t_2 = (__pyx_t_3 != 0);
-  if (__pyx_t_2) {
-
-    /* "(tree fragment)":9
- *     __pyx_result = OthelloGameC.__new__(__pyx_type)
- *     if __pyx_state is not None:
- *         __pyx_unpickle_OthelloGameC__set_state(<OthelloGameC> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
- *     return __pyx_result
- * cdef __pyx_unpickle_OthelloGameC__set_state(OthelloGameC __pyx_result, tuple __pyx_state):
- */
-    if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(2, 9, __pyx_L1_error)
-    __pyx_t_4 = __pyx_f_8bitboard_10bitothello___pyx_unpickle_OthelloGameC__set_state(((struct OthelloGameCObject *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 9, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-    /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))" % __pyx_checksum)
- *     __pyx_result = OthelloGameC.__new__(__pyx_type)
- *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_OthelloGameC__set_state(<OthelloGameC> __pyx_result, __pyx_state)
- *     return __pyx_result
- */
-  }
-
-  /* "(tree fragment)":10
- *     if __pyx_state is not None:
- *         __pyx_unpickle_OthelloGameC__set_state(<OthelloGameC> __pyx_result, __pyx_state)
- *     return __pyx_result             # <<<<<<<<<<<<<<
- * cdef __pyx_unpickle_OthelloGameC__set_state(OthelloGameC __pyx_result, tuple __pyx_state):
- *     __pyx_result.BLACK = __pyx_state[0]; __pyx_result.WHITE = __pyx_state[1]; __pyx_result._board_back = __pyx_state[2]; __pyx_result._board_log = __pyx_state[3]; __pyx_result._count_opponent = __pyx_state[4]; __pyx_result._count_player = __pyx_state[5]; __pyx_result._pass_cnt = __pyx_state[6]; __pyx_result._player_auto = __pyx_state[7]; __pyx_result._player_clr = __pyx_state[8]; __pyx_result._strategy_opponent = __pyx_state[9]; __pyx_result._strategy_player = __pyx_state[10]; __pyx_result.board = __pyx_state[11]; __pyx_result.result = __pyx_state[12]; __pyx_result.reversible = __pyx_state[13]; __pyx_result.turn = __pyx_state[14]
- */
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v___pyx_result);
-  __pyx_r = __pyx_v___pyx_result;
-  goto __pyx_L0;
-
-  /* "(tree fragment)":1
- * def __pyx_unpickle_OthelloGameC(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
- *     cdef object __pyx_PickleError
- *     cdef object __pyx_result
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("bitboard.bitothello.__pyx_unpickle_OthelloGameC", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v___pyx_PickleError);
-  __Pyx_XDECREF(__pyx_v___pyx_result);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "(tree fragment)":11
- *         __pyx_unpickle_OthelloGameC__set_state(<OthelloGameC> __pyx_result, __pyx_state)
- *     return __pyx_result
- * cdef __pyx_unpickle_OthelloGameC__set_state(OthelloGameC __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.BLACK = __pyx_state[0]; __pyx_result.WHITE = __pyx_state[1]; __pyx_result._board_back = __pyx_state[2]; __pyx_result._board_log = __pyx_state[3]; __pyx_result._count_opponent = __pyx_state[4]; __pyx_result._count_player = __pyx_state[5]; __pyx_result._pass_cnt = __pyx_state[6]; __pyx_result._player_auto = __pyx_state[7]; __pyx_result._player_clr = __pyx_state[8]; __pyx_result._strategy_opponent = __pyx_state[9]; __pyx_result._strategy_player = __pyx_state[10]; __pyx_result.board = __pyx_state[11]; __pyx_result.result = __pyx_state[12]; __pyx_result.reversible = __pyx_state[13]; __pyx_result.turn = __pyx_state[14]
- *     if len(__pyx_state) > 15 and hasattr(__pyx_result, '__dict__'):
- */
-
-static PyObject *__pyx_f_8bitboard_10bitothello___pyx_unpickle_OthelloGameC__set_state(struct OthelloGameCObject *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3[2];
-  int __pyx_t_4;
-  std::uint64_t __pyx_t_5;
-  Py_ssize_t __pyx_t_6;
-  int __pyx_t_7;
-  int __pyx_t_8;
-  PyObject *__pyx_t_9 = NULL;
-  PyObject *__pyx_t_10 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_OthelloGameC__set_state", 0);
-
-  /* "(tree fragment)":12
- *     return __pyx_result
- * cdef __pyx_unpickle_OthelloGameC__set_state(OthelloGameC __pyx_result, tuple __pyx_state):
- *     __pyx_result.BLACK = __pyx_state[0]; __pyx_result.WHITE = __pyx_state[1]; __pyx_result._board_back = __pyx_state[2]; __pyx_result._board_log = __pyx_state[3]; __pyx_result._count_opponent = __pyx_state[4]; __pyx_result._count_player = __pyx_state[5]; __pyx_result._pass_cnt = __pyx_state[6]; __pyx_result._player_auto = __pyx_state[7]; __pyx_result._player_clr = __pyx_state[8]; __pyx_result._strategy_opponent = __pyx_state[9]; __pyx_result._strategy_player = __pyx_state[10]; __pyx_result.board = __pyx_state[11]; __pyx_result.result = __pyx_state[12]; __pyx_result.reversible = __pyx_state[13]; __pyx_result.turn = __pyx_state[14]             # <<<<<<<<<<<<<<
- *     if len(__pyx_state) > 15 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[15])
- */
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_PyInt_As_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 0)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->BLACK = __pyx_t_1;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_PyInt_As_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 1)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->WHITE = __pyx_t_1;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_2 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 2);
-  __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_2);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_board_back);
-  __Pyx_DECREF(__pyx_v___pyx_result->_board_back);
-  __pyx_v___pyx_result->_board_back = __pyx_t_2;
-  __pyx_t_2 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_2 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 3);
-  __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_2);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_board_log);
-  __Pyx_DECREF(__pyx_v___pyx_result->_board_log);
-  __pyx_v___pyx_result->_board_log = __pyx_t_2;
-  __pyx_t_2 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_PyInt_As_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 4)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->_count_opponent = __pyx_t_1;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_PyInt_As_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 5)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->_count_player = __pyx_t_1;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  if (unlikely(__Pyx_carray_from_py_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 6), __pyx_t_3, 2) < 0)) __PYX_ERR(2, 12, __pyx_L1_error)
-  memcpy(&(__pyx_v___pyx_result->_pass_cnt[0]), __pyx_t_3, sizeof(__pyx_v___pyx_result->_pass_cnt[0]) * (2));
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(PyTuple_GET_ITEM(__pyx_v___pyx_state, 7)); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->_player_auto = __pyx_t_4;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_PyInt_As_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 8)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->_player_clr = __pyx_t_1;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_2 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 9);
-  __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_2);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_strategy_opponent);
-  __Pyx_DECREF(__pyx_v___pyx_result->_strategy_opponent);
-  __pyx_v___pyx_result->_strategy_opponent = __pyx_t_2;
-  __pyx_t_2 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_2 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 10);
-  __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_2);
-  __Pyx_GOTREF(__pyx_v___pyx_result->_strategy_player);
-  __Pyx_DECREF(__pyx_v___pyx_result->_strategy_player);
-  __pyx_v___pyx_result->_strategy_player = __pyx_t_2;
-  __pyx_t_2 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_2 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 11);
-  __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_2);
-  __Pyx_GOTREF(__pyx_v___pyx_result->board);
-  __Pyx_DECREF(__pyx_v___pyx_result->board);
-  __pyx_v___pyx_result->board = __pyx_t_2;
-  __pyx_t_2 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  if (!(likely(PyUnicode_CheckExact(PyTuple_GET_ITEM(__pyx_v___pyx_state, 12)))||((PyTuple_GET_ITEM(__pyx_v___pyx_state, 12)) == Py_None)||((void)PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "unicode", Py_TYPE(PyTuple_GET_ITEM(__pyx_v___pyx_state, 12))->tp_name), 0))) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_t_2 = PyTuple_GET_ITEM(__pyx_v___pyx_state, 12);
-  __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_2);
-  __Pyx_GOTREF(__pyx_v___pyx_result->result);
-  __Pyx_DECREF(__pyx_v___pyx_result->result);
-  __pyx_v___pyx_result->result = ((PyObject*)__pyx_t_2);
-  __pyx_t_2 = 0;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_5 = __Pyx_PyInt_As_std_3a__3a_uint64_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 13)); if (unlikely((__pyx_t_5 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->reversible = __pyx_t_5;
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(2, 12, __pyx_L1_error)
-  }
-  __pyx_t_1 = __Pyx_PyInt_As_int(PyTuple_GET_ITEM(__pyx_v___pyx_state, 14)); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->turn = __pyx_t_1;
-
-  /* "(tree fragment)":13
- * cdef __pyx_unpickle_OthelloGameC__set_state(OthelloGameC __pyx_result, tuple __pyx_state):
- *     __pyx_result.BLACK = __pyx_state[0]; __pyx_result.WHITE = __pyx_state[1]; __pyx_result._board_back = __pyx_state[2]; __pyx_result._board_log = __pyx_state[3]; __pyx_result._count_opponent = __pyx_state[4]; __pyx_result._count_player = __pyx_state[5]; __pyx_result._pass_cnt = __pyx_state[6]; __pyx_result._player_auto = __pyx_state[7]; __pyx_result._player_clr = __pyx_state[8]; __pyx_result._strategy_opponent = __pyx_state[9]; __pyx_result._strategy_player = __pyx_state[10]; __pyx_result.board = __pyx_state[11]; __pyx_result.result = __pyx_state[12]; __pyx_result.reversible = __pyx_state[13]; __pyx_result.turn = __pyx_state[14]
- *     if len(__pyx_state) > 15 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[15])
- */
-  if (unlikely(__pyx_v___pyx_state == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(2, 13, __pyx_L1_error)
-  }
-  __pyx_t_6 = PyTuple_GET_SIZE(__pyx_v___pyx_state); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(2, 13, __pyx_L1_error)
-  __pyx_t_7 = ((__pyx_t_6 > 15) != 0);
-  if (__pyx_t_7) {
-  } else {
-    __pyx_t_4 = __pyx_t_7;
-    goto __pyx_L4_bool_binop_done;
-  }
-  __pyx_t_7 = __Pyx_HasAttr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(2, 13, __pyx_L1_error)
-  __pyx_t_8 = (__pyx_t_7 != 0);
-  __pyx_t_4 = __pyx_t_8;
-  __pyx_L4_bool_binop_done:;
-  if (__pyx_t_4) {
-
-    /* "(tree fragment)":14
- *     __pyx_result.BLACK = __pyx_state[0]; __pyx_result.WHITE = __pyx_state[1]; __pyx_result._board_back = __pyx_state[2]; __pyx_result._board_log = __pyx_state[3]; __pyx_result._count_opponent = __pyx_state[4]; __pyx_result._count_player = __pyx_state[5]; __pyx_result._pass_cnt = __pyx_state[6]; __pyx_result._player_auto = __pyx_state[7]; __pyx_result._player_clr = __pyx_state[8]; __pyx_result._strategy_opponent = __pyx_state[9]; __pyx_result._strategy_player = __pyx_state[10]; __pyx_result.board = __pyx_state[11]; __pyx_result.result = __pyx_state[12]; __pyx_result.reversible = __pyx_state[13]; __pyx_result.turn = __pyx_state[14]
- *     if len(__pyx_state) > 15 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[15])             # <<<<<<<<<<<<<<
- */
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 14, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_update); if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 14, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_10);
-    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(__pyx_v___pyx_state == Py_None)) {
-      PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(2, 14, __pyx_L1_error)
-    }
-    __pyx_t_9 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
-      __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_10);
-      if (likely(__pyx_t_9)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
-        __Pyx_INCREF(__pyx_t_9);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_10, function);
-      }
-    }
-    __pyx_t_2 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_9, PyTuple_GET_ITEM(__pyx_v___pyx_state, 15)) : __Pyx_PyObject_CallOneArg(__pyx_t_10, PyTuple_GET_ITEM(__pyx_v___pyx_state, 15));
-    __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 14, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-    /* "(tree fragment)":13
- * cdef __pyx_unpickle_OthelloGameC__set_state(OthelloGameC __pyx_result, tuple __pyx_state):
- *     __pyx_result.BLACK = __pyx_state[0]; __pyx_result.WHITE = __pyx_state[1]; __pyx_result._board_back = __pyx_state[2]; __pyx_result._board_log = __pyx_state[3]; __pyx_result._count_opponent = __pyx_state[4]; __pyx_result._count_player = __pyx_state[5]; __pyx_result._pass_cnt = __pyx_state[6]; __pyx_result._player_auto = __pyx_state[7]; __pyx_result._player_clr = __pyx_state[8]; __pyx_result._strategy_opponent = __pyx_state[9]; __pyx_result._strategy_player = __pyx_state[10]; __pyx_result.board = __pyx_state[11]; __pyx_result.result = __pyx_state[12]; __pyx_result.reversible = __pyx_state[13]; __pyx_result.turn = __pyx_state[14]
- *     if len(__pyx_state) > 15 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[15])
- */
-  }
-
-  /* "(tree fragment)":11
- *         __pyx_unpickle_OthelloGameC__set_state(<OthelloGameC> __pyx_result, __pyx_state)
- *     return __pyx_result
- * cdef __pyx_unpickle_OthelloGameC__set_state(OthelloGameC __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.BLACK = __pyx_state[0]; __pyx_result.WHITE = __pyx_state[1]; __pyx_result._board_back = __pyx_state[2]; __pyx_result._board_log = __pyx_state[3]; __pyx_result._count_opponent = __pyx_state[4]; __pyx_result._count_player = __pyx_state[5]; __pyx_result._pass_cnt = __pyx_state[6]; __pyx_result._player_auto = __pyx_state[7]; __pyx_result._player_clr = __pyx_state[8]; __pyx_result._strategy_opponent = __pyx_state[9]; __pyx_result._strategy_player = __pyx_state[10]; __pyx_result.board = __pyx_state[11]; __pyx_result.result = __pyx_state[12]; __pyx_result.reversible = __pyx_state[13]; __pyx_result.turn = __pyx_state[14]
- *     if len(__pyx_state) > 15 and hasattr(__pyx_result, '__dict__'):
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("bitboard.bitothello.__pyx_unpickle_OthelloGameC__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "carray.to_py":112
- * 
- * @cname("__Pyx_carray_to_py_int")
- * cdef inline list __Pyx_carray_to_py_int(base_type *v, Py_ssize_t length):             # <<<<<<<<<<<<<<
- *     cdef size_t i
- *     cdef object value
- */
-
-static CYTHON_INLINE PyObject *__Pyx_carray_to_py_int(int *__pyx_v_v, Py_ssize_t __pyx_v_length) {
-  size_t __pyx_v_i;
-  PyObject *__pyx_v_value = 0;
-  PyObject *__pyx_v_l = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  size_t __pyx_t_2;
-  size_t __pyx_t_3;
-  size_t __pyx_t_4;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__Pyx_carray_to_py_int", 0);
-
-  /* "carray.to_py":115
- *     cdef size_t i
- *     cdef object value
- *     l = PyList_New(length)             # <<<<<<<<<<<<<<
- *     for i in range(<size_t>length):
- *         value = v[i]
- */
-  __pyx_t_1 = PyList_New(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 115, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_l = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "carray.to_py":116
- *     cdef object value
- *     l = PyList_New(length)
- *     for i in range(<size_t>length):             # <<<<<<<<<<<<<<
- *         value = v[i]
- *         Py_INCREF(value)
- */
-  __pyx_t_2 = ((size_t)__pyx_v_length);
-  __pyx_t_3 = __pyx_t_2;
-  for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
-    __pyx_v_i = __pyx_t_4;
-
-    /* "carray.to_py":117
- *     l = PyList_New(length)
- *     for i in range(<size_t>length):
- *         value = v[i]             # <<<<<<<<<<<<<<
- *         Py_INCREF(value)
- *         PyList_SET_ITEM(l, i, value)
- */
-    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 117, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "carray.to_py":118
- *     for i in range(<size_t>length):
- *         value = v[i]
- *         Py_INCREF(value)             # <<<<<<<<<<<<<<
- *         PyList_SET_ITEM(l, i, value)
- *     return l
- */
-    Py_INCREF(__pyx_v_value);
-
-    /* "carray.to_py":119
- *         value = v[i]
- *         Py_INCREF(value)
- *         PyList_SET_ITEM(l, i, value)             # <<<<<<<<<<<<<<
- *     return l
- * 
- */
-    PyList_SET_ITEM(__pyx_v_l, __pyx_v_i, __pyx_v_value);
-  }
-
-  /* "carray.to_py":120
- *         Py_INCREF(value)
- *         PyList_SET_ITEM(l, i, value)
- *     return l             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_l);
-  __pyx_r = __pyx_v_l;
-  goto __pyx_L0;
-
-  /* "carray.to_py":112
- * 
- * @cname("__Pyx_carray_to_py_int")
- * cdef inline list __Pyx_carray_to_py_int(base_type *v, Py_ssize_t length):             # <<<<<<<<<<<<<<
- *     cdef size_t i
- *     cdef object value
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("carray.to_py.__Pyx_carray_to_py_int", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_value);
-  __Pyx_XDECREF(__pyx_v_l);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "carray.to_py":124
- * 
- * @cname("__Pyx_carray_to_tuple_int")
- * cdef inline tuple __Pyx_carray_to_tuple_int(base_type *v, Py_ssize_t length):             # <<<<<<<<<<<<<<
- *     cdef size_t i
- *     cdef object value
- */
-
-static CYTHON_INLINE PyObject *__Pyx_carray_to_tuple_int(int *__pyx_v_v, Py_ssize_t __pyx_v_length) {
-  size_t __pyx_v_i;
-  PyObject *__pyx_v_value = 0;
-  PyObject *__pyx_v_t = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  size_t __pyx_t_2;
-  size_t __pyx_t_3;
-  size_t __pyx_t_4;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__Pyx_carray_to_tuple_int", 0);
-
-  /* "carray.to_py":127
- *     cdef size_t i
- *     cdef object value
- *     t = PyTuple_New(length)             # <<<<<<<<<<<<<<
- *     for i in range(<size_t>length):
- *         value = v[i]
- */
-  __pyx_t_1 = PyTuple_New(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 127, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_t = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "carray.to_py":128
- *     cdef object value
- *     t = PyTuple_New(length)
- *     for i in range(<size_t>length):             # <<<<<<<<<<<<<<
- *         value = v[i]
- *         Py_INCREF(value)
- */
-  __pyx_t_2 = ((size_t)__pyx_v_length);
-  __pyx_t_3 = __pyx_t_2;
-  for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
-    __pyx_v_i = __pyx_t_4;
-
-    /* "carray.to_py":129
- *     t = PyTuple_New(length)
- *     for i in range(<size_t>length):
- *         value = v[i]             # <<<<<<<<<<<<<<
- *         Py_INCREF(value)
- *         PyTuple_SET_ITEM(t, i, value)
- */
-    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 129, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "carray.to_py":130
- *     for i in range(<size_t>length):
- *         value = v[i]
- *         Py_INCREF(value)             # <<<<<<<<<<<<<<
- *         PyTuple_SET_ITEM(t, i, value)
- *     return t
- */
-    Py_INCREF(__pyx_v_value);
-
-    /* "carray.to_py":131
- *         value = v[i]
- *         Py_INCREF(value)
- *         PyTuple_SET_ITEM(t, i, value)             # <<<<<<<<<<<<<<
- *     return t
- */
-    PyTuple_SET_ITEM(__pyx_v_t, __pyx_v_i, __pyx_v_value);
-  }
-
-  /* "carray.to_py":132
- *         Py_INCREF(value)
- *         PyTuple_SET_ITEM(t, i, value)
- *     return t             # <<<<<<<<<<<<<<
- */
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_t);
-  __pyx_r = __pyx_v_t;
-  goto __pyx_L0;
-
-  /* "carray.to_py":124
- * 
- * @cname("__Pyx_carray_to_tuple_int")
- * cdef inline tuple __Pyx_carray_to_tuple_int(base_type *v, Py_ssize_t length):             # <<<<<<<<<<<<<<
- *     cdef size_t i
- *     cdef object value
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("carray.to_py.__Pyx_carray_to_tuple_int", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_value);
-  __Pyx_XDECREF(__pyx_v_t);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -8826,7 +11450,7 @@ static int __Pyx_carray_from_py_int(PyObject *__pyx_v_o, int *__pyx_v_v, Py_ssiz
  *     except (TypeError, OverflowError):
  *         pass
  */
-      __pyx_t_4 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(2, 80, __pyx_L3_error)
+      __pyx_t_4 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(1, 80, __pyx_L3_error)
       __pyx_v_i = __pyx_t_4;
 
       /* "carray.from_py":79
@@ -8900,26 +11524,26 @@ static int __Pyx_carray_from_py_int(PyObject *__pyx_v_o, int *__pyx_v_v, Py_ssiz
       __pyx_t_7 = __pyx_v_o; __Pyx_INCREF(__pyx_t_7); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
     } else {
-      __pyx_t_8 = -1; __pyx_t_7 = PyObject_GetIter(__pyx_v_o); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 84, __pyx_L1_error)
+      __pyx_t_8 = -1; __pyx_t_7 = PyObject_GetIter(__pyx_v_o); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 84, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = Py_TYPE(__pyx_t_7)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 84, __pyx_L1_error)
+      __pyx_t_9 = Py_TYPE(__pyx_t_7)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(1, 84, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_9)) {
         if (likely(PyList_CheckExact(__pyx_t_7))) {
           if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_7)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_10 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_10); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(2, 84, __pyx_L1_error)
+          __pyx_t_10 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_10); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(1, 84, __pyx_L1_error)
           #else
-          __pyx_t_10 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 84, __pyx_L1_error)
+          __pyx_t_10 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 84, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           #endif
         } else {
           if (__pyx_t_8 >= PyTuple_GET_SIZE(__pyx_t_7)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_10 = PyTuple_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_10); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(2, 84, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_10); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(1, 84, __pyx_L1_error)
           #else
-          __pyx_t_10 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 84, __pyx_L1_error)
+          __pyx_t_10 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 84, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           #endif
         }
@@ -8929,7 +11553,7 @@ static int __Pyx_carray_from_py_int(PyObject *__pyx_v_o, int *__pyx_v_v, Py_ssiz
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(2, 84, __pyx_L1_error)
+            else __PYX_ERR(1, 84, __pyx_L1_error)
           }
           break;
         }
@@ -8975,7 +11599,7 @@ static int __Pyx_carray_from_py_int(PyObject *__pyx_v_o, int *__pyx_v_v, Py_ssiz
  *         else:
  *             i += 1  # convert index to length
  */
-      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_item); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 87, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_item); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 87, __pyx_L1_error)
       (__pyx_v_v[__pyx_v_i]) = __pyx_t_5;
 
       /* "carray.from_py":84
@@ -9067,7 +11691,7 @@ static int __Pyx_carray_from_py_int(PyObject *__pyx_v_o, int *__pyx_v_v, Py_ssiz
  *         IndexError,
  *         ("too many values found during array assignment, expected %zd"
  */
-  __pyx_t_7 = PyErr_Format(__pyx_builtin_IndexError, __pyx_t_11, __pyx_v_length, __pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 93, __pyx_L1_error)
+  __pyx_t_7 = PyErr_Format(__pyx_builtin_IndexError, __pyx_t_11, __pyx_v_length, __pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
@@ -9147,7 +11771,7 @@ static int __Pyx_carray_from_py_int___5b_8_5d_(PyObject *__pyx_v_o, int (*__pyx_
  *     except (TypeError, OverflowError):
  *         pass
  */
-      __pyx_t_4 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(2, 80, __pyx_L3_error)
+      __pyx_t_4 = PyObject_Length(__pyx_v_o); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(1, 80, __pyx_L3_error)
       __pyx_v_i = __pyx_t_4;
 
       /* "carray.from_py":79
@@ -9221,26 +11845,26 @@ static int __Pyx_carray_from_py_int___5b_8_5d_(PyObject *__pyx_v_o, int (*__pyx_
       __pyx_t_7 = __pyx_v_o; __Pyx_INCREF(__pyx_t_7); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
     } else {
-      __pyx_t_8 = -1; __pyx_t_7 = PyObject_GetIter(__pyx_v_o); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 84, __pyx_L1_error)
+      __pyx_t_8 = -1; __pyx_t_7 = PyObject_GetIter(__pyx_v_o); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 84, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = Py_TYPE(__pyx_t_7)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 84, __pyx_L1_error)
+      __pyx_t_9 = Py_TYPE(__pyx_t_7)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(1, 84, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_9)) {
         if (likely(PyList_CheckExact(__pyx_t_7))) {
           if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_7)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_10 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_10); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(2, 84, __pyx_L1_error)
+          __pyx_t_10 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_10); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(1, 84, __pyx_L1_error)
           #else
-          __pyx_t_10 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 84, __pyx_L1_error)
+          __pyx_t_10 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 84, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           #endif
         } else {
           if (__pyx_t_8 >= PyTuple_GET_SIZE(__pyx_t_7)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_10 = PyTuple_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_10); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(2, 84, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_10); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(1, 84, __pyx_L1_error)
           #else
-          __pyx_t_10 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_10)) __PYX_ERR(2, 84, __pyx_L1_error)
+          __pyx_t_10 = PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 84, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           #endif
         }
@@ -9250,7 +11874,7 @@ static int __Pyx_carray_from_py_int___5b_8_5d_(PyObject *__pyx_v_o, int (*__pyx_
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(2, 84, __pyx_L1_error)
+            else __PYX_ERR(1, 84, __pyx_L1_error)
           }
           break;
         }
@@ -9296,7 +11920,7 @@ static int __Pyx_carray_from_py_int___5b_8_5d_(PyObject *__pyx_v_o, int (*__pyx_
  *         else:
  *             i += 1  # convert index to length
  */
-      if (unlikely(__Pyx_carray_from_py_int(__pyx_v_item, __pyx_t_11, 8) < 0)) __PYX_ERR(2, 87, __pyx_L1_error)
+      if (unlikely(__Pyx_carray_from_py_int(__pyx_v_item, __pyx_t_11, 8) < 0)) __PYX_ERR(1, 87, __pyx_L1_error)
       memcpy(&((__pyx_v_v[__pyx_v_i])[0]), __pyx_t_11, sizeof((__pyx_v_v[__pyx_v_i])[0]) * (8));
 
       /* "carray.from_py":84
@@ -9388,7 +12012,7 @@ static int __Pyx_carray_from_py_int___5b_8_5d_(PyObject *__pyx_v_o, int (*__pyx_
  *         IndexError,
  *         ("too many values found during array assignment, expected %zd"
  */
-  __pyx_t_7 = PyErr_Format(__pyx_builtin_IndexError, __pyx_t_12, __pyx_v_length, __pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 93, __pyx_L1_error)
+  __pyx_t_7 = PyErr_Format(__pyx_builtin_IndexError, __pyx_t_12, __pyx_v_length, __pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
@@ -9410,6 +12034,225 @@ static int __Pyx_carray_from_py_int___5b_8_5d_(PyObject *__pyx_v_o, int (*__pyx_
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_item);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "carray.to_py":112
+ * 
+ * @cname("__Pyx_carray_to_py_int")
+ * cdef inline list __Pyx_carray_to_py_int(base_type *v, Py_ssize_t length):             # <<<<<<<<<<<<<<
+ *     cdef size_t i
+ *     cdef object value
+ */
+
+static CYTHON_INLINE PyObject *__Pyx_carray_to_py_int(int *__pyx_v_v, Py_ssize_t __pyx_v_length) {
+  size_t __pyx_v_i;
+  PyObject *__pyx_v_value = 0;
+  PyObject *__pyx_v_l = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  size_t __pyx_t_2;
+  size_t __pyx_t_3;
+  size_t __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__Pyx_carray_to_py_int", 0);
+
+  /* "carray.to_py":115
+ *     cdef size_t i
+ *     cdef object value
+ *     l = PyList_New(length)             # <<<<<<<<<<<<<<
+ *     for i in range(<size_t>length):
+ *         value = v[i]
+ */
+  __pyx_t_1 = PyList_New(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 115, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_l = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "carray.to_py":116
+ *     cdef object value
+ *     l = PyList_New(length)
+ *     for i in range(<size_t>length):             # <<<<<<<<<<<<<<
+ *         value = v[i]
+ *         Py_INCREF(value)
+ */
+  __pyx_t_2 = ((size_t)__pyx_v_length);
+  __pyx_t_3 = __pyx_t_2;
+  for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
+    __pyx_v_i = __pyx_t_4;
+
+    /* "carray.to_py":117
+ *     l = PyList_New(length)
+ *     for i in range(<size_t>length):
+ *         value = v[i]             # <<<<<<<<<<<<<<
+ *         Py_INCREF(value)
+ *         PyList_SET_ITEM(l, i, value)
+ */
+    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 117, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "carray.to_py":118
+ *     for i in range(<size_t>length):
+ *         value = v[i]
+ *         Py_INCREF(value)             # <<<<<<<<<<<<<<
+ *         PyList_SET_ITEM(l, i, value)
+ *     return l
+ */
+    Py_INCREF(__pyx_v_value);
+
+    /* "carray.to_py":119
+ *         value = v[i]
+ *         Py_INCREF(value)
+ *         PyList_SET_ITEM(l, i, value)             # <<<<<<<<<<<<<<
+ *     return l
+ * 
+ */
+    PyList_SET_ITEM(__pyx_v_l, __pyx_v_i, __pyx_v_value);
+  }
+
+  /* "carray.to_py":120
+ *         Py_INCREF(value)
+ *         PyList_SET_ITEM(l, i, value)
+ *     return l             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_l);
+  __pyx_r = __pyx_v_l;
+  goto __pyx_L0;
+
+  /* "carray.to_py":112
+ * 
+ * @cname("__Pyx_carray_to_py_int")
+ * cdef inline list __Pyx_carray_to_py_int(base_type *v, Py_ssize_t length):             # <<<<<<<<<<<<<<
+ *     cdef size_t i
+ *     cdef object value
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("carray.to_py.__Pyx_carray_to_py_int", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_value);
+  __Pyx_XDECREF(__pyx_v_l);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "carray.to_py":124
+ * 
+ * @cname("__Pyx_carray_to_tuple_int")
+ * cdef inline tuple __Pyx_carray_to_tuple_int(base_type *v, Py_ssize_t length):             # <<<<<<<<<<<<<<
+ *     cdef size_t i
+ *     cdef object value
+ */
+
+static CYTHON_INLINE PyObject *__Pyx_carray_to_tuple_int(int *__pyx_v_v, Py_ssize_t __pyx_v_length) {
+  size_t __pyx_v_i;
+  PyObject *__pyx_v_value = 0;
+  PyObject *__pyx_v_t = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  size_t __pyx_t_2;
+  size_t __pyx_t_3;
+  size_t __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__Pyx_carray_to_tuple_int", 0);
+
+  /* "carray.to_py":127
+ *     cdef size_t i
+ *     cdef object value
+ *     t = PyTuple_New(length)             # <<<<<<<<<<<<<<
+ *     for i in range(<size_t>length):
+ *         value = v[i]
+ */
+  __pyx_t_1 = PyTuple_New(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 127, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_t = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "carray.to_py":128
+ *     cdef object value
+ *     t = PyTuple_New(length)
+ *     for i in range(<size_t>length):             # <<<<<<<<<<<<<<
+ *         value = v[i]
+ *         Py_INCREF(value)
+ */
+  __pyx_t_2 = ((size_t)__pyx_v_length);
+  __pyx_t_3 = __pyx_t_2;
+  for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
+    __pyx_v_i = __pyx_t_4;
+
+    /* "carray.to_py":129
+ *     t = PyTuple_New(length)
+ *     for i in range(<size_t>length):
+ *         value = v[i]             # <<<<<<<<<<<<<<
+ *         Py_INCREF(value)
+ *         PyTuple_SET_ITEM(t, i, value)
+ */
+    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 129, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "carray.to_py":130
+ *     for i in range(<size_t>length):
+ *         value = v[i]
+ *         Py_INCREF(value)             # <<<<<<<<<<<<<<
+ *         PyTuple_SET_ITEM(t, i, value)
+ *     return t
+ */
+    Py_INCREF(__pyx_v_value);
+
+    /* "carray.to_py":131
+ *         value = v[i]
+ *         Py_INCREF(value)
+ *         PyTuple_SET_ITEM(t, i, value)             # <<<<<<<<<<<<<<
+ *     return t
+ */
+    PyTuple_SET_ITEM(__pyx_v_t, __pyx_v_i, __pyx_v_value);
+  }
+
+  /* "carray.to_py":132
+ *         Py_INCREF(value)
+ *         PyTuple_SET_ITEM(t, i, value)
+ *     return t             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_t);
+  __pyx_r = __pyx_v_t;
+  goto __pyx_L0;
+
+  /* "carray.to_py":124
+ * 
+ * @cname("__Pyx_carray_to_tuple_int")
+ * cdef inline tuple __Pyx_carray_to_tuple_int(base_type *v, Py_ssize_t length):             # <<<<<<<<<<<<<<
+ *     cdef size_t i
+ *     cdef object value
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("carray.to_py.__Pyx_carray_to_tuple_int", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_value);
+  __Pyx_XDECREF(__pyx_v_t);
+  __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -9444,7 +12287,7 @@ static CYTHON_INLINE PyObject *__Pyx_carray_to_py_int___5b_8_5d_(int (*__pyx_v_v
  *     for i in range(<size_t>length):
  *         value = v[i]
  */
-  __pyx_t_1 = PyList_New(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 115, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_l = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
@@ -9468,7 +12311,7 @@ static CYTHON_INLINE PyObject *__Pyx_carray_to_py_int___5b_8_5d_(int (*__pyx_v_v
  *         Py_INCREF(value)
  *         PyList_SET_ITEM(l, i, value)
  */
-    __pyx_t_1 = __Pyx_carray_to_py_int((__pyx_v_v[__pyx_v_i]), 8); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 117, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_carray_to_py_int((__pyx_v_v[__pyx_v_i]), 8); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 117, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_1);
     __pyx_t_1 = 0;
@@ -9555,7 +12398,7 @@ static CYTHON_INLINE PyObject *__Pyx_carray_to_tuple_int___5b_8_5d_(int (*__pyx_
  *     for i in range(<size_t>length):
  *         value = v[i]
  */
-  __pyx_t_1 = PyTuple_New(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 127, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(__pyx_v_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_t = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
@@ -9579,7 +12422,7 @@ static CYTHON_INLINE PyObject *__Pyx_carray_to_tuple_int___5b_8_5d_(int (*__pyx_
  *         Py_INCREF(value)
  *         PyTuple_SET_ITEM(t, i, value)
  */
-    __pyx_t_1 = __Pyx_carray_to_py_int((__pyx_v_v[__pyx_v_i]), 8); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 129, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_carray_to_py_int((__pyx_v_v[__pyx_v_i]), 8); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 129, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_1);
     __pyx_t_1 = 0;
@@ -9645,13 +12488,16 @@ static PyObject *__pyx_tp_new_8bitboard_10bitothello_OthelloGameC(PyTypeObject *
   if (unlikely(!o)) return 0;
   p = ((struct OthelloGameCObject *)o);
   p->__pyx_vtab = __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC;
-  p->board = Py_None; Py_INCREF(Py_None);
   p->result = ((PyObject*)Py_None); Py_INCREF(Py_None);
   p->_strategy_player = Py_None; Py_INCREF(Py_None);
   p->_strategy_opponent = Py_None; Py_INCREF(Py_None);
   p->_board_log = Py_None; Py_INCREF(Py_None);
   p->_board_back = Py_None; Py_INCREF(Py_None);
+  if (unlikely(__pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
+  bad:
+  Py_DECREF(o); o = 0;
+  return NULL;
 }
 
 static void __pyx_tp_dealloc_8bitboard_10bitothello_OthelloGameC(PyObject *o) {
@@ -9662,7 +12508,6 @@ static void __pyx_tp_dealloc_8bitboard_10bitothello_OthelloGameC(PyObject *o) {
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->board);
   Py_CLEAR(p->result);
   Py_CLEAR(p->_strategy_player);
   Py_CLEAR(p->_strategy_opponent);
@@ -9674,9 +12519,6 @@ static void __pyx_tp_dealloc_8bitboard_10bitothello_OthelloGameC(PyObject *o) {
 static int __pyx_tp_traverse_8bitboard_10bitothello_OthelloGameC(PyObject *o, visitproc v, void *a) {
   int e;
   struct OthelloGameCObject *p = (struct OthelloGameCObject *)o;
-  if (p->board) {
-    e = (*v)(p->board, a); if (e) return e;
-  }
   if (p->_strategy_player) {
     e = (*v)(p->_strategy_player, a); if (e) return e;
   }
@@ -9695,9 +12537,6 @@ static int __pyx_tp_traverse_8bitboard_10bitothello_OthelloGameC(PyObject *o, vi
 static int __pyx_tp_clear_8bitboard_10bitothello_OthelloGameC(PyObject *o) {
   PyObject* tmp;
   struct OthelloGameCObject *p = (struct OthelloGameCObject *)o;
-  tmp = ((PyObject*)p->board);
-  p->board = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_strategy_player);
   p->_strategy_player = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
@@ -9741,16 +12580,59 @@ static int __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_WHITE(PyObject *o
   }
 }
 
-static PyObject *__pyx_getprop_8bitboard_10bitothello_12OthelloGameC_board(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_1__get__(o);
+static PyObject *__pyx_getprop_8bitboard_10bitothello_12OthelloGameC_INIT_BLACK(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_1__get__(o);
 }
 
-static int __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_board(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_INIT_BLACK(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_3__set__(o, v);
+    return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_BLACK_3__set__(o, v);
   }
   else {
-    return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_5board_5__del__(o);
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_8bitboard_10bitothello_12OthelloGameC_INIT_WHITE(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_1__get__(o);
+}
+
+static int __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_INIT_WHITE(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_10INIT_WHITE_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_8bitboard_10bitothello_12OthelloGameC__black_board(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_black_board_1__get__(o);
+}
+
+static int __pyx_setprop_8bitboard_10bitothello_12OthelloGameC__black_board(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_black_board_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
+static PyObject *__pyx_getprop_8bitboard_10bitothello_12OthelloGameC__white_board(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_white_board_1__get__(o);
+}
+
+static int __pyx_setprop_8bitboard_10bitothello_12OthelloGameC__white_board(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_8bitboard_10bitothello_12OthelloGameC_12_white_board_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
   }
 }
 
@@ -9796,27 +12678,41 @@ static int __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_result(PyObject *
 }
 
 static PyMethodDef __pyx_methods_8bitboard_10bitothello_OthelloGameC[] = {
-  {"play_turn", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_3play_turn, METH_O, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_2play_turn},
-  {"update_count", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5update_count, METH_NOARGS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_4update_count},
-  {"judge_game", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7judge_game, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_6judge_game},
-  {"auto_mode", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9auto_mode, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_8auto_mode},
-  {"load_strategy", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11load_strategy, METH_O, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_10load_strategy},
-  {"change_strategy", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13change_strategy, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_12change_strategy},
-  {"process_game", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15process_game, METH_NOARGS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_14process_game},
-  {"display_board", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17display_board, METH_NOARGS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_16display_board},
-  {"undo_turn", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19undo_turn, METH_NOARGS, 0},
-  {"redo_turn", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21redo_turn, METH_NOARGS, 0},
-  {"return_turn", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_turn, METH_NOARGS, 0},
-  {"load_state", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_state, METH_VARARGS|METH_KEYWORDS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_27__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_29__setstate_cython__, METH_O, 0},
+  {"_bit_count", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_5_bit_count, METH_O, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_4_bit_count},
+  {"_check_surround", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_7_check_surround, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_6_check_surround},
+  {"simulate_play", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_9simulate_play, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_8simulate_play},
+  {"update_board", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_11update_board, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_10update_board},
+  {"count_disks", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_13count_disks, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_12count_disks},
+  {"reversible_area", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_15reversible_area, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_14reversible_area},
+  {"is_reversible", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_17is_reversible, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_16is_reversible},
+  {"turn_playable", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_19turn_playable, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_18turn_playable},
+  {"return_board", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_21return_board, METH_NOARGS, 0},
+  {"return_player_board", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_23return_player_board, METH_O, 0},
+  {"load_board", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_25load_board, METH_VARARGS|METH_KEYWORDS, 0},
+  {"play_turn", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_27play_turn, METH_O, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_26play_turn},
+  {"update_count", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_29update_count, METH_NOARGS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_28update_count},
+  {"judge_game", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_31judge_game, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_30judge_game},
+  {"auto_mode", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_33auto_mode, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_32auto_mode},
+  {"load_strategy", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_35load_strategy, METH_O, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_34load_strategy},
+  {"change_strategy", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_37change_strategy, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_36change_strategy},
+  {"process_game", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_39process_game, METH_NOARGS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_38process_game},
+  {"display_board", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_41display_board, METH_NOARGS, __pyx_doc_8bitboard_10bitothello_12OthelloGameC_40display_board},
+  {"undo_turn", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_43undo_turn, METH_NOARGS, 0},
+  {"redo_turn", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_45redo_turn, METH_NOARGS, 0},
+  {"return_turn", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_47return_turn, METH_NOARGS, 0},
+  {"load_state", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_49load_state, METH_VARARGS|METH_KEYWORDS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_51__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_8bitboard_10bitothello_12OthelloGameC_53__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
 static struct PyGetSetDef __pyx_getsets_8bitboard_10bitothello_OthelloGameC[] = {
   {(char *)"BLACK", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC_BLACK, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_BLACK, (char *)0, 0},
   {(char *)"WHITE", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC_WHITE, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_WHITE, (char *)0, 0},
-  {(char *)"board", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC_board, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_board, (char *)0, 0},
+  {(char *)"INIT_BLACK", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC_INIT_BLACK, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_INIT_BLACK, (char *)0, 0},
+  {(char *)"INIT_WHITE", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC_INIT_WHITE, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_INIT_WHITE, (char *)0, 0},
+  {(char *)"_black_board", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC__black_board, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC__black_board, (char *)0, 0},
+  {(char *)"_white_board", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC__white_board, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC__white_board, (char *)0, 0},
   {(char *)"turn", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC_turn, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_turn, (char *)0, 0},
   {(char *)"reversible", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC_reversible, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_reversible, (char *)0, 0},
   {(char *)"result", __pyx_getprop_8bitboard_10bitothello_12OthelloGameC_result, __pyx_setprop_8bitboard_10bitothello_12OthelloGameC_result, (char *)0, 0},
@@ -9869,7 +12765,7 @@ DL_EXPORT(PyTypeObject) OthelloGameCType = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_8bitboard_10bitothello_12OthelloGameC_1__init__, /*tp_init*/
+  __pyx_pw_8bitboard_10bitothello_12OthelloGameC_3__init__, /*tp_init*/
   0, /*tp_alloc*/
   __pyx_tp_new_8bitboard_10bitothello_OthelloGameC, /*tp_new*/
   0, /*tp_free*/
@@ -9948,14 +12844,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_u_DRAW, __pyx_k_DRAW, sizeof(__pyx_k_DRAW), 0, 1, 0, 1},
   {&__pyx_kp_u_Game_starts, __pyx_k_Game_starts, sizeof(__pyx_k_Game_starts), 0, 1, 0, 0},
   {&__pyx_kp_u_Game_was_judged_as_the_end, __pyx_k_Game_was_judged_as_the_end, sizeof(__pyx_k_Game_was_judged_as_the_end), 0, 1, 0, 0},
-  {&__pyx_kp_s_Incompatible_checksums_0x_x_vs_0, __pyx_k_Incompatible_checksums_0x_x_vs_0, sizeof(__pyx_k_Incompatible_checksums_0x_x_vs_0), 0, 0, 1, 0},
   {&__pyx_n_s_IndexError, __pyx_k_IndexError, sizeof(__pyx_k_IndexError), 0, 0, 1, 1},
   {&__pyx_n_s_KeyError, __pyx_k_KeyError, sizeof(__pyx_k_KeyError), 0, 0, 1, 1},
   {&__pyx_n_u_LOSE, __pyx_k_LOSE, sizeof(__pyx_k_LOSE), 0, 1, 0, 1},
   {&__pyx_kp_u_Log, __pyx_k_Log, sizeof(__pyx_k_Log), 0, 1, 0, 0},
   {&__pyx_n_s_OthelloGameC, __pyx_k_OthelloGameC, sizeof(__pyx_k_OthelloGameC), 0, 0, 1, 1},
   {&__pyx_n_s_OverflowError, __pyx_k_OverflowError, sizeof(__pyx_k_OverflowError), 0, 0, 1, 1},
-  {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_kp_u_Player_s_turn_was_passed, __pyx_k_Player_s_turn_was_passed, sizeof(__pyx_k_Player_s_turn_was_passed), 0, 1, 0, 0},
   {&__pyx_kp_u_Player_s_turn_was_processed_auto, __pyx_k_Player_s_turn_was_processed_auto, sizeof(__pyx_k_Player_s_turn_was_processed_auto), 0, 1, 0, 0},
   {&__pyx_kp_u_The_board_can_not_be_advanced, __pyx_k_The_board_can_not_be_advanced, sizeof(__pyx_k_The_board_can_not_be_advanced), 0, 1, 0, 0},
@@ -9969,12 +12863,13 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_append, __pyx_k_append, sizeof(__pyx_k_append), 0, 0, 1, 1},
   {&__pyx_n_s_auto_mode, __pyx_k_auto_mode, sizeof(__pyx_k_auto_mode), 0, 0, 1, 1},
   {&__pyx_n_s_automode, __pyx_k_automode, sizeof(__pyx_k_automode), 0, 0, 1, 1},
-  {&__pyx_n_s_bitboard_bitothello, __pyx_k_bitboard_bitothello, sizeof(__pyx_k_bitboard_bitothello), 0, 0, 1, 1},
+  {&__pyx_n_s_bit_count, __pyx_k_bit_count, sizeof(__pyx_k_bit_count), 0, 0, 1, 1},
   {&__pyx_n_u_black, __pyx_k_black, sizeof(__pyx_k_black), 0, 1, 0, 1},
   {&__pyx_n_s_black_board, __pyx_k_black_board, sizeof(__pyx_k_black_board), 0, 0, 1, 1},
   {&__pyx_n_s_board_back, __pyx_k_board_back, sizeof(__pyx_k_board_back), 0, 0, 1, 1},
   {&__pyx_n_s_board_log, __pyx_k_board_log, sizeof(__pyx_k_board_log), 0, 0, 1, 1},
   {&__pyx_n_s_change_strategy, __pyx_k_change_strategy, sizeof(__pyx_k_change_strategy), 0, 0, 1, 1},
+  {&__pyx_n_s_check_surround, __pyx_k_check_surround, sizeof(__pyx_k_check_surround), 0, 0, 1, 1},
   {&__pyx_n_s_choice, __pyx_k_choice, sizeof(__pyx_k_choice), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_collections, __pyx_k_collections, sizeof(__pyx_k_collections), 0, 0, 1, 1},
@@ -9983,7 +12878,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_debug, __pyx_k_debug, sizeof(__pyx_k_debug), 0, 0, 1, 1},
   {&__pyx_n_s_deepcopy, __pyx_k_deepcopy, sizeof(__pyx_k_deepcopy), 0, 0, 1, 1},
   {&__pyx_n_s_deque, __pyx_k_deque, sizeof(__pyx_k_deque), 0, 0, 1, 1},
-  {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
+  {&__pyx_n_s_direction, __pyx_k_direction, sizeof(__pyx_k_direction), 0, 0, 1, 1},
   {&__pyx_n_s_display_board, __pyx_k_display_board, sizeof(__pyx_k_display_board), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
   {&__pyx_n_s_getLogger, __pyx_k_getLogger, sizeof(__pyx_k_getLogger), 0, 0, 1, 1},
@@ -10001,20 +12896,14 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_map, __pyx_k_map, sizeof(__pyx_k_map), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
-  {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
+  {&__pyx_kp_s_no_default___reduce___due_to_non, __pyx_k_no_default___reduce___due_to_non, sizeof(__pyx_k_no_default___reduce___due_to_non), 0, 0, 1, 0},
   {&__pyx_n_s_opponent, __pyx_k_opponent, sizeof(__pyx_k_opponent), 0, 0, 1, 1},
-  {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
   {&__pyx_n_s_play_turn, __pyx_k_play_turn, sizeof(__pyx_k_play_turn), 0, 0, 1, 1},
   {&__pyx_n_s_player, __pyx_k_player, sizeof(__pyx_k_player), 0, 0, 1, 1},
   {&__pyx_n_s_player_clr, __pyx_k_player_clr, sizeof(__pyx_k_player_clr), 0, 0, 1, 1},
   {&__pyx_n_s_pop, __pyx_k_pop, sizeof(__pyx_k_pop), 0, 0, 1, 1},
   {&__pyx_n_s_process_game, __pyx_k_process_game, sizeof(__pyx_k_process_game), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_checksum, __pyx_k_pyx_checksum, sizeof(__pyx_k_pyx_checksum), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_result, __pyx_k_pyx_result, sizeof(__pyx_k_pyx_result), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_state, __pyx_k_pyx_state, sizeof(__pyx_k_pyx_state), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_type, __pyx_k_pyx_type, sizeof(__pyx_k_pyx_type), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_unpickle_OthelloGameC, __pyx_k_pyx_unpickle_OthelloGameC, sizeof(__pyx_k_pyx_unpickle_OthelloGameC), 0, 0, 1, 1},
+  {&__pyx_n_s_put_loc, __pyx_k_put_loc, sizeof(__pyx_k_put_loc), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_random, __pyx_k_random, sizeof(__pyx_k_random), 0, 0, 1, 1},
   {&__pyx_n_u_random, __pyx_k_random, sizeof(__pyx_k_random), 0, 1, 0, 1},
@@ -10024,6 +12913,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
   {&__pyx_n_s_return_board, __pyx_k_return_board, sizeof(__pyx_k_return_board), 0, 0, 1, 1},
+  {&__pyx_n_s_return_player_board, __pyx_k_return_player_board, sizeof(__pyx_k_return_player_board), 0, 0, 1, 1},
   {&__pyx_n_s_return_turn, __pyx_k_return_turn, sizeof(__pyx_k_return_turn), 0, 0, 1, 1},
   {&__pyx_n_s_reversible_area, __pyx_k_reversible_area, sizeof(__pyx_k_reversible_area), 0, 0, 1, 1},
   {&__pyx_n_s_selecter, __pyx_k_selecter, sizeof(__pyx_k_selecter), 0, 0, 1, 1},
@@ -10033,11 +12923,10 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_simulate_play, __pyx_k_simulate_play, sizeof(__pyx_k_simulate_play), 0, 0, 1, 1},
   {&__pyx_n_u_start, __pyx_k_start, sizeof(__pyx_k_start), 0, 1, 0, 1},
   {&__pyx_n_s_strategy, __pyx_k_strategy, sizeof(__pyx_k_strategy), 0, 0, 1, 1},
-  {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
+  {&__pyx_n_s_turn, __pyx_k_turn, sizeof(__pyx_k_turn), 0, 0, 1, 1},
   {&__pyx_n_s_turn_playable, __pyx_k_turn_playable, sizeof(__pyx_k_turn_playable), 0, 0, 1, 1},
   {&__pyx_n_s_undo_turn, __pyx_k_undo_turn, sizeof(__pyx_k_undo_turn), 0, 0, 1, 1},
-  {&__pyx_n_s_update, __pyx_k_update, sizeof(__pyx_k_update), 0, 0, 1, 1},
   {&__pyx_n_s_update_board, __pyx_k_update_board, sizeof(__pyx_k_update_board), 0, 0, 1, 1},
   {&__pyx_n_s_update_count, __pyx_k_update_count, sizeof(__pyx_k_update_count), 0, 0, 1, 1},
   {&__pyx_n_s_warning, __pyx_k_warning, sizeof(__pyx_k_warning), 0, 0, 1, 1},
@@ -10046,15 +12935,15 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 34, __pyx_L1_error)
-  __pyx_builtin_AssertionError = __Pyx_GetBuiltinName(__pyx_n_s_AssertionError); if (!__pyx_builtin_AssertionError) __PYX_ERR(0, 63, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 72, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 192, __pyx_L1_error)
-  __pyx_builtin_map = __Pyx_GetBuiltinName(__pyx_n_s_map); if (!__pyx_builtin_map) __PYX_ERR(0, 205, __pyx_L1_error)
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(2, 81, __pyx_L1_error)
-  __pyx_builtin_OverflowError = __Pyx_GetBuiltinName(__pyx_n_s_OverflowError); if (!__pyx_builtin_OverflowError) __PYX_ERR(2, 81, __pyx_L1_error)
-  __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(2, 84, __pyx_L1_error)
-  __pyx_builtin_IndexError = __Pyx_GetBuiltinName(__pyx_n_s_IndexError); if (!__pyx_builtin_IndexError) __PYX_ERR(2, 94, __pyx_L1_error)
+  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 135, __pyx_L1_error)
+  __pyx_builtin_AssertionError = __Pyx_GetBuiltinName(__pyx_n_s_AssertionError); if (!__pyx_builtin_AssertionError) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_builtin_map = __Pyx_GetBuiltinName(__pyx_n_s_map); if (!__pyx_builtin_map) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
+  __pyx_builtin_OverflowError = __Pyx_GetBuiltinName(__pyx_n_s_OverflowError); if (!__pyx_builtin_OverflowError) __PYX_ERR(1, 81, __pyx_L1_error)
+  __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 84, __pyx_L1_error)
+  __pyx_builtin_IndexError = __Pyx_GetBuiltinName(__pyx_n_s_IndexError); if (!__pyx_builtin_IndexError) __PYX_ERR(1, 94, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -10064,26 +12953,24 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "(tree fragment)":4
- *     cdef object __pyx_PickleError
- *     cdef object __pyx_result
- *     if __pyx_checksum not in (0x2ec29cb, 0xdf4482c, 0x801317c):             # <<<<<<<<<<<<<<
- *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (0x%x vs (0x2ec29cb, 0xdf4482c, 0x801317c) = (BLACK, WHITE, _board_back, _board_log, _count_opponent, _count_player, _pass_cnt, _player_auto, _player_clr, _strategy_opponent, _strategy_player, board, result, reversible, turn))" % __pyx_checksum)
+  /* "(tree fragment)":2
+ * def __reduce_cython__(self):
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")             # <<<<<<<<<<<<<<
+ * def __setstate_cython__(self, __pyx_state):
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  */
-  __pyx_tuple__3 = PyTuple_Pack(3, __pyx_int_49031627, __pyx_int_234113068, __pyx_int_134295932); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(2, 4, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(1, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "(tree fragment)":1
- * def __pyx_unpickle_OthelloGameC(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
- *     cdef object __pyx_PickleError
- *     cdef object __pyx_result
+  /* "(tree fragment)":4
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
+ * def __setstate_cython__(self, __pyx_state):
+ *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")             # <<<<<<<<<<<<<<
  */
-  __pyx_tuple__4 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_OthelloGameC, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -10097,9 +12984,6 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_2 = PyInt_FromLong(2); if (unlikely(!__pyx_int_2)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_49031627 = PyInt_FromLong(49031627L); if (unlikely(!__pyx_int_49031627)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_134295932 = PyInt_FromLong(134295932L); if (unlikely(!__pyx_int_134295932)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_234113068 = PyInt_FromLong(234113068L); if (unlikely(!__pyx_int_234113068)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -10145,6 +13029,17 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC = &__pyx_vtable_8bitboard_10bitothello_OthelloGameC;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC._bit_count = (std::uint64_t (*)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC__bit_count;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC._check_surround = (std::uint64_t (*)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC__check_surround;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.simulate_play = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct OthelloGameCObject *, int, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play *__pyx_optional_args))__pyx_f_8bitboard_10bitothello_12OthelloGameC_simulate_play;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.update_board = (void (*)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_update_board;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.count_disks = (__pyx_ctuple_int__and_int (*)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks *__pyx_optional_args))__pyx_f_8bitboard_10bitothello_12OthelloGameC_count_disks;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.reversible_area = (std::uint64_t (*)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area *__pyx_optional_args))__pyx_f_8bitboard_10bitothello_12OthelloGameC_reversible_area;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.is_reversible = (int (*)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible *__pyx_optional_args))__pyx_f_8bitboard_10bitothello_12OthelloGameC_is_reversible;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.turn_playable = (int (*)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable *__pyx_optional_args))__pyx_f_8bitboard_10bitothello_12OthelloGameC_turn_playable;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.return_board = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct OthelloGameCObject *, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_return_board;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.return_player_board = (__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*)(struct OthelloGameCObject *, int, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_return_player_board;
+  __pyx_vtable_8bitboard_10bitothello_OthelloGameC.load_board = (PyObject *(*)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_load_board;
   __pyx_vtable_8bitboard_10bitothello_OthelloGameC.play_turn = (void (*)(struct OthelloGameCObject *, int, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_play_turn;
   __pyx_vtable_8bitboard_10bitothello_OthelloGameC.update_count = (__pyx_ctuple_int__and_int (*)(struct OthelloGameCObject *, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_update_count;
   __pyx_vtable_8bitboard_10bitothello_OthelloGameC.judge_game = (int (*)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game *__pyx_optional_args))__pyx_f_8bitboard_10bitothello_12OthelloGameC_judge_game;
@@ -10157,16 +13052,16 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_8bitboard_10bitothello_OthelloGameC.redo_turn = (int (*)(struct OthelloGameCObject *, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_redo_turn;
   __pyx_vtable_8bitboard_10bitothello_OthelloGameC.return_turn = (int (*)(struct OthelloGameCObject *, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_return_turn;
   __pyx_vtable_8bitboard_10bitothello_OthelloGameC.load_state = (void (*)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, PyObject *, PyObject *, int __pyx_skip_dispatch))__pyx_f_8bitboard_10bitothello_12OthelloGameC_load_state;
-  if (PyType_Ready(&OthelloGameCType) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyType_Ready(&OthelloGameCType) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   OthelloGameCType.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!OthelloGameCType.tp_dictoffset && OthelloGameCType.tp_getattro == PyObject_GenericGetAttr)) {
     OthelloGameCType.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(OthelloGameCType.tp_dict, __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_OthelloGameC, (PyObject *)&OthelloGameCType) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&OthelloGameCType) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (__Pyx_SetVtable(OthelloGameCType.tp_dict, __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_OthelloGameC, (PyObject *)&OthelloGameCType) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&OthelloGameCType) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __pyx_ptype_8bitboard_10bitothello_OthelloGameC = &OthelloGameCType;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -10177,24 +13072,10 @@ static int __Pyx_modinit_type_init_code(void) {
 
 static int __Pyx_modinit_type_import_code(void) {
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("bitboard.bitcalc"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_8bitboard_7bitcalc_BitBoardC = __Pyx_ImportType(__pyx_t_1, "bitboard.bitcalc", "BitBoardC", sizeof(struct BitBoardCObject), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_8bitboard_7bitcalc_BitBoardC) __PYX_ERR(3, 5, __pyx_L1_error)
-  __pyx_vtabptr_8bitboard_7bitcalc_BitBoardC = (struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC*)__Pyx_GetVtable(__pyx_ptype_8bitboard_7bitcalc_BitBoardC->tp_dict); if (unlikely(!__pyx_vtabptr_8bitboard_7bitcalc_BitBoardC)) __PYX_ERR(3, 5, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_RefNannyFinishContext();
-  return -1;
 }
 
 static int __Pyx_modinit_variable_import_code(void) {
@@ -10407,7 +13288,7 @@ if (!__Pyx_RefNanny) {
   (void)__Pyx_modinit_variable_export_code();
   (void)__Pyx_modinit_function_export_code();
   if (unlikely(__Pyx_modinit_type_init_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (unlikely(__Pyx_modinit_type_import_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+  (void)__Pyx_modinit_type_import_code();
   (void)__Pyx_modinit_variable_import_code();
   (void)__Pyx_modinit_function_import_code();
   /*--- Execution code ---*/
@@ -10474,39 +13355,29 @@ if (!__Pyx_RefNanny) {
  * from logging import getLogger
  * import random             # <<<<<<<<<<<<<<
  * 
- * from .bitcalc cimport BitBoardC as BitBoard
+ * logger = getLogger(__name__)
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_random, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_random, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bitboard/bitothello.pyx":14
- * from .bitcalc cimport BitBoardC as BitBoard
+  /* "bitboard/bitothello.pyx":12
+ * import random
  * 
  * logger = getLogger(__name__)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_getLogger); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_getLogger); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_logger, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "(tree fragment)":1
- * def __pyx_unpickle_OthelloGameC(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
- *     cdef object __pyx_PickleError
- *     cdef object __pyx_result
- */
-  __pyx_t_3 = PyCFunction_NewEx(&__pyx_mdef_8bitboard_10bitothello_1__pyx_unpickle_OthelloGameC, NULL, __pyx_n_s_bitboard_bitothello); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_OthelloGameC, __pyx_t_3) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_logger, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "bitboard/bitothello.pyx":1
@@ -10597,6 +13468,72 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
 #endif
     }
     return result;
+}
+
+/* RaiseArgTupleInvalid */
+static void __Pyx_RaiseArgtupleInvalid(
+    const char* func_name,
+    int exact,
+    Py_ssize_t num_min,
+    Py_ssize_t num_max,
+    Py_ssize_t num_found)
+{
+    Py_ssize_t num_expected;
+    const char *more_or_less;
+    if (num_found < num_min) {
+        num_expected = num_min;
+        more_or_less = "at least";
+    } else {
+        num_expected = num_max;
+        more_or_less = "at most";
+    }
+    if (exact) {
+        more_or_less = "exactly";
+    }
+    PyErr_Format(PyExc_TypeError,
+                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
+                 func_name, more_or_less, num_expected,
+                 (num_expected == 1) ? "" : "s", num_found);
+}
+
+/* KeywordStringCheck */
+static int __Pyx_CheckKeywordStrings(
+    PyObject *kwdict,
+    const char* function_name,
+    int kw_allowed)
+{
+    PyObject* key = 0;
+    Py_ssize_t pos = 0;
+#if CYTHON_COMPILING_IN_PYPY
+    if (!kw_allowed && PyDict_Next(kwdict, &pos, &key, 0))
+        goto invalid_keyword;
+    return 1;
+#else
+    while (PyDict_Next(kwdict, &pos, &key, 0)) {
+        #if PY_MAJOR_VERSION < 3
+        if (unlikely(!PyString_Check(key)))
+        #endif
+            if (unlikely(!PyUnicode_Check(key)))
+                goto invalid_keyword_type;
+    }
+    if ((!kw_allowed) && unlikely(key))
+        goto invalid_keyword;
+    return 1;
+invalid_keyword_type:
+    PyErr_Format(PyExc_TypeError,
+        "%.200s() keywords must be strings", function_name);
+    return 0;
+#endif
+invalid_keyword:
+    PyErr_Format(PyExc_TypeError,
+    #if PY_MAJOR_VERSION < 3
+        "%.200s() got an unexpected keyword argument '%.200s'",
+        function_name, PyString_AsString(key));
+    #else
+        "%s() got an unexpected keyword argument '%U'",
+        function_name, key);
+    #endif
+    return 0;
 }
 
 /* RaiseDoubleKeywords */
@@ -10715,32 +13652,6 @@ bad:
     return -1;
 }
 
-/* RaiseArgTupleInvalid */
-static void __Pyx_RaiseArgtupleInvalid(
-    const char* func_name,
-    int exact,
-    Py_ssize_t num_min,
-    Py_ssize_t num_max,
-    Py_ssize_t num_found)
-{
-    Py_ssize_t num_expected;
-    const char *more_or_less;
-    if (num_found < num_min) {
-        num_expected = num_min;
-        more_or_less = "at least";
-    } else {
-        num_expected = num_max;
-        more_or_less = "at most";
-    }
-    if (exact) {
-        more_or_less = "exactly";
-    }
-    PyErr_Format(PyExc_TypeError,
-                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
-                 func_name, more_or_less, num_expected,
-                 (num_expected == 1) ? "" : "s", num_found);
-}
-
 /* ArgTypeTest */
 static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
 {
@@ -10761,187 +13672,6 @@ static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *nam
         name, type->tp_name, Py_TYPE(obj)->tp_name);
     return 0;
 }
-
-/* PyFunctionFastCall */
-#if CYTHON_FAST_PYCALL
-static PyObject* __Pyx_PyFunction_FastCallNoKw(PyCodeObject *co, PyObject **args, Py_ssize_t na,
-                                               PyObject *globals) {
-    PyFrameObject *f;
-    PyThreadState *tstate = __Pyx_PyThreadState_Current;
-    PyObject **fastlocals;
-    Py_ssize_t i;
-    PyObject *result;
-    assert(globals != NULL);
-    /* XXX Perhaps we should create a specialized
-       PyFrame_New() that doesn't take locals, but does
-       take builtins without sanity checking them.
-       */
-    assert(tstate != NULL);
-    f = PyFrame_New(tstate, co, globals, NULL);
-    if (f == NULL) {
-        return NULL;
-    }
-    fastlocals = __Pyx_PyFrame_GetLocalsplus(f);
-    for (i = 0; i < na; i++) {
-        Py_INCREF(*args);
-        fastlocals[i] = *args++;
-    }
-    result = PyEval_EvalFrameEx(f,0);
-    ++tstate->recursion_depth;
-    Py_DECREF(f);
-    --tstate->recursion_depth;
-    return result;
-}
-#if 1 || PY_VERSION_HEX < 0x030600B1
-static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs) {
-    PyCodeObject *co = (PyCodeObject *)PyFunction_GET_CODE(func);
-    PyObject *globals = PyFunction_GET_GLOBALS(func);
-    PyObject *argdefs = PyFunction_GET_DEFAULTS(func);
-    PyObject *closure;
-#if PY_MAJOR_VERSION >= 3
-    PyObject *kwdefs;
-#endif
-    PyObject *kwtuple, **k;
-    PyObject **d;
-    Py_ssize_t nd;
-    Py_ssize_t nk;
-    PyObject *result;
-    assert(kwargs == NULL || PyDict_Check(kwargs));
-    nk = kwargs ? PyDict_Size(kwargs) : 0;
-    if (Py_EnterRecursiveCall((char*)" while calling a Python object")) {
-        return NULL;
-    }
-    if (
-#if PY_MAJOR_VERSION >= 3
-            co->co_kwonlyargcount == 0 &&
-#endif
-            likely(kwargs == NULL || nk == 0) &&
-            co->co_flags == (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)) {
-        if (argdefs == NULL && co->co_argcount == nargs) {
-            result = __Pyx_PyFunction_FastCallNoKw(co, args, nargs, globals);
-            goto done;
-        }
-        else if (nargs == 0 && argdefs != NULL
-                 && co->co_argcount == Py_SIZE(argdefs)) {
-            /* function called with no arguments, but all parameters have
-               a default value: use default values as arguments .*/
-            args = &PyTuple_GET_ITEM(argdefs, 0);
-            result =__Pyx_PyFunction_FastCallNoKw(co, args, Py_SIZE(argdefs), globals);
-            goto done;
-        }
-    }
-    if (kwargs != NULL) {
-        Py_ssize_t pos, i;
-        kwtuple = PyTuple_New(2 * nk);
-        if (kwtuple == NULL) {
-            result = NULL;
-            goto done;
-        }
-        k = &PyTuple_GET_ITEM(kwtuple, 0);
-        pos = i = 0;
-        while (PyDict_Next(kwargs, &pos, &k[i], &k[i+1])) {
-            Py_INCREF(k[i]);
-            Py_INCREF(k[i+1]);
-            i += 2;
-        }
-        nk = i / 2;
-    }
-    else {
-        kwtuple = NULL;
-        k = NULL;
-    }
-    closure = PyFunction_GET_CLOSURE(func);
-#if PY_MAJOR_VERSION >= 3
-    kwdefs = PyFunction_GET_KW_DEFAULTS(func);
-#endif
-    if (argdefs != NULL) {
-        d = &PyTuple_GET_ITEM(argdefs, 0);
-        nd = Py_SIZE(argdefs);
-    }
-    else {
-        d = NULL;
-        nd = 0;
-    }
-#if PY_MAJOR_VERSION >= 3
-    result = PyEval_EvalCodeEx((PyObject*)co, globals, (PyObject *)NULL,
-                               args, (int)nargs,
-                               k, (int)nk,
-                               d, (int)nd, kwdefs, closure);
-#else
-    result = PyEval_EvalCodeEx(co, globals, (PyObject *)NULL,
-                               args, (int)nargs,
-                               k, (int)nk,
-                               d, (int)nd, closure);
-#endif
-    Py_XDECREF(kwtuple);
-done:
-    Py_LeaveRecursiveCall();
-    return result;
-}
-#endif
-#endif
-
-/* PyObjectCall */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
-    PyObject *result;
-    ternaryfunc call = Py_TYPE(func)->tp_call;
-    if (unlikely(!call))
-        return PyObject_Call(func, arg, kw);
-    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
-        return NULL;
-    result = (*call)(func, arg, kw);
-    Py_LeaveRecursiveCall();
-    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
-        PyErr_SetString(
-            PyExc_SystemError,
-            "NULL result without error in PyObject_Call");
-    }
-    return result;
-}
-#endif
-
-/* PyObjectCallMethO */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg) {
-    PyObject *self, *result;
-    PyCFunction cfunc;
-    cfunc = PyCFunction_GET_FUNCTION(func);
-    self = PyCFunction_GET_SELF(func);
-    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
-        return NULL;
-    result = cfunc(self, arg);
-    Py_LeaveRecursiveCall();
-    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
-        PyErr_SetString(
-            PyExc_SystemError,
-            "NULL result without error in PyObject_Call");
-    }
-    return result;
-}
-#endif
-
-/* PyObjectCallNoArg */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
-#if CYTHON_FAST_PYCALL
-    if (PyFunction_Check(func)) {
-        return __Pyx_PyFunction_FastCall(func, NULL, 0);
-    }
-#endif
-#if defined(__Pyx_CyFunction_USED) && defined(NDEBUG)
-    if (likely(PyCFunction_Check(func) || __Pyx_CyFunction_Check(func)))
-#else
-    if (likely(PyCFunction_Check(func)))
-#endif
-    {
-        if (likely(PyCFunction_GET_FLAGS(func) & METH_NOARGS)) {
-            return __Pyx_PyObject_CallMethO(func, NULL);
-        }
-    }
-    return __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL);
-}
-#endif
 
 /* BytesEquals */
 static CYTHON_INLINE int __Pyx_PyBytes_Equals(PyObject* s1, PyObject* s2, int equals) {
@@ -11176,6 +13906,145 @@ static CYTHON_INLINE PyObject * __Pyx_PyCFunction_FastCall(PyObject *func_obj, P
 }
 #endif
 
+/* PyFunctionFastCall */
+#if CYTHON_FAST_PYCALL
+static PyObject* __Pyx_PyFunction_FastCallNoKw(PyCodeObject *co, PyObject **args, Py_ssize_t na,
+                                               PyObject *globals) {
+    PyFrameObject *f;
+    PyThreadState *tstate = __Pyx_PyThreadState_Current;
+    PyObject **fastlocals;
+    Py_ssize_t i;
+    PyObject *result;
+    assert(globals != NULL);
+    /* XXX Perhaps we should create a specialized
+       PyFrame_New() that doesn't take locals, but does
+       take builtins without sanity checking them.
+       */
+    assert(tstate != NULL);
+    f = PyFrame_New(tstate, co, globals, NULL);
+    if (f == NULL) {
+        return NULL;
+    }
+    fastlocals = __Pyx_PyFrame_GetLocalsplus(f);
+    for (i = 0; i < na; i++) {
+        Py_INCREF(*args);
+        fastlocals[i] = *args++;
+    }
+    result = PyEval_EvalFrameEx(f,0);
+    ++tstate->recursion_depth;
+    Py_DECREF(f);
+    --tstate->recursion_depth;
+    return result;
+}
+#if 1 || PY_VERSION_HEX < 0x030600B1
+static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs) {
+    PyCodeObject *co = (PyCodeObject *)PyFunction_GET_CODE(func);
+    PyObject *globals = PyFunction_GET_GLOBALS(func);
+    PyObject *argdefs = PyFunction_GET_DEFAULTS(func);
+    PyObject *closure;
+#if PY_MAJOR_VERSION >= 3
+    PyObject *kwdefs;
+#endif
+    PyObject *kwtuple, **k;
+    PyObject **d;
+    Py_ssize_t nd;
+    Py_ssize_t nk;
+    PyObject *result;
+    assert(kwargs == NULL || PyDict_Check(kwargs));
+    nk = kwargs ? PyDict_Size(kwargs) : 0;
+    if (Py_EnterRecursiveCall((char*)" while calling a Python object")) {
+        return NULL;
+    }
+    if (
+#if PY_MAJOR_VERSION >= 3
+            co->co_kwonlyargcount == 0 &&
+#endif
+            likely(kwargs == NULL || nk == 0) &&
+            co->co_flags == (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)) {
+        if (argdefs == NULL && co->co_argcount == nargs) {
+            result = __Pyx_PyFunction_FastCallNoKw(co, args, nargs, globals);
+            goto done;
+        }
+        else if (nargs == 0 && argdefs != NULL
+                 && co->co_argcount == Py_SIZE(argdefs)) {
+            /* function called with no arguments, but all parameters have
+               a default value: use default values as arguments .*/
+            args = &PyTuple_GET_ITEM(argdefs, 0);
+            result =__Pyx_PyFunction_FastCallNoKw(co, args, Py_SIZE(argdefs), globals);
+            goto done;
+        }
+    }
+    if (kwargs != NULL) {
+        Py_ssize_t pos, i;
+        kwtuple = PyTuple_New(2 * nk);
+        if (kwtuple == NULL) {
+            result = NULL;
+            goto done;
+        }
+        k = &PyTuple_GET_ITEM(kwtuple, 0);
+        pos = i = 0;
+        while (PyDict_Next(kwargs, &pos, &k[i], &k[i+1])) {
+            Py_INCREF(k[i]);
+            Py_INCREF(k[i+1]);
+            i += 2;
+        }
+        nk = i / 2;
+    }
+    else {
+        kwtuple = NULL;
+        k = NULL;
+    }
+    closure = PyFunction_GET_CLOSURE(func);
+#if PY_MAJOR_VERSION >= 3
+    kwdefs = PyFunction_GET_KW_DEFAULTS(func);
+#endif
+    if (argdefs != NULL) {
+        d = &PyTuple_GET_ITEM(argdefs, 0);
+        nd = Py_SIZE(argdefs);
+    }
+    else {
+        d = NULL;
+        nd = 0;
+    }
+#if PY_MAJOR_VERSION >= 3
+    result = PyEval_EvalCodeEx((PyObject*)co, globals, (PyObject *)NULL,
+                               args, (int)nargs,
+                               k, (int)nk,
+                               d, (int)nd, kwdefs, closure);
+#else
+    result = PyEval_EvalCodeEx(co, globals, (PyObject *)NULL,
+                               args, (int)nargs,
+                               k, (int)nk,
+                               d, (int)nd, closure);
+#endif
+    Py_XDECREF(kwtuple);
+done:
+    Py_LeaveRecursiveCall();
+    return result;
+}
+#endif
+#endif
+
+/* PyObjectCall */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
+    PyObject *result;
+    ternaryfunc call = Py_TYPE(func)->tp_call;
+    if (unlikely(!call))
+        return PyObject_Call(func, arg, kw);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = (*call)(func, arg, kw);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
+
 /* PyObjectCall2Args */
 static CYTHON_UNUSED PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2) {
     PyObject *args, *result = NULL;
@@ -11204,6 +14073,26 @@ static CYTHON_UNUSED PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyOb
 done:
     return result;
 }
+
+/* PyObjectCallMethO */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg) {
+    PyObject *self, *result;
+    PyCFunction cfunc;
+    cfunc = PyCFunction_GET_FUNCTION(func);
+    self = PyCFunction_GET_SELF(func);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = cfunc(self, arg);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
 
 /* PyObjectCallOneArg */
 #if CYTHON_COMPILING_IN_CPYTHON
@@ -11428,63 +14317,67 @@ bad:
 }
 #endif
 
-/* RaiseTooManyValuesToUnpack */
-static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected) {
-    PyErr_Format(PyExc_ValueError,
-                 "too many values to unpack (expected %" CYTHON_FORMAT_SSIZE_T "d)", expected);
-}
-
-/* RaiseNeedMoreValuesToUnpack */
-static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index) {
-    PyErr_Format(PyExc_ValueError,
-                 "need more than %" CYTHON_FORMAT_SSIZE_T "d value%.1s to unpack",
-                 index, (index == 1) ? "" : "s");
-}
-
-/* IterFinish */
-static CYTHON_INLINE int __Pyx_IterFinish(void) {
-#if CYTHON_FAST_THREAD_STATE
-    PyThreadState *tstate = __Pyx_PyThreadState_Current;
-    PyObject* exc_type = tstate->curexc_type;
-    if (unlikely(exc_type)) {
-        if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) {
-            PyObject *exc_value, *exc_tb;
-            exc_value = tstate->curexc_value;
-            exc_tb = tstate->curexc_traceback;
-            tstate->curexc_type = 0;
-            tstate->curexc_value = 0;
-            tstate->curexc_traceback = 0;
-            Py_DECREF(exc_type);
-            Py_XDECREF(exc_value);
-            Py_XDECREF(exc_tb);
-            return 0;
-        } else {
-            return -1;
-        }
+/* WriteUnraisableException */
+static void __Pyx_WriteUnraisable(const char *name, CYTHON_UNUSED int clineno,
+                                  CYTHON_UNUSED int lineno, CYTHON_UNUSED const char *filename,
+                                  int full_traceback, CYTHON_UNUSED int nogil) {
+    PyObject *old_exc, *old_val, *old_tb;
+    PyObject *ctx;
+    __Pyx_PyThreadState_declare
+#ifdef WITH_THREAD
+    PyGILState_STATE state;
+    if (nogil)
+        state = PyGILState_Ensure();
+    else state = (PyGILState_STATE)0;
+#endif
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&old_exc, &old_val, &old_tb);
+    if (full_traceback) {
+        Py_XINCREF(old_exc);
+        Py_XINCREF(old_val);
+        Py_XINCREF(old_tb);
+        __Pyx_ErrRestore(old_exc, old_val, old_tb);
+        PyErr_PrintEx(1);
     }
-    return 0;
-#else
-    if (unlikely(PyErr_Occurred())) {
-        if (likely(PyErr_ExceptionMatches(PyExc_StopIteration))) {
-            PyErr_Clear();
-            return 0;
-        } else {
-            return -1;
-        }
+    #if PY_MAJOR_VERSION < 3
+    ctx = PyString_FromString(name);
+    #else
+    ctx = PyUnicode_FromString(name);
+    #endif
+    __Pyx_ErrRestore(old_exc, old_val, old_tb);
+    if (!ctx) {
+        PyErr_WriteUnraisable(Py_None);
+    } else {
+        PyErr_WriteUnraisable(ctx);
+        Py_DECREF(ctx);
     }
-    return 0;
+#ifdef WITH_THREAD
+    if (nogil)
+        PyGILState_Release(state);
 #endif
 }
 
-/* UnpackItemEndCheck */
-static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected) {
-    if (unlikely(retval)) {
-        Py_DECREF(retval);
-        __Pyx_RaiseTooManyValuesError(expected);
-        return -1;
+/* PyObjectCallNoArg */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
+#if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(func)) {
+        return __Pyx_PyFunction_FastCall(func, NULL, 0);
     }
-    return __Pyx_IterFinish();
+#endif
+#if defined(__Pyx_CyFunction_USED) && defined(NDEBUG)
+    if (likely(PyCFunction_Check(func) || __Pyx_CyFunction_Check(func)))
+#else
+    if (likely(PyCFunction_Check(func)))
+#endif
+    {
+        if (likely(PyCFunction_GET_FLAGS(func) & METH_NOARGS)) {
+            return __Pyx_PyObject_CallMethO(func, NULL);
+        }
+    }
+    return __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL);
 }
+#endif
 
 /* PyObjectGetMethod */
 static int __Pyx_PyObject_GetMethod(PyObject *obj, PyObject *name, PyObject **method) {
@@ -11611,46 +14504,6 @@ static CYTHON_INLINE int __Pyx_PyObject_Append(PyObject* L, PyObject* x) {
         Py_DECREF(retval);
     }
     return 0;
-}
-
-/* WriteUnraisableException */
-static void __Pyx_WriteUnraisable(const char *name, CYTHON_UNUSED int clineno,
-                                  CYTHON_UNUSED int lineno, CYTHON_UNUSED const char *filename,
-                                  int full_traceback, CYTHON_UNUSED int nogil) {
-    PyObject *old_exc, *old_val, *old_tb;
-    PyObject *ctx;
-    __Pyx_PyThreadState_declare
-#ifdef WITH_THREAD
-    PyGILState_STATE state;
-    if (nogil)
-        state = PyGILState_Ensure();
-    else state = (PyGILState_STATE)0;
-#endif
-    __Pyx_PyThreadState_assign
-    __Pyx_ErrFetch(&old_exc, &old_val, &old_tb);
-    if (full_traceback) {
-        Py_XINCREF(old_exc);
-        Py_XINCREF(old_val);
-        Py_XINCREF(old_tb);
-        __Pyx_ErrRestore(old_exc, old_val, old_tb);
-        PyErr_PrintEx(1);
-    }
-    #if PY_MAJOR_VERSION < 3
-    ctx = PyString_FromString(name);
-    #else
-    ctx = PyUnicode_FromString(name);
-    #endif
-    __Pyx_ErrRestore(old_exc, old_val, old_tb);
-    if (!ctx) {
-        PyErr_WriteUnraisable(Py_None);
-    } else {
-        PyErr_WriteUnraisable(ctx);
-        Py_DECREF(ctx);
-    }
-#ifdef WITH_THREAD
-    if (nogil)
-        PyGILState_Release(state);
-#endif
 }
 
 /* JoinPyUnicode */
@@ -11787,156 +14640,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyList_Pop(PyObject* L) {
 }
 #endif
 
-/* PyErrExceptionMatches */
-#if CYTHON_FAST_THREAD_STATE
-static int __Pyx_PyErr_ExceptionMatchesTuple(PyObject *exc_type, PyObject *tuple) {
-    Py_ssize_t i, n;
-    n = PyTuple_GET_SIZE(tuple);
-#if PY_MAJOR_VERSION >= 3
-    for (i=0; i<n; i++) {
-        if (exc_type == PyTuple_GET_ITEM(tuple, i)) return 1;
-    }
-#endif
-    for (i=0; i<n; i++) {
-        if (__Pyx_PyErr_GivenExceptionMatches(exc_type, PyTuple_GET_ITEM(tuple, i))) return 1;
-    }
-    return 0;
-}
-static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err) {
-    PyObject *exc_type = tstate->curexc_type;
-    if (exc_type == err) return 1;
-    if (unlikely(!exc_type)) return 0;
-    if (unlikely(PyTuple_Check(err)))
-        return __Pyx_PyErr_ExceptionMatchesTuple(exc_type, err);
-    return __Pyx_PyErr_GivenExceptionMatches(exc_type, err);
-}
-#endif
-
-/* GetAttr */
-static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *o, PyObject *n) {
-#if CYTHON_USE_TYPE_SLOTS
-#if PY_MAJOR_VERSION >= 3
-    if (likely(PyUnicode_Check(n)))
-#else
-    if (likely(PyString_Check(n)))
-#endif
-        return __Pyx_PyObject_GetAttrStr(o, n);
-#endif
-    return PyObject_GetAttr(o, n);
-}
-
-/* GetAttr3 */
-static PyObject *__Pyx_GetAttr3Default(PyObject *d) {
-    __Pyx_PyThreadState_declare
-    __Pyx_PyThreadState_assign
-    if (unlikely(!__Pyx_PyErr_ExceptionMatches(PyExc_AttributeError)))
-        return NULL;
-    __Pyx_PyErr_Clear();
-    Py_INCREF(d);
-    return d;
-}
-static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *o, PyObject *n, PyObject *d) {
-    PyObject *r = __Pyx_GetAttr(o, n);
-    return (likely(r)) ? r : __Pyx_GetAttr3Default(d);
-}
-
-/* Import */
-static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
-    PyObject *empty_list = 0;
-    PyObject *module = 0;
-    PyObject *global_dict = 0;
-    PyObject *empty_dict = 0;
-    PyObject *list;
-    #if PY_MAJOR_VERSION < 3
-    PyObject *py_import;
-    py_import = __Pyx_PyObject_GetAttrStr(__pyx_b, __pyx_n_s_import);
-    if (!py_import)
-        goto bad;
-    #endif
-    if (from_list)
-        list = from_list;
-    else {
-        empty_list = PyList_New(0);
-        if (!empty_list)
-            goto bad;
-        list = empty_list;
-    }
-    global_dict = PyModule_GetDict(__pyx_m);
-    if (!global_dict)
-        goto bad;
-    empty_dict = PyDict_New();
-    if (!empty_dict)
-        goto bad;
-    {
-        #if PY_MAJOR_VERSION >= 3
-        if (level == -1) {
-            if ((1) && (strchr(__Pyx_MODULE_NAME, '.'))) {
-                module = PyImport_ImportModuleLevelObject(
-                    name, global_dict, empty_dict, list, 1);
-                if (!module) {
-                    if (!PyErr_ExceptionMatches(PyExc_ImportError))
-                        goto bad;
-                    PyErr_Clear();
-                }
-            }
-            level = 0;
-        }
-        #endif
-        if (!module) {
-            #if PY_MAJOR_VERSION < 3
-            PyObject *py_level = PyInt_FromLong(level);
-            if (!py_level)
-                goto bad;
-            module = PyObject_CallFunctionObjArgs(py_import,
-                name, global_dict, empty_dict, list, py_level, (PyObject *)NULL);
-            Py_DECREF(py_level);
-            #else
-            module = PyImport_ImportModuleLevelObject(
-                name, global_dict, empty_dict, list, level);
-            #endif
-        }
-    }
-bad:
-    #if PY_MAJOR_VERSION < 3
-    Py_XDECREF(py_import);
-    #endif
-    Py_XDECREF(empty_list);
-    Py_XDECREF(empty_dict);
-    return module;
-}
-
-/* ImportFrom */
-static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
-    PyObject* value = __Pyx_PyObject_GetAttrStr(module, name);
-    if (unlikely(!value) && PyErr_ExceptionMatches(PyExc_AttributeError)) {
-        PyErr_Format(PyExc_ImportError,
-        #if PY_MAJOR_VERSION < 3
-            "cannot import name %.230s", PyString_AS_STRING(name));
-        #else
-            "cannot import name %S", name);
-        #endif
-    }
-    return value;
-}
-
-/* HasAttr */
-static CYTHON_INLINE int __Pyx_HasAttr(PyObject *o, PyObject *n) {
-    PyObject *r;
-    if (unlikely(!__Pyx_PyBaseString_Check(n))) {
-        PyErr_SetString(PyExc_TypeError,
-                        "hasattr(): attribute name must be string");
-        return -1;
-    }
-    r = __Pyx_GetAttr(o, n);
-    if (unlikely(!r)) {
-        PyErr_Clear();
-        return 0;
-    } else {
-        Py_DECREF(r);
-        return 1;
-    }
-}
-
 /* GetTopmostException */
 #if CYTHON_USE_EXC_INFO_STACK
 static _PyErr_StackItem *
@@ -11990,6 +14693,31 @@ static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject 
     Py_XDECREF(tmp_type);
     Py_XDECREF(tmp_value);
     Py_XDECREF(tmp_tb);
+}
+#endif
+
+/* PyErrExceptionMatches */
+#if CYTHON_FAST_THREAD_STATE
+static int __Pyx_PyErr_ExceptionMatchesTuple(PyObject *exc_type, PyObject *tuple) {
+    Py_ssize_t i, n;
+    n = PyTuple_GET_SIZE(tuple);
+#if PY_MAJOR_VERSION >= 3
+    for (i=0; i<n; i++) {
+        if (exc_type == PyTuple_GET_ITEM(tuple, i)) return 1;
+    }
+#endif
+    for (i=0; i<n; i++) {
+        if (__Pyx_PyErr_GivenExceptionMatches(exc_type, PyTuple_GET_ITEM(tuple, i))) return 1;
+    }
+    return 0;
+}
+static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err) {
+    PyObject *exc_type = tstate->curexc_type;
+    if (exc_type == err) return 1;
+    if (unlikely(!exc_type)) return 0;
+    if (unlikely(PyTuple_Check(err)))
+        return __Pyx_PyErr_ExceptionMatchesTuple(exc_type, err);
+    return __Pyx_PyErr_GivenExceptionMatches(exc_type, err);
 }
 #endif
 
@@ -12187,85 +14915,83 @@ __PYX_GOOD:
     return ret;
 }
 
-/* TypeImport */
-#ifndef __PYX_HAVE_RT_ImportType
-#define __PYX_HAVE_RT_ImportType
-static PyTypeObject *__Pyx_ImportType(PyObject *module, const char *module_name, const char *class_name,
-    size_t size, enum __Pyx_ImportType_CheckSize check_size)
-{
-    PyObject *result = 0;
-    char warning[200];
-    Py_ssize_t basicsize;
-#ifdef Py_LIMITED_API
-    PyObject *py_basicsize;
-#endif
-    result = PyObject_GetAttrString(module, class_name);
-    if (!result)
+/* Import */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
+    PyObject *empty_list = 0;
+    PyObject *module = 0;
+    PyObject *global_dict = 0;
+    PyObject *empty_dict = 0;
+    PyObject *list;
+    #if PY_MAJOR_VERSION < 3
+    PyObject *py_import;
+    py_import = __Pyx_PyObject_GetAttrStr(__pyx_b, __pyx_n_s_import);
+    if (!py_import)
         goto bad;
-    if (!PyType_Check(result)) {
-        PyErr_Format(PyExc_TypeError,
-            "%.200s.%.200s is not a type object",
-            module_name, class_name);
-        goto bad;
+    #endif
+    if (from_list)
+        list = from_list;
+    else {
+        empty_list = PyList_New(0);
+        if (!empty_list)
+            goto bad;
+        list = empty_list;
     }
-#ifndef Py_LIMITED_API
-    basicsize = ((PyTypeObject *)result)->tp_basicsize;
-#else
-    py_basicsize = PyObject_GetAttrString(result, "__basicsize__");
-    if (!py_basicsize)
+    global_dict = PyModule_GetDict(__pyx_m);
+    if (!global_dict)
         goto bad;
-    basicsize = PyLong_AsSsize_t(py_basicsize);
-    Py_DECREF(py_basicsize);
-    py_basicsize = 0;
-    if (basicsize == (Py_ssize_t)-1 && PyErr_Occurred())
+    empty_dict = PyDict_New();
+    if (!empty_dict)
         goto bad;
-#endif
-    if ((size_t)basicsize < size) {
-        PyErr_Format(PyExc_ValueError,
-            "%.200s.%.200s size changed, may indicate binary incompatibility. "
-            "Expected %zd from C header, got %zd from PyObject",
-            module_name, class_name, size, basicsize);
-        goto bad;
+    {
+        #if PY_MAJOR_VERSION >= 3
+        if (level == -1) {
+            if ((1) && (strchr(__Pyx_MODULE_NAME, '.'))) {
+                module = PyImport_ImportModuleLevelObject(
+                    name, global_dict, empty_dict, list, 1);
+                if (!module) {
+                    if (!PyErr_ExceptionMatches(PyExc_ImportError))
+                        goto bad;
+                    PyErr_Clear();
+                }
+            }
+            level = 0;
+        }
+        #endif
+        if (!module) {
+            #if PY_MAJOR_VERSION < 3
+            PyObject *py_level = PyInt_FromLong(level);
+            if (!py_level)
+                goto bad;
+            module = PyObject_CallFunctionObjArgs(py_import,
+                name, global_dict, empty_dict, list, py_level, (PyObject *)NULL);
+            Py_DECREF(py_level);
+            #else
+            module = PyImport_ImportModuleLevelObject(
+                name, global_dict, empty_dict, list, level);
+            #endif
+        }
     }
-    if (check_size == __Pyx_ImportType_CheckSize_Error && (size_t)basicsize != size) {
-        PyErr_Format(PyExc_ValueError,
-            "%.200s.%.200s size changed, may indicate binary incompatibility. "
-            "Expected %zd from C header, got %zd from PyObject",
-            module_name, class_name, size, basicsize);
-        goto bad;
-    }
-    else if (check_size == __Pyx_ImportType_CheckSize_Warn && (size_t)basicsize > size) {
-        PyOS_snprintf(warning, sizeof(warning),
-            "%s.%s size changed, may indicate binary incompatibility. "
-            "Expected %zd from C header, got %zd from PyObject",
-            module_name, class_name, size, basicsize);
-        if (PyErr_WarnEx(NULL, warning, 0) < 0) goto bad;
-    }
-    return (PyTypeObject *)result;
 bad:
-    Py_XDECREF(result);
-    return NULL;
+    #if PY_MAJOR_VERSION < 3
+    Py_XDECREF(py_import);
+    #endif
+    Py_XDECREF(empty_list);
+    Py_XDECREF(empty_dict);
+    return module;
 }
-#endif
 
-/* GetVTable */
-static void* __Pyx_GetVtable(PyObject *dict) {
-    void* ptr;
-    PyObject *ob = PyObject_GetItem(dict, __pyx_n_s_pyx_vtable);
-    if (!ob)
-        goto bad;
-#if PY_VERSION_HEX >= 0x02070000
-    ptr = PyCapsule_GetPointer(ob, 0);
-#else
-    ptr = PyCObject_AsVoidPtr(ob);
-#endif
-    if (!ptr && !PyErr_Occurred())
-        PyErr_SetString(PyExc_RuntimeError, "invalid vtable found for imported type");
-    Py_DECREF(ob);
-    return ptr;
-bad:
-    Py_XDECREF(ob);
-    return NULL;
+/* ImportFrom */
+static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
+    PyObject* value = __Pyx_PyObject_GetAttrStr(module, name);
+    if (unlikely(!value) && PyErr_ExceptionMatches(PyExc_AttributeError)) {
+        PyErr_Format(PyExc_ImportError,
+        #if PY_MAJOR_VERSION < 3
+            "cannot import name %.230s", PyString_AS_STRING(name));
+        #else
+            "cannot import name %S", name);
+        #endif
+    }
+    return value;
 }
 
 /* CLineInTraceback */
@@ -12520,6 +15246,54 @@ bad:
     }
 
 /* FromPyCTupleUtility */
+static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(PyObject * o) {
+    __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t result;
+    if (!PyTuple_Check(o) || PyTuple_GET_SIZE(o) != 2) {
+        PyErr_Format(PyExc_TypeError, "Expected %.16s of size %d, got %.200s", "a tuple", 2, Py_TYPE(o)->tp_name);
+        goto bad;
+    }
+#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        result.f0 = __Pyx_PyInt_As_std_3a__3a_uint64_t(PyTuple_GET_ITEM(o, 0));
+        if ((result.f0 == ((std::uint64_t)-1)) && PyErr_Occurred()) goto bad;
+        result.f1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(PyTuple_GET_ITEM(o, 1));
+        if ((result.f1 == ((std::uint64_t)-1)) && PyErr_Occurred()) goto bad;
+#else
+    {
+        PyObject *item;
+        item = PySequence_ITEM(o, 0);  if (unlikely(!item)) goto bad;
+        result.f0 = __Pyx_PyInt_As_std_3a__3a_uint64_t(item);
+        Py_DECREF(item);
+        if ((result.f0 == ((std::uint64_t)-1)) && PyErr_Occurred()) goto bad;
+        item = PySequence_ITEM(o, 1);  if (unlikely(!item)) goto bad;
+        result.f1 = __Pyx_PyInt_As_std_3a__3a_uint64_t(item);
+        Py_DECREF(item);
+        if ((result.f1 == ((std::uint64_t)-1)) && PyErr_Occurred()) goto bad;
+    }
+#endif
+    return result;
+bad:
+    return result;
+}
+
+/* ToPyCTupleUtility */
+static PyObject* __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t value) {
+    PyObject* item = NULL;
+    PyObject* result = PyTuple_New(2);
+    if (!result) goto bad;
+        item = __Pyx_PyInt_From_std_3a__3a_uint64_t(value.f0);
+        if (!item) goto bad;
+        PyTuple_SET_ITEM(result, 0, item);
+        item = __Pyx_PyInt_From_std_3a__3a_uint64_t(value.f1);
+        if (!item) goto bad;
+        PyTuple_SET_ITEM(result, 1, item);
+    return result;
+bad:
+    Py_XDECREF(item);
+    Py_XDECREF(result);
+    return NULL;
+}
+
+/* FromPyCTupleUtility */
 static __pyx_ctuple_int__and_int __pyx_convert__from_py___pyx_ctuple_int__and_int(PyObject * o) {
     __pyx_ctuple_int__and_int result;
     if (!PyTuple_Check(o) || PyTuple_GET_SIZE(o) != 2) {
@@ -12567,42 +15341,200 @@ bad:
     return NULL;
 }
 
-/* CIntToPy */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
+/* CIntFromPy */
+static CYTHON_INLINE std::uint64_t __Pyx_PyInt_As_std_3a__3a_uint64_t(PyObject *x) {
 #ifdef __Pyx_HAS_GCC_DIAGNOSTIC
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wconversion"
 #endif
-    const int neg_one = (int) -1, const_zero = (int) 0;
+    const std::uint64_t neg_one = (std::uint64_t) -1, const_zero = (std::uint64_t) 0;
 #ifdef __Pyx_HAS_GCC_DIAGNOSTIC
 #pragma GCC diagnostic pop
 #endif
     const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(int) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(int) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(std::uint64_t) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(std::uint64_t, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (std::uint64_t) val;
+        }
+    } else
 #endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (std::uint64_t) 0;
+                case  1: __PYX_VERIFY_RETURN_INT(std::uint64_t, digit, digits[0])
+                case 2:
+                    if (8 * sizeof(std::uint64_t) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) >= 2 * PyLong_SHIFT) {
+                            return (std::uint64_t) (((((std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0]));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(std::uint64_t) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) >= 3 * PyLong_SHIFT) {
+                            return (std::uint64_t) (((((((std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0]));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(std::uint64_t) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) >= 4 * PyLong_SHIFT) {
+                            return (std::uint64_t) (((((((((std::uint64_t)digits[3]) << PyLong_SHIFT) | (std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0]));
+                        }
+                    }
+                    break;
+            }
+#endif
+#if CYTHON_COMPILING_IN_CPYTHON
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+#else
+            {
+                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
+                if (unlikely(result < 0))
+                    return (std::uint64_t) -1;
+                if (unlikely(result == 1))
+                    goto raise_neg_overflow;
+            }
+#endif
+            if (sizeof(std::uint64_t) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(std::uint64_t, unsigned long, PyLong_AsUnsignedLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(std::uint64_t) <= sizeof(unsigned PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(std::uint64_t, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+#endif
+            }
+        } else {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (std::uint64_t) 0;
+                case -1: __PYX_VERIFY_RETURN_INT(std::uint64_t, sdigit, (sdigit) (-(sdigit)digits[0]))
+                case  1: __PYX_VERIFY_RETURN_INT(std::uint64_t,  digit, +digits[0])
+                case -2:
+                    if (8 * sizeof(std::uint64_t) - 1 > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) - 1 > 2 * PyLong_SHIFT) {
+                            return (std::uint64_t) (((std::uint64_t)-1)*(((((std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (8 * sizeof(std::uint64_t) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) - 1 > 2 * PyLong_SHIFT) {
+                            return (std::uint64_t) ((((((std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
+                        }
+                    }
+                    break;
+                case -3:
+                    if (8 * sizeof(std::uint64_t) - 1 > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) - 1 > 3 * PyLong_SHIFT) {
+                            return (std::uint64_t) (((std::uint64_t)-1)*(((((((std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(std::uint64_t) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) - 1 > 3 * PyLong_SHIFT) {
+                            return (std::uint64_t) ((((((((std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
+                        }
+                    }
+                    break;
+                case -4:
+                    if (8 * sizeof(std::uint64_t) - 1 > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) - 1 > 4 * PyLong_SHIFT) {
+                            return (std::uint64_t) (((std::uint64_t)-1)*(((((((((std::uint64_t)digits[3]) << PyLong_SHIFT) | (std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(std::uint64_t) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(std::uint64_t) - 1 > 4 * PyLong_SHIFT) {
+                            return (std::uint64_t) ((((((((((std::uint64_t)digits[3]) << PyLong_SHIFT) | (std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
+                        }
+                    }
+                    break;
+            }
+#endif
+            if (sizeof(std::uint64_t) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(std::uint64_t, long, PyLong_AsLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(std::uint64_t) <= sizeof(PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(std::uint64_t, PY_LONG_LONG, PyLong_AsLongLong(x))
+#endif
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            std::uint64_t val;
+            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (std::uint64_t) -1;
         }
     } else {
-        if (sizeof(int) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-#endif
-        }
+        std::uint64_t val;
+        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
+        if (!tmp) return (std::uint64_t) -1;
+        val = __Pyx_PyInt_As_std_3a__3a_uint64_t(tmp);
+        Py_DECREF(tmp);
+        return val;
     }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(int),
-                                     little, !is_unsigned);
-    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to std::uint64_t");
+    return (std::uint64_t) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to std::uint64_t");
+    return (std::uint64_t) -1;
 }
 
 /* CIntFromPy */
@@ -12839,200 +15771,42 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_std_3a__3a_uint64_t(std::uint64_
     }
 }
 
-/* CIntFromPy */
-static CYTHON_INLINE std::uint64_t __Pyx_PyInt_As_std_3a__3a_uint64_t(PyObject *x) {
+/* CIntToPy */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
 #ifdef __Pyx_HAS_GCC_DIAGNOSTIC
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wconversion"
 #endif
-    const std::uint64_t neg_one = (std::uint64_t) -1, const_zero = (std::uint64_t) 0;
+    const int neg_one = (int) -1, const_zero = (int) 0;
 #ifdef __Pyx_HAS_GCC_DIAGNOSTIC
 #pragma GCC diagnostic pop
 #endif
     const int is_unsigned = neg_one > const_zero;
-#if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_Check(x))) {
-        if (sizeof(std::uint64_t) < sizeof(long)) {
-            __PYX_VERIFY_RETURN_INT(std::uint64_t, long, PyInt_AS_LONG(x))
-        } else {
-            long val = PyInt_AS_LONG(x);
-            if (is_unsigned && unlikely(val < 0)) {
-                goto raise_neg_overflow;
-            }
-            return (std::uint64_t) val;
-        }
-    } else
-#endif
-    if (likely(PyLong_Check(x))) {
-        if (is_unsigned) {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (std::uint64_t) 0;
-                case  1: __PYX_VERIFY_RETURN_INT(std::uint64_t, digit, digits[0])
-                case 2:
-                    if (8 * sizeof(std::uint64_t) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) >= 2 * PyLong_SHIFT) {
-                            return (std::uint64_t) (((((std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0]));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(std::uint64_t) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) >= 3 * PyLong_SHIFT) {
-                            return (std::uint64_t) (((((((std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0]));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(std::uint64_t) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) >= 4 * PyLong_SHIFT) {
-                            return (std::uint64_t) (((((((((std::uint64_t)digits[3]) << PyLong_SHIFT) | (std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0]));
-                        }
-                    }
-                    break;
-            }
-#endif
-#if CYTHON_COMPILING_IN_CPYTHON
-            if (unlikely(Py_SIZE(x) < 0)) {
-                goto raise_neg_overflow;
-            }
-#else
-            {
-                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
-                if (unlikely(result < 0))
-                    return (std::uint64_t) -1;
-                if (unlikely(result == 1))
-                    goto raise_neg_overflow;
-            }
-#endif
-            if (sizeof(std::uint64_t) <= sizeof(unsigned long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(std::uint64_t, unsigned long, PyLong_AsUnsignedLong(x))
+    if (is_unsigned) {
+        if (sizeof(int) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(int) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
 #ifdef HAVE_LONG_LONG
-            } else if (sizeof(std::uint64_t) <= sizeof(unsigned PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(std::uint64_t, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
 #endif
-            }
-        } else {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (std::uint64_t) 0;
-                case -1: __PYX_VERIFY_RETURN_INT(std::uint64_t, sdigit, (sdigit) (-(sdigit)digits[0]))
-                case  1: __PYX_VERIFY_RETURN_INT(std::uint64_t,  digit, +digits[0])
-                case -2:
-                    if (8 * sizeof(std::uint64_t) - 1 > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) - 1 > 2 * PyLong_SHIFT) {
-                            return (std::uint64_t) (((std::uint64_t)-1)*(((((std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
-                        }
-                    }
-                    break;
-                case 2:
-                    if (8 * sizeof(std::uint64_t) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) - 1 > 2 * PyLong_SHIFT) {
-                            return (std::uint64_t) ((((((std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
-                        }
-                    }
-                    break;
-                case -3:
-                    if (8 * sizeof(std::uint64_t) - 1 > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) - 1 > 3 * PyLong_SHIFT) {
-                            return (std::uint64_t) (((std::uint64_t)-1)*(((((((std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(std::uint64_t) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) - 1 > 3 * PyLong_SHIFT) {
-                            return (std::uint64_t) ((((((((std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
-                        }
-                    }
-                    break;
-                case -4:
-                    if (8 * sizeof(std::uint64_t) - 1 > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) - 1 > 4 * PyLong_SHIFT) {
-                            return (std::uint64_t) (((std::uint64_t)-1)*(((((((((std::uint64_t)digits[3]) << PyLong_SHIFT) | (std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(std::uint64_t) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(std::uint64_t, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(std::uint64_t) - 1 > 4 * PyLong_SHIFT) {
-                            return (std::uint64_t) ((((((((((std::uint64_t)digits[3]) << PyLong_SHIFT) | (std::uint64_t)digits[2]) << PyLong_SHIFT) | (std::uint64_t)digits[1]) << PyLong_SHIFT) | (std::uint64_t)digits[0])));
-                        }
-                    }
-                    break;
-            }
-#endif
-            if (sizeof(std::uint64_t) <= sizeof(long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(std::uint64_t, long, PyLong_AsLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(std::uint64_t) <= sizeof(PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(std::uint64_t, PY_LONG_LONG, PyLong_AsLongLong(x))
-#endif
-            }
-        }
-        {
-#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
-            PyErr_SetString(PyExc_RuntimeError,
-                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
-#else
-            std::uint64_t val;
-            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
- #if PY_MAJOR_VERSION < 3
-            if (likely(v) && !PyLong_Check(v)) {
-                PyObject *tmp = v;
-                v = PyNumber_Long(tmp);
-                Py_DECREF(tmp);
-            }
- #endif
-            if (likely(v)) {
-                int one = 1; int is_little = (int)*(unsigned char *)&one;
-                unsigned char *bytes = (unsigned char *)&val;
-                int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                              bytes, sizeof(val),
-                                              is_little, !is_unsigned);
-                Py_DECREF(v);
-                if (likely(!ret))
-                    return val;
-            }
-#endif
-            return (std::uint64_t) -1;
         }
     } else {
-        std::uint64_t val;
-        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
-        if (!tmp) return (std::uint64_t) -1;
-        val = __Pyx_PyInt_As_std_3a__3a_uint64_t(tmp);
-        Py_DECREF(tmp);
-        return val;
+        if (sizeof(int) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
     }
-raise_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "value too large to convert to std::uint64_t");
-    return (std::uint64_t) -1;
-raise_neg_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "can't convert negative value to std::uint64_t");
-    return (std::uint64_t) -1;
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(int),
+                                     little, !is_unsigned);
+    }
 }
 
 /* CIntFromPy */
@@ -13231,44 +16005,6 @@ raise_neg_overflow:
     return (long) -1;
 }
 
-/* CIntToPy */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const long neg_one = (long) -1, const_zero = (long) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(long) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(long) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-#endif
-        }
-    } else {
-        if (sizeof(long) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-#ifdef HAVE_LONG_LONG
-        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-#endif
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(long),
-                                     little, !is_unsigned);
-    }
-}
-
 /* CIntFromPy */
 static CYTHON_INLINE size_t __Pyx_PyInt_As_size_t(PyObject *x) {
 #ifdef __Pyx_HAS_GCC_DIAGNOSTIC
@@ -13463,6 +16199,44 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to size_t");
     return (size_t) -1;
+}
+
+/* CIntToPy */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+    const long neg_one = (long) -1, const_zero = (long) 0;
+#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
+#pragma GCC diagnostic pop
+#endif
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(long) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(long) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(long) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(long),
+                                     little, !is_unsigned);
+    }
 }
 
 /* FastTypeChecks */

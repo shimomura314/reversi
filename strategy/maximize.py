@@ -17,9 +17,9 @@ class Maximize:
             if (pow(2, num)) & othello.reversible:
                 candidates.append(num)
         for candidate in candidates:
-            new_board = othello.board.simulate_play(
+            new_board = othello.simulate_play(
                 othello.turn, candidate)
-            counter = othello.board.count_disks(*new_board)
+            counter = othello.count_disks(*new_board)
             if max_merit < counter[turn]:
                 max_strategy = [candidate]
                 max_merit = counter[turn]

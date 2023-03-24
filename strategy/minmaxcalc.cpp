@@ -1101,25 +1101,93 @@ struct __pyx_array_obj;
 struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
 struct __pyx_memoryviewslice_obj;
+struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
+typedef struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play;
 struct __pyx_ctuple_int__and_int;
 typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy;
 
-/* "bitboard/bitothello.pxd":26
- *     # Declaration of methods.
- *     cpdef void play_turn(self, int put_loc)
- *     cpdef (int, int) update_count(self)             # <<<<<<<<<<<<<<
- *     cpdef bint judge_game(self, int player=?, int opponent=?)
- *     cpdef void auto_mode(self, bint automode=?)
+/* "bitboard/bitothello.pxd":32
+ *     cpdef uint64_t _bit_count(self, uint64_t x)
+ *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
+ *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
+ *         self, int turn, uint64_t put_loc,
+ *         uint64_t black_board=?, uint64_t white_board=?,
+ */
+struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t {
+  std::uint64_t f0;
+  std::uint64_t f1;
+};
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitothello.pxd":37
+ *         )
+ *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board)
+ *     cpdef (int, int) count_disks(             # <<<<<<<<<<<<<<
+ *             self, uint64_t black_board=?, uint64_t white_board=?)
+ *     cpdef uint64_t reversible_area(
  */
 struct __pyx_ctuple_int__and_int {
   int f0;
   int f1;
 };
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
 
-/* "bitboard/bitothello.pxd":27
+/* "bitboard/bitothello.pxd":39
+ *     cpdef (int, int) count_disks(
+ *             self, uint64_t black_board=?, uint64_t white_board=?)
+ *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
+ *         self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
+ *     cpdef bint is_reversible(
+ */
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitothello.pxd":41
+ *     cpdef uint64_t reversible_area(
+ *         self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
+ *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
+ *         self, uint64_t turn, uint64_t put_loc,
+ *         uint64_t black_board=?, uint64_t white_board=?,
+ */
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitothello.pxd":45
+ *         uint64_t black_board=?, uint64_t white_board=?,
+ *         )
+ *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
+ *         self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
+ *     cpdef (uint64_t, uint64_t) return_board(self)
+ */
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitothello.pxd":54
  *     cpdef void play_turn(self, int put_loc)
  *     cpdef (int, int) update_count(self)
  *     cpdef bint judge_game(self, int player=?, int opponent=?)             # <<<<<<<<<<<<<<
@@ -1132,7 +1200,7 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game {
   int opponent;
 };
 
-/* "bitboard/bitothello.pxd":28
+/* "bitboard/bitothello.pxd":55
  *     cpdef (int, int) update_count(self)
  *     cpdef bint judge_game(self, int player=?, int opponent=?)
  *     cpdef void auto_mode(self, bint automode=?)             # <<<<<<<<<<<<<<
@@ -1144,7 +1212,7 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode {
   int automode;
 };
 
-/* "bitboard/bitothello.pxd":30
+/* "bitboard/bitothello.pxd":57
  *     cpdef void auto_mode(self, bint automode=?)
  *     cpdef void load_strategy(self, object Strategy)
  *     cpdef void change_strategy(self, str strategy, bint is_player=?)             # <<<<<<<<<<<<<<
@@ -1155,22 +1223,8 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy {
   int __pyx_n;
   int is_player;
 };
-struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
-typedef struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
 struct __pyx_ctuple_float__and_int;
 typedef struct __pyx_ctuple_float__and_int __pyx_ctuple_float__and_int;
-
-/* "strategy/minmaxcalc.pyx":39
- *     cpdef uint64_t _bit_count(self, uint64_t x)
- *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
- *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
- *         self, int turn, uint64_t put_loc,
- *         uint64_t black_board, uint64_t white_board,
- */
-struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t {
-  std::uint64_t f0;
-  std::uint64_t f1;
-};
 
 /* "strategy/minmaxcalc.pyx":57
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board)
@@ -1196,7 +1250,10 @@ struct OthelloGameCObject {
   struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *__pyx_vtab;
   int BLACK;
   int WHITE;
-  PyObject *board;
+  std::uint64_t INIT_BLACK;
+  std::uint64_t INIT_WHITE;
+  std::uint64_t _black_board;
+  std::uint64_t _white_board;
   int _player_clr;
   int turn;
   std::uint64_t reversible;
@@ -1336,6 +1393,17 @@ __PYX_EXTERN_C DL_EXPORT(PyTypeObject) OthelloGameCType;
  */
 
 struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC {
+  std::uint64_t (*_bit_count)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch);
+  std::uint64_t (*_check_surround)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*simulate_play)(struct OthelloGameCObject *, int, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play *__pyx_optional_args);
+  void (*update_board)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
+  __pyx_ctuple_int__and_int (*count_disks)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks *__pyx_optional_args);
+  std::uint64_t (*reversible_area)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area *__pyx_optional_args);
+  int (*is_reversible)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible *__pyx_optional_args);
+  int (*turn_playable)(struct OthelloGameCObject *, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable *__pyx_optional_args);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_board)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_player_board)(struct OthelloGameCObject *, int, int __pyx_skip_dispatch);
+  PyObject *(*load_board)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
   void (*play_turn)(struct OthelloGameCObject *, int, int __pyx_skip_dispatch);
   __pyx_ctuple_int__and_int (*update_count)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
   int (*judge_game)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game *__pyx_optional_args);
@@ -1628,25 +1696,6 @@ static CYTHON_INLINE int __Pyx_PyBytes_Equals(PyObject* s1, PyObject* s2, int eq
 /* UnicodeEquals.proto */
 static CYTHON_INLINE int __Pyx_PyUnicode_Equals(PyObject* s1, PyObject* s2, int equals);
 
-/* PyObjectCallNoArg.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
-#else
-#define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
-#endif
-
-/* RaiseTooManyValuesToUnpack.proto */
-static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected);
-
-/* RaiseNeedMoreValuesToUnpack.proto */
-static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index);
-
-/* IterFinish.proto */
-static CYTHON_INLINE int __Pyx_IterFinish(void);
-
-/* UnpackItemEndCheck.proto */
-static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected);
-
 /* ArgTypeTest.proto */
 #define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
     ((likely((Py_TYPE(obj) == type) | (none_allowed && (obj == Py_None)))) ? 1 :\
@@ -1752,6 +1801,12 @@ static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_ve
 #define __Pyx_GetModuleGlobalNameUncached(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
 static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
 #endif
+
+/* RaiseTooManyValuesToUnpack.proto */
+static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected);
+
+/* RaiseNeedMoreValuesToUnpack.proto */
+static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index);
 
 /* RaiseNoneIterError.proto */
 static CYTHON_INLINE void __Pyx_RaiseNoneNotIterableError(void);
@@ -1914,6 +1969,13 @@ static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name,
 
 /* GetVTable.proto */
 static void* __Pyx_GetVtable(PyObject *dict);
+
+/* PyObjectCallNoArg.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
+#else
+#define __Pyx_PyObject_CallNoArg(func) __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL)
+#endif
 
 /* PyObjectGetMethod.proto */
 static int __Pyx_PyObject_GetMethod(PyObject *obj, PyObject *name, PyObject **method);
@@ -2214,7 +2276,6 @@ static const char __pyx_k_black_board[] = "black_board";
 static const char __pyx_k_count_disks[] = "count_disks";
 static const char __pyx_k_white_board[] = "white_board";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
-static const char __pyx_k_return_board[] = "return_board";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_is_reversible[] = "is_reversible";
 static const char __pyx_k_pyx_getbuffer[] = "__pyx_getbuffer";
@@ -2344,7 +2405,6 @@ static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
-static PyObject *__pyx_n_s_return_board;
 static PyObject *__pyx_n_s_reversible_area;
 static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
@@ -6543,8 +6603,8 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
 
 static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_17put_disk(PyObject *__pyx_v_self, PyObject *__pyx_v_othello); /*proto*/
 static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject *__pyx_v_self, struct OthelloGameCObject *__pyx_v_othello, int __pyx_skip_dispatch) {
-  PyObject *__pyx_v_black_board = NULL;
-  PyObject *__pyx_v_white_board = NULL;
+  std::uint64_t __pyx_v_black_board;
+  std::uint64_t __pyx_v_white_board;
   int __pyx_v_turn;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -6553,7 +6613,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   int __pyx_t_5;
-  PyObject *(*__pyx_t_6)(PyObject *);
+  __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_t_6;
   std::uint64_t __pyx_t_7;
   std::uint64_t __pyx_t_8;
   int __pyx_lineno = 0;
@@ -6610,81 +6670,19 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
   /* "strategy/minmaxcalc.pyx":485
  *         cdef uint64_t new_white_board
  * 
- *         black_board, white_board = othello.board.return_board()             # <<<<<<<<<<<<<<
+ *         black_board, white_board = othello.return_board()             # <<<<<<<<<<<<<<
  *         cdef int turn = othello.turn
  *         self._player_clr = turn
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_othello->board, __pyx_n_s_return_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 485, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 485, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
-    PyObject* sequence = __pyx_t_1;
-    Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
-    if (unlikely(size != 2)) {
-      if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 485, __pyx_L1_error)
-    }
-    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    if (likely(PyTuple_CheckExact(sequence))) {
-      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0); 
-      __pyx_t_3 = PyTuple_GET_ITEM(sequence, 1); 
-    } else {
-      __pyx_t_2 = PyList_GET_ITEM(sequence, 0); 
-      __pyx_t_3 = PyList_GET_ITEM(sequence, 1); 
-    }
-    __Pyx_INCREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx_t_3);
-    #else
-    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 485, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 485, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    #endif
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  } else {
-    Py_ssize_t index = -1;
-    __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 485, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_6 = Py_TYPE(__pyx_t_4)->tp_iternext;
-    index = 0; __pyx_t_2 = __pyx_t_6(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_2);
-    index = 1; __pyx_t_3 = __pyx_t_6(__pyx_t_4); if (unlikely(!__pyx_t_3)) goto __pyx_L3_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_4), 2) < 0) __PYX_ERR(0, 485, __pyx_L1_error)
-    __pyx_t_6 = NULL;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    goto __pyx_L4_unpacking_done;
-    __pyx_L3_unpacking_failed:;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_6 = NULL;
-    if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 485, __pyx_L1_error)
-    __pyx_L4_unpacking_done:;
-  }
-  __pyx_v_black_board = __pyx_t_2;
-  __pyx_t_2 = 0;
-  __pyx_v_white_board = __pyx_t_3;
-  __pyx_t_3 = 0;
+  __pyx_t_6 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_othello->__pyx_vtab)->return_board(__pyx_v_othello, 0);
+  __pyx_t_7 = __pyx_t_6.f0;
+  __pyx_t_8 = __pyx_t_6.f1;
+  __pyx_v_black_board = __pyx_t_7;
+  __pyx_v_white_board = __pyx_t_8;
 
   /* "strategy/minmaxcalc.pyx":486
  * 
- *         black_board, white_board = othello.board.return_board()
+ *         black_board, white_board = othello.return_board()
  *         cdef int turn = othello.turn             # <<<<<<<<<<<<<<
  *         self._player_clr = turn
  *         self._count_pass = 0
@@ -6693,7 +6691,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
   __pyx_v_turn = __pyx_t_5;
 
   /* "strategy/minmaxcalc.pyx":487
- *         black_board, white_board = othello.board.return_board()
+ *         black_board, white_board = othello.return_board()
  *         cdef int turn = othello.turn
  *         self._player_clr = turn             # <<<<<<<<<<<<<<
  *         self._count_pass = 0
@@ -6728,16 +6726,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
  *         return self.min_max(
  *             black_board, white_board, turn, self.depth, INFINITY)[1]             # <<<<<<<<<<<<<<
  */
-  __pyx_t_7 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely((__pyx_t_7 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 491, __pyx_L1_error)
-  __pyx_t_8 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely((__pyx_t_8 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 491, __pyx_L1_error)
-
-  /* "strategy/minmaxcalc.pyx":490
- *         self._count_pass = 0
- *         self._othello = othello
- *         return self.min_max(             # <<<<<<<<<<<<<<
- *             black_board, white_board, turn, self.depth, INFINITY)[1]
- */
-  __pyx_r = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->min_max(__pyx_v_self, __pyx_t_7, __pyx_t_8, __pyx_v_turn, __pyx_v_self->depth, INFINITY).f1;
+  __pyx_r = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->min_max(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, __pyx_v_turn, __pyx_v_self->depth, INFINITY).f1;
   goto __pyx_L0;
 
   /* "strategy/minmaxcalc.pyx":481
@@ -6757,8 +6746,6 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
   __Pyx_WriteUnraisable("strategy.minmaxcalc.MinmaxC.put_disk", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_black_board);
-  __Pyx_XDECREF(__pyx_v_white_board);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -20962,7 +20949,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
-  {&__pyx_n_s_return_board, __pyx_k_return_board, sizeof(__pyx_k_return_board), 0, 0, 1, 1},
   {&__pyx_n_s_reversible_area, __pyx_k_reversible_area, sizeof(__pyx_k_reversible_area), 0, 0, 1, 1},
   {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
   {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
@@ -22632,86 +22618,6 @@ return_ne:
 #endif
 }
 
-/* PyObjectCallNoArg */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
-#if CYTHON_FAST_PYCALL
-    if (PyFunction_Check(func)) {
-        return __Pyx_PyFunction_FastCall(func, NULL, 0);
-    }
-#endif
-#if defined(__Pyx_CyFunction_USED) && defined(NDEBUG)
-    if (likely(PyCFunction_Check(func) || __Pyx_CyFunction_Check(func)))
-#else
-    if (likely(PyCFunction_Check(func)))
-#endif
-    {
-        if (likely(PyCFunction_GET_FLAGS(func) & METH_NOARGS)) {
-            return __Pyx_PyObject_CallMethO(func, NULL);
-        }
-    }
-    return __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL);
-}
-#endif
-
-/* RaiseTooManyValuesToUnpack */
-static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected) {
-    PyErr_Format(PyExc_ValueError,
-                 "too many values to unpack (expected %" CYTHON_FORMAT_SSIZE_T "d)", expected);
-}
-
-/* RaiseNeedMoreValuesToUnpack */
-static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index) {
-    PyErr_Format(PyExc_ValueError,
-                 "need more than %" CYTHON_FORMAT_SSIZE_T "d value%.1s to unpack",
-                 index, (index == 1) ? "" : "s");
-}
-
-/* IterFinish */
-static CYTHON_INLINE int __Pyx_IterFinish(void) {
-#if CYTHON_FAST_THREAD_STATE
-    PyThreadState *tstate = __Pyx_PyThreadState_Current;
-    PyObject* exc_type = tstate->curexc_type;
-    if (unlikely(exc_type)) {
-        if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) {
-            PyObject *exc_value, *exc_tb;
-            exc_value = tstate->curexc_value;
-            exc_tb = tstate->curexc_traceback;
-            tstate->curexc_type = 0;
-            tstate->curexc_value = 0;
-            tstate->curexc_traceback = 0;
-            Py_DECREF(exc_type);
-            Py_XDECREF(exc_value);
-            Py_XDECREF(exc_tb);
-            return 0;
-        } else {
-            return -1;
-        }
-    }
-    return 0;
-#else
-    if (unlikely(PyErr_Occurred())) {
-        if (likely(PyErr_ExceptionMatches(PyExc_StopIteration))) {
-            PyErr_Clear();
-            return 0;
-        } else {
-            return -1;
-        }
-    }
-    return 0;
-#endif
-}
-
-/* UnpackItemEndCheck */
-static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected) {
-    if (unlikely(retval)) {
-        Py_DECREF(retval);
-        __Pyx_RaiseTooManyValuesError(expected);
-        return -1;
-    }
-    return __Pyx_IterFinish();
-}
-
 /* ArgTypeTest */
 static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
 {
@@ -23127,6 +23033,19 @@ static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
     PyErr_Clear();
 #endif
     return __Pyx_GetBuiltinName(name);
+}
+
+/* RaiseTooManyValuesToUnpack */
+static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected) {
+    PyErr_Format(PyExc_ValueError,
+                 "too many values to unpack (expected %" CYTHON_FORMAT_SSIZE_T "d)", expected);
+}
+
+/* RaiseNeedMoreValuesToUnpack */
+static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index) {
+    PyErr_Format(PyExc_ValueError,
+                 "need more than %" CYTHON_FORMAT_SSIZE_T "d value%.1s to unpack",
+                 index, (index == 1) ? "" : "s");
 }
 
 /* RaiseNoneIterError */
@@ -23912,6 +23831,28 @@ bad:
     Py_XDECREF(ob);
     return NULL;
 }
+
+/* PyObjectCallNoArg */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
+#if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(func)) {
+        return __Pyx_PyFunction_FastCall(func, NULL, 0);
+    }
+#endif
+#if defined(__Pyx_CyFunction_USED) && defined(NDEBUG)
+    if (likely(PyCFunction_Check(func) || __Pyx_CyFunction_Check(func)))
+#else
+    if (likely(PyCFunction_Check(func)))
+#endif
+    {
+        if (likely(PyCFunction_GET_FLAGS(func) & METH_NOARGS)) {
+            return __Pyx_PyObject_CallMethO(func, NULL);
+        }
+    }
+    return __Pyx_PyObject_Call(func, __pyx_empty_tuple, NULL);
+}
+#endif
 
 /* PyObjectGetMethod */
 static int __Pyx_PyObject_GetMethod(PyObject *obj, PyObject *name, PyObject **method) {
