@@ -19,19 +19,19 @@ cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:
     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
     cpdef (uint64_t, uint64_t) simulate_play(
         self, int turn, uint64_t put_loc,
-        uint64_t black_board, uint64_t white_board,
+        uint64_t black_board=?, uint64_t white_board=?,
         )
     cpdef void update_board(self, uint64_t black_board, uint64_t white_board)
     cpdef (uint64_t, uint64_t) count_disks(
-            self, uint64_t black_board, uint64_t white_board)
+            self, uint64_t black_board=?, uint64_t white_board=?)
     cpdef uint64_t reversible_area(
-        self, uint64_t turn, uint64_t black_board, uint64_t white_board)
+        self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
     cpdef bint is_reversible(
         self, uint64_t turn, uint64_t put_loc,
-        uint64_t black_board, uint64_t white_board,
+        uint64_t black_board=?, uint64_t white_board=?,
         )
     cpdef bint turn_playable(
-        self, uint64_t turn, uint64_t black_board, uint64_t white_board)
+        self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
     cpdef (uint64_t, uint64_t) return_board(self)
     cpdef (uint64_t, uint64_t) return_player_board(self, int turn)
     cpdef load_board(self, uint64_t black_board, uint64_t white_board)

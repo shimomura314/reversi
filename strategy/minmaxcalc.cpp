@@ -987,6 +987,7 @@ static const char *__pyx_filename;
 static const char *__pyx_f[] = {
   "strategy\\minmaxcalc.pyx",
   "stringsource",
+  "bitboard\\bitothello.pxd",
 };
 /* ForceInitThreads.proto */
 #ifndef __PYX_FORCE_INIT_THREADS
@@ -1094,17 +1095,72 @@ typedef struct {
 
 
 /*--- Type declarations ---*/
+struct OthelloGameCObject;
 struct MinmaxCObject;
 struct __pyx_array_obj;
 struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
 struct __pyx_memoryviewslice_obj;
+struct __pyx_ctuple_int__and_int;
+typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy;
+
+/* "bitboard/bitothello.pxd":26
+ *     # Declaration of methods.
+ *     cpdef void play_turn(self, int put_loc)
+ *     cpdef (int, int) update_count(self)             # <<<<<<<<<<<<<<
+ *     cpdef bint judge_game(self, int player=?, int opponent=?)
+ *     cpdef void auto_mode(self, bint automode=?)
+ */
+struct __pyx_ctuple_int__and_int {
+  int f0;
+  int f1;
+};
+
+/* "bitboard/bitothello.pxd":27
+ *     cpdef void play_turn(self, int put_loc)
+ *     cpdef (int, int) update_count(self)
+ *     cpdef bint judge_game(self, int player=?, int opponent=?)             # <<<<<<<<<<<<<<
+ *     cpdef void auto_mode(self, bint automode=?)
+ *     cpdef void load_strategy(self, object Strategy)
+ */
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game {
+  int __pyx_n;
+  int player;
+  int opponent;
+};
+
+/* "bitboard/bitothello.pxd":28
+ *     cpdef (int, int) update_count(self)
+ *     cpdef bint judge_game(self, int player=?, int opponent=?)
+ *     cpdef void auto_mode(self, bint automode=?)             # <<<<<<<<<<<<<<
+ *     cpdef void load_strategy(self, object Strategy)
+ *     cpdef void change_strategy(self, str strategy, bint is_player=?)
+ */
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode {
+  int __pyx_n;
+  int automode;
+};
+
+/* "bitboard/bitothello.pxd":30
+ *     cpdef void auto_mode(self, bint automode=?)
+ *     cpdef void load_strategy(self, object Strategy)
+ *     cpdef void change_strategy(self, str strategy, bint is_player=?)             # <<<<<<<<<<<<<<
+ *     cpdef (bint, bint) process_game(self)
+ *     cpdef list display_board(self)
+ */
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy {
+  int __pyx_n;
+  int is_player;
+};
 struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
 typedef struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t;
 struct __pyx_ctuple_float__and_int;
 typedef struct __pyx_ctuple_float__and_int __pyx_ctuple_float__and_int;
 
-/* "strategy/minmaxcalc.pyx":40
+/* "strategy/minmaxcalc.pyx":39
  *     cpdef uint64_t _bit_count(self, uint64_t x)
  *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
  *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
@@ -1116,7 +1172,7 @@ struct __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t {
   std::uint64_t f1;
 };
 
-/* "strategy/minmaxcalc.pyx":58
+/* "strategy/minmaxcalc.pyx":57
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board)
  *     cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board)
  *     cdef (float, int) min_max(             # <<<<<<<<<<<<<<
@@ -1128,7 +1184,36 @@ struct __pyx_ctuple_float__and_int {
   int f1;
 };
 
-/* "strategy/minmaxcalc.pyx":27
+/* "bitboard/bitothello.pxd":5
+ * 
+ * 
+ * cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType]:             # <<<<<<<<<<<<<<
+ * 
+ *     # Class variables.
+ */
+struct OthelloGameCObject {
+  PyObject_HEAD
+  struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *__pyx_vtab;
+  int BLACK;
+  int WHITE;
+  PyObject *board;
+  int _player_clr;
+  int turn;
+  std::uint64_t reversible;
+  PyObject *result;
+  int _count_player;
+  int _count_opponent;
+  int _pass_cnt[2];
+  int _player_auto;
+  PyObject *_strategy_player;
+  PyObject *_strategy_opponent;
+  PyObject *_board_log;
+  PyObject *_board_back;
+};
+
+__PYX_EXTERN_C DL_EXPORT(PyTypeObject) OthelloGameCType;
+
+/* "strategy/minmaxcalc.pyx":26
  * 
  * 
  * cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:             # <<<<<<<<<<<<<<
@@ -1143,7 +1228,7 @@ struct MinmaxCObject {
   std::uint64_t _EXP2[64];
   int _player_clr;
   int _count_pass;
-  PyObject *_othello;
+  struct OthelloGameCObject *_othello;
   int depth;
 };
 
@@ -1240,9 +1325,35 @@ struct __pyx_vtabstruct_array {
 };
 static struct __pyx_vtabstruct_array *__pyx_vtabptr_array;
 
+__PYX_EXTERN_C DL_EXPORT(PyTypeObject) OthelloGameCType;
+
+/* "bitboard/bitothello.pxd":5
+ * 
+ * 
+ * cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType]:             # <<<<<<<<<<<<<<
+ * 
+ *     # Class variables.
+ */
+
+struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC {
+  void (*play_turn)(struct OthelloGameCObject *, int, int __pyx_skip_dispatch);
+  __pyx_ctuple_int__and_int (*update_count)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
+  int (*judge_game)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game *__pyx_optional_args);
+  void (*auto_mode)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode *__pyx_optional_args);
+  void (*load_strategy)(struct OthelloGameCObject *, PyObject *, int __pyx_skip_dispatch);
+  void (*change_strategy)(struct OthelloGameCObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy *__pyx_optional_args);
+  __pyx_ctuple_int__and_int (*process_game)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
+  PyObject *(*display_board)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
+  int (*undo_turn)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
+  int (*redo_turn)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
+  int (*return_turn)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
+  void (*load_state)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, PyObject *, PyObject *, int __pyx_skip_dispatch);
+};
+static struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *__pyx_vtabptr_8bitboard_10bitothello_OthelloGameC;
+
 __PYX_EXTERN_C DL_EXPORT(PyTypeObject) MinmaxCType;
 
-/* "strategy/minmaxcalc.pyx":27
+/* "strategy/minmaxcalc.pyx":26
  * 
  * 
  * cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:             # <<<<<<<<<<<<<<
@@ -1261,7 +1372,7 @@ struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC {
   int (*touch_border)(struct MinmaxCObject *, std::uint64_t, std::uint64_t);
   float (*evaluate_value)(struct MinmaxCObject *, std::uint64_t, std::uint64_t);
   __pyx_ctuple_float__and_int (*min_max)(struct MinmaxCObject *, std::uint64_t, std::uint64_t, int, int, float);
-  int (*put_disk)(struct MinmaxCObject *, PyObject *, int __pyx_skip_dispatch);
+  int (*put_disk)(struct MinmaxCObject *, struct OthelloGameCObject *, int __pyx_skip_dispatch);
 };
 static struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *__pyx_vtabptr_8strategy_10minmaxcalc_MinmaxC;
 
@@ -1536,14 +1647,14 @@ static CYTHON_INLINE int __Pyx_IterFinish(void);
 /* UnpackItemEndCheck.proto */
 static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected);
 
-/* RaiseException.proto */
-static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
-
 /* ArgTypeTest.proto */
 #define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
     ((likely((Py_TYPE(obj) == type) | (none_allowed && (obj == Py_None)))) ? 1 :\
         __Pyx__ArgTypeTest(obj, type, name, exact))
 static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
+
+/* RaiseException.proto */
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
 
 /* StrEquals.proto */
 #if PY_MAJOR_VERSION >= 3
@@ -1790,6 +1901,29 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStrNoError(PyObject* obj, P
 /* SetupReduce.proto */
 static int __Pyx_setup_reduce(PyObject* type_obj);
 
+/* TypeImport.proto */
+#ifndef __PYX_HAVE_RT_ImportType_proto
+#define __PYX_HAVE_RT_ImportType_proto
+enum __Pyx_ImportType_CheckSize {
+   __Pyx_ImportType_CheckSize_Error = 0,
+   __Pyx_ImportType_CheckSize_Warn = 1,
+   __Pyx_ImportType_CheckSize_Ignore = 2
+};
+static PyTypeObject *__Pyx_ImportType(PyObject* module, const char *module_name, const char *class_name, size_t size, enum __Pyx_ImportType_CheckSize check_size);
+#endif
+
+/* GetVTable.proto */
+static void* __Pyx_GetVtable(PyObject *dict);
+
+/* PyObjectGetMethod.proto */
+static int __Pyx_PyObject_GetMethod(PyObject *obj, PyObject *name, PyObject **method);
+
+/* PyObjectCallMethod1.proto */
+static PyObject* __Pyx_PyObject_CallMethod1(PyObject* obj, PyObject* method_name, PyObject* arg);
+
+/* append.proto */
+static CYTHON_INLINE int __Pyx_PyObject_Append(PyObject* L, PyObject* x);
+
 /* CLineInTraceback.proto */
 #ifdef CYTHON_CLINE_IN_TRACEBACK
 #define __Pyx_CLineForTraceback(tstate, c_line)  (((CYTHON_CLINE_IN_TRACEBACK)) ? c_line : 0)
@@ -1931,7 +2065,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
 static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED struct MinmaxCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto*/
 static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct MinmaxCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto*/
 static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_max(struct MinmaxCObject *__pyx_v_self, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board, int __pyx_v_turn, int __pyx_v_depth, float __pyx_v_pre_evaluation); /* proto*/
-static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject *__pyx_v_self, PyObject *__pyx_v_othello, int __pyx_skip_dispatch); /* proto*/
+static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject *__pyx_v_self, struct OthelloGameCObject *__pyx_v_othello, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_array_get_memview(struct __pyx_array_obj *__pyx_v_self); /* proto*/
 static char *__pyx_memoryview_get_item_pointer(struct __pyx_memoryview_obj *__pyx_v_self, PyObject *__pyx_v_index); /* proto*/
 static PyObject *__pyx_memoryview_is_slice(struct __pyx_memoryview_obj *__pyx_v_self, PyObject *__pyx_v_obj); /* proto*/
@@ -1946,6 +2080,9 @@ static PyObject *__pyx_memoryviewslice_assign_item_from_object(struct __pyx_memo
 /* Module declarations from 'cython.view' */
 
 /* Module declarations from 'cython' */
+
+/* Module declarations from 'bitboard.bitothello' */
+static PyTypeObject *__pyx_ptype_8bitboard_10bitothello_OthelloGameC = 0;
 
 /* Module declarations from 'strategy.minmaxcalc' */
 static PyTypeObject *__pyx_ptype_8strategy_10minmaxcalc_MinmaxC = 0;
@@ -2009,24 +2146,28 @@ static PyObject *__pyx_builtin_IndexError;
 static const char __pyx_k_O[] = "O";
 static const char __pyx_k_c[] = "c";
 static const char __pyx_k_id[] = "id";
+static const char __pyx_k_os[] = "os";
 static const char __pyx_k_WIN[] = "WIN";
+static const char __pyx_k__22[] = "..";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
+static const char __pyx_k_sys[] = "sys";
 static const char __pyx_k_LOSE[] = "LOSE";
 static const char __pyx_k_base[] = "base";
 static const char __pyx_k_dict[] = "__dict__";
+static const char __pyx_k_join[] = "join";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_mode[] = "mode";
 static const char __pyx_k_name[] = "name";
 static const char __pyx_k_ndim[] = "ndim";
 static const char __pyx_k_pack[] = "pack";
+static const char __pyx_k_path[] = "path";
 static const char __pyx_k_size[] = "size";
 static const char __pyx_k_step[] = "step";
 static const char __pyx_k_stop[] = "stop";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_turn[] = "turn";
 static const char __pyx_k_ASCII[] = "ASCII";
-static const char __pyx_k_board[] = "board";
 static const char __pyx_k_class[] = "__class__";
 static const char __pyx_k_depth[] = "depth";
 static const char __pyx_k_error[] = "error";
@@ -2034,17 +2175,19 @@ static const char __pyx_k_flags[] = "flags";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_shape[] = "shape";
 static const char __pyx_k_start[] = "start";
+static const char __pyx_k_append[] = "append";
 static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_format[] = "format";
+static const char __pyx_k_getcwd[] = "getcwd";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_name_2[] = "__name__";
 static const char __pyx_k_pickle[] = "pickle";
 static const char __pyx_k_reduce[] = "__reduce__";
-static const char __pyx_k_result[] = "result";
 static const char __pyx_k_struct[] = "struct";
 static const char __pyx_k_unpack[] = "unpack";
 static const char __pyx_k_update[] = "update";
 static const char __pyx_k_MinmaxC[] = "MinmaxC";
+static const char __pyx_k_abspath[] = "abspath";
 static const char __pyx_k_fortran[] = "fortran";
 static const char __pyx_k_memview[] = "memview";
 static const char __pyx_k_put_loc[] = "put_loc";
@@ -2062,7 +2205,7 @@ static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_IndexError[] = "IndexError";
 static const char __pyx_k_ValueError[] = "ValueError";
-static const char __pyx_k_judge_game[] = "judge_game";
+static const char __pyx_k_parent_dir[] = "parent_dir";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_MemoryError[] = "MemoryError";
@@ -2138,11 +2281,13 @@ static PyObject *__pyx_kp_s_Unable_to_convert_item_to_object;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_View_MemoryView;
 static PyObject *__pyx_n_u_WIN;
+static PyObject *__pyx_kp_u__22;
+static PyObject *__pyx_n_s_abspath;
 static PyObject *__pyx_n_s_allocate_buffer;
+static PyObject *__pyx_n_s_append;
 static PyObject *__pyx_n_s_base;
 static PyObject *__pyx_n_s_bit_count;
 static PyObject *__pyx_n_s_black_board;
-static PyObject *__pyx_n_s_board;
 static PyObject *__pyx_n_s_c;
 static PyObject *__pyx_n_u_c;
 static PyObject *__pyx_n_s_check_surround;
@@ -2162,6 +2307,7 @@ static PyObject *__pyx_n_s_flags;
 static PyObject *__pyx_n_s_format;
 static PyObject *__pyx_n_s_fortran;
 static PyObject *__pyx_n_u_fortran;
+static PyObject *__pyx_n_s_getcwd;
 static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_kp_s_got_differing_extents_in_dimensi;
 static PyObject *__pyx_n_s_id;
@@ -2169,7 +2315,7 @@ static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_is_reversible;
 static PyObject *__pyx_n_s_itemsize;
 static PyObject *__pyx_kp_s_itemsize_0_for_cython_array;
-static PyObject *__pyx_n_s_judge_game;
+static PyObject *__pyx_n_s_join;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_memview;
 static PyObject *__pyx_n_s_mode;
@@ -2179,7 +2325,10 @@ static PyObject *__pyx_n_s_ndim;
 static PyObject *__pyx_n_s_new;
 static PyObject *__pyx_kp_s_no_default___reduce___due_to_non;
 static PyObject *__pyx_n_s_obj;
+static PyObject *__pyx_n_s_os;
 static PyObject *__pyx_n_s_pack;
+static PyObject *__pyx_n_s_parent_dir;
+static PyObject *__pyx_n_s_path;
 static PyObject *__pyx_n_s_pickle;
 static PyObject *__pyx_n_s_put_disk;
 static PyObject *__pyx_n_s_put_loc;
@@ -2195,7 +2344,6 @@ static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_reduce;
 static PyObject *__pyx_n_s_reduce_cython;
 static PyObject *__pyx_n_s_reduce_ex;
-static PyObject *__pyx_n_s_result;
 static PyObject *__pyx_n_s_return_board;
 static PyObject *__pyx_n_s_reversible_area;
 static PyObject *__pyx_n_s_setstate;
@@ -2211,6 +2359,7 @@ static PyObject *__pyx_kp_s_strided_and_direct_or_indirect;
 static PyObject *__pyx_kp_s_strided_and_indirect;
 static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_struct;
+static PyObject *__pyx_n_s_sys;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_turn;
 static PyObject *__pyx_n_s_turn_playable;
@@ -2227,7 +2376,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_8count_disks(struct Mi
 static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_10reversible_area(struct MinmaxCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
 static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_12is_reversible(struct MinmaxCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_put_loc, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
 static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_14turn_playable(struct MinmaxCObject *__pyx_v_self, std::uint64_t __pyx_v_turn, std::uint64_t __pyx_v_black_board, std::uint64_t __pyx_v_white_board); /* proto */
-static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_16put_disk(struct MinmaxCObject *__pyx_v_self, PyObject *__pyx_v_othello); /* proto */
+static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_16put_disk(struct MinmaxCObject *__pyx_v_self, struct OthelloGameCObject *__pyx_v_othello); /* proto */
 static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_18__reduce_cython__(CYTHON_UNUSED struct MinmaxCObject *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_20__setstate_cython__(CYTHON_UNUSED struct MinmaxCObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
@@ -2304,17 +2453,17 @@ static PyObject *__pyx_tuple__18;
 static PyObject *__pyx_tuple__19;
 static PyObject *__pyx_tuple__20;
 static PyObject *__pyx_tuple__21;
-static PyObject *__pyx_tuple__22;
 static PyObject *__pyx_tuple__23;
 static PyObject *__pyx_tuple__24;
 static PyObject *__pyx_tuple__25;
 static PyObject *__pyx_tuple__26;
 static PyObject *__pyx_tuple__27;
-static PyObject *__pyx_codeobj__28;
+static PyObject *__pyx_tuple__28;
+static PyObject *__pyx_codeobj__29;
 /* Late includes */
 
-/* "strategy/minmaxcalc.pyx":64
- *     cpdef int put_disk(self, object othello)
+/* "strategy/minmaxcalc.pyx":63
+ *     cpdef int put_disk(self, OthelloGameC othello)
  * 
  *     def __cinit__(self, int depth=4):             # <<<<<<<<<<<<<<
  *         self._EVAL_TBL1[0:64] = [
@@ -2352,7 +2501,7 @@ static int __pyx_pw_8strategy_10minmaxcalc_7MinmaxC_1__cinit__(PyObject *__pyx_v
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 64, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 63, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -2363,14 +2512,14 @@ static int __pyx_pw_8strategy_10minmaxcalc_7MinmaxC_1__cinit__(PyObject *__pyx_v
       }
     }
     if (values[0]) {
-      __pyx_v_depth = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_depth == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 64, __pyx_L3_error)
+      __pyx_v_depth = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_depth == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 63, __pyx_L3_error)
     } else {
       __pyx_v_depth = ((int)4);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 64, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 63, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy.minmaxcalc.MinmaxC.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2391,7 +2540,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   std::uint64_t __pyx_t_3[64];
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "strategy/minmaxcalc.pyx":65
+  /* "strategy/minmaxcalc.pyx":64
  * 
  *     def __cinit__(self, int depth=4):
  *         self._EVAL_TBL1[0:64] = [             # <<<<<<<<<<<<<<
@@ -2464,7 +2613,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   __pyx_t_1[63] = 30;
   memcpy(&(__pyx_v_self->_EVAL_TBL1[0]), __pyx_t_1, sizeof(__pyx_v_self->_EVAL_TBL1[0]) * (64));
 
-  /* "strategy/minmaxcalc.pyx":75
+  /* "strategy/minmaxcalc.pyx":74
  *             30,  -12,   0,  -1,  -1,   0, -12,  30,
  *         ]
  *         self._EVAL_TBL2[0:64] = [             # <<<<<<<<<<<<<<
@@ -2537,7 +2686,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   __pyx_t_2[63] = 0x78;
   memcpy(&(__pyx_v_self->_EVAL_TBL2[0]), __pyx_t_2, sizeof(__pyx_v_self->_EVAL_TBL2[0]) * (64));
 
-  /* "strategy/minmaxcalc.pyx":85
+  /* "strategy/minmaxcalc.pyx":84
  *             120, -20,  20,   5,   5,  20, -20, 120,
  *         ]
  *         self._EXP2[0:64] = [             # <<<<<<<<<<<<<<
@@ -2610,7 +2759,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   __pyx_t_3[63] = 0x8000000000000000;
   memcpy(&(__pyx_v_self->_EXP2[0]), __pyx_t_3, sizeof(__pyx_v_self->_EXP2[0]) * (64));
 
-  /* "strategy/minmaxcalc.pyx":100
+  /* "strategy/minmaxcalc.pyx":99
  *             4611686018427387904, 9223372036854775808,
  *         ]
  *         self.depth = depth             # <<<<<<<<<<<<<<
@@ -2619,8 +2768,8 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
  */
   __pyx_v_self->depth = __pyx_v_depth;
 
-  /* "strategy/minmaxcalc.pyx":64
- *     cpdef int put_disk(self, object othello)
+  /* "strategy/minmaxcalc.pyx":63
+ *     cpdef int put_disk(self, OthelloGameC othello)
  * 
  *     def __cinit__(self, int depth=4):             # <<<<<<<<<<<<<<
  *         self._EVAL_TBL1[0:64] = [
@@ -2633,7 +2782,7 @@ static int __pyx_pf_8strategy_10minmaxcalc_7MinmaxC___cinit__(struct MinmaxCObje
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":103
+/* "strategy/minmaxcalc.pyx":102
  * 
  *     # Difinitions of methods.
  *     cpdef uint64_t _bit_count(self, uint64_t x):             # <<<<<<<<<<<<<<
@@ -2664,10 +2813,10 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_bit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_bit_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_3_bit_count)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -2683,10 +2832,10 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
         __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_6 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_6 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 103, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_6 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 102, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_6;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -2705,7 +2854,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
     #endif
   }
 
-  /* "strategy/minmaxcalc.pyx":113
+  /* "strategy/minmaxcalc.pyx":112
  * 
  *         # Distributing by 2-bit, express the number of bits using 2-bit.
  *         x -= (x >> 1) & 0x5555555555555555ULL             # <<<<<<<<<<<<<<
@@ -2714,7 +2863,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
  */
   __pyx_v_x = (__pyx_v_x - ((__pyx_v_x >> 1) & 0x5555555555555555ULL));
 
-  /* "strategy/minmaxcalc.pyx":115
+  /* "strategy/minmaxcalc.pyx":114
  *         x -= (x >> 1) & 0x5555555555555555ULL
  *         # Upper 2-bit + lower 2-bit.
  *         x = (x & 0x3333333333333333ULL) + ((x >> 2) & 0x3333333333333333ULL)             # <<<<<<<<<<<<<<
@@ -2723,7 +2872,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
  */
   __pyx_v_x = ((__pyx_v_x & 0x3333333333333333ULL) + ((__pyx_v_x >> 2) & 0x3333333333333333ULL));
 
-  /* "strategy/minmaxcalc.pyx":117
+  /* "strategy/minmaxcalc.pyx":116
  *         x = (x & 0x3333333333333333ULL) + ((x >> 2) & 0x3333333333333333ULL)
  *         # Upper 4-bit + lower 4-bit.
  *         x = (x + (x >> 4)) & 0x0f0f0f0f0f0f0f0fULL             # <<<<<<<<<<<<<<
@@ -2732,7 +2881,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
  */
   __pyx_v_x = ((__pyx_v_x + (__pyx_v_x >> 4)) & 0x0f0f0f0f0f0f0f0fULL);
 
-  /* "strategy/minmaxcalc.pyx":119
+  /* "strategy/minmaxcalc.pyx":118
  *         x = (x + (x >> 4)) & 0x0f0f0f0f0f0f0f0fULL
  *         # Upper 8-bit + lower 8-bit.
  *         x += x >> 8             # <<<<<<<<<<<<<<
@@ -2741,7 +2890,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
  */
   __pyx_v_x = (__pyx_v_x + (__pyx_v_x >> 8));
 
-  /* "strategy/minmaxcalc.pyx":121
+  /* "strategy/minmaxcalc.pyx":120
  *         x += x >> 8
  *         # Upper 16-bit + lower 16-bit.
  *         x += x >> 16             # <<<<<<<<<<<<<<
@@ -2750,7 +2899,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
  */
   __pyx_v_x = (__pyx_v_x + (__pyx_v_x >> 16));
 
-  /* "strategy/minmaxcalc.pyx":123
+  /* "strategy/minmaxcalc.pyx":122
  *         x += x >> 16
  *         # Upper 32-bit + lower 32-bit.
  *         x += x >> 32             # <<<<<<<<<<<<<<
@@ -2759,7 +2908,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
  */
   __pyx_v_x = (__pyx_v_x + (__pyx_v_x >> 32));
 
-  /* "strategy/minmaxcalc.pyx":124
+  /* "strategy/minmaxcalc.pyx":123
  *         # Upper 32-bit + lower 32-bit.
  *         x += x >> 32
  *         return x & 0x0000007fULL             # <<<<<<<<<<<<<<
@@ -2769,7 +2918,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(CYTHON_U
   __pyx_r = (__pyx_v_x & 0x0000007fULL);
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":103
+  /* "strategy/minmaxcalc.pyx":102
  * 
  *     # Difinitions of methods.
  *     cpdef uint64_t _bit_count(self, uint64_t x):             # <<<<<<<<<<<<<<
@@ -2803,7 +2952,7 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_3_bit_count(PyObject *
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_bit_count (wrapper)", 0);
   assert(__pyx_arg_x); {
-    __pyx_v_x = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_arg_x); if (unlikely((__pyx_v_x == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 103, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_arg_x); if (unlikely((__pyx_v_x == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 102, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2827,7 +2976,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_2_bit_count(struct Min
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_bit_count", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(__pyx_v_self, __pyx_v_x, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC__bit_count(__pyx_v_self, __pyx_v_x, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2844,7 +2993,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_2_bit_count(struct Min
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":126
+/* "strategy/minmaxcalc.pyx":125
  *         return x & 0x0000007fULL
  * 
  *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction):             # <<<<<<<<<<<<<<
@@ -2878,12 +3027,12 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_check_surround); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_check_surround); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_5_check_surround)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 125, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_direction); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_direction); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -2901,7 +3050,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2911,7 +3060,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2919,7 +3068,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 126, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 125, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -2930,12 +3079,12 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_9 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_9 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 126, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_9 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 125, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_9;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -2954,7 +3103,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     #endif
   }
 
-  /* "strategy/minmaxcalc.pyx":136
+  /* "strategy/minmaxcalc.pyx":135
  *             Intager from 0 to 7.
  *         """
  *         if direction == 0:  # Upper             # <<<<<<<<<<<<<<
@@ -2964,7 +3113,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
   switch (__pyx_v_direction) {
     case 0:
 
-    /* "strategy/minmaxcalc.pyx":137
+    /* "strategy/minmaxcalc.pyx":136
  *         """
  *         if direction == 0:  # Upper
  *             return (put_loc << 8) & 0xffffffffffffff00ULL             # <<<<<<<<<<<<<<
@@ -2974,7 +3123,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     __pyx_r = ((__pyx_v_put_loc << 8) & 0xffffffffffffff00ULL);
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":136
+    /* "strategy/minmaxcalc.pyx":135
  *             Intager from 0 to 7.
  *         """
  *         if direction == 0:  # Upper             # <<<<<<<<<<<<<<
@@ -2984,7 +3133,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     break;
     case 1:
 
-    /* "strategy/minmaxcalc.pyx":139
+    /* "strategy/minmaxcalc.pyx":138
  *             return (put_loc << 8) & 0xffffffffffffff00ULL
  *         elif direction == 1:  # Upper right
  *             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL             # <<<<<<<<<<<<<<
@@ -2994,7 +3143,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     __pyx_r = ((__pyx_v_put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL);
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":138
+    /* "strategy/minmaxcalc.pyx":137
  *         if direction == 0:  # Upper
  *             return (put_loc << 8) & 0xffffffffffffff00ULL
  *         elif direction == 1:  # Upper right             # <<<<<<<<<<<<<<
@@ -3004,7 +3153,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     break;
     case 2:
 
-    /* "strategy/minmaxcalc.pyx":141
+    /* "strategy/minmaxcalc.pyx":140
  *             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL
  *         elif direction == 2:  # Right
  *             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL             # <<<<<<<<<<<<<<
@@ -3014,7 +3163,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     __pyx_r = ((__pyx_v_put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL);
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":140
+    /* "strategy/minmaxcalc.pyx":139
  *         elif direction == 1:  # Upper right
  *             return (put_loc << 7) & 0x7f7f7f7f7f7f7f00ULL
  *         elif direction == 2:  # Right             # <<<<<<<<<<<<<<
@@ -3024,7 +3173,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     break;
     case 3:
 
-    /* "strategy/minmaxcalc.pyx":143
+    /* "strategy/minmaxcalc.pyx":142
  *             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL
  *         elif direction == 3:  # Lower right
  *             return (put_loc >> 9) & 0x007f7f7f7f7f7f7fULL             # <<<<<<<<<<<<<<
@@ -3034,7 +3183,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     __pyx_r = ((__pyx_v_put_loc >> 9) & 0x007f7f7f7f7f7f7fULL);
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":142
+    /* "strategy/minmaxcalc.pyx":141
  *         elif direction == 2:  # Right
  *             return (put_loc >> 1) & 0x7f7f7f7f7f7f7f7fULL
  *         elif direction == 3:  # Lower right             # <<<<<<<<<<<<<<
@@ -3044,7 +3193,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     break;
     case 4:
 
-    /* "strategy/minmaxcalc.pyx":145
+    /* "strategy/minmaxcalc.pyx":144
  *             return (put_loc >> 9) & 0x007f7f7f7f7f7f7fULL
  *         elif direction == 4:  # Lower
  *             return (put_loc >> 8) & 0x00ffffffffffffffULL             # <<<<<<<<<<<<<<
@@ -3054,7 +3203,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     __pyx_r = ((__pyx_v_put_loc >> 8) & 0x00ffffffffffffffULL);
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":144
+    /* "strategy/minmaxcalc.pyx":143
  *         elif direction == 3:  # Lower right
  *             return (put_loc >> 9) & 0x007f7f7f7f7f7f7fULL
  *         elif direction == 4:  # Lower             # <<<<<<<<<<<<<<
@@ -3064,7 +3213,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     break;
     case 5:
 
-    /* "strategy/minmaxcalc.pyx":147
+    /* "strategy/minmaxcalc.pyx":146
  *             return (put_loc >> 8) & 0x00ffffffffffffffULL
  *         elif direction == 5:  # Lower left
  *             return (put_loc >> 7) & 0x00fefefefefefefeULL             # <<<<<<<<<<<<<<
@@ -3074,7 +3223,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     __pyx_r = ((__pyx_v_put_loc >> 7) & 0x00fefefefefefefeULL);
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":146
+    /* "strategy/minmaxcalc.pyx":145
  *         elif direction == 4:  # Lower
  *             return (put_loc >> 8) & 0x00ffffffffffffffULL
  *         elif direction == 5:  # Lower left             # <<<<<<<<<<<<<<
@@ -3084,7 +3233,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     break;
     case 6:
 
-    /* "strategy/minmaxcalc.pyx":149
+    /* "strategy/minmaxcalc.pyx":148
  *             return (put_loc >> 7) & 0x00fefefefefefefeULL
  *         elif direction == 6:  # Left
  *             return (put_loc << 1) & 0xfefefefefefefefeULL             # <<<<<<<<<<<<<<
@@ -3094,7 +3243,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     __pyx_r = ((__pyx_v_put_loc << 1) & 0xfefefefefefefefeULL);
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":148
+    /* "strategy/minmaxcalc.pyx":147
  *         elif direction == 5:  # Lower left
  *             return (put_loc >> 7) & 0x00fefefefefefefeULL
  *         elif direction == 6:  # Left             # <<<<<<<<<<<<<<
@@ -3104,7 +3253,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     break;
     case 7:
 
-    /* "strategy/minmaxcalc.pyx":151
+    /* "strategy/minmaxcalc.pyx":150
  *             return (put_loc << 1) & 0xfefefefefefefefeULL
  *         elif direction == 7:  # Upper left
  *             return (put_loc << 9) & 0xfefefefefefefe00ULL             # <<<<<<<<<<<<<<
@@ -3114,7 +3263,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     __pyx_r = ((__pyx_v_put_loc << 9) & 0xfefefefefefefe00ULL);
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":150
+    /* "strategy/minmaxcalc.pyx":149
  *         elif direction == 6:  # Left
  *             return (put_loc << 1) & 0xfefefefefefefefeULL
  *         elif direction == 7:  # Upper left             # <<<<<<<<<<<<<<
@@ -3125,7 +3274,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(CYT
     default: break;
   }
 
-  /* "strategy/minmaxcalc.pyx":126
+  /* "strategy/minmaxcalc.pyx":125
  *         return x & 0x0000007fULL
  * 
  *     cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction):             # <<<<<<<<<<<<<<
@@ -3186,11 +3335,11 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_5_check_surround(PyObj
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_direction)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("_check_surround", 1, 2, 2, 1); __PYX_ERR(0, 126, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("_check_surround", 1, 2, 2, 1); __PYX_ERR(0, 125, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "_check_surround") < 0)) __PYX_ERR(0, 126, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "_check_surround") < 0)) __PYX_ERR(0, 125, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3198,12 +3347,12 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_5_check_surround(PyObj
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 126, __pyx_L3_error)
-    __pyx_v_direction = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_direction == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 126, __pyx_L3_error)
+    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 125, __pyx_L3_error)
+    __pyx_v_direction = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_direction == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 125, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_check_surround", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 126, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_check_surround", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 125, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy.minmaxcalc.MinmaxC._check_surround", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3225,7 +3374,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_4_check_surround(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_check_surround", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC__check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3242,7 +3391,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_4_check_surround(struc
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":153
+/* "strategy/minmaxcalc.pyx":152
  *             return (put_loc << 9) & 0xfefefefefefefe00ULL
  * 
  *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
@@ -3284,16 +3433,16 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simulate_play); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simulate_play); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_7simulate_play)) {
-        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 152, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 152, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 152, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 152, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_7 = __pyx_t_1; __pyx_t_8 = NULL;
@@ -3311,7 +3460,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_7)) {
           PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 152, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3323,7 +3472,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
           PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 152, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3333,7 +3482,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         } else
         #endif
         {
-          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 153, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 152, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           if (__pyx_t_8) {
             __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -3350,12 +3499,12 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
           __pyx_t_4 = 0;
           __pyx_t_5 = 0;
           __pyx_t_6 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 152, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_11 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L1_error)
+        __pyx_t_11 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_11;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3374,7 +3523,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
     #endif
   }
 
-  /* "strategy/minmaxcalc.pyx":172
+  /* "strategy/minmaxcalc.pyx":171
  *         reversed_black_board, reversed_white_board : list of int
  *         """
  *         cdef uint64_t reverse_bit = 0             # <<<<<<<<<<<<<<
@@ -3383,7 +3532,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
   __pyx_v_reverse_bit = 0;
 
-  /* "strategy/minmaxcalc.pyx":175
+  /* "strategy/minmaxcalc.pyx":174
  *         cdef uint64_t reverse_bit_
  *         cdef uint64_t border_bit
  *         if turn == 0:             # <<<<<<<<<<<<<<
@@ -3393,7 +3542,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
   __pyx_t_12 = ((__pyx_v_turn == 0) != 0);
   if (__pyx_t_12) {
 
-    /* "strategy/minmaxcalc.pyx":177
+    /* "strategy/minmaxcalc.pyx":176
  *         if turn == 0:
  *             # Player is black_board.
  *             for direction in range(8):             # <<<<<<<<<<<<<<
@@ -3403,7 +3552,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
     for (__pyx_t_13 = 0; __pyx_t_13 < 8; __pyx_t_13+=1) {
       __pyx_v_direction = __pyx_t_13;
 
-      /* "strategy/minmaxcalc.pyx":178
+      /* "strategy/minmaxcalc.pyx":177
  *             # Player is black_board.
  *             for direction in range(8):
  *                 reverse_bit_ = 0             # <<<<<<<<<<<<<<
@@ -3412,7 +3561,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
       __pyx_v_reverse_bit_ = 0;
 
-      /* "strategy/minmaxcalc.pyx":179
+      /* "strategy/minmaxcalc.pyx":178
  *             for direction in range(8):
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)             # <<<<<<<<<<<<<<
@@ -3421,7 +3570,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
       __pyx_v_border_bit = ((std::uint64_t)((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 0));
 
-      /* "strategy/minmaxcalc.pyx":180
+      /* "strategy/minmaxcalc.pyx":179
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  *                 while border_bit & white_board:             # <<<<<<<<<<<<<<
@@ -3432,7 +3581,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_white_board) != 0);
         if (!__pyx_t_12) break;
 
-        /* "strategy/minmaxcalc.pyx":181
+        /* "strategy/minmaxcalc.pyx":180
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  *                 while border_bit & white_board:
  *                     reverse_bit_ |= border_bit             # <<<<<<<<<<<<<<
@@ -3441,7 +3590,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
         __pyx_v_reverse_bit_ = (__pyx_v_reverse_bit_ | __pyx_v_border_bit);
 
-        /* "strategy/minmaxcalc.pyx":182
+        /* "strategy/minmaxcalc.pyx":181
  *                 while border_bit & white_board:
  *                     reverse_bit_ |= border_bit
  *                     border_bit = self._check_surround(border_bit, direction)             # <<<<<<<<<<<<<<
@@ -3451,7 +3600,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         __pyx_v_border_bit = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_border_bit, __pyx_v_direction, 0);
       }
 
-      /* "strategy/minmaxcalc.pyx":184
+      /* "strategy/minmaxcalc.pyx":183
  *                     border_bit = self._check_surround(border_bit, direction)
  *                 # If player's disk is opposite side.
  *                 if border_bit & black_board:             # <<<<<<<<<<<<<<
@@ -3461,7 +3610,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
       __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_black_board) != 0);
       if (__pyx_t_12) {
 
-        /* "strategy/minmaxcalc.pyx":185
+        /* "strategy/minmaxcalc.pyx":184
  *                 # If player's disk is opposite side.
  *                 if border_bit & black_board:
  *                     reverse_bit |= reverse_bit_             # <<<<<<<<<<<<<<
@@ -3470,7 +3619,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
         __pyx_v_reverse_bit = (__pyx_v_reverse_bit | __pyx_v_reverse_bit_);
 
-        /* "strategy/minmaxcalc.pyx":184
+        /* "strategy/minmaxcalc.pyx":183
  *                     border_bit = self._check_surround(border_bit, direction)
  *                 # If player's disk is opposite side.
  *                 if border_bit & black_board:             # <<<<<<<<<<<<<<
@@ -3480,7 +3629,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
       }
     }
 
-    /* "strategy/minmaxcalc.pyx":186
+    /* "strategy/minmaxcalc.pyx":185
  *                 if border_bit & black_board:
  *                     reverse_bit |= reverse_bit_
  *             black_board ^= (put_loc | reverse_bit)             # <<<<<<<<<<<<<<
@@ -3489,7 +3638,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
     __pyx_v_black_board = (__pyx_v_black_board ^ (__pyx_v_put_loc | __pyx_v_reverse_bit));
 
-    /* "strategy/minmaxcalc.pyx":187
+    /* "strategy/minmaxcalc.pyx":186
  *                     reverse_bit |= reverse_bit_
  *             black_board ^= (put_loc | reverse_bit)
  *             white_board ^= reverse_bit             # <<<<<<<<<<<<<<
@@ -3498,7 +3647,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
     __pyx_v_white_board = (__pyx_v_white_board ^ __pyx_v_reverse_bit);
 
-    /* "strategy/minmaxcalc.pyx":175
+    /* "strategy/minmaxcalc.pyx":174
  *         cdef uint64_t reverse_bit_
  *         cdef uint64_t border_bit
  *         if turn == 0:             # <<<<<<<<<<<<<<
@@ -3508,7 +3657,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
     goto __pyx_L3;
   }
 
-  /* "strategy/minmaxcalc.pyx":190
+  /* "strategy/minmaxcalc.pyx":189
  *         else:
  *             # Player is white_board.
  *             for direction in range(8):             # <<<<<<<<<<<<<<
@@ -3519,7 +3668,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
     for (__pyx_t_13 = 0; __pyx_t_13 < 8; __pyx_t_13+=1) {
       __pyx_v_direction = __pyx_t_13;
 
-      /* "strategy/minmaxcalc.pyx":191
+      /* "strategy/minmaxcalc.pyx":190
  *             # Player is white_board.
  *             for direction in range(8):
  *                 reverse_bit_ = 0             # <<<<<<<<<<<<<<
@@ -3528,7 +3677,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
       __pyx_v_reverse_bit_ = 0;
 
-      /* "strategy/minmaxcalc.pyx":192
+      /* "strategy/minmaxcalc.pyx":191
  *             for direction in range(8):
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)             # <<<<<<<<<<<<<<
@@ -3537,7 +3686,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
       __pyx_v_border_bit = ((std::uint64_t)((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_put_loc, __pyx_v_direction, 0));
 
-      /* "strategy/minmaxcalc.pyx":193
+      /* "strategy/minmaxcalc.pyx":192
  *                 reverse_bit_ = 0
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  *                 while border_bit & black_board:             # <<<<<<<<<<<<<<
@@ -3548,7 +3697,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_black_board) != 0);
         if (!__pyx_t_12) break;
 
-        /* "strategy/minmaxcalc.pyx":194
+        /* "strategy/minmaxcalc.pyx":193
  *                 border_bit = <uint64_t> self._check_surround(put_loc, direction)
  *                 while border_bit & black_board:
  *                     reverse_bit_ |= border_bit             # <<<<<<<<<<<<<<
@@ -3557,7 +3706,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
         __pyx_v_reverse_bit_ = (__pyx_v_reverse_bit_ | __pyx_v_border_bit);
 
-        /* "strategy/minmaxcalc.pyx":195
+        /* "strategy/minmaxcalc.pyx":194
  *                 while border_bit & black_board:
  *                     reverse_bit_ |= border_bit
  *                     border_bit = self._check_surround(border_bit, direction)             # <<<<<<<<<<<<<<
@@ -3567,7 +3716,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         __pyx_v_border_bit = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->_check_surround(__pyx_v_self, __pyx_v_border_bit, __pyx_v_direction, 0);
       }
 
-      /* "strategy/minmaxcalc.pyx":197
+      /* "strategy/minmaxcalc.pyx":196
  *                     border_bit = self._check_surround(border_bit, direction)
  *                 # If player's disk is opposite side.
  *                 if border_bit & white_board:             # <<<<<<<<<<<<<<
@@ -3577,7 +3726,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
       __pyx_t_12 = ((__pyx_v_border_bit & __pyx_v_white_board) != 0);
       if (__pyx_t_12) {
 
-        /* "strategy/minmaxcalc.pyx":198
+        /* "strategy/minmaxcalc.pyx":197
  *                 # If player's disk is opposite side.
  *                 if border_bit & white_board:
  *                     reverse_bit |= reverse_bit_             # <<<<<<<<<<<<<<
@@ -3586,7 +3735,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
         __pyx_v_reverse_bit = (__pyx_v_reverse_bit | __pyx_v_reverse_bit_);
 
-        /* "strategy/minmaxcalc.pyx":197
+        /* "strategy/minmaxcalc.pyx":196
  *                     border_bit = self._check_surround(border_bit, direction)
  *                 # If player's disk is opposite side.
  *                 if border_bit & white_board:             # <<<<<<<<<<<<<<
@@ -3596,7 +3745,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
       }
     }
 
-    /* "strategy/minmaxcalc.pyx":199
+    /* "strategy/minmaxcalc.pyx":198
  *                 if border_bit & white_board:
  *                     reverse_bit |= reverse_bit_
  *             white_board ^= (put_loc | reverse_bit)             # <<<<<<<<<<<<<<
@@ -3605,7 +3754,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
  */
     __pyx_v_white_board = (__pyx_v_white_board ^ (__pyx_v_put_loc | __pyx_v_reverse_bit));
 
-    /* "strategy/minmaxcalc.pyx":200
+    /* "strategy/minmaxcalc.pyx":199
  *                     reverse_bit |= reverse_bit_
  *             white_board ^= (put_loc | reverse_bit)
  *             black_board ^= reverse_bit             # <<<<<<<<<<<<<<
@@ -3616,7 +3765,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
   }
   __pyx_L3:;
 
-  /* "strategy/minmaxcalc.pyx":202
+  /* "strategy/minmaxcalc.pyx":201
  *             black_board ^= reverse_bit
  * 
  *         return black_board, white_board             # <<<<<<<<<<<<<<
@@ -3628,7 +3777,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
   __pyx_r = __pyx_t_11;
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":153
+  /* "strategy/minmaxcalc.pyx":152
  *             return (put_loc << 9) & 0xfefefefefefefe00ULL
  * 
  *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
@@ -3695,23 +3844,23 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_7simulate_play(PyObjec
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_put_loc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 1); __PYX_ERR(0, 153, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 1); __PYX_ERR(0, 152, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 2); __PYX_ERR(0, 153, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 2); __PYX_ERR(0, 152, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 3); __PYX_ERR(0, 153, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, 3); __PYX_ERR(0, 152, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "simulate_play") < 0)) __PYX_ERR(0, 153, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "simulate_play") < 0)) __PYX_ERR(0, 152, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -3721,14 +3870,14 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_7simulate_play(PyObjec
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_turn = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 154, __pyx_L3_error)
-    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 154, __pyx_L3_error)
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 155, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 155, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_turn == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 154, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 154, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 153, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("simulate_play", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 152, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy.minmaxcalc.MinmaxC.simulate_play", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3750,7 +3899,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_6simulate_play(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("simulate_play", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_simulate_play(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_simulate_play(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3767,7 +3916,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_6simulate_play(struct 
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":204
+/* "strategy/minmaxcalc.pyx":203
  *         return black_board, white_board
  * 
  *     cpdef (uint64_t, uint64_t) count_disks(             # <<<<<<<<<<<<<<
@@ -3801,12 +3950,12 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_count_disks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_count_disks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_9count_disks)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -3824,7 +3973,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3834,7 +3983,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_4};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3842,7 +3991,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 204, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 203, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_6) {
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -3853,12 +4002,12 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
           PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_4);
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_9 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 204, __pyx_L1_error)
+        __pyx_t_9 = __pyx_convert__from_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 203, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_9;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3877,7 +4026,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
     #endif
   }
 
-  /* "strategy/minmaxcalc.pyx":213
+  /* "strategy/minmaxcalc.pyx":212
  *             64-bit intager.
  *         """
  *         return self._bit_count(black_board), self._bit_count(white_board)             # <<<<<<<<<<<<<<
@@ -3889,7 +4038,7 @@ static __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t __pyx_f_8strategy_10m
   __pyx_r = __pyx_t_9;
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":204
+  /* "strategy/minmaxcalc.pyx":203
  *         return black_board, white_board
  * 
  *     cpdef (uint64_t, uint64_t) count_disks(             # <<<<<<<<<<<<<<
@@ -3948,11 +4097,11 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_9count_disks(PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("count_disks", 1, 2, 2, 1); __PYX_ERR(0, 204, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("count_disks", 1, 2, 2, 1); __PYX_ERR(0, 203, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "count_disks") < 0)) __PYX_ERR(0, 204, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "count_disks") < 0)) __PYX_ERR(0, 203, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3960,12 +4109,12 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_9count_disks(PyObject 
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 205, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 205, __pyx_L3_error)
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 204, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 204, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("count_disks", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 204, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("count_disks", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 203, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy.minmaxcalc.MinmaxC.count_disks", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3987,7 +4136,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_8count_disks(struct Mi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("count_disks", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_count_disks(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_count_disks(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4004,7 +4153,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_8count_disks(struct Mi
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":215
+/* "strategy/minmaxcalc.pyx":214
  *         return self._bit_count(black_board), self._bit_count(white_board)
  * 
  *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
@@ -4049,14 +4198,14 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reversible_area); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_11reversible_area)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 215, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 214, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 215, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 214, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 215, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 214, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_6 = __pyx_t_1; __pyx_t_7 = NULL;
@@ -4074,7 +4223,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4085,7 +4234,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4094,7 +4243,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
         } else
         #endif
         {
-          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 215, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 214, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           if (__pyx_t_7) {
             __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -4108,12 +4257,12 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
           __pyx_t_5 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_10 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_10 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 215, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_t_2); if (unlikely((__pyx_t_10 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 214, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_10;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4132,7 +4281,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
     #endif
   }
 
-  /* "strategy/minmaxcalc.pyx":231
+  /* "strategy/minmaxcalc.pyx":230
  *             Represents board of reversible positions.
  *         """
  *         cdef uint64_t *CONST = [             # <<<<<<<<<<<<<<
@@ -4144,7 +4293,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
   __pyx_t_11[2] = 0x007e7e7e7e7e7e00ULL;
   __pyx_v_CONST = __pyx_t_11;
 
-  /* "strategy/minmaxcalc.pyx":234
+  /* "strategy/minmaxcalc.pyx":233
  *             0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
  *         ]
  *         cdef uint64_t *board = [black_board, white_board]             # <<<<<<<<<<<<<<
@@ -4155,7 +4304,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
   __pyx_t_12[1] = __pyx_v_white_board;
   __pyx_v_board = __pyx_t_12;
 
-  /* "strategy/minmaxcalc.pyx":235
+  /* "strategy/minmaxcalc.pyx":234
  *         ]
  *         cdef uint64_t *board = [black_board, white_board]
  *         cdef uint64_t blank_board = ~(board[0] | board[1])             # <<<<<<<<<<<<<<
@@ -4164,7 +4313,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_blank_board = (~((__pyx_v_board[0]) | (__pyx_v_board[1])));
 
-  /* "strategy/minmaxcalc.pyx":237
+  /* "strategy/minmaxcalc.pyx":236
  *         cdef uint64_t blank_board = ~(board[0] | board[1])
  * 
  *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]             # <<<<<<<<<<<<<<
@@ -4173,7 +4322,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_horiz_brd = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[0]));
 
-  /* "strategy/minmaxcalc.pyx":238
+  /* "strategy/minmaxcalc.pyx":237
  * 
  *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
  *         cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]             # <<<<<<<<<<<<<<
@@ -4182,7 +4331,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_vert_brd = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[1]));
 
-  /* "strategy/minmaxcalc.pyx":239
+  /* "strategy/minmaxcalc.pyx":238
  *         cdef uint64_t horiz_brd = board[turn ^ 1] & CONST[0]
  *         cdef uint64_t vert_brd = board[turn ^ 1] & CONST[1]
  *         cdef uint64_t all_border = board[turn ^ 1] & CONST[2]             # <<<<<<<<<<<<<<
@@ -4191,7 +4340,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_all_border = ((__pyx_v_board[(__pyx_v_turn ^ 1)]) & (__pyx_v_CONST[2]));
 
-  /* "strategy/minmaxcalc.pyx":242
+  /* "strategy/minmaxcalc.pyx":241
  * 
  *         # Upper
  *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)             # <<<<<<<<<<<<<<
@@ -4200,7 +4349,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_horiz_brd & ((__pyx_v_board[__pyx_v_turn]) << 1));
 
-  /* "strategy/minmaxcalc.pyx":243
+  /* "strategy/minmaxcalc.pyx":242
  *         # Upper
  *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -4209,8 +4358,17 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
-  /* "strategy/minmaxcalc.pyx":244
+  /* "strategy/minmaxcalc.pyx":243
  *         cdef uint64_t one_rv = horiz_brd & (board[turn] << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ *         one_rv |= horiz_brd & (one_rv << 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
+
+  /* "strategy/minmaxcalc.pyx":244
+ *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
  *         one_rv |= horiz_brd & (one_rv << 1)
@@ -4223,20 +4381,11 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
  *         one_rv |= horiz_brd & (one_rv << 1)
- *         one_rv |= horiz_brd & (one_rv << 1)
- */
-  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
-
-  /* "strategy/minmaxcalc.pyx":246
- *         one_rv |= horiz_brd & (one_rv << 1)
- *         one_rv |= horiz_brd & (one_rv << 1)
- *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
- *         one_rv |= horiz_brd & (one_rv << 1)
  *         cdef uint64_t reversible = blank_board & (one_rv << 1)
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
-  /* "strategy/minmaxcalc.pyx":247
+  /* "strategy/minmaxcalc.pyx":246
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -4245,7 +4394,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv << 1)));
 
-  /* "strategy/minmaxcalc.pyx":248
+  /* "strategy/minmaxcalc.pyx":247
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         one_rv |= horiz_brd & (one_rv << 1)
  *         cdef uint64_t reversible = blank_board & (one_rv << 1)             # <<<<<<<<<<<<<<
@@ -4254,7 +4403,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_reversible = (__pyx_v_blank_board & (__pyx_v_one_rv << 1));
 
-  /* "strategy/minmaxcalc.pyx":251
+  /* "strategy/minmaxcalc.pyx":250
  * 
  *         # Lower
  *         one_rv = horiz_brd & (board[turn] >> 1)             # <<<<<<<<<<<<<<
@@ -4263,7 +4412,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_horiz_brd & ((__pyx_v_board[__pyx_v_turn]) >> 1));
 
-  /* "strategy/minmaxcalc.pyx":252
+  /* "strategy/minmaxcalc.pyx":251
  *         # Lower
  *         one_rv = horiz_brd & (board[turn] >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -4272,8 +4421,17 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
-  /* "strategy/minmaxcalc.pyx":253
+  /* "strategy/minmaxcalc.pyx":252
  *         one_rv = horiz_brd & (board[turn] >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ *         one_rv |= horiz_brd & (one_rv >> 1)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
+
+  /* "strategy/minmaxcalc.pyx":253
+ *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
  *         one_rv |= horiz_brd & (one_rv >> 1)
@@ -4286,20 +4444,11 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
  *         one_rv |= horiz_brd & (one_rv >> 1)
- *         one_rv |= horiz_brd & (one_rv >> 1)
- */
-  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
-
-  /* "strategy/minmaxcalc.pyx":255
- *         one_rv |= horiz_brd & (one_rv >> 1)
- *         one_rv |= horiz_brd & (one_rv >> 1)
- *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
- *         one_rv |= horiz_brd & (one_rv >> 1)
  *         reversible |= blank_board & (one_rv >> 1)
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
-  /* "strategy/minmaxcalc.pyx":256
+  /* "strategy/minmaxcalc.pyx":255
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -4308,7 +4457,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_horiz_brd & (__pyx_v_one_rv >> 1)));
 
-  /* "strategy/minmaxcalc.pyx":257
+  /* "strategy/minmaxcalc.pyx":256
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         one_rv |= horiz_brd & (one_rv >> 1)
  *         reversible |= blank_board & (one_rv >> 1)             # <<<<<<<<<<<<<<
@@ -4317,7 +4466,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 1)));
 
-  /* "strategy/minmaxcalc.pyx":260
+  /* "strategy/minmaxcalc.pyx":259
  * 
  *         # Left
  *         one_rv = vert_brd & (board[turn] << 8)             # <<<<<<<<<<<<<<
@@ -4326,7 +4475,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_vert_brd & ((__pyx_v_board[__pyx_v_turn]) << 8));
 
-  /* "strategy/minmaxcalc.pyx":261
+  /* "strategy/minmaxcalc.pyx":260
  *         # Left
  *         one_rv = vert_brd & (board[turn] << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -4335,8 +4484,17 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
-  /* "strategy/minmaxcalc.pyx":262
+  /* "strategy/minmaxcalc.pyx":261
  *         one_rv = vert_brd & (board[turn] << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv << 8)
+ *         one_rv |= vert_brd & (one_rv << 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
+
+  /* "strategy/minmaxcalc.pyx":262
+ *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
  *         one_rv |= vert_brd & (one_rv << 8)
@@ -4349,20 +4507,11 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
  *         one_rv |= vert_brd & (one_rv << 8)
- *         one_rv |= vert_brd & (one_rv << 8)
- */
-  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
-
-  /* "strategy/minmaxcalc.pyx":264
- *         one_rv |= vert_brd & (one_rv << 8)
- *         one_rv |= vert_brd & (one_rv << 8)
- *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
- *         one_rv |= vert_brd & (one_rv << 8)
  *         reversible |= blank_board & (one_rv << 8)
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
-  /* "strategy/minmaxcalc.pyx":265
+  /* "strategy/minmaxcalc.pyx":264
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -4371,7 +4520,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv << 8)));
 
-  /* "strategy/minmaxcalc.pyx":266
+  /* "strategy/minmaxcalc.pyx":265
  *         one_rv |= vert_brd & (one_rv << 8)
  *         one_rv |= vert_brd & (one_rv << 8)
  *         reversible |= blank_board & (one_rv << 8)             # <<<<<<<<<<<<<<
@@ -4380,7 +4529,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 8)));
 
-  /* "strategy/minmaxcalc.pyx":269
+  /* "strategy/minmaxcalc.pyx":268
  * 
  *         # Right
  *         one_rv = vert_brd & (board[turn] >> 8)             # <<<<<<<<<<<<<<
@@ -4389,7 +4538,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_vert_brd & ((__pyx_v_board[__pyx_v_turn]) >> 8));
 
-  /* "strategy/minmaxcalc.pyx":270
+  /* "strategy/minmaxcalc.pyx":269
  *         # Right
  *         one_rv = vert_brd & (board[turn] >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -4398,8 +4547,17 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
-  /* "strategy/minmaxcalc.pyx":271
+  /* "strategy/minmaxcalc.pyx":270
  *         one_rv = vert_brd & (board[turn] >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ *         one_rv |= vert_brd & (one_rv >> 8)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
+
+  /* "strategy/minmaxcalc.pyx":271
+ *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
  *         one_rv |= vert_brd & (one_rv >> 8)
@@ -4412,20 +4570,11 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
  *         one_rv |= vert_brd & (one_rv >> 8)
- *         one_rv |= vert_brd & (one_rv >> 8)
- */
-  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
-
-  /* "strategy/minmaxcalc.pyx":273
- *         one_rv |= vert_brd & (one_rv >> 8)
- *         one_rv |= vert_brd & (one_rv >> 8)
- *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
- *         one_rv |= vert_brd & (one_rv >> 8)
  *         reversible |= blank_board & (one_rv >> 8)
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
-  /* "strategy/minmaxcalc.pyx":274
+  /* "strategy/minmaxcalc.pyx":273
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -4434,7 +4583,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_vert_brd & (__pyx_v_one_rv >> 8)));
 
-  /* "strategy/minmaxcalc.pyx":275
+  /* "strategy/minmaxcalc.pyx":274
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         one_rv |= vert_brd & (one_rv >> 8)
  *         reversible |= blank_board & (one_rv >> 8)             # <<<<<<<<<<<<<<
@@ -4443,7 +4592,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 8)));
 
-  /* "strategy/minmaxcalc.pyx":278
+  /* "strategy/minmaxcalc.pyx":277
  * 
  *         # Upper right
  *         one_rv = all_border & (board[turn] << 7)             # <<<<<<<<<<<<<<
@@ -4452,7 +4601,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) << 7));
 
-  /* "strategy/minmaxcalc.pyx":279
+  /* "strategy/minmaxcalc.pyx":278
  *         # Upper right
  *         one_rv = all_border & (board[turn] << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -4461,8 +4610,17 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
-  /* "strategy/minmaxcalc.pyx":280
+  /* "strategy/minmaxcalc.pyx":279
  *         one_rv = all_border & (board[turn] << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 7)
+ *         one_rv |= all_border & (one_rv << 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
+
+  /* "strategy/minmaxcalc.pyx":280
+ *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
  *         one_rv |= all_border & (one_rv << 7)
@@ -4475,20 +4633,11 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
  *         one_rv |= all_border & (one_rv << 7)
- *         one_rv |= all_border & (one_rv << 7)
- */
-  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
-
-  /* "strategy/minmaxcalc.pyx":282
- *         one_rv |= all_border & (one_rv << 7)
- *         one_rv |= all_border & (one_rv << 7)
- *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
- *         one_rv |= all_border & (one_rv << 7)
  *         reversible |= blank_board & (one_rv << 7)
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
-  /* "strategy/minmaxcalc.pyx":283
+  /* "strategy/minmaxcalc.pyx":282
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -4497,7 +4646,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 7)));
 
-  /* "strategy/minmaxcalc.pyx":284
+  /* "strategy/minmaxcalc.pyx":283
  *         one_rv |= all_border & (one_rv << 7)
  *         one_rv |= all_border & (one_rv << 7)
  *         reversible |= blank_board & (one_rv << 7)             # <<<<<<<<<<<<<<
@@ -4506,7 +4655,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 7)));
 
-  /* "strategy/minmaxcalc.pyx":287
+  /* "strategy/minmaxcalc.pyx":286
  * 
  *         # Upper left
  *         one_rv = all_border & (board[turn] << 9)             # <<<<<<<<<<<<<<
@@ -4515,7 +4664,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) << 9));
 
-  /* "strategy/minmaxcalc.pyx":288
+  /* "strategy/minmaxcalc.pyx":287
  *         # Upper left
  *         one_rv = all_border & (board[turn] << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -4524,8 +4673,17 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
-  /* "strategy/minmaxcalc.pyx":289
+  /* "strategy/minmaxcalc.pyx":288
  *         one_rv = all_border & (board[turn] << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv << 9)
+ *         one_rv |= all_border & (one_rv << 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
+
+  /* "strategy/minmaxcalc.pyx":289
+ *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
  *         one_rv |= all_border & (one_rv << 9)
@@ -4538,20 +4696,11 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
  *         one_rv |= all_border & (one_rv << 9)
- *         one_rv |= all_border & (one_rv << 9)
- */
-  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
-
-  /* "strategy/minmaxcalc.pyx":291
- *         one_rv |= all_border & (one_rv << 9)
- *         one_rv |= all_border & (one_rv << 9)
- *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
- *         one_rv |= all_border & (one_rv << 9)
  *         reversible |= blank_board & (one_rv << 9)
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
-  /* "strategy/minmaxcalc.pyx":292
+  /* "strategy/minmaxcalc.pyx":291
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -4560,7 +4709,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv << 9)));
 
-  /* "strategy/minmaxcalc.pyx":293
+  /* "strategy/minmaxcalc.pyx":292
  *         one_rv |= all_border & (one_rv << 9)
  *         one_rv |= all_border & (one_rv << 9)
  *         reversible |= blank_board & (one_rv << 9)             # <<<<<<<<<<<<<<
@@ -4569,7 +4718,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv << 9)));
 
-  /* "strategy/minmaxcalc.pyx":296
+  /* "strategy/minmaxcalc.pyx":295
  * 
  *         # Lower right
  *         one_rv = all_border & (board[turn] >> 9)             # <<<<<<<<<<<<<<
@@ -4578,7 +4727,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) >> 9));
 
-  /* "strategy/minmaxcalc.pyx":297
+  /* "strategy/minmaxcalc.pyx":296
  *         # Lower right
  *         one_rv = all_border & (board[turn] >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -4587,8 +4736,17 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
-  /* "strategy/minmaxcalc.pyx":298
+  /* "strategy/minmaxcalc.pyx":297
  *         one_rv = all_border & (board[turn] >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 9)
+ *         one_rv |= all_border & (one_rv >> 9)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
+
+  /* "strategy/minmaxcalc.pyx":298
+ *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
  *         one_rv |= all_border & (one_rv >> 9)
@@ -4601,20 +4759,11 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
  *         one_rv |= all_border & (one_rv >> 9)
- *         one_rv |= all_border & (one_rv >> 9)
- */
-  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
-
-  /* "strategy/minmaxcalc.pyx":300
- *         one_rv |= all_border & (one_rv >> 9)
- *         one_rv |= all_border & (one_rv >> 9)
- *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
- *         one_rv |= all_border & (one_rv >> 9)
  *         reversible |= blank_board & (one_rv >> 9)
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
-  /* "strategy/minmaxcalc.pyx":301
+  /* "strategy/minmaxcalc.pyx":300
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -4623,7 +4772,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 9)));
 
-  /* "strategy/minmaxcalc.pyx":302
+  /* "strategy/minmaxcalc.pyx":301
  *         one_rv |= all_border & (one_rv >> 9)
  *         one_rv |= all_border & (one_rv >> 9)
  *         reversible |= blank_board & (one_rv >> 9)             # <<<<<<<<<<<<<<
@@ -4632,7 +4781,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 9)));
 
-  /* "strategy/minmaxcalc.pyx":305
+  /* "strategy/minmaxcalc.pyx":304
  * 
  *         # Lower left
  *         one_rv = all_border & (board[turn] >> 7)             # <<<<<<<<<<<<<<
@@ -4641,7 +4790,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_all_border & ((__pyx_v_board[__pyx_v_turn]) >> 7));
 
-  /* "strategy/minmaxcalc.pyx":306
+  /* "strategy/minmaxcalc.pyx":305
  *         # Lower left
  *         one_rv = all_border & (board[turn] >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -4650,8 +4799,17 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
-  /* "strategy/minmaxcalc.pyx":307
+  /* "strategy/minmaxcalc.pyx":306
  *         one_rv = all_border & (board[turn] >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
+ *         one_rv |= all_border & (one_rv >> 7)
+ *         one_rv |= all_border & (one_rv >> 7)
+ */
+  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
+
+  /* "strategy/minmaxcalc.pyx":307
+ *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
  *         one_rv |= all_border & (one_rv >> 7)
@@ -4664,20 +4822,11 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
  *         one_rv |= all_border & (one_rv >> 7)
- *         one_rv |= all_border & (one_rv >> 7)
- */
-  __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
-
-  /* "strategy/minmaxcalc.pyx":309
- *         one_rv |= all_border & (one_rv >> 7)
- *         one_rv |= all_border & (one_rv >> 7)
- *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
- *         one_rv |= all_border & (one_rv >> 7)
  *         reversible |= blank_board & (one_rv >> 7)
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
-  /* "strategy/minmaxcalc.pyx":310
+  /* "strategy/minmaxcalc.pyx":309
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -4686,7 +4835,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_one_rv = (__pyx_v_one_rv | (__pyx_v_all_border & (__pyx_v_one_rv >> 7)));
 
-  /* "strategy/minmaxcalc.pyx":311
+  /* "strategy/minmaxcalc.pyx":310
  *         one_rv |= all_border & (one_rv >> 7)
  *         one_rv |= all_border & (one_rv >> 7)
  *         reversible |= blank_board & (one_rv >> 7)             # <<<<<<<<<<<<<<
@@ -4695,7 +4844,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
  */
   __pyx_v_reversible = (__pyx_v_reversible | (__pyx_v_blank_board & (__pyx_v_one_rv >> 7)));
 
-  /* "strategy/minmaxcalc.pyx":312
+  /* "strategy/minmaxcalc.pyx":311
  *         one_rv |= all_border & (one_rv >> 7)
  *         reversible |= blank_board & (one_rv >> 7)
  *         return reversible             # <<<<<<<<<<<<<<
@@ -4705,7 +4854,7 @@ static std::uint64_t __pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(CYT
   __pyx_r = __pyx_v_reversible;
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":215
+  /* "strategy/minmaxcalc.pyx":214
  *         return self._bit_count(black_board), self._bit_count(white_board)
  * 
  *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
@@ -4768,17 +4917,17 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_11reversible_area(PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, 1); __PYX_ERR(0, 215, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, 1); __PYX_ERR(0, 214, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, 2); __PYX_ERR(0, 215, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, 2); __PYX_ERR(0, 214, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "reversible_area") < 0)) __PYX_ERR(0, 215, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "reversible_area") < 0)) __PYX_ERR(0, 214, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4787,13 +4936,13 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_11reversible_area(PyOb
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L3_error)
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 215, __pyx_L3_error)
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 215, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 215, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 215, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("reversible_area", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 214, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy.minmaxcalc.MinmaxC.reversible_area", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4815,7 +4964,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_10reversible_area(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reversible_area", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_reversible_area(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4832,7 +4981,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_10reversible_area(stru
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":314
+/* "strategy/minmaxcalc.pyx":313
  *         return reversible
  * 
  *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
@@ -4869,16 +5018,16 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(struct MinmaxCO
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_reversible); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_reversible); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 313, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_13is_reversible)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 314, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 313, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 314, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_put_loc); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 313, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 314, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 313, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 314, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 313, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_7 = __pyx_t_1; __pyx_t_8 = NULL;
@@ -4896,7 +5045,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(struct MinmaxCO
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_7)) {
           PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 314, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 313, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4908,7 +5057,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(struct MinmaxCO
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
           PyObject *__pyx_temp[5] = {__pyx_t_8, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 314, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_9, 4+__pyx_t_9); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 313, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4918,7 +5067,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(struct MinmaxCO
         } else
         #endif
         {
-          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 314, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(4+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 313, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           if (__pyx_t_8) {
             __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -4935,12 +5084,12 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(struct MinmaxCO
           __pyx_t_4 = 0;
           __pyx_t_5 = 0;
           __pyx_t_6 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 314, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 313, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 313, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_11;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4959,7 +5108,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(struct MinmaxCO
     #endif
   }
 
-  /* "strategy/minmaxcalc.pyx":333
+  /* "strategy/minmaxcalc.pyx":332
  *         is_reversible : bool
  *         """
  *         reversible = self.reversible_area(turn, black_board, white_board)             # <<<<<<<<<<<<<<
@@ -4968,7 +5117,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(struct MinmaxCO
  */
   __pyx_v_reversible = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 0);
 
-  /* "strategy/minmaxcalc.pyx":334
+  /* "strategy/minmaxcalc.pyx":333
  *         """
  *         reversible = self.reversible_area(turn, black_board, white_board)
  *         return (put_loc & reversible) == put_loc             # <<<<<<<<<<<<<<
@@ -4978,7 +5127,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(struct MinmaxCO
   __pyx_r = ((__pyx_v_put_loc & __pyx_v_reversible) == __pyx_v_put_loc);
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":314
+  /* "strategy/minmaxcalc.pyx":313
  *         return reversible
  * 
  *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
@@ -5045,23 +5194,23 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_13is_reversible(PyObje
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_put_loc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 1); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 1); __PYX_ERR(0, 313, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 2); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 2); __PYX_ERR(0, 313, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 3); __PYX_ERR(0, 314, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, 3); __PYX_ERR(0, 313, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "is_reversible") < 0)) __PYX_ERR(0, 314, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "is_reversible") < 0)) __PYX_ERR(0, 313, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -5071,14 +5220,14 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_13is_reversible(PyObje
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
-    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 316, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 316, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L3_error)
+    __pyx_v_put_loc = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_put_loc == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L3_error)
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[3]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 315, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 314, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("is_reversible", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 313, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy.minmaxcalc.MinmaxC.is_reversible", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5100,7 +5249,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_12is_reversible(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("is_reversible", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_is_reversible(__pyx_v_self, __pyx_v_turn, __pyx_v_put_loc, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5117,7 +5266,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_12is_reversible(struct
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":336
+/* "strategy/minmaxcalc.pyx":335
  *         return (put_loc & reversible) == put_loc
  * 
  *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
@@ -5153,14 +5302,14 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_turn_playable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_turn_playable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 335, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_15turn_playable)) {
-        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 336, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_turn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 335, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 336, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 335, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 336, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 335, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_6 = __pyx_t_1; __pyx_t_7 = NULL;
@@ -5178,7 +5327,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 335, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5189,7 +5338,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_8, 3+__pyx_t_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 335, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5198,7 +5347,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
         } else
         #endif
         {
-          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 336, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(3+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 335, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           if (__pyx_t_7) {
             __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -5212,12 +5361,12 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
           __pyx_t_3 = 0;
           __pyx_t_4 = 0;
           __pyx_t_5 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 335, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 336, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 335, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_10;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5236,7 +5385,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
     #endif
   }
 
-  /* "strategy/minmaxcalc.pyx":349
+  /* "strategy/minmaxcalc.pyx":348
  *             64-bit intager.
  *         """
  *         reversible = self.reversible_area(turn, black_board, white_board)             # <<<<<<<<<<<<<<
@@ -5245,7 +5394,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
  */
   __pyx_v_reversible = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 0);
 
-  /* "strategy/minmaxcalc.pyx":350
+  /* "strategy/minmaxcalc.pyx":349
  *         """
  *         reversible = self.reversible_area(turn, black_board, white_board)
  *         return reversible != 0             # <<<<<<<<<<<<<<
@@ -5255,7 +5404,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(struct MinmaxCO
   __pyx_r = (__pyx_v_reversible != 0);
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":336
+  /* "strategy/minmaxcalc.pyx":335
  *         return (put_loc & reversible) == put_loc
  * 
  *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
@@ -5318,17 +5467,17 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_15turn_playable(PyObje
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_black_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, 1); __PYX_ERR(0, 336, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, 1); __PYX_ERR(0, 335, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_white_board)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, 2); __PYX_ERR(0, 336, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, 2); __PYX_ERR(0, 335, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "turn_playable") < 0)) __PYX_ERR(0, 336, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "turn_playable") < 0)) __PYX_ERR(0, 335, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -5337,13 +5486,13 @@ static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_15turn_playable(PyObje
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 337, __pyx_L3_error)
-    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 337, __pyx_L3_error)
-    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 337, __pyx_L3_error)
+    __pyx_v_turn = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[0]); if (unlikely((__pyx_v_turn == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 336, __pyx_L3_error)
+    __pyx_v_black_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[1]); if (unlikely((__pyx_v_black_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 336, __pyx_L3_error)
+    __pyx_v_white_board = __Pyx_PyInt_As_std_3a__3a_uint64_t(values[2]); if (unlikely((__pyx_v_white_board == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 336, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 336, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("turn_playable", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 335, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy.minmaxcalc.MinmaxC.turn_playable", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5365,7 +5514,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_14turn_playable(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("turn_playable", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_turn_playable(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 335, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5382,7 +5531,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_14turn_playable(struct
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":352
+/* "strategy/minmaxcalc.pyx":351
  *         return reversible != 0
  * 
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
@@ -5397,7 +5546,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED st
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("touch_border", 0);
 
-  /* "strategy/minmaxcalc.pyx":353
+  /* "strategy/minmaxcalc.pyx":352
  * 
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):
  *         cdef uint64_t board = (black_board | white_board)             # <<<<<<<<<<<<<<
@@ -5406,7 +5555,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED st
  */
   __pyx_v_board = (__pyx_v_black_board | __pyx_v_white_board);
 
-  /* "strategy/minmaxcalc.pyx":354
+  /* "strategy/minmaxcalc.pyx":353
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):
  *         cdef uint64_t board = (black_board | white_board)
  *         if board & 0xff818181818181ffULL:             # <<<<<<<<<<<<<<
@@ -5416,7 +5565,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED st
   __pyx_t_1 = ((__pyx_v_board & 0xff818181818181ffULL) != 0);
   if (__pyx_t_1) {
 
-    /* "strategy/minmaxcalc.pyx":355
+    /* "strategy/minmaxcalc.pyx":354
  *         cdef uint64_t board = (black_board | white_board)
  *         if board & 0xff818181818181ffULL:
  *             return 1             # <<<<<<<<<<<<<<
@@ -5426,7 +5575,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED st
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":354
+    /* "strategy/minmaxcalc.pyx":353
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):
  *         cdef uint64_t board = (black_board | white_board)
  *         if board & 0xff818181818181ffULL:             # <<<<<<<<<<<<<<
@@ -5435,7 +5584,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED st
  */
   }
 
-  /* "strategy/minmaxcalc.pyx":356
+  /* "strategy/minmaxcalc.pyx":355
  *         if board & 0xff818181818181ffULL:
  *             return 1
  *         return 0             # <<<<<<<<<<<<<<
@@ -5445,7 +5594,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED st
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":352
+  /* "strategy/minmaxcalc.pyx":351
  *         return reversible != 0
  * 
  *     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
@@ -5459,7 +5608,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border(CYTHON_UNUSED st
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":358
+/* "strategy/minmaxcalc.pyx":357
  *         return 0
  * 
  *     cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
@@ -5479,7 +5628,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
   int __pyx_t_3;
   __Pyx_RefNannySetupContext("evaluate_value", 0);
 
-  /* "strategy/minmaxcalc.pyx":359
+  /* "strategy/minmaxcalc.pyx":358
  * 
  *     cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board):
  *         cdef float evaluation = 0             # <<<<<<<<<<<<<<
@@ -5488,7 +5637,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
   __pyx_v_evaluation = 0.0;
 
-  /* "strategy/minmaxcalc.pyx":360
+  /* "strategy/minmaxcalc.pyx":359
  *     cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board):
  *         cdef float evaluation = 0
  *         cdef uint64_t *board = [black_board, white_board]             # <<<<<<<<<<<<<<
@@ -5499,7 +5648,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
   __pyx_t_1[1] = __pyx_v_white_board;
   __pyx_v_board = __pyx_t_1;
 
-  /* "strategy/minmaxcalc.pyx":364
+  /* "strategy/minmaxcalc.pyx":363
  *         # If disk does not touch the border,
  *         # phase is False and TABLE[0] is called.
  *         phase = self.touch_border(black_board, white_board)             # <<<<<<<<<<<<<<
@@ -5508,7 +5657,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
   __pyx_v_phase = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->touch_border(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board);
 
-  /* "strategy/minmaxcalc.pyx":365
+  /* "strategy/minmaxcalc.pyx":364
  *         # phase is False and TABLE[0] is called.
  *         phase = self.touch_border(black_board, white_board)
  *         for position in range(64):             # <<<<<<<<<<<<<<
@@ -5518,7 +5667,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
   for (__pyx_t_2 = 0; __pyx_t_2 < 64; __pyx_t_2+=1) {
     __pyx_v_position = __pyx_t_2;
 
-    /* "strategy/minmaxcalc.pyx":366
+    /* "strategy/minmaxcalc.pyx":365
  *         phase = self.touch_border(black_board, white_board)
  *         for position in range(64):
  *             if phase == 0:             # <<<<<<<<<<<<<<
@@ -5528,7 +5677,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
     __pyx_t_3 = ((__pyx_v_phase == 0) != 0);
     if (__pyx_t_3) {
 
-      /* "strategy/minmaxcalc.pyx":368
+      /* "strategy/minmaxcalc.pyx":367
  *             if phase == 0:
  *                 # If a disc is on an edge square.
  *                 if (self._EXP2[position] & board[self._player_clr]):             # <<<<<<<<<<<<<<
@@ -5538,7 +5687,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
       __pyx_t_3 = (((__pyx_v_self->_EXP2[__pyx_v_position]) & (__pyx_v_board[__pyx_v_self->_player_clr])) != 0);
       if (__pyx_t_3) {
 
-        /* "strategy/minmaxcalc.pyx":369
+        /* "strategy/minmaxcalc.pyx":368
  *                 # If a disc is on an edge square.
  *                 if (self._EXP2[position] & board[self._player_clr]):
  *                     evaluation += self._EVAL_TBL1[position]             # <<<<<<<<<<<<<<
@@ -5547,7 +5696,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
         __pyx_v_evaluation = (__pyx_v_evaluation + (__pyx_v_self->_EVAL_TBL1[__pyx_v_position]));
 
-        /* "strategy/minmaxcalc.pyx":368
+        /* "strategy/minmaxcalc.pyx":367
  *             if phase == 0:
  *                 # If a disc is on an edge square.
  *                 if (self._EXP2[position] & board[self._player_clr]):             # <<<<<<<<<<<<<<
@@ -5556,7 +5705,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
       }
 
-      /* "strategy/minmaxcalc.pyx":370
+      /* "strategy/minmaxcalc.pyx":369
  *                 if (self._EXP2[position] & board[self._player_clr]):
  *                     evaluation += self._EVAL_TBL1[position]
  *                 if (self._EXP2[position] & board[self._player_clr ^ 1]):             # <<<<<<<<<<<<<<
@@ -5566,7 +5715,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
       __pyx_t_3 = (((__pyx_v_self->_EXP2[__pyx_v_position]) & (__pyx_v_board[(__pyx_v_self->_player_clr ^ 1)])) != 0);
       if (__pyx_t_3) {
 
-        /* "strategy/minmaxcalc.pyx":371
+        /* "strategy/minmaxcalc.pyx":370
  *                     evaluation += self._EVAL_TBL1[position]
  *                 if (self._EXP2[position] & board[self._player_clr ^ 1]):
  *                     evaluation -= self._EVAL_TBL1[position]             # <<<<<<<<<<<<<<
@@ -5575,7 +5724,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
         __pyx_v_evaluation = (__pyx_v_evaluation - (__pyx_v_self->_EVAL_TBL1[__pyx_v_position]));
 
-        /* "strategy/minmaxcalc.pyx":370
+        /* "strategy/minmaxcalc.pyx":369
  *                 if (self._EXP2[position] & board[self._player_clr]):
  *                     evaluation += self._EVAL_TBL1[position]
  *                 if (self._EXP2[position] & board[self._player_clr ^ 1]):             # <<<<<<<<<<<<<<
@@ -5584,7 +5733,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
       }
 
-      /* "strategy/minmaxcalc.pyx":366
+      /* "strategy/minmaxcalc.pyx":365
  *         phase = self.touch_border(black_board, white_board)
  *         for position in range(64):
  *             if phase == 0:             # <<<<<<<<<<<<<<
@@ -5594,7 +5743,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
       goto __pyx_L5;
     }
 
-    /* "strategy/minmaxcalc.pyx":373
+    /* "strategy/minmaxcalc.pyx":372
  *                     evaluation -= self._EVAL_TBL1[position]
  *             else:
  *                 if (self._EXP2[position] & board[self._player_clr]):             # <<<<<<<<<<<<<<
@@ -5605,7 +5754,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
       __pyx_t_3 = (((__pyx_v_self->_EXP2[__pyx_v_position]) & (__pyx_v_board[__pyx_v_self->_player_clr])) != 0);
       if (__pyx_t_3) {
 
-        /* "strategy/minmaxcalc.pyx":374
+        /* "strategy/minmaxcalc.pyx":373
  *             else:
  *                 if (self._EXP2[position] & board[self._player_clr]):
  *                     evaluation += self._EVAL_TBL2[position]             # <<<<<<<<<<<<<<
@@ -5614,7 +5763,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
         __pyx_v_evaluation = (__pyx_v_evaluation + (__pyx_v_self->_EVAL_TBL2[__pyx_v_position]));
 
-        /* "strategy/minmaxcalc.pyx":373
+        /* "strategy/minmaxcalc.pyx":372
  *                     evaluation -= self._EVAL_TBL1[position]
  *             else:
  *                 if (self._EXP2[position] & board[self._player_clr]):             # <<<<<<<<<<<<<<
@@ -5623,7 +5772,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
       }
 
-      /* "strategy/minmaxcalc.pyx":375
+      /* "strategy/minmaxcalc.pyx":374
  *                 if (self._EXP2[position] & board[self._player_clr]):
  *                     evaluation += self._EVAL_TBL2[position]
  *                 if (self._EXP2[position] & board[self._player_clr ^ 1]):             # <<<<<<<<<<<<<<
@@ -5633,7 +5782,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
       __pyx_t_3 = (((__pyx_v_self->_EXP2[__pyx_v_position]) & (__pyx_v_board[(__pyx_v_self->_player_clr ^ 1)])) != 0);
       if (__pyx_t_3) {
 
-        /* "strategy/minmaxcalc.pyx":376
+        /* "strategy/minmaxcalc.pyx":375
  *                     evaluation += self._EVAL_TBL2[position]
  *                 if (self._EXP2[position] & board[self._player_clr ^ 1]):
  *                     evaluation -= self._EVAL_TBL2[position]             # <<<<<<<<<<<<<<
@@ -5642,7 +5791,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
  */
         __pyx_v_evaluation = (__pyx_v_evaluation - (__pyx_v_self->_EVAL_TBL2[__pyx_v_position]));
 
-        /* "strategy/minmaxcalc.pyx":375
+        /* "strategy/minmaxcalc.pyx":374
  *                 if (self._EXP2[position] & board[self._player_clr]):
  *                     evaluation += self._EVAL_TBL2[position]
  *                 if (self._EXP2[position] & board[self._player_clr ^ 1]):             # <<<<<<<<<<<<<<
@@ -5654,7 +5803,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
     __pyx_L5:;
   }
 
-  /* "strategy/minmaxcalc.pyx":377
+  /* "strategy/minmaxcalc.pyx":376
  *                 if (self._EXP2[position] & board[self._player_clr ^ 1]):
  *                     evaluation -= self._EVAL_TBL2[position]
  *         return evaluation             # <<<<<<<<<<<<<<
@@ -5664,7 +5813,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
   __pyx_r = __pyx_v_evaluation;
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":358
+  /* "strategy/minmaxcalc.pyx":357
  *         return 0
  * 
  *     cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board):             # <<<<<<<<<<<<<<
@@ -5678,7 +5827,7 @@ static float __pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value(struct Minma
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":379
+/* "strategy/minmaxcalc.pyx":378
  *         return evaluation
  * 
  *     cdef (float, int) min_max(             # <<<<<<<<<<<<<<
@@ -5710,18 +5859,14 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
   std::uint64_t __pyx_t_6;
   int __pyx_t_7;
   int __pyx_t_8;
-  PyObject *__pyx_t_9 = NULL;
-  PyObject *__pyx_t_10 = NULL;
-  PyObject *__pyx_t_11 = NULL;
-  PyObject *__pyx_t_12 = NULL;
-  PyObject *__pyx_t_13 = NULL;
-  PyObject *__pyx_t_14 = NULL;
+  struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game __pyx_t_9;
+  int __pyx_t_10;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("min_max", 0);
 
-  /* "strategy/minmaxcalc.pyx":393
+  /* "strategy/minmaxcalc.pyx":392
  *         """
  *         # Calculate evaluation.
  *         cdef float evaluation = self.evaluate_value(black_board, white_board)             # <<<<<<<<<<<<<<
@@ -5730,7 +5875,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
   __pyx_v_evaluation = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->evaluate_value(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board);
 
-  /* "strategy/minmaxcalc.pyx":403
+  /* "strategy/minmaxcalc.pyx":402
  *         cdef int selected
  * 
  *         if depth == 0:             # <<<<<<<<<<<<<<
@@ -5740,7 +5885,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
   __pyx_t_1 = ((__pyx_v_depth == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "strategy/minmaxcalc.pyx":404
+    /* "strategy/minmaxcalc.pyx":403
  * 
  *         if depth == 0:
  *             return evaluation, 1             # <<<<<<<<<<<<<<
@@ -5752,7 +5897,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
     __pyx_r = __pyx_t_2;
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":403
+    /* "strategy/minmaxcalc.pyx":402
  *         cdef int selected
  * 
  *         if depth == 0:             # <<<<<<<<<<<<<<
@@ -5761,7 +5906,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
   }
 
-  /* "strategy/minmaxcalc.pyx":406
+  /* "strategy/minmaxcalc.pyx":405
  *             return evaluation, 1
  * 
  *         if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -5771,7 +5916,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
   __pyx_t_1 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
   if (__pyx_t_1) {
 
-    /* "strategy/minmaxcalc.pyx":407
+    /* "strategy/minmaxcalc.pyx":406
  * 
  *         if turn == self._player_clr:
  *             max_evaluation = -1 * INFINITY             # <<<<<<<<<<<<<<
@@ -5780,7 +5925,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
     __pyx_v_max_evaluation = (-1.0 * INFINITY);
 
-    /* "strategy/minmaxcalc.pyx":406
+    /* "strategy/minmaxcalc.pyx":405
  *             return evaluation, 1
  * 
  *         if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -5790,7 +5935,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
     goto __pyx_L4;
   }
 
-  /* "strategy/minmaxcalc.pyx":409
+  /* "strategy/minmaxcalc.pyx":408
  *             max_evaluation = -1 * INFINITY
  *         else:
  *             min_evaluation = INFINITY             # <<<<<<<<<<<<<<
@@ -5802,7 +5947,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
   }
   __pyx_L4:;
 
-  /* "strategy/minmaxcalc.pyx":411
+  /* "strategy/minmaxcalc.pyx":410
  *             min_evaluation = INFINITY
  * 
  *         cdef uint64_t reversible = self.reversible_area(             # <<<<<<<<<<<<<<
@@ -5811,7 +5956,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
   __pyx_v_reversible = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->reversible_area(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 0);
 
-  /* "strategy/minmaxcalc.pyx":415
+  /* "strategy/minmaxcalc.pyx":414
  *             )
  * 
  *         if self.turn_playable(turn, black_board, white_board):             # <<<<<<<<<<<<<<
@@ -5821,7 +5966,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
   __pyx_t_1 = (((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->turn_playable(__pyx_v_self, __pyx_v_turn, __pyx_v_black_board, __pyx_v_white_board, 0) != 0);
   if (__pyx_t_1) {
 
-    /* "strategy/minmaxcalc.pyx":417
+    /* "strategy/minmaxcalc.pyx":416
  *         if self.turn_playable(turn, black_board, white_board):
  *             # Skip unplayable area.
  *             for i in range(64):             # <<<<<<<<<<<<<<
@@ -5831,7 +5976,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
     for (__pyx_t_3 = 0; __pyx_t_3 < 64; __pyx_t_3+=1) {
       __pyx_v_i = __pyx_t_3;
 
-      /* "strategy/minmaxcalc.pyx":418
+      /* "strategy/minmaxcalc.pyx":417
  *             # Skip unplayable area.
  *             for i in range(64):
  *                 if not (self._EXP2[i] & reversible):             # <<<<<<<<<<<<<<
@@ -5841,7 +5986,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       __pyx_t_1 = ((!(((__pyx_v_self->_EXP2[__pyx_v_i]) & __pyx_v_reversible) != 0)) != 0);
       if (__pyx_t_1) {
 
-        /* "strategy/minmaxcalc.pyx":419
+        /* "strategy/minmaxcalc.pyx":418
  *             for i in range(64):
  *                 if not (self._EXP2[i] & reversible):
  *                     continue             # <<<<<<<<<<<<<<
@@ -5850,7 +5995,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
         goto __pyx_L6_continue;
 
-        /* "strategy/minmaxcalc.pyx":418
+        /* "strategy/minmaxcalc.pyx":417
  *             # Skip unplayable area.
  *             for i in range(64):
  *                 if not (self._EXP2[i] & reversible):             # <<<<<<<<<<<<<<
@@ -5859,7 +6004,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
       }
 
-      /* "strategy/minmaxcalc.pyx":422
+      /* "strategy/minmaxcalc.pyx":421
  * 
  *                 new_black_board, new_white_board = \
  *                     self.simulate_play(             # <<<<<<<<<<<<<<
@@ -5872,7 +6017,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       __pyx_v_new_black_board = __pyx_t_5;
       __pyx_v_new_white_board = __pyx_t_6;
 
-      /* "strategy/minmaxcalc.pyx":426
+      /* "strategy/minmaxcalc.pyx":425
  *                         black_board, white_board,
  *                     )
  *                 count_black, count_white = self.count_disks(             # <<<<<<<<<<<<<<
@@ -5885,7 +6030,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       __pyx_v_count_black = __pyx_t_6;
       __pyx_v_count_white = __pyx_t_5;
 
-      /* "strategy/minmaxcalc.pyx":429
+      /* "strategy/minmaxcalc.pyx":428
  *                     new_black_board, new_white_board
  *                 )
  *                 if self._player_clr:             # <<<<<<<<<<<<<<
@@ -5895,7 +6040,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       __pyx_t_1 = (__pyx_v_self->_player_clr != 0);
       if (__pyx_t_1) {
 
-        /* "strategy/minmaxcalc.pyx":430
+        /* "strategy/minmaxcalc.pyx":429
  *                 )
  *                 if self._player_clr:
  *                     count_player, count_opponent = count_black, count_white             # <<<<<<<<<<<<<<
@@ -5907,7 +6052,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
         __pyx_v_count_player = __pyx_t_7;
         __pyx_v_count_opponent = __pyx_t_8;
 
-        /* "strategy/minmaxcalc.pyx":429
+        /* "strategy/minmaxcalc.pyx":428
  *                     new_black_board, new_white_board
  *                 )
  *                 if self._player_clr:             # <<<<<<<<<<<<<<
@@ -5917,7 +6062,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
         goto __pyx_L9;
       }
 
-      /* "strategy/minmaxcalc.pyx":432
+      /* "strategy/minmaxcalc.pyx":431
  *                     count_player, count_opponent = count_black, count_white
  *                 else:
  *                     count_player, count_opponent = count_white, count_black             # <<<<<<<<<<<<<<
@@ -5932,86 +6077,32 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       }
       __pyx_L9:;
 
-      /* "strategy/minmaxcalc.pyx":433
+      /* "strategy/minmaxcalc.pyx":432
  *                 else:
  *                     count_player, count_opponent = count_white, count_black
  *                 if self._othello.judge_game(count_player, count_opponent):             # <<<<<<<<<<<<<<
  *                     if self._othello.result == "WIN":
  *                         next_evaluation = 10000000000
  */
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_othello, __pyx_n_s_judge_game); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 433, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_count_player); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 433, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_12 = __Pyx_PyInt_From_int(__pyx_v_count_opponent); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 433, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_13 = NULL;
-      __pyx_t_7 = 0;
-      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
-        __pyx_t_13 = PyMethod_GET_SELF(__pyx_t_10);
-        if (likely(__pyx_t_13)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
-          __Pyx_INCREF(__pyx_t_13);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_10, function);
-          __pyx_t_7 = 1;
-        }
-      }
-      #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_10)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_13, __pyx_t_11, __pyx_t_12};
-        __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 433, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
-        __Pyx_GOTREF(__pyx_t_9);
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      } else
-      #endif
-      #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_13, __pyx_t_11, __pyx_t_12};
-        __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 433, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
-        __Pyx_GOTREF(__pyx_t_9);
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      } else
-      #endif
-      {
-        __pyx_t_14 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 433, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_14);
-        if (__pyx_t_13) {
-          __Pyx_GIVEREF(__pyx_t_13); PyTuple_SET_ITEM(__pyx_t_14, 0, __pyx_t_13); __pyx_t_13 = NULL;
-        }
-        __Pyx_GIVEREF(__pyx_t_11);
-        PyTuple_SET_ITEM(__pyx_t_14, 0+__pyx_t_7, __pyx_t_11);
-        __Pyx_GIVEREF(__pyx_t_12);
-        PyTuple_SET_ITEM(__pyx_t_14, 1+__pyx_t_7, __pyx_t_12);
-        __pyx_t_11 = 0;
-        __pyx_t_12 = 0;
-        __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_14, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 433, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_9);
-        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-      }
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 433, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (__pyx_t_1) {
+      __pyx_t_9.__pyx_n = 2;
+      __pyx_t_9.player = __pyx_v_count_player;
+      __pyx_t_9.opponent = __pyx_v_count_opponent;
+      __pyx_t_1 = ((struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC *)__pyx_v_self->_othello->__pyx_vtab)->judge_game(__pyx_v_self->_othello, 0, &__pyx_t_9); 
+      __pyx_t_10 = (__pyx_t_1 != 0);
+      if (__pyx_t_10) {
 
-        /* "strategy/minmaxcalc.pyx":434
+        /* "strategy/minmaxcalc.pyx":433
  *                     count_player, count_opponent = count_white, count_black
  *                 if self._othello.judge_game(count_player, count_opponent):
  *                     if self._othello.result == "WIN":             # <<<<<<<<<<<<<<
  *                         next_evaluation = 10000000000
  *                     elif self._othello.result == "LOSE":
  */
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_othello, __pyx_n_s_result); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 434, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_t_9, __pyx_n_u_WIN, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 434, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __pyx_t_10 = (__Pyx_PyUnicode_Equals(__pyx_v_self->_othello->result, __pyx_n_u_WIN, Py_EQ)); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 433, __pyx_L1_error)
+        __pyx_t_1 = (__pyx_t_10 != 0);
         if (__pyx_t_1) {
 
-          /* "strategy/minmaxcalc.pyx":435
+          /* "strategy/minmaxcalc.pyx":434
  *                 if self._othello.judge_game(count_player, count_opponent):
  *                     if self._othello.result == "WIN":
  *                         next_evaluation = 10000000000             # <<<<<<<<<<<<<<
@@ -6020,7 +6111,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
           __pyx_v_next_evaluation = 10000000000.0;
 
-          /* "strategy/minmaxcalc.pyx":434
+          /* "strategy/minmaxcalc.pyx":433
  *                     count_player, count_opponent = count_white, count_black
  *                 if self._othello.judge_game(count_player, count_opponent):
  *                     if self._othello.result == "WIN":             # <<<<<<<<<<<<<<
@@ -6030,20 +6121,18 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
           goto __pyx_L11;
         }
 
-        /* "strategy/minmaxcalc.pyx":436
+        /* "strategy/minmaxcalc.pyx":435
  *                     if self._othello.result == "WIN":
  *                         next_evaluation = 10000000000
  *                     elif self._othello.result == "LOSE":             # <<<<<<<<<<<<<<
  *                         next_evaluation = -10000000000
  *                     else:
  */
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_othello, __pyx_n_s_result); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 436, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_t_9, __pyx_n_u_LOSE, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 436, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        if (__pyx_t_1) {
+        __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_self->_othello->result, __pyx_n_u_LOSE, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 435, __pyx_L1_error)
+        __pyx_t_10 = (__pyx_t_1 != 0);
+        if (__pyx_t_10) {
 
-          /* "strategy/minmaxcalc.pyx":437
+          /* "strategy/minmaxcalc.pyx":436
  *                         next_evaluation = 10000000000
  *                     elif self._othello.result == "LOSE":
  *                         next_evaluation = -10000000000             # <<<<<<<<<<<<<<
@@ -6052,7 +6141,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
           __pyx_v_next_evaluation = -10000000000.0;
 
-          /* "strategy/minmaxcalc.pyx":436
+          /* "strategy/minmaxcalc.pyx":435
  *                     if self._othello.result == "WIN":
  *                         next_evaluation = 10000000000
  *                     elif self._othello.result == "LOSE":             # <<<<<<<<<<<<<<
@@ -6062,7 +6151,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
           goto __pyx_L11;
         }
 
-        /* "strategy/minmaxcalc.pyx":439
+        /* "strategy/minmaxcalc.pyx":438
  *                         next_evaluation = -10000000000
  *                     else:
  *                         next_evaluation = 0             # <<<<<<<<<<<<<<
@@ -6074,7 +6163,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
         }
         __pyx_L11:;
 
-        /* "strategy/minmaxcalc.pyx":433
+        /* "strategy/minmaxcalc.pyx":432
  *                 else:
  *                     count_player, count_opponent = count_white, count_black
  *                 if self._othello.judge_game(count_player, count_opponent):             # <<<<<<<<<<<<<<
@@ -6084,7 +6173,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
         goto __pyx_L10;
       }
 
-      /* "strategy/minmaxcalc.pyx":441
+      /* "strategy/minmaxcalc.pyx":440
  *                         next_evaluation = 0
  *                 else:
  *                     if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -6092,10 +6181,10 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  *                             new_black_board, new_white_board,
  */
       /*else*/ {
-        __pyx_t_1 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
-        if (__pyx_t_1) {
+        __pyx_t_10 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
+        if (__pyx_t_10) {
 
-          /* "strategy/minmaxcalc.pyx":445
+          /* "strategy/minmaxcalc.pyx":444
  *                             new_black_board, new_white_board,
  *                             turn ^ 1, depth-1, max_evaluation,
  *                             )[0]             # <<<<<<<<<<<<<<
@@ -6104,7 +6193,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
           __pyx_v_next_evaluation = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->min_max(__pyx_v_self, __pyx_v_new_black_board, __pyx_v_new_white_board, (__pyx_v_turn ^ 1), (__pyx_v_depth - 1), __pyx_v_max_evaluation).f0;
 
-          /* "strategy/minmaxcalc.pyx":441
+          /* "strategy/minmaxcalc.pyx":440
  *                         next_evaluation = 0
  *                 else:
  *                     if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -6114,7 +6203,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
           goto __pyx_L12;
         }
 
-        /* "strategy/minmaxcalc.pyx":450
+        /* "strategy/minmaxcalc.pyx":449
  *                             new_black_board, new_white_board,
  *                             turn ^ 1, depth-1, min_evaluation,
  *                             )[0]             # <<<<<<<<<<<<<<
@@ -6123,7 +6212,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
         /*else*/ {
 
-          /* "strategy/minmaxcalc.pyx":447
+          /* "strategy/minmaxcalc.pyx":446
  *                             )[0]
  *                     else:
  *                         next_evaluation = self.min_max(             # <<<<<<<<<<<<<<
@@ -6136,27 +6225,27 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       }
       __pyx_L10:;
 
-      /* "strategy/minmaxcalc.pyx":453
+      /* "strategy/minmaxcalc.pyx":452
  * 
  *                 # alpha-bata method(pruning)
  *                 if turn == self._player_clr:             # <<<<<<<<<<<<<<
  *                     if next_evaluation > pre_evaluation:
  *                         return pre_evaluation, i
  */
-      __pyx_t_1 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
-      if (__pyx_t_1) {
+      __pyx_t_10 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
+      if (__pyx_t_10) {
 
-        /* "strategy/minmaxcalc.pyx":454
+        /* "strategy/minmaxcalc.pyx":453
  *                 # alpha-bata method(pruning)
  *                 if turn == self._player_clr:
  *                     if next_evaluation > pre_evaluation:             # <<<<<<<<<<<<<<
  *                         return pre_evaluation, i
  *                 else:
  */
-        __pyx_t_1 = ((__pyx_v_next_evaluation > __pyx_v_pre_evaluation) != 0);
-        if (__pyx_t_1) {
+        __pyx_t_10 = ((__pyx_v_next_evaluation > __pyx_v_pre_evaluation) != 0);
+        if (__pyx_t_10) {
 
-          /* "strategy/minmaxcalc.pyx":455
+          /* "strategy/minmaxcalc.pyx":454
  *                 if turn == self._player_clr:
  *                     if next_evaluation > pre_evaluation:
  *                         return pre_evaluation, i             # <<<<<<<<<<<<<<
@@ -6168,7 +6257,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
           __pyx_r = __pyx_t_2;
           goto __pyx_L0;
 
-          /* "strategy/minmaxcalc.pyx":454
+          /* "strategy/minmaxcalc.pyx":453
  *                 # alpha-bata method(pruning)
  *                 if turn == self._player_clr:
  *                     if next_evaluation > pre_evaluation:             # <<<<<<<<<<<<<<
@@ -6177,7 +6266,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
         }
 
-        /* "strategy/minmaxcalc.pyx":453
+        /* "strategy/minmaxcalc.pyx":452
  * 
  *                 # alpha-bata method(pruning)
  *                 if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -6187,7 +6276,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
         goto __pyx_L13;
       }
 
-      /* "strategy/minmaxcalc.pyx":457
+      /* "strategy/minmaxcalc.pyx":456
  *                         return pre_evaluation, i
  *                 else:
  *                     if pre_evaluation > next_evaluation:             # <<<<<<<<<<<<<<
@@ -6195,10 +6284,10 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  * 
  */
       /*else*/ {
-        __pyx_t_1 = ((__pyx_v_pre_evaluation > __pyx_v_next_evaluation) != 0);
-        if (__pyx_t_1) {
+        __pyx_t_10 = ((__pyx_v_pre_evaluation > __pyx_v_next_evaluation) != 0);
+        if (__pyx_t_10) {
 
-          /* "strategy/minmaxcalc.pyx":458
+          /* "strategy/minmaxcalc.pyx":457
  *                 else:
  *                     if pre_evaluation > next_evaluation:
  *                         return pre_evaluation, i             # <<<<<<<<<<<<<<
@@ -6210,7 +6299,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
           __pyx_r = __pyx_t_2;
           goto __pyx_L0;
 
-          /* "strategy/minmaxcalc.pyx":457
+          /* "strategy/minmaxcalc.pyx":456
  *                         return pre_evaluation, i
  *                 else:
  *                     if pre_evaluation > next_evaluation:             # <<<<<<<<<<<<<<
@@ -6221,27 +6310,27 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       }
       __pyx_L13:;
 
-      /* "strategy/minmaxcalc.pyx":460
+      /* "strategy/minmaxcalc.pyx":459
  *                         return pre_evaluation, i
  * 
  *                 if turn == self._player_clr:             # <<<<<<<<<<<<<<
  *                     if max_evaluation < next_evaluation:
  *                         max_evaluation = next_evaluation
  */
-      __pyx_t_1 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
-      if (__pyx_t_1) {
+      __pyx_t_10 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
+      if (__pyx_t_10) {
 
-        /* "strategy/minmaxcalc.pyx":461
+        /* "strategy/minmaxcalc.pyx":460
  * 
  *                 if turn == self._player_clr:
  *                     if max_evaluation < next_evaluation:             # <<<<<<<<<<<<<<
  *                         max_evaluation = next_evaluation
  *                         selected = i
  */
-        __pyx_t_1 = ((__pyx_v_max_evaluation < __pyx_v_next_evaluation) != 0);
-        if (__pyx_t_1) {
+        __pyx_t_10 = ((__pyx_v_max_evaluation < __pyx_v_next_evaluation) != 0);
+        if (__pyx_t_10) {
 
-          /* "strategy/minmaxcalc.pyx":462
+          /* "strategy/minmaxcalc.pyx":461
  *                 if turn == self._player_clr:
  *                     if max_evaluation < next_evaluation:
  *                         max_evaluation = next_evaluation             # <<<<<<<<<<<<<<
@@ -6250,7 +6339,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
           __pyx_v_max_evaluation = __pyx_v_next_evaluation;
 
-          /* "strategy/minmaxcalc.pyx":463
+          /* "strategy/minmaxcalc.pyx":462
  *                     if max_evaluation < next_evaluation:
  *                         max_evaluation = next_evaluation
  *                         selected = i             # <<<<<<<<<<<<<<
@@ -6259,7 +6348,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
           __pyx_v_selected = __pyx_v_i;
 
-          /* "strategy/minmaxcalc.pyx":461
+          /* "strategy/minmaxcalc.pyx":460
  * 
  *                 if turn == self._player_clr:
  *                     if max_evaluation < next_evaluation:             # <<<<<<<<<<<<<<
@@ -6268,7 +6357,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
         }
 
-        /* "strategy/minmaxcalc.pyx":460
+        /* "strategy/minmaxcalc.pyx":459
  *                         return pre_evaluation, i
  * 
  *                 if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -6278,7 +6367,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
         goto __pyx_L16;
       }
 
-      /* "strategy/minmaxcalc.pyx":465
+      /* "strategy/minmaxcalc.pyx":464
  *                         selected = i
  *                 else:
  *                     if next_evaluation < min_evaluation:             # <<<<<<<<<<<<<<
@@ -6286,10 +6375,10 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  *                         selected = i
  */
       /*else*/ {
-        __pyx_t_1 = ((__pyx_v_next_evaluation < __pyx_v_min_evaluation) != 0);
-        if (__pyx_t_1) {
+        __pyx_t_10 = ((__pyx_v_next_evaluation < __pyx_v_min_evaluation) != 0);
+        if (__pyx_t_10) {
 
-          /* "strategy/minmaxcalc.pyx":466
+          /* "strategy/minmaxcalc.pyx":465
  *                 else:
  *                     if next_evaluation < min_evaluation:
  *                         min_evaluation = next_evaluation             # <<<<<<<<<<<<<<
@@ -6298,7 +6387,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
           __pyx_v_min_evaluation = __pyx_v_next_evaluation;
 
-          /* "strategy/minmaxcalc.pyx":467
+          /* "strategy/minmaxcalc.pyx":466
  *                     if next_evaluation < min_evaluation:
  *                         min_evaluation = next_evaluation
  *                         selected = i             # <<<<<<<<<<<<<<
@@ -6307,7 +6396,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
           __pyx_v_selected = __pyx_v_i;
 
-          /* "strategy/minmaxcalc.pyx":465
+          /* "strategy/minmaxcalc.pyx":464
  *                         selected = i
  *                 else:
  *                     if next_evaluation < min_evaluation:             # <<<<<<<<<<<<<<
@@ -6320,7 +6409,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       __pyx_L6_continue:;
     }
 
-    /* "strategy/minmaxcalc.pyx":415
+    /* "strategy/minmaxcalc.pyx":414
  *             )
  * 
  *         if self.turn_playable(turn, black_board, white_board):             # <<<<<<<<<<<<<<
@@ -6330,7 +6419,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
     goto __pyx_L5;
   }
 
-  /* "strategy/minmaxcalc.pyx":469
+  /* "strategy/minmaxcalc.pyx":468
  *                         selected = i
  *         else:
  *             if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -6338,10 +6427,10 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  *                     black_board, white_board, turn^1, depth-1, max_evaluation,
  */
   /*else*/ {
-    __pyx_t_1 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
-    if (__pyx_t_1) {
+    __pyx_t_10 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
+    if (__pyx_t_10) {
 
-      /* "strategy/minmaxcalc.pyx":470
+      /* "strategy/minmaxcalc.pyx":469
  *         else:
  *             if turn == self._player_clr:
  *                 return self.min_max(             # <<<<<<<<<<<<<<
@@ -6351,7 +6440,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
       __pyx_r = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->min_max(__pyx_v_self, __pyx_v_black_board, __pyx_v_white_board, (__pyx_v_turn ^ 1), (__pyx_v_depth - 1), __pyx_v_max_evaluation);
       goto __pyx_L0;
 
-      /* "strategy/minmaxcalc.pyx":469
+      /* "strategy/minmaxcalc.pyx":468
  *                         selected = i
  *         else:
  *             if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -6360,7 +6449,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
     }
 
-    /* "strategy/minmaxcalc.pyx":474
+    /* "strategy/minmaxcalc.pyx":473
  *                     )
  *             else:
  *                 return self.min_max(             # <<<<<<<<<<<<<<
@@ -6369,7 +6458,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
     /*else*/ {
 
-      /* "strategy/minmaxcalc.pyx":475
+      /* "strategy/minmaxcalc.pyx":474
  *             else:
  *                 return self.min_max(
  *                     black_board, white_board, turn^1, depth-1, min_evaluation,             # <<<<<<<<<<<<<<
@@ -6382,17 +6471,17 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
   }
   __pyx_L5:;
 
-  /* "strategy/minmaxcalc.pyx":477
+  /* "strategy/minmaxcalc.pyx":476
  *                     black_board, white_board, turn^1, depth-1, min_evaluation,
  *                     )
  *         if turn == self._player_clr:             # <<<<<<<<<<<<<<
  *             return max_evaluation, selected
  *         else:
  */
-  __pyx_t_1 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
-  if (__pyx_t_1) {
+  __pyx_t_10 = ((__pyx_v_turn == __pyx_v_self->_player_clr) != 0);
+  if (__pyx_t_10) {
 
-    /* "strategy/minmaxcalc.pyx":478
+    /* "strategy/minmaxcalc.pyx":477
  *                     )
  *         if turn == self._player_clr:
  *             return max_evaluation, selected             # <<<<<<<<<<<<<<
@@ -6404,7 +6493,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
     __pyx_r = __pyx_t_2;
     goto __pyx_L0;
 
-    /* "strategy/minmaxcalc.pyx":477
+    /* "strategy/minmaxcalc.pyx":476
  *                     black_board, white_board, turn^1, depth-1, min_evaluation,
  *                     )
  *         if turn == self._player_clr:             # <<<<<<<<<<<<<<
@@ -6413,12 +6502,12 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
  */
   }
 
-  /* "strategy/minmaxcalc.pyx":480
+  /* "strategy/minmaxcalc.pyx":479
  *             return max_evaluation, selected
  *         else:
  *             return min_evaluation, selected             # <<<<<<<<<<<<<<
  * 
- *     cpdef int put_disk(self, object othello):
+ *     cpdef int put_disk(self, OthelloGameC othello):
  */
   /*else*/ {
     __pyx_t_2.f0 = __pyx_v_min_evaluation;
@@ -6427,7 +6516,7 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
     goto __pyx_L0;
   }
 
-  /* "strategy/minmaxcalc.pyx":379
+  /* "strategy/minmaxcalc.pyx":378
  *         return evaluation
  * 
  *     cdef (float, int) min_max(             # <<<<<<<<<<<<<<
@@ -6437,12 +6526,6 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_XDECREF(__pyx_t_13);
-  __Pyx_XDECREF(__pyx_t_14);
   __Pyx_WriteUnraisable("strategy.minmaxcalc.MinmaxC.min_max", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
@@ -6450,16 +6533,16 @@ static __pyx_ctuple_float__and_int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_m
   return __pyx_r;
 }
 
-/* "strategy/minmaxcalc.pyx":482
+/* "strategy/minmaxcalc.pyx":481
  *             return min_evaluation, selected
  * 
- *     cpdef int put_disk(self, object othello):             # <<<<<<<<<<<<<<
+ *     cpdef int put_disk(self, OthelloGameC othello):             # <<<<<<<<<<<<<<
  *         cdef uint64_t new_black_board
  *         cdef uint64_t new_white_board
  */
 
 static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_17put_disk(PyObject *__pyx_v_self, PyObject *__pyx_v_othello); /*proto*/
-static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject *__pyx_v_self, PyObject *__pyx_v_othello, int __pyx_skip_dispatch) {
+static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject *__pyx_v_self, struct OthelloGameCObject *__pyx_v_othello, int __pyx_skip_dispatch) {
   PyObject *__pyx_v_black_board = NULL;
   PyObject *__pyx_v_white_board = NULL;
   int __pyx_v_turn;
@@ -6486,7 +6569,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_put_disk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 482, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_put_disk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 481, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_17put_disk)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -6500,12 +6583,12 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
             __Pyx_DECREF_SET(__pyx_t_3, function);
           }
         }
-        __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_othello) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_othello);
+        __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, ((PyObject *)__pyx_v_othello)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_othello));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 481, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 482, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 481, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6524,69 +6607,66 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
     #endif
   }
 
-  /* "strategy/minmaxcalc.pyx":486
+  /* "strategy/minmaxcalc.pyx":485
  *         cdef uint64_t new_white_board
  * 
  *         black_board, white_board = othello.board.return_board()             # <<<<<<<<<<<<<<
  *         cdef int turn = othello.turn
  *         self._player_clr = turn
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_othello, __pyx_n_s_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 486, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_othello->board, __pyx_n_s_return_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 485, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_return_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 486, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 486, __pyx_L1_error)
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 485, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
     PyObject* sequence = __pyx_t_1;
     Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 486, __pyx_L1_error)
+      __PYX_ERR(0, 485, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
-      __pyx_t_3 = PyTuple_GET_ITEM(sequence, 0); 
-      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 1); 
+      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0); 
+      __pyx_t_3 = PyTuple_GET_ITEM(sequence, 1); 
     } else {
-      __pyx_t_3 = PyList_GET_ITEM(sequence, 0); 
-      __pyx_t_2 = PyList_GET_ITEM(sequence, 1); 
+      __pyx_t_2 = PyList_GET_ITEM(sequence, 0); 
+      __pyx_t_3 = PyList_GET_ITEM(sequence, 1); 
     }
-    __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx_t_3);
     #else
-    __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 486, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 486, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 485, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 485, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 486, __pyx_L1_error)
+    __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 485, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = Py_TYPE(__pyx_t_4)->tp_iternext;
-    index = 0; __pyx_t_3 = __pyx_t_6(__pyx_t_4); if (unlikely(!__pyx_t_3)) goto __pyx_L3_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_3);
-    index = 1; __pyx_t_2 = __pyx_t_6(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
+    index = 0; __pyx_t_2 = __pyx_t_6(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_4), 2) < 0) __PYX_ERR(0, 486, __pyx_L1_error)
+    index = 1; __pyx_t_3 = __pyx_t_6(__pyx_t_4); if (unlikely(!__pyx_t_3)) goto __pyx_L3_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_3);
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_4), 2) < 0) __PYX_ERR(0, 485, __pyx_L1_error)
     __pyx_t_6 = NULL;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L4_unpacking_done;
@@ -6594,28 +6674,25 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_6 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 486, __pyx_L1_error)
+    __PYX_ERR(0, 485, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
-  __pyx_v_black_board = __pyx_t_3;
-  __pyx_t_3 = 0;
-  __pyx_v_white_board = __pyx_t_2;
+  __pyx_v_black_board = __pyx_t_2;
   __pyx_t_2 = 0;
+  __pyx_v_white_board = __pyx_t_3;
+  __pyx_t_3 = 0;
 
-  /* "strategy/minmaxcalc.pyx":487
+  /* "strategy/minmaxcalc.pyx":486
  * 
  *         black_board, white_board = othello.board.return_board()
  *         cdef int turn = othello.turn             # <<<<<<<<<<<<<<
  *         self._player_clr = turn
  *         self._count_pass = 0
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_othello, __pyx_n_s_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 487, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 487, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_5 = __pyx_v_othello->turn;
   __pyx_v_turn = __pyx_t_5;
 
-  /* "strategy/minmaxcalc.pyx":488
+  /* "strategy/minmaxcalc.pyx":487
  *         black_board, white_board = othello.board.return_board()
  *         cdef int turn = othello.turn
  *         self._player_clr = turn             # <<<<<<<<<<<<<<
@@ -6624,7 +6701,7 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
  */
   __pyx_v_self->_player_clr = __pyx_v_turn;
 
-  /* "strategy/minmaxcalc.pyx":489
+  /* "strategy/minmaxcalc.pyx":488
  *         cdef int turn = othello.turn
  *         self._player_clr = turn
  *         self._count_pass = 0             # <<<<<<<<<<<<<<
@@ -6633,28 +6710,28 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
  */
   __pyx_v_self->_count_pass = 0;
 
-  /* "strategy/minmaxcalc.pyx":490
+  /* "strategy/minmaxcalc.pyx":489
  *         self._player_clr = turn
  *         self._count_pass = 0
  *         self._othello = othello             # <<<<<<<<<<<<<<
  *         return self.min_max(
  *             black_board, white_board, turn, self.depth, INFINITY)[1]
  */
-  __Pyx_INCREF(__pyx_v_othello);
-  __Pyx_GIVEREF(__pyx_v_othello);
+  __Pyx_INCREF(((PyObject *)__pyx_v_othello));
+  __Pyx_GIVEREF(((PyObject *)__pyx_v_othello));
   __Pyx_GOTREF(__pyx_v_self->_othello);
-  __Pyx_DECREF(__pyx_v_self->_othello);
+  __Pyx_DECREF(((PyObject *)__pyx_v_self->_othello));
   __pyx_v_self->_othello = __pyx_v_othello;
 
-  /* "strategy/minmaxcalc.pyx":492
+  /* "strategy/minmaxcalc.pyx":491
  *         self._othello = othello
  *         return self.min_max(
  *             black_board, white_board, turn, self.depth, INFINITY)[1]             # <<<<<<<<<<<<<<
  */
-  __pyx_t_7 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely((__pyx_t_7 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 492, __pyx_L1_error)
-  __pyx_t_8 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely((__pyx_t_8 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 492, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_black_board); if (unlikely((__pyx_t_7 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 491, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_As_std_3a__3a_uint64_t(__pyx_v_white_board); if (unlikely((__pyx_t_8 == ((std::uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 491, __pyx_L1_error)
 
-  /* "strategy/minmaxcalc.pyx":491
+  /* "strategy/minmaxcalc.pyx":490
  *         self._count_pass = 0
  *         self._othello = othello
  *         return self.min_max(             # <<<<<<<<<<<<<<
@@ -6663,10 +6740,10 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
   __pyx_r = ((struct __pyx_vtabstruct_8strategy_10minmaxcalc_MinmaxC *)__pyx_v_self->__pyx_vtab)->min_max(__pyx_v_self, __pyx_t_7, __pyx_t_8, __pyx_v_turn, __pyx_v_self->depth, INFINITY).f1;
   goto __pyx_L0;
 
-  /* "strategy/minmaxcalc.pyx":482
+  /* "strategy/minmaxcalc.pyx":481
  *             return min_evaluation, selected
  * 
- *     cpdef int put_disk(self, object othello):             # <<<<<<<<<<<<<<
+ *     cpdef int put_disk(self, OthelloGameC othello):             # <<<<<<<<<<<<<<
  *         cdef uint64_t new_black_board
  *         cdef uint64_t new_white_board
  */
@@ -6689,17 +6766,25 @@ static int __pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(struct MinmaxCObject
 /* Python wrapper */
 static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_17put_disk(PyObject *__pyx_v_self, PyObject *__pyx_v_othello); /*proto*/
 static PyObject *__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_17put_disk(PyObject *__pyx_v_self, PyObject *__pyx_v_othello) {
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("put_disk (wrapper)", 0);
-  __pyx_r = __pyx_pf_8strategy_10minmaxcalc_7MinmaxC_16put_disk(((struct MinmaxCObject *)__pyx_v_self), ((PyObject *)__pyx_v_othello));
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_othello), __pyx_ptype_8bitboard_10bitothello_OthelloGameC, 1, "othello", 0))) __PYX_ERR(0, 481, __pyx_L1_error)
+  __pyx_r = __pyx_pf_8strategy_10minmaxcalc_7MinmaxC_16put_disk(((struct MinmaxCObject *)__pyx_v_self), ((struct OthelloGameCObject *)__pyx_v_othello));
 
   /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_16put_disk(struct MinmaxCObject *__pyx_v_self, PyObject *__pyx_v_othello) {
+static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_16put_disk(struct MinmaxCObject *__pyx_v_self, struct OthelloGameCObject *__pyx_v_othello) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6708,7 +6793,7 @@ static PyObject *__pyx_pf_8strategy_10minmaxcalc_7MinmaxC_16put_disk(struct Minm
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("put_disk", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(__pyx_v_self, __pyx_v_othello, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk(__pyx_v_self, __pyx_v_othello, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 481, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -19891,7 +19976,7 @@ static PyObject *__pyx_tp_new_8strategy_10minmaxcalc_MinmaxC(PyTypeObject *t, Py
   if (unlikely(!o)) return 0;
   p = ((struct MinmaxCObject *)o);
   p->__pyx_vtab = __pyx_vtabptr_8strategy_10minmaxcalc_MinmaxC;
-  p->_othello = Py_None; Py_INCREF(Py_None);
+  p->_othello = ((struct OthelloGameCObject *)Py_None); Py_INCREF(Py_None);
   if (unlikely(__pyx_pw_8strategy_10minmaxcalc_7MinmaxC_1__cinit__(o, a, k) < 0)) goto bad;
   return o;
   bad:
@@ -19915,7 +20000,7 @@ static int __pyx_tp_traverse_8strategy_10minmaxcalc_MinmaxC(PyObject *o, visitpr
   int e;
   struct MinmaxCObject *p = (struct MinmaxCObject *)o;
   if (p->_othello) {
-    e = (*v)(p->_othello, a); if (e) return e;
+    e = (*v)(((PyObject *)p->_othello), a); if (e) return e;
   }
   return 0;
 }
@@ -19924,7 +20009,7 @@ static int __pyx_tp_clear_8strategy_10minmaxcalc_MinmaxC(PyObject *o) {
   PyObject* tmp;
   struct MinmaxCObject *p = (struct MinmaxCObject *)o;
   tmp = ((PyObject*)p->_othello);
-  p->_othello = Py_None; Py_INCREF(Py_None);
+  p->_othello = ((struct OthelloGameCObject *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
@@ -20814,11 +20899,13 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_View_MemoryView, __pyx_k_View_MemoryView, sizeof(__pyx_k_View_MemoryView), 0, 0, 1, 1},
   {&__pyx_n_u_WIN, __pyx_k_WIN, sizeof(__pyx_k_WIN), 0, 1, 0, 1},
+  {&__pyx_kp_u__22, __pyx_k__22, sizeof(__pyx_k__22), 0, 1, 0, 0},
+  {&__pyx_n_s_abspath, __pyx_k_abspath, sizeof(__pyx_k_abspath), 0, 0, 1, 1},
   {&__pyx_n_s_allocate_buffer, __pyx_k_allocate_buffer, sizeof(__pyx_k_allocate_buffer), 0, 0, 1, 1},
+  {&__pyx_n_s_append, __pyx_k_append, sizeof(__pyx_k_append), 0, 0, 1, 1},
   {&__pyx_n_s_base, __pyx_k_base, sizeof(__pyx_k_base), 0, 0, 1, 1},
   {&__pyx_n_s_bit_count, __pyx_k_bit_count, sizeof(__pyx_k_bit_count), 0, 0, 1, 1},
   {&__pyx_n_s_black_board, __pyx_k_black_board, sizeof(__pyx_k_black_board), 0, 0, 1, 1},
-  {&__pyx_n_s_board, __pyx_k_board, sizeof(__pyx_k_board), 0, 0, 1, 1},
   {&__pyx_n_s_c, __pyx_k_c, sizeof(__pyx_k_c), 0, 0, 1, 1},
   {&__pyx_n_u_c, __pyx_k_c, sizeof(__pyx_k_c), 0, 1, 0, 1},
   {&__pyx_n_s_check_surround, __pyx_k_check_surround, sizeof(__pyx_k_check_surround), 0, 0, 1, 1},
@@ -20838,6 +20925,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_format, __pyx_k_format, sizeof(__pyx_k_format), 0, 0, 1, 1},
   {&__pyx_n_s_fortran, __pyx_k_fortran, sizeof(__pyx_k_fortran), 0, 0, 1, 1},
   {&__pyx_n_u_fortran, __pyx_k_fortran, sizeof(__pyx_k_fortran), 0, 1, 0, 1},
+  {&__pyx_n_s_getcwd, __pyx_k_getcwd, sizeof(__pyx_k_getcwd), 0, 0, 1, 1},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
   {&__pyx_kp_s_got_differing_extents_in_dimensi, __pyx_k_got_differing_extents_in_dimensi, sizeof(__pyx_k_got_differing_extents_in_dimensi), 0, 0, 1, 0},
   {&__pyx_n_s_id, __pyx_k_id, sizeof(__pyx_k_id), 0, 0, 1, 1},
@@ -20845,7 +20933,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_is_reversible, __pyx_k_is_reversible, sizeof(__pyx_k_is_reversible), 0, 0, 1, 1},
   {&__pyx_n_s_itemsize, __pyx_k_itemsize, sizeof(__pyx_k_itemsize), 0, 0, 1, 1},
   {&__pyx_kp_s_itemsize_0_for_cython_array, __pyx_k_itemsize_0_for_cython_array, sizeof(__pyx_k_itemsize_0_for_cython_array), 0, 0, 1, 0},
-  {&__pyx_n_s_judge_game, __pyx_k_judge_game, sizeof(__pyx_k_judge_game), 0, 0, 1, 1},
+  {&__pyx_n_s_join, __pyx_k_join, sizeof(__pyx_k_join), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_memview, __pyx_k_memview, sizeof(__pyx_k_memview), 0, 0, 1, 1},
   {&__pyx_n_s_mode, __pyx_k_mode, sizeof(__pyx_k_mode), 0, 0, 1, 1},
@@ -20855,7 +20943,10 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
   {&__pyx_kp_s_no_default___reduce___due_to_non, __pyx_k_no_default___reduce___due_to_non, sizeof(__pyx_k_no_default___reduce___due_to_non), 0, 0, 1, 0},
   {&__pyx_n_s_obj, __pyx_k_obj, sizeof(__pyx_k_obj), 0, 0, 1, 1},
+  {&__pyx_n_s_os, __pyx_k_os, sizeof(__pyx_k_os), 0, 0, 1, 1},
   {&__pyx_n_s_pack, __pyx_k_pack, sizeof(__pyx_k_pack), 0, 0, 1, 1},
+  {&__pyx_n_s_parent_dir, __pyx_k_parent_dir, sizeof(__pyx_k_parent_dir), 0, 0, 1, 1},
+  {&__pyx_n_s_path, __pyx_k_path, sizeof(__pyx_k_path), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
   {&__pyx_n_s_put_disk, __pyx_k_put_disk, sizeof(__pyx_k_put_disk), 0, 0, 1, 1},
   {&__pyx_n_s_put_loc, __pyx_k_put_loc, sizeof(__pyx_k_put_loc), 0, 0, 1, 1},
@@ -20871,7 +20962,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
-  {&__pyx_n_s_result, __pyx_k_result, sizeof(__pyx_k_result), 0, 0, 1, 1},
   {&__pyx_n_s_return_board, __pyx_k_return_board, sizeof(__pyx_k_return_board), 0, 0, 1, 1},
   {&__pyx_n_s_reversible_area, __pyx_k_reversible_area, sizeof(__pyx_k_reversible_area), 0, 0, 1, 1},
   {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
@@ -20887,6 +20977,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_strided_and_indirect, __pyx_k_strided_and_indirect, sizeof(__pyx_k_strided_and_indirect), 0, 0, 1, 0},
   {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
   {&__pyx_n_s_struct, __pyx_k_struct, sizeof(__pyx_k_struct), 0, 0, 1, 1},
+  {&__pyx_n_s_sys, __pyx_k_sys, sizeof(__pyx_k_sys), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_turn, __pyx_k_turn, sizeof(__pyx_k_turn), 0, 0, 1, 1},
   {&__pyx_n_s_turn_playable, __pyx_k_turn_playable, sizeof(__pyx_k_turn_playable), 0, 0, 1, 1},
@@ -20898,7 +20989,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 176, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 134, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 149, __pyx_L1_error)
@@ -21136,9 +21227,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_tuple__22 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(1, 287, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__22);
-  __Pyx_GIVEREF(__pyx_tuple__22);
+  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(1, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__23);
+  __Pyx_GIVEREF(__pyx_tuple__23);
 
   /* "View.MemoryView":288
  * 
@@ -21147,9 +21238,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(1, 288, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__23);
-  __Pyx_GIVEREF(__pyx_tuple__23);
+  __pyx_tuple__24 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(1, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__24);
+  __Pyx_GIVEREF(__pyx_tuple__24);
 
   /* "View.MemoryView":289
  * cdef generic = Enum("<strided and direct or indirect>")
@@ -21158,9 +21249,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__24 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(1, 289, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__24);
-  __Pyx_GIVEREF(__pyx_tuple__24);
+  __pyx_tuple__25 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(1, 289, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__25);
+  __Pyx_GIVEREF(__pyx_tuple__25);
 
   /* "View.MemoryView":292
  * 
@@ -21169,9 +21260,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_tuple__25 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(1, 292, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__25);
-  __Pyx_GIVEREF(__pyx_tuple__25);
+  __pyx_tuple__26 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(1, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__26);
+  __Pyx_GIVEREF(__pyx_tuple__26);
 
   /* "View.MemoryView":293
  * 
@@ -21180,19 +21271,19 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__26 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(1, 293, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__26);
-  __Pyx_GIVEREF(__pyx_tuple__26);
+  __pyx_tuple__27 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(1, 293, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__27);
+  __Pyx_GIVEREF(__pyx_tuple__27);
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Enum(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__27 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__27);
-  __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__28 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__28);
+  __Pyx_GIVEREF(__pyx_tuple__28);
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -21268,17 +21359,17 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_8strategy_10minmaxcalc_MinmaxC.touch_border = (int (*)(struct MinmaxCObject *, std::uint64_t, std::uint64_t))__pyx_f_8strategy_10minmaxcalc_7MinmaxC_touch_border;
   __pyx_vtable_8strategy_10minmaxcalc_MinmaxC.evaluate_value = (float (*)(struct MinmaxCObject *, std::uint64_t, std::uint64_t))__pyx_f_8strategy_10minmaxcalc_7MinmaxC_evaluate_value;
   __pyx_vtable_8strategy_10minmaxcalc_MinmaxC.min_max = (__pyx_ctuple_float__and_int (*)(struct MinmaxCObject *, std::uint64_t, std::uint64_t, int, int, float))__pyx_f_8strategy_10minmaxcalc_7MinmaxC_min_max;
-  __pyx_vtable_8strategy_10minmaxcalc_MinmaxC.put_disk = (int (*)(struct MinmaxCObject *, PyObject *, int __pyx_skip_dispatch))__pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk;
-  if (PyType_Ready(&MinmaxCType) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_vtable_8strategy_10minmaxcalc_MinmaxC.put_disk = (int (*)(struct MinmaxCObject *, struct OthelloGameCObject *, int __pyx_skip_dispatch))__pyx_f_8strategy_10minmaxcalc_7MinmaxC_put_disk;
+  if (PyType_Ready(&MinmaxCType) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   MinmaxCType.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!MinmaxCType.tp_dictoffset && MinmaxCType.tp_getattro == PyObject_GenericGetAttr)) {
     MinmaxCType.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(MinmaxCType.tp_dict, __pyx_vtabptr_8strategy_10minmaxcalc_MinmaxC) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MinmaxC, (PyObject *)&MinmaxCType) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&MinmaxCType) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (__Pyx_SetVtable(MinmaxCType.tp_dict, __pyx_vtabptr_8strategy_10minmaxcalc_MinmaxC) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MinmaxC, (PyObject *)&MinmaxCType) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&MinmaxCType) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
   __pyx_ptype_8strategy_10minmaxcalc_MinmaxC = &MinmaxCType;
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
@@ -21340,10 +21431,24 @@ static int __Pyx_modinit_type_init_code(void) {
 
 static int __Pyx_modinit_type_import_code(void) {
   __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
+  __pyx_t_1 = PyImport_ImportModule("bitboard.bitothello"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_ptype_8bitboard_10bitothello_OthelloGameC = __Pyx_ImportType(__pyx_t_1, "bitboard.bitothello", "OthelloGameC", sizeof(struct OthelloGameCObject), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_8bitboard_10bitothello_OthelloGameC) __PYX_ERR(2, 5, __pyx_L1_error)
+  __pyx_vtabptr_8bitboard_10bitothello_OthelloGameC = (struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC*)__Pyx_GetVtable(__pyx_ptype_8bitboard_10bitothello_OthelloGameC->tp_dict); if (unlikely(!__pyx_vtabptr_8bitboard_10bitothello_OthelloGameC)) __PYX_ERR(2, 5, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_RefNannyFinishContext();
+  return -1;
 }
 
 static int __Pyx_modinit_variable_import_code(void) {
@@ -21457,7 +21562,11 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_minmaxcalc(PyObject *__pyx_pyinit_
 #endif
 {
   PyObject *__pyx_t_1 = NULL;
-  static PyThread_type_lock __pyx_t_2[8];
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  int __pyx_t_5;
+  static PyThread_type_lock __pyx_t_6[8];
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -21555,7 +21664,7 @@ if (!__Pyx_RefNanny) {
   (void)__Pyx_modinit_variable_export_code();
   (void)__Pyx_modinit_function_export_code();
   if (unlikely(__Pyx_modinit_type_init_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
-  (void)__Pyx_modinit_type_import_code();
+  if (unlikely(__Pyx_modinit_type_import_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
   (void)__Pyx_modinit_variable_import_code();
   (void)__Pyx_modinit_function_import_code();
   /*--- Execution code ---*/
@@ -21563,15 +21672,107 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
+  /* "strategy/minmaxcalc.pyx":9
+ * import cython
+ * from cython.view cimport array
+ * import os             # <<<<<<<<<<<<<<
+ * import sys
+ * 
+ */
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "strategy/minmaxcalc.pyx":10
+ * from cython.view cimport array
+ * import os
+ * import sys             # <<<<<<<<<<<<<<
+ * 
+ * parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
+ */
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "strategy/minmaxcalc.pyx":12
+ * import sys
+ * 
+ * parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))             # <<<<<<<<<<<<<<
+ * sys.path.append(parent_dir)
+ * 
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_abspath); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_os); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_join); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_os); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_getcwd); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
+  __Pyx_INCREF(__pyx_kp_u__22);
+  __Pyx_GIVEREF(__pyx_kp_u__22);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_kp_u__22);
+  __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_parent_dir, __pyx_t_4) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "strategy/minmaxcalc.pyx":13
+ * 
+ * parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
+ * sys.path.append(parent_dir)             # <<<<<<<<<<<<<<
+ * 
+ * from bitboard.bitothello cimport OthelloGameC
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_sys); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_parent_dir); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyObject_Append(__pyx_t_3, __pyx_t_4); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
   /* "strategy/minmaxcalc.pyx":1
  * # distutils: language=c++             # <<<<<<<<<<<<<<
  * # cython: language_level=3, boundscheck=False, wraparound=False
  * # cython: cdivision=True
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_4) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "View.MemoryView":210
  *         info.obj = self
@@ -21580,10 +21781,10 @@ if (!__Pyx_RefNanny) {
  * 
  *     def __dealloc__(array self):
  */
-  __pyx_t_1 = __pyx_capsule_create(((void *)(&__pyx_array_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 210, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_array_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_1) < 0) __PYX_ERR(1, 210, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __pyx_capsule_create(((void *)(&__pyx_array_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 210, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_array_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_4) < 0) __PYX_ERR(1, 210, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_array_type);
 
   /* "View.MemoryView":287
@@ -21593,12 +21794,12 @@ if (!__Pyx_RefNanny) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__22, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 287, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__23, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_XGOTREF(generic);
-  __Pyx_DECREF_SET(generic, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(generic, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_4);
+  __pyx_t_4 = 0;
 
   /* "View.MemoryView":288
  * 
@@ -21607,12 +21808,12 @@ if (!__Pyx_RefNanny) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__23, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 288, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__24, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_XGOTREF(strided);
-  __Pyx_DECREF_SET(strided, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(strided, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_4);
+  __pyx_t_4 = 0;
 
   /* "View.MemoryView":289
  * cdef generic = Enum("<strided and direct or indirect>")
@@ -21621,12 +21822,12 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__24, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 289, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__25, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 289, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_XGOTREF(indirect);
-  __Pyx_DECREF_SET(indirect, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(indirect, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_4);
+  __pyx_t_4 = 0;
 
   /* "View.MemoryView":292
  * 
@@ -21635,12 +21836,12 @@ if (!__Pyx_RefNanny) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__25, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 292, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__26, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_XGOTREF(contiguous);
-  __Pyx_DECREF_SET(contiguous, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(contiguous, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_4);
+  __pyx_t_4 = 0;
 
   /* "View.MemoryView":293
  * 
@@ -21649,12 +21850,12 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__26, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 293, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__27, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 293, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_XGOTREF(indirect_contiguous);
-  __Pyx_DECREF_SET(indirect_contiguous, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_DECREF_SET(indirect_contiguous, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_4);
+  __pyx_t_4 = 0;
 
   /* "View.MemoryView":317
  * 
@@ -21672,15 +21873,15 @@ if (!__Pyx_RefNanny) {
  *     PyThread_allocate_lock(),
  *     PyThread_allocate_lock(),
  */
-  __pyx_t_2[0] = PyThread_allocate_lock();
-  __pyx_t_2[1] = PyThread_allocate_lock();
-  __pyx_t_2[2] = PyThread_allocate_lock();
-  __pyx_t_2[3] = PyThread_allocate_lock();
-  __pyx_t_2[4] = PyThread_allocate_lock();
-  __pyx_t_2[5] = PyThread_allocate_lock();
-  __pyx_t_2[6] = PyThread_allocate_lock();
-  __pyx_t_2[7] = PyThread_allocate_lock();
-  memcpy(&(__pyx_memoryview_thread_locks[0]), __pyx_t_2, sizeof(__pyx_memoryview_thread_locks[0]) * (8));
+  __pyx_t_6[0] = PyThread_allocate_lock();
+  __pyx_t_6[1] = PyThread_allocate_lock();
+  __pyx_t_6[2] = PyThread_allocate_lock();
+  __pyx_t_6[3] = PyThread_allocate_lock();
+  __pyx_t_6[4] = PyThread_allocate_lock();
+  __pyx_t_6[5] = PyThread_allocate_lock();
+  __pyx_t_6[6] = PyThread_allocate_lock();
+  __pyx_t_6[7] = PyThread_allocate_lock();
+  memcpy(&(__pyx_memoryview_thread_locks[0]), __pyx_t_6, sizeof(__pyx_memoryview_thread_locks[0]) * (8));
 
   /* "View.MemoryView":551
  *         info.obj = self
@@ -21689,10 +21890,10 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_1 = __pyx_capsule_create(((void *)(&__pyx_memoryview_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 551, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_memoryview_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_1) < 0) __PYX_ERR(1, 551, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __pyx_capsule_create(((void *)(&__pyx_memoryview_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 551, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_memoryview_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_4) < 0) __PYX_ERR(1, 551, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_memoryview_type);
 
   /* "View.MemoryView":997
@@ -21702,10 +21903,10 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_1 = __pyx_capsule_create(((void *)(&__pyx_memoryview_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 997, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_memoryviewslice_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_1) < 0) __PYX_ERR(1, 997, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __pyx_capsule_create(((void *)(&__pyx_memoryview_getbuffer)), ((char *)"getbuffer(obj, view, flags)")); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 997, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_memoryviewslice_type->tp_dict, __pyx_n_s_pyx_getbuffer, __pyx_t_4) < 0) __PYX_ERR(1, 997, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_memoryviewslice_type);
 
   /* "(tree fragment)":1
@@ -21713,10 +21914,10 @@ if (!__Pyx_RefNanny) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_15View_dot_MemoryView_1__pyx_unpickle_Enum, NULL, __pyx_n_s_View_MemoryView); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Enum, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = PyCFunction_NewEx(&__pyx_mdef_15View_dot_MemoryView_1__pyx_unpickle_Enum, NULL, __pyx_n_s_View_MemoryView); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Enum, __pyx_t_4) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_Enum__set_state(<Enum> __pyx_result, __pyx_state)
@@ -21731,6 +21932,9 @@ if (!__Pyx_RefNanny) {
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
   if (__pyx_m) {
     if (__pyx_d) {
       __Pyx_AddTraceback("init strategy.minmaxcalc", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -22508,6 +22712,27 @@ static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected) {
     return __Pyx_IterFinish();
 }
 
+/* ArgTypeTest */
+static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
+{
+    if (unlikely(!type)) {
+        PyErr_SetString(PyExc_SystemError, "Missing type object");
+        return 0;
+    }
+    else if (exact) {
+        #if PY_MAJOR_VERSION == 2
+        if ((type == &PyBaseString_Type) && likely(__Pyx_PyBaseString_CheckExact(obj))) return 1;
+        #endif
+    }
+    else {
+        if (likely(__Pyx_TypeCheck(obj, type))) return 1;
+    }
+    PyErr_Format(PyExc_TypeError,
+        "Argument '%.200s' has incorrect type (expected %.200s, got %.200s)",
+        name, type->tp_name, Py_TYPE(obj)->tp_name);
+    return 0;
+}
+
 /* RaiseException */
 #if PY_MAJOR_VERSION < 3
 static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb,
@@ -22666,27 +22891,6 @@ bad:
     return;
 }
 #endif
-
-/* ArgTypeTest */
-static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
-{
-    if (unlikely(!type)) {
-        PyErr_SetString(PyExc_SystemError, "Missing type object");
-        return 0;
-    }
-    else if (exact) {
-        #if PY_MAJOR_VERSION == 2
-        if ((type == &PyBaseString_Type) && likely(__Pyx_PyBaseString_CheckExact(obj))) return 1;
-        #endif
-    }
-    else {
-        if (likely(__Pyx_TypeCheck(obj, type))) return 1;
-    }
-    PyErr_Format(PyExc_TypeError,
-        "Argument '%.200s' has incorrect type (expected %.200s, got %.200s)",
-        name, type->tp_name, Py_TYPE(obj)->tp_name);
-    return 0;
-}
 
 /* GetAttr */
 static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *o, PyObject *n) {
@@ -23626,6 +23830,214 @@ __PYX_GOOD:
     Py_XDECREF(setstate);
     Py_XDECREF(setstate_cython);
     return ret;
+}
+
+/* TypeImport */
+#ifndef __PYX_HAVE_RT_ImportType
+#define __PYX_HAVE_RT_ImportType
+static PyTypeObject *__Pyx_ImportType(PyObject *module, const char *module_name, const char *class_name,
+    size_t size, enum __Pyx_ImportType_CheckSize check_size)
+{
+    PyObject *result = 0;
+    char warning[200];
+    Py_ssize_t basicsize;
+#ifdef Py_LIMITED_API
+    PyObject *py_basicsize;
+#endif
+    result = PyObject_GetAttrString(module, class_name);
+    if (!result)
+        goto bad;
+    if (!PyType_Check(result)) {
+        PyErr_Format(PyExc_TypeError,
+            "%.200s.%.200s is not a type object",
+            module_name, class_name);
+        goto bad;
+    }
+#ifndef Py_LIMITED_API
+    basicsize = ((PyTypeObject *)result)->tp_basicsize;
+#else
+    py_basicsize = PyObject_GetAttrString(result, "__basicsize__");
+    if (!py_basicsize)
+        goto bad;
+    basicsize = PyLong_AsSsize_t(py_basicsize);
+    Py_DECREF(py_basicsize);
+    py_basicsize = 0;
+    if (basicsize == (Py_ssize_t)-1 && PyErr_Occurred())
+        goto bad;
+#endif
+    if ((size_t)basicsize < size) {
+        PyErr_Format(PyExc_ValueError,
+            "%.200s.%.200s size changed, may indicate binary incompatibility. "
+            "Expected %zd from C header, got %zd from PyObject",
+            module_name, class_name, size, basicsize);
+        goto bad;
+    }
+    if (check_size == __Pyx_ImportType_CheckSize_Error && (size_t)basicsize != size) {
+        PyErr_Format(PyExc_ValueError,
+            "%.200s.%.200s size changed, may indicate binary incompatibility. "
+            "Expected %zd from C header, got %zd from PyObject",
+            module_name, class_name, size, basicsize);
+        goto bad;
+    }
+    else if (check_size == __Pyx_ImportType_CheckSize_Warn && (size_t)basicsize > size) {
+        PyOS_snprintf(warning, sizeof(warning),
+            "%s.%s size changed, may indicate binary incompatibility. "
+            "Expected %zd from C header, got %zd from PyObject",
+            module_name, class_name, size, basicsize);
+        if (PyErr_WarnEx(NULL, warning, 0) < 0) goto bad;
+    }
+    return (PyTypeObject *)result;
+bad:
+    Py_XDECREF(result);
+    return NULL;
+}
+#endif
+
+/* GetVTable */
+static void* __Pyx_GetVtable(PyObject *dict) {
+    void* ptr;
+    PyObject *ob = PyObject_GetItem(dict, __pyx_n_s_pyx_vtable);
+    if (!ob)
+        goto bad;
+#if PY_VERSION_HEX >= 0x02070000
+    ptr = PyCapsule_GetPointer(ob, 0);
+#else
+    ptr = PyCObject_AsVoidPtr(ob);
+#endif
+    if (!ptr && !PyErr_Occurred())
+        PyErr_SetString(PyExc_RuntimeError, "invalid vtable found for imported type");
+    Py_DECREF(ob);
+    return ptr;
+bad:
+    Py_XDECREF(ob);
+    return NULL;
+}
+
+/* PyObjectGetMethod */
+static int __Pyx_PyObject_GetMethod(PyObject *obj, PyObject *name, PyObject **method) {
+    PyObject *attr;
+#if CYTHON_UNPACK_METHODS && CYTHON_COMPILING_IN_CPYTHON && CYTHON_USE_PYTYPE_LOOKUP
+    PyTypeObject *tp = Py_TYPE(obj);
+    PyObject *descr;
+    descrgetfunc f = NULL;
+    PyObject **dictptr, *dict;
+    int meth_found = 0;
+    assert (*method == NULL);
+    if (unlikely(tp->tp_getattro != PyObject_GenericGetAttr)) {
+        attr = __Pyx_PyObject_GetAttrStr(obj, name);
+        goto try_unpack;
+    }
+    if (unlikely(tp->tp_dict == NULL) && unlikely(PyType_Ready(tp) < 0)) {
+        return 0;
+    }
+    descr = _PyType_Lookup(tp, name);
+    if (likely(descr != NULL)) {
+        Py_INCREF(descr);
+#if PY_MAJOR_VERSION >= 3
+        #ifdef __Pyx_CyFunction_USED
+        if (likely(PyFunction_Check(descr) || (Py_TYPE(descr) == &PyMethodDescr_Type) || __Pyx_CyFunction_Check(descr)))
+        #else
+        if (likely(PyFunction_Check(descr) || (Py_TYPE(descr) == &PyMethodDescr_Type)))
+        #endif
+#else
+        #ifdef __Pyx_CyFunction_USED
+        if (likely(PyFunction_Check(descr) || __Pyx_CyFunction_Check(descr)))
+        #else
+        if (likely(PyFunction_Check(descr)))
+        #endif
+#endif
+        {
+            meth_found = 1;
+        } else {
+            f = Py_TYPE(descr)->tp_descr_get;
+            if (f != NULL && PyDescr_IsData(descr)) {
+                attr = f(descr, obj, (PyObject *)Py_TYPE(obj));
+                Py_DECREF(descr);
+                goto try_unpack;
+            }
+        }
+    }
+    dictptr = _PyObject_GetDictPtr(obj);
+    if (dictptr != NULL && (dict = *dictptr) != NULL) {
+        Py_INCREF(dict);
+        attr = __Pyx_PyDict_GetItemStr(dict, name);
+        if (attr != NULL) {
+            Py_INCREF(attr);
+            Py_DECREF(dict);
+            Py_XDECREF(descr);
+            goto try_unpack;
+        }
+        Py_DECREF(dict);
+    }
+    if (meth_found) {
+        *method = descr;
+        return 1;
+    }
+    if (f != NULL) {
+        attr = f(descr, obj, (PyObject *)Py_TYPE(obj));
+        Py_DECREF(descr);
+        goto try_unpack;
+    }
+    if (descr != NULL) {
+        *method = descr;
+        return 0;
+    }
+    PyErr_Format(PyExc_AttributeError,
+#if PY_MAJOR_VERSION >= 3
+                 "'%.50s' object has no attribute '%U'",
+                 tp->tp_name, name);
+#else
+                 "'%.50s' object has no attribute '%.400s'",
+                 tp->tp_name, PyString_AS_STRING(name));
+#endif
+    return 0;
+#else
+    attr = __Pyx_PyObject_GetAttrStr(obj, name);
+    goto try_unpack;
+#endif
+try_unpack:
+#if CYTHON_UNPACK_METHODS
+    if (likely(attr) && PyMethod_Check(attr) && likely(PyMethod_GET_SELF(attr) == obj)) {
+        PyObject *function = PyMethod_GET_FUNCTION(attr);
+        Py_INCREF(function);
+        Py_DECREF(attr);
+        *method = function;
+        return 1;
+    }
+#endif
+    *method = attr;
+    return 0;
+}
+
+/* PyObjectCallMethod1 */
+static PyObject* __Pyx__PyObject_CallMethod1(PyObject* method, PyObject* arg) {
+    PyObject *result = __Pyx_PyObject_CallOneArg(method, arg);
+    Py_DECREF(method);
+    return result;
+}
+static PyObject* __Pyx_PyObject_CallMethod1(PyObject* obj, PyObject* method_name, PyObject* arg) {
+    PyObject *method = NULL, *result;
+    int is_method = __Pyx_PyObject_GetMethod(obj, method_name, &method);
+    if (likely(is_method)) {
+        result = __Pyx_PyObject_Call2Args(method, obj, arg);
+        Py_DECREF(method);
+        return result;
+    }
+    if (unlikely(!method)) return NULL;
+    return __Pyx__PyObject_CallMethod1(method, arg);
+}
+
+/* append */
+static CYTHON_INLINE int __Pyx_PyObject_Append(PyObject* L, PyObject* x) {
+    if (likely(PyList_CheckExact(L))) {
+        if (unlikely(__Pyx_PyList_Append(L, x) < 0)) return -1;
+    } else {
+        PyObject* retval = __Pyx_PyObject_CallMethod1(L, __pyx_n_s_append, x);
+        if (unlikely(!retval))
+            return -1;
+        Py_DECREF(retval);
+    }
+    return 0;
 }
 
 /* CLineInTraceback */

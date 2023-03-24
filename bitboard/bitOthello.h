@@ -6,7 +6,7 @@
 #include "Python.h"
 struct OthelloGameCObject;
 
-/* "bitboard/bitothello.pyx":22
+/* "bitboard/bitothello.pxd":5
  * 
  * 
  * cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType]:             # <<<<<<<<<<<<<<

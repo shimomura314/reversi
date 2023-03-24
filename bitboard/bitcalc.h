@@ -6,7 +6,7 @@
 #include "Python.h"
 struct BitBoardCObject;
 
-/* "bitboard/bitcalc.pyx":12
+/* "bitboard/bitcalc.pxd":5
  * 
  * 
  * cdef public class BitBoardC [object BitBoardCObject, type BitBoardCType]:             # <<<<<<<<<<<<<<
@@ -16,8 +16,8 @@ struct BitBoardCObject;
 struct BitBoardCObject {
   PyObject_HEAD
   struct __pyx_vtabstruct_8bitboard_7bitcalc_BitBoardC *__pyx_vtab;
-  int BLACK;
-  int WHITE;
+  std::uint64_t BLACK;
+  std::uint64_t WHITE;
   std::uint64_t INIT_BLACK;
   std::uint64_t INIT_WHITE;
   std::uint64_t _black_board;

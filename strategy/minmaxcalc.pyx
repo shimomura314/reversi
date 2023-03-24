@@ -6,14 +6,13 @@
 
 import cython
 from cython.view cimport array
-# import os
-# import sys
-# 
-# parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
-# sys.path.append(parent_dir)
-# 
-# from bitboard cimport bitothello
-# from bitothello cimport OthelloGameC
+import os
+import sys
+
+parent_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
+sys.path.append(parent_dir)
+
+from bitboard.bitothello cimport OthelloGameC
 
 
 cdef extern from "<cstdint>" namespace "std":
@@ -31,7 +30,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
     cdef uint64_t _EXP2[64]
     cdef int _player_clr
     cdef int _count_pass
-    cdef object _othello
+    cdef OthelloGameC _othello
     cdef int depth
 
     # Declaration of methods (bit othello).
@@ -59,7 +58,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         self, uint64_t black_board, uint64_t white_board, int turn,
         int depth, float pre_evaluation
         )
-    cpdef int put_disk(self, object othello)
+    cpdef int put_disk(self, OthelloGameC othello)
 
     def __cinit__(self, int depth=4):
         self._EVAL_TBL1[0:64] = [
@@ -479,7 +478,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         else:
             return min_evaluation, selected
 
-    cpdef int put_disk(self, object othello):
+    cpdef int put_disk(self, OthelloGameC othello):
         cdef uint64_t new_black_board
         cdef uint64_t new_white_board
 

@@ -6,7 +6,7 @@
 #include "Python.h"
 struct MinmaxCObject;
 
-/* "strategy/minmaxcalc.pyx":27
+/* "strategy/minmaxcalc.pyx":26
  * 
  * 
  * cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:             # <<<<<<<<<<<<<<
@@ -21,7 +21,7 @@ struct MinmaxCObject {
   std::uint64_t _EXP2[64];
   int _player_clr;
   int _count_pass;
-  PyObject *_othello;
+  struct OthelloGameCObject *_othello;
   int depth;
 };
 
