@@ -13,7 +13,7 @@ from bitboard import OthelloGame
 from matching import TrueSkill
 from strategy import Strategy
 
-repeat = 1000
+repeat = 10000
 STRAT = [
     "random",
     "QLearning",
@@ -27,17 +27,39 @@ for _ in range(repeat):
         parameters.append((strategy1, strategy2))
 progress_bar = tqdm(total=len(parameters))
 
+global Q_values
+try:
+    with open(".//strategy//QL_dict//my_dict-0.5-0.9-0.1.pickle", "rb") as f:
+        Q_values = pickle.load(f)
+except:
+    Q_values = {}
+
+
 
 def set_match(strategy1, strategy2, color):
+    global Q_values
+
     game = OthelloGame(color)
     game.load_strategy(Strategy)
-    game.change_strategy(strategy1, is_player=True)
-    game.change_strategy(strategy2, is_player=False)
+    if strategy1 == "QLearning":
+        game.change_strategy(strategy1, is_player=True, Q_values=Q_values)
+    else:
+        game.change_strategy(strategy1, is_player=True)
+    if strategy2 == "QLearning":
+        game.change_strategy(strategy2, is_player=False, Q_values=Q_values)
+    else:
+        game.change_strategy(strategy2, is_player=False)
     game.auto_mode(True)
     while True:
         fin, _ = game.process_game()
         if fin:
             break
+
+    if strategy1 == "QLearning":
+        Q_values = game._strategy_player._strategy.return_dict()
+    else:
+        Q_values = game._strategy_opponent._strategy.return_dict()
+
     return game.result
 
 
@@ -137,22 +159,25 @@ def runby1():
             Rating.update_rating(strategy1, strategy2, True)
         progress_bar.update(1)
 
-        if i % 100 == 0:
-            with open("./strategy/QL_dict/averageQ.txt", "a") as log:
-                with open("./strategy/QL_dict/my_dict-0.5-0.9-0.1.pickle", "rb") as f:
-                    Q_values = pickle.load(f)
-                    log.write(
-                        str(np.average(np.array(
-                        [value for value in Q_values.values()]
-                        ))) + "\n")
+        # It takes long time for proccessing.
+        # if i % 100 == 0:
+        #     with open("./strategy/QL_dict/averageQ.txt", "a") as log:
+        #         log.write(
+        #             str(np.average(np.array(
+        #             [value for value in Q_values.values()]
+        #             ))) + "\n")
 
     Rating.save_rating()
     progress_bar.close()
     Rating.printer()
+
+    with open(".//strategy//QL_dict//my_dict-0.5-0.9-0.1.pickle", "wb") as f:
+        pickle.dump(Q_values, f)
     print("Game was played", len(parameters)*2, "times.")
 
 
 if __name__ == "__main__":
+
     # runMP(plot=True)
-    runby1()
-    # cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)
+    # runby1()
+    cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)

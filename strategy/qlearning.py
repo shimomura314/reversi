@@ -79,13 +79,14 @@ class QLearning:
             4611686018427387904, 9223372036854775808,
         ]
 
-    def __del__(self):
-        self.save_dict()
-
     def save_dict(self):
         """Write dictionary on files."""
         with open(self._save_path, "wb") as f:
             pickle.dump(self._Q_values, f)
+
+    def return_dict(self):
+        """Return dictionary on files."""
+        return self._Q_values
 
     def update_q_value(self, state, action, reward, next_state):
         """
@@ -107,10 +108,7 @@ class QLearning:
         else:
             bw_board = [next_state[1], next_state[0]]
 
-        possible_actions = []
-        for num in range(64):
-            if (self._EXP2[num]) & self._othello.reversible_area(self._turn, *bw_board):
-                possible_actions.append(num)
+        possible_actions = self._othello.reversible_area_list(self._turn, *bw_board)
 
         if possible_actions != []:
             max_q_next_state = max(
@@ -167,10 +165,7 @@ class QLearning:
         self._turn = othello.turn
         self._othello = othello
 
-        self._possible_actions = []
-        for num in range(64):
-            if (self._EXP2[num]) & self._othello.reversible:
-                self._possible_actions.append(num)
+        self._possible_actions = self._othello.reversible_area_list(self._turn)
 
         # [player, opponent]
         state = self._othello.return_player_board(self._turn)
@@ -197,6 +192,4 @@ class QLearning:
                 reward = -1
 
         self.update_q_value(state, action, reward, next_state)
-        self.save_dict()
-
         return action

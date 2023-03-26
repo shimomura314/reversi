@@ -1108,13 +1108,13 @@ struct __pyx_ctuple_int__and_int;
 typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area;
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area_list;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game;
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode;
-struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy;
 
-/* "bitboard/bitothello.pxd":32
+/* "bitboard/bitothello.pxd":33
  *     cpdef int _bit_count(self, uint64_t x)
  *     cpdef uint64_t _check_surround(self, uint64_t put_loc, int direction)
  *     cpdef (uint64_t, uint64_t) simulate_play(             # <<<<<<<<<<<<<<
@@ -1131,7 +1131,7 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_simulate_play {
   std::uint64_t white_board;
 };
 
-/* "bitboard/bitothello.pxd":37
+/* "bitboard/bitothello.pxd":38
  *         )
  *     cpdef void update_board(self, uint64_t black_board, uint64_t white_board)
  *     cpdef (int, int) count_disks(             # <<<<<<<<<<<<<<
@@ -1148,12 +1148,12 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks {
   std::uint64_t white_board;
 };
 
-/* "bitboard/bitothello.pxd":39
+/* "bitboard/bitothello.pxd":40
  *     cpdef (int, int) count_disks(
  *             self, uint64_t black_board=?, uint64_t white_board=?)
  *     cpdef uint64_t reversible_area(             # <<<<<<<<<<<<<<
  *         self, unsigned char turn, uint64_t black_board=?, uint64_t white_board=?)
- *     cpdef bint is_reversible(
+ *     cpdef list reversible_area_list(
  */
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area {
   int __pyx_n;
@@ -1161,8 +1161,21 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area {
   std::uint64_t white_board;
 };
 
-/* "bitboard/bitothello.pxd":41
+/* "bitboard/bitothello.pxd":42
  *     cpdef uint64_t reversible_area(
+ *         self, unsigned char turn, uint64_t black_board=?, uint64_t white_board=?)
+ *     cpdef list reversible_area_list(             # <<<<<<<<<<<<<<
+ *         self, unsigned char turn, uint64_t black_board=?, uint64_t white_board=?)
+ *     cpdef bint is_reversible(
+ */
+struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area_list {
+  int __pyx_n;
+  std::uint64_t black_board;
+  std::uint64_t white_board;
+};
+
+/* "bitboard/bitothello.pxd":44
+ *     cpdef list reversible_area_list(
  *         self, unsigned char turn, uint64_t black_board=?, uint64_t white_board=?)
  *     cpdef bint is_reversible(             # <<<<<<<<<<<<<<
  *         self, unsigned char turn, uint64_t put_loc,
@@ -1174,7 +1187,7 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible {
   std::uint64_t white_board;
 };
 
-/* "bitboard/bitothello.pxd":45
+/* "bitboard/bitothello.pxd":48
  *         uint64_t black_board=?, uint64_t white_board=?,
  *         )
  *     cpdef bint turn_playable(             # <<<<<<<<<<<<<<
@@ -1187,7 +1200,7 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable {
   std::uint64_t white_board;
 };
 
-/* "bitboard/bitothello.pxd":54
+/* "bitboard/bitothello.pxd":57
  *     cpdef void play_turn(self, int put_loc)
  *     cpdef (int, int) update_count(self)
  *     cpdef bint judge_game(self, int player=?, int opponent=?)             # <<<<<<<<<<<<<<
@@ -1200,28 +1213,16 @@ struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game {
   int opponent;
 };
 
-/* "bitboard/bitothello.pxd":55
+/* "bitboard/bitothello.pxd":58
  *     cpdef (int, int) update_count(self)
  *     cpdef bint judge_game(self, int player=?, int opponent=?)
  *     cpdef void auto_mode(self, bint automode=?)             # <<<<<<<<<<<<<<
  *     cpdef void load_strategy(self, object Strategy)
- *     cpdef void change_strategy(self, str strategy, bint is_player=?)
+ *     cpdef (bint, bint) process_game(self)
  */
 struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode {
   int __pyx_n;
   int automode;
-};
-
-/* "bitboard/bitothello.pxd":57
- *     cpdef void auto_mode(self, bint automode=?)
- *     cpdef void load_strategy(self, object Strategy)
- *     cpdef void change_strategy(self, str strategy, bint is_player=?)             # <<<<<<<<<<<<<<
- *     cpdef (bint, bint) process_game(self)
- *     cpdef list display_board(self)
- */
-struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy {
-  int __pyx_n;
-  int is_player;
 };
 struct __pyx_ctuple_float__and_int;
 typedef struct __pyx_ctuple_float__and_int __pyx_ctuple_float__and_int;
@@ -1252,6 +1253,7 @@ struct OthelloGameCObject {
   int WHITE;
   std::uint64_t INIT_BLACK;
   std::uint64_t INIT_WHITE;
+  std::uint64_t _EXP2[64];
   std::uint64_t _black_board;
   std::uint64_t _white_board;
   int _player_clr;
@@ -1399,6 +1401,7 @@ struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC {
   void (*update_board)(struct OthelloGameCObject *, std::uint64_t, std::uint64_t, int __pyx_skip_dispatch);
   __pyx_ctuple_int__and_int (*count_disks)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_count_disks *__pyx_optional_args);
   std::uint64_t (*reversible_area)(struct OthelloGameCObject *, unsigned char, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area *__pyx_optional_args);
+  PyObject *(*reversible_area_list)(struct OthelloGameCObject *, unsigned char, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_reversible_area_list *__pyx_optional_args);
   int (*is_reversible)(struct OthelloGameCObject *, unsigned char, std::uint64_t, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_is_reversible *__pyx_optional_args);
   int (*turn_playable)(struct OthelloGameCObject *, unsigned char, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_turn_playable *__pyx_optional_args);
   __pyx_ctuple_std__in_uint64_t__and_std__in_uint64_t (*return_board)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
@@ -1409,7 +1412,6 @@ struct __pyx_vtabstruct_8bitboard_10bitothello_OthelloGameC {
   int (*judge_game)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_judge_game *__pyx_optional_args);
   void (*auto_mode)(struct OthelloGameCObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_auto_mode *__pyx_optional_args);
   void (*load_strategy)(struct OthelloGameCObject *, PyObject *, int __pyx_skip_dispatch);
-  void (*change_strategy)(struct OthelloGameCObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_8bitboard_10bitothello_12OthelloGameC_change_strategy *__pyx_optional_args);
   __pyx_ctuple_int__and_int (*process_game)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
   PyObject *(*display_board)(struct OthelloGameCObject *, int __pyx_skip_dispatch);
   int (*undo_turn)(struct OthelloGameCObject *, int __pyx_skip_dispatch);

@@ -35,10 +35,7 @@ class Maximize:
         max_strategy = []
         max_merit = 0
 
-        candidates = []
-        for num in range(64):
-            if (pow(2, num)) & othello.reversible:
-                candidates.append(num)
+        candidates = othello.reversible_area_list(turn)
         for candidate in candidates:
             new_board = othello.simulate_play(
                 othello.turn, candidate)

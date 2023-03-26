@@ -9,6 +9,7 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cdef public int WHITE
     cdef public uint64_t INIT_BLACK
     cdef public uint64_t INIT_WHITE
+    cdef uint64_t _EXP2[64]
 
     # Instance variables.
     cdef public uint64_t _black_board
@@ -21,8 +22,8 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cdef int _count_opponent
     cdef int _pass_cnt[2]
     cdef bint _player_auto
-    cdef object _strategy_player
-    cdef object _strategy_opponent
+    cdef public object _strategy_player
+    cdef public object _strategy_opponent
     cdef object _board_log
     cdef object _board_back
 
@@ -37,6 +38,8 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cpdef (int, int) count_disks(
             self, uint64_t black_board=?, uint64_t white_board=?)
     cpdef uint64_t reversible_area(
+        self, unsigned char turn, uint64_t black_board=?, uint64_t white_board=?)
+    cpdef list reversible_area_list(
         self, unsigned char turn, uint64_t black_board=?, uint64_t white_board=?)
     cpdef bint is_reversible(
         self, unsigned char turn, uint64_t put_loc,

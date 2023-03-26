@@ -42,8 +42,5 @@ class Random:
         int
             The index of the square where the disk is placed.
         """
-        candidates = []
-        for num in range(64):
-            if (pow(2, num)) & othello.reversible:
-                candidates.append(num)
+        candidates = othello.reversible_area_list(othello.turn)
         return random.choice(candidates)

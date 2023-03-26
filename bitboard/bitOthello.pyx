@@ -19,6 +19,21 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         self.WHITE = 1
         self.INIT_BLACK = 0x0000000810000000ULL
         self.INIT_WHITE = 0x0000001008000000ULL
+        self._EXP2[0:64] = [
+            1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192,
+            16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152,
+            4194304, 8388608, 16777216, 33554432, 67108864, 134217728,
+            268435456, 536870912, 1073741824, 2147483648, 4294967296,
+            8589934592, 17179869184, 34359738368, 68719476736, 137438953472,
+            274877906944, 549755813888, 1099511627776, 2199023255552,
+            4398046511104, 8796093022208, 17592186044416, 35184372088832,
+            70368744177664, 140737488355328, 281474976710656, 562949953421312,
+            1125899906842624, 2251799813685248, 4503599627370496,
+            9007199254740992, 18014398509481984, 36028797018963968,
+            72057594037927936, 144115188075855872, 288230376151711744,
+            576460752303423488, 1152921504606846976, 2305843009213693952,
+            4611686018427387904, 9223372036854775808,
+        ]
 
     def __init__(self, str player_clr="black"):
         """
@@ -382,6 +397,17 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         reversible |= blank_board & (one_rv >> 7)
         return reversible
 
+    cpdef list reversible_area_list(
+            self, unsigned char turn, uint64_t black_board = 0, uint64_t white_board = 0):
+        cdef uint64_t reversible = self.reversible_area(turn, black_board, white_board)
+
+        cdef int num
+        cdef list candidates = []
+        for num in range(64):
+            if (reversible & self._EXP2[num]):
+                candidates.append(num)
+        return candidates
+
     cpdef bint is_reversible(
             self, unsigned char turn, uint64_t put_loc,
             uint64_t black_board = 0, uint64_t white_board = 0,
@@ -502,7 +528,7 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         if not (0 <= put_loc <= 63):
             raise AssertionError
         # cdef uint64_t put_loc_ = 1i64 << put_loc
-        cdef uint64_t put_loc_ = pow(2, put_loc)
+        cdef uint64_t put_loc_ = self._EXP2[put_loc]
         cdef uint64_t next_black_board, next_white_board
 
         # If input value is not valid, raise an error.

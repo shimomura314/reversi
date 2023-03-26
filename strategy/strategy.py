@@ -45,7 +45,7 @@ class Strategy(OthelloGame):
         self._player_clr = othello.return_turn()
         self.set_strategy(strategy)
 
-    def set_strategy(self, strategy: str):
+    def set_strategy(self, strategy: str, **kwargs):
         """
         Sets the strategy for putting a disk on the board.
 
@@ -67,7 +67,7 @@ class Strategy(OthelloGame):
         elif strategy == "min-max long":
             self._strategy = MinmaxC(6)
         elif strategy == "QLearning":
-            self._strategy = QLearning()
+            self._strategy = QLearning(**kwargs)
         else:
             raise KeyError
 

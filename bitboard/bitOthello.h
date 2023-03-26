@@ -20,6 +20,7 @@ struct OthelloGameCObject {
   int WHITE;
   std::uint64_t INIT_BLACK;
   std::uint64_t INIT_WHITE;
+  std::uint64_t _EXP2[64];
   std::uint64_t _black_board;
   std::uint64_t _white_board;
   int _player_clr;
