@@ -3,22 +3,19 @@
 from concurrent.futures import ProcessPoolExecutor
 import cProfile
 from itertools import combinations
+import pickle
 from tqdm import tqdm
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 from bitboard import OthelloGame
 from matching import TrueSkill
 from strategy import Strategy
 
-repeat = 10
+repeat = 10000
 STRAT = [
     "random",
-    "maximize",
-    "minimize",
-    "min-max short",
-    "min-max"
-    "min-max long",
     "QLearning",
 ]
 
@@ -128,7 +125,7 @@ def runMP(plot=False):
 
 
 def runby1():
-    for parameter in parameters:
+    for i, parameter in enumerate(parameters):
         rslt = matching(parameter)
         # Update Rating.
         strategy1, strategy2, win, lose, drew = rslt
@@ -140,6 +137,16 @@ def runby1():
             Rating.update_rating(strategy1, strategy2, True)
         progress_bar.update(1)
 
+        if i % 100 == 0:
+            with open("./strategy/QL_dict/averageQ.txt", "a") as log:
+                with open("./strategy/QL_dict/my_dict-0.5-0.9-0.1.pickle", "rb") as f:
+                    Q_values = pickle.load(f)
+                    log.write(
+                        str(np.average(np.array(
+                        [value for value in Q_values.values()]
+                        ))) + "\n")
+                    # print(np.average(np.array([value for value in Q_values.values()])))
+
     Rating.save_rating()
     progress_bar.close()
     Rating.printer()
@@ -148,5 +155,5 @@ def runby1():
 
 if __name__ == "__main__":
     # runMP(plot=True)
-    # runby1()
-    cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)
+    runby1()
+    # cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)

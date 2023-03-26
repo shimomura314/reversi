@@ -5,6 +5,7 @@ from bitboard import OthelloGame
 from .maximize import Maximize
 from .minimize import Minimize
 from .minmaxcalc import MinmaxC
+from .qlearning import QLearning
 from .random import Random
 
 
@@ -16,9 +17,9 @@ class Strategy(OthelloGame):
     random : Put disk randomly.
     maximize : Put disk to maximize number of one's disks.
     minimize : Put disk to minimize number of one's disks.
-    openness : Put disk based on openness theory.
-    evenness : Put disk based on evenness theory.
+    min-max : Put disk based on min-max theory.
     """
+
     def __init__(self, othello, strategy: str = "random"):
         self._othello = othello
         self._player_clr = othello.return_turn()
@@ -37,6 +38,8 @@ class Strategy(OthelloGame):
             self._strategy = MinmaxC(4)
         elif strategy == "min-max long":
             self._strategy = MinmaxC(6)
+        elif strategy == "QLearning":
+            self._strategy = QLearning()
         else:
             raise KeyError
 
