@@ -17,9 +17,9 @@ STRAT = [
     "maximize",
     "minimize",
     "min-max short",
-    "min-max"
+    "min-max",
     "min-max long",
-    "QLearning",
+    # "QLearning",
 ]
 
 Rating = TrueSkill(STRAT)
@@ -147,6 +147,6 @@ def runby1():
 
 
 if __name__ == "__main__":
-    # runMP(plot=True)
+    runMP(plot=True)
     # runby1()
-    cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)
+    # cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)

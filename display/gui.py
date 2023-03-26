@@ -12,7 +12,39 @@ __all__ = ["MyFrame"]
 
 
 class MyFrame(wx.Frame):
-    """Make frame for GUI."""
+    """
+    Represents a GUI frame for the Othello game board.
+
+    Parameters
+    ----------
+    parent : wx.Window
+        The parent window of the frame.
+    id : int, optional
+        The identifier of the frame.
+    title : str, optional
+        The title of the frame.
+    size : tuple of int, optional
+        The size of the frame.
+    othello : Othello
+        The instance of the Othello game.
+
+    Attributes
+    ----------
+    othello : Othello
+        The instance of the Othello game.
+    result : bool
+        The flag indicating if the game is over or not.
+    update : bool
+        The flag indicating if the game board needs to be updated or not.
+    user_auto : bool
+        The flag indicating if the user is playing automatically or not.
+
+    Methods
+    -------
+    on_timer(event)
+        The method that is called on every timer event.
+    """
+
     def __init__(
             self, parent=None, id=-1, title=None,
             size=(640, 480), othello=None,
@@ -45,14 +77,47 @@ class MyFrame(wx.Frame):
         logger.info("GUI for the board was set.")
 
     def on_timer(self, event):
+        """
+        The method that is called on every timer event.
+
+        Parameters
+        ----------
+        event : wx.Event
+            The timer event.
+        """
         self.result, self.update = self.othello.process_game()
         # time.sleep(0.5)
         # logger.debug("Frame update.")
 
 
 class GamePanel(wx.Panel):
+    """GamePanel class is a wx.Panel subclass that represents the game board.
+
+    Attributes:
+        _frame (wx.Frame): Parent frame of the panel.
+        _disks (List[List[Disk]]): 8x8 nested list to hold the disks.
+        _position (List[List[Tuple[int, int]]]): 8x8 nested list to hold the positions of each square.
+        _line_position (List[List[int]]): 2x9 nested list to hold the positions of each line.
+
+    Methods:
+        __init__(self, frame):
+            Constructs a GamePanel object and initializes its attributes.
+        on_left_down(self, event):
+            Handles the left mouse button down event.
+        update_data(self):
+            Updates the attributes that hold data to be drawn on the panel.
+        draw_board(self):
+            Draws the board and disks on the panel.
+        on_timer(self, event):
+            Handles the timer event for the panel.
+    """
 
     def __init__(self, frame):
+        """Constructs a GamePanel object and initializes its attributes.
+
+        Args:
+            frame (wx.Frame): Parent frame of the panel.
+        """
         wx.Panel.__init__(self, frame)
         self.SetBackgroundColour("white")
         self._frame = frame
@@ -76,7 +141,11 @@ class GamePanel(wx.Panel):
         self._timer.Start(100)
 
     def on_left_down(self, event):
-        """If a disk area was clicked, return the position of disk."""
+        """If a disk area was clicked, return the position of disk.
+
+        Args:
+            event: The event object.
+        """
         logger.info("Mouse bottun was put.")
         different = self._line_position[0][1] - self._line_position[0][0]
         select_x = (event.X - self._line_position[0][0])//different
@@ -153,6 +222,32 @@ class GamePanel(wx.Panel):
 
 
 class UserPanel(wx.Panel):
+    """
+    A panel that displays the user's points,
+    opponent's points, and the game result.
+
+    Parameters
+    ----------
+    frame : wx.Frame
+        The main frame of the game.
+
+    Attributes
+    ----------
+    _user_point_panel : PointPanel
+        A panel that displays the user's points.
+    _opp_point_panel : PointPanel
+        A panel that displays the opponent's points.
+    _result_panel : ResultPanel
+        A panel that displays the game result.
+    _timer : wx.Timer
+        A timer used to update the panel.
+
+    Methods
+    -------
+    on_timer(event)
+        Updates the panel with the latest point and game result information.
+    """
+
     def __init__(self, frame):
         super().__init__()
         wx.Panel.__init__(self, frame)
@@ -181,7 +276,33 @@ class UserPanel(wx.Panel):
 
 
 class PointPanel(wx.Panel):
+
     def __init__(self, panel, frame, back_clr: str, is_player: int):
+        """
+        A class representing a panel for displaying a player's score.
+
+        Parameters
+        ----------
+        panel : wx.Panel
+            The parent panel.
+        frame : wx.Frame
+            The parent frame.
+        back_clr : str
+            The background color of the panel.
+        is_player : int
+            1 if the panel displays the user's score,
+            0 if the panel displays the CPU's score.
+
+        Attributes
+        ----------
+        _is_player : int
+        _frame : wx.Frame
+        _text : str
+            The text to display on the panel.
+            "You" for the user panel, "CPU" for the CPU panel.
+        _client_DC : wx.ClientDC
+            The device context for drawing on the panel.
+        """
         super().__init__()
         wx.Panel.__init__(self, panel)
         self.SetBackgroundColour(back_clr)
@@ -224,7 +345,43 @@ class PointPanel(wx.Panel):
 
 
 class ResultPanel(wx.Panel):
+    """
+    A panel to display the game result.
+
+    Parameters
+    ----------
+    panel : wx.Panel
+        A parent panel.
+    frame : wx.Frame
+        A parent frame.
+    
+    Attributes
+    ----------
+    _frame : wx.Frame
+        A parent frame.
+    _text : str
+        The text to be displayed on the panel.
+    _client_DC : wx.ClientDC
+        A client device context for drawing on the panel.
+    _bit_map : wx.Bitmap
+        A bitmap for double buffering.
+    _buffer_DC : wx.BufferedDC
+        A buffered device context for drawing on the bitmap.
+
+    Methods
+    -------
+    draw()
+        Draw the result on the panel.
+    """
+
     def __init__(self, panel, frame):
+        """
+        Panel for displaying the game result.
+
+        Args:
+            panel: Parent panel of this panel.
+            frame: Frame object that manages this panel.
+        """
         super().__init__()
         wx.Panel.__init__(self, panel)
         self._frame = frame
@@ -232,6 +389,9 @@ class ResultPanel(wx.Panel):
         self._client_DC = wx.ClientDC(self)
 
     def draw(self):
+        """
+        Draw the result on the panel.
+        """
         width, height = self.GetSize()
         size = min(width, height)
         if self._frame.result:
@@ -269,6 +429,31 @@ class Disk(object):
 
 
 class SquareMap(object):
+    """
+    A class to draw a square map of lines and circles for a game board.
+
+    Attributes:
+    ----------
+    None
+
+    Methods:
+    -------
+    draw(buffer_DC, line_position)
+        Draw the square map on a device context buffer_DC.
+
+    Parameters:
+    ----------
+    buffer_DC : wx.DC
+        A device context object where the map will be drawn.
+    line_position : list
+        A list of two lists representing the x- and y-coordinates of the lines
+        that make up the board.
+
+    Returns:
+    -------
+    None
+    """
+
     def __init__(self):
         return
 

@@ -1,7 +1,8 @@
-"""Specify colors of an othello bpard."""
+"""Specify colors of an othello board."""
 
 
 class ColorPallet():
+
     def __init__(self):
         self.CLR_BLACK_DISK = "#000000"
         self.CLR_WHITE_DISK = "#FFFFFF"

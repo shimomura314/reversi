@@ -5,20 +5,47 @@ import random
 
 
 class QLearning:
+    """
+    Q-learning is a reinforcement learning algorithm
+    that seeks to learn the optimal policy for an agent to take in an environment.
+    This class implements the Q-learning algorithm for a given environment and state-action space.
+
+    Parameters:
+    -----------
+    alpha : float, optional (default=0.1)
+        Learning rate for the Q-value update.
+    gamma : float, optional (default=0.99)
+        Discount factor for future rewards.
+    epsilon : float, optional (default=0.1)
+        Epsilon-greedy policy parameter.
+
+    Attributes:
+    -----------
+    q_table : dict
+        Q-value table.
+
+    Methods:
+    --------
+    choose_action(state)
+        Choose an action based on the epsilon-greedy policy.
+    update(state, action, reward, next_state)
+        Update the Q-value table based on the reward received and the next state.
+    """
 
     # lock = threading.Lock()
 
     def __init__(self, alpha=0.5, gamma=0.9, epsilon=0.1, Q_values=None):
         """
-        Initializes a Q-Learning agent for Othello.
+        Initializes the QLearning object with the given parameters.
 
-        Args:
-            alpha (float): The learning rate, which determines how much the agent weighs new information compared to 
-                old information. Default value is 0.5.
-            gamma (float): The discount factor, which determines the importance of future rewards. 
-                Default value is 0.9.
-            epsilon (float): The exploration rate, which determines the probability of taking a random action. 
-                Default value is 0.1.
+        Parameters:
+        -----------
+        alpha : float, optional (default=0.1)
+            Learning rate for the Q-value update.
+        gamma : float, optional (default=0.99)
+            Discount factor for future rewards.
+        epsilon : float, optional (default=0.1)
+            Epsilon-greedy policy parameter.
         """
         self._save_path = ".//strategy//QL_dict//my_dict-%s-%s-%s.pickle" % (
             str(alpha), str(gamma), str(epsilon)
@@ -64,12 +91,16 @@ class QLearning:
         """
         Updates the Q-value for a given state-action pair using the Q-Learning algorithm.
 
-        Args:
-            state (tuple): The state of the game board represented as a tuple of tuples.
-            action (tuple): The action taken by the agent represented as a tuple of coordinates (row, column).
-            reward (int): The reward received by the agent for taking the given action.
-            next_state (tuple): The resulting state of the game board after taking the given action, represented as a 
-                tuple of tuples.
+        Parameters:
+        -----------
+        state : tuple
+            Current state of the agent.
+        action : int
+            Action taken by the agent.
+        reward : float
+            Reward received by the agent.
+        next_state : tuple
+            Next state of the agent.
         """
         if self._turn == 0:
             bw_board = [next_state[0], next_state[1]]
@@ -93,16 +124,19 @@ class QLearning:
 
     def select_action(self, state, possible_actions):
         """
-        Selects an action for the agent to take based on the given state and the set of possible actions.
+        Select an action for the current state according to the epsilon-greedy policy.
 
-        Args:
-            state (tuple): The state of the game board represented as a tuple of tuples.
-            possible_actions (list): A list of possible actions that the agent can take, represented as tuples of 
-                coordinates (row, column).
+        Parameters
+        ----------
+        state : tuple
+            The current state of the environment.
+        possible_actions : List[int]
+            A list of possible actions for the current state.
 
-        Returns:
-            tuple or None: The action selected by the agent, represented as a tuple of coordinates (row, column), or 
-                None if there are no possible actions.
+        Returns
+        -------
+        int
+            The selected action.
         """
         if random.random() < self._EPSILON:
             return random.choice(possible_actions)
@@ -117,6 +151,19 @@ class QLearning:
                 [a for a, q in q_values.items() if q == max_q_value])
 
     def put_disk(self, othello):
+        """
+        Put a disk on the board according to the action.
+
+        Parameters
+        ----------
+        othello : Othello
+            The current state of the Othello game.
+
+        Returns
+        -------
+        int
+            The selected action.
+        """
         self._turn = othello.turn
         self._othello = othello
 
@@ -150,5 +197,6 @@ class QLearning:
                 reward = -1
 
         self.update_q_value(state, action, reward, next_state)
+        self.save_dict()
 
         return action

@@ -27,8 +27,8 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cdef object _board_back
 
     # Declaration of methods.
-    cpdef uint64_t _bit_count(self, uint64_t x)
-    cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
+    cpdef int _bit_count(self, uint64_t x)
+    cpdef uint64_t _check_surround(self, uint64_t put_loc, int direction)
     cpdef (uint64_t, uint64_t) simulate_play(
         self, int turn, uint64_t put_loc,
         uint64_t black_board=?, uint64_t white_board=?,
@@ -37,13 +37,13 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cpdef (int, int) count_disks(
             self, uint64_t black_board=?, uint64_t white_board=?)
     cpdef uint64_t reversible_area(
-        self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
+        self, unsigned char turn, uint64_t black_board=?, uint64_t white_board=?)
     cpdef bint is_reversible(
-        self, uint64_t turn, uint64_t put_loc,
+        self, unsigned char turn, uint64_t put_loc,
         uint64_t black_board=?, uint64_t white_board=?,
         )
     cpdef bint turn_playable(
-        self, uint64_t turn, uint64_t black_board=?, uint64_t white_board=?)
+        self, unsigned char turn, uint64_t black_board=?, uint64_t white_board=?)
     cpdef (uint64_t, uint64_t) return_board(self)
     cpdef (uint64_t, uint64_t) return_player_board(self, int turn)
     cpdef load_board(self, uint64_t black_board, uint64_t white_board)
@@ -54,7 +54,6 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cpdef bint judge_game(self, int player=?, int opponent=?)
     cpdef void auto_mode(self, bint automode=?)
     cpdef void load_strategy(self, object Strategy)
-    cpdef void change_strategy(self, str strategy, bint is_player=?)
     cpdef (bint, bint) process_game(self)
     cpdef list display_board(self)
     cpdef bint undo_turn(self)

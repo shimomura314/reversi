@@ -34,22 +34,22 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
     cdef int depth
 
     # Declaration of methods (bit othello).
-    cpdef uint64_t _bit_count(self, uint64_t x)
-    cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction)
+    cpdef int _bit_count(self, uint64_t x)
+    cpdef uint64_t _check_surround(self, uint64_t put_loc, int direction)
     cpdef (uint64_t, uint64_t) simulate_play(
         self, int turn, uint64_t put_loc,
         uint64_t black_board, uint64_t white_board,
         )
-    cpdef (uint64_t, uint64_t) count_disks(
+    cpdef (int, int) count_disks(
         self, uint64_t black_board, uint64_t white_board)
     cpdef uint64_t reversible_area(
-        self, uint64_t turn, uint64_t black_board, uint64_t white_board)
+        self, unsigned char turn, uint64_t black_board, uint64_t white_board)
     cpdef bint is_reversible(
-        self, uint64_t turn, uint64_t put_loc,
+        self, unsigned char turn, uint64_t put_loc,
         uint64_t black_board, uint64_t white_board,
         )
     cpdef bint turn_playable(
-        self, uint64_t turn, uint64_t black_board, uint64_t white_board)
+        self, unsigned char turn, uint64_t black_board, uint64_t white_board)
 
     # Declaration of methods.
     cdef int touch_border(self, uint64_t black_board, uint64_t white_board)
@@ -61,6 +61,22 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
     cpdef int put_disk(self, OthelloGameC othello)
 
     def __cinit__(self, int depth=4):
+        """Initializes an instance of the class.
+
+        Parameters
+        ----------
+        depth : int, optional
+            The maximum depth to which the minimax algorithm will search for the best move.
+            Default value is 4.
+
+        Notes
+        -----
+        This method initializes the instance with evaluation tables and an array of powers of 2 used for fast bit manipulation.
+        The evaluation tables are precomputed values used to evaluate the board state in the minimax algorithm.
+        The array of powers of 2 is used to quickly calculate the binary representation of a given integer.
+        ``_EVAL_TBL1`` and ``_EVAL_TBL2`` are tables used to evaluate the board state for different positions.
+        ``_EXP2`` is an array of powers of 2 that are used for bit manipulation operations.
+        """
         self._EVAL_TBL1[0:64] = [
             30,  -12,   0,  -1,  -1,   0, -12,  30,
             -12, -15,  -3,  -3,  -3,  -3, -15, -12,
@@ -99,15 +115,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         self.depth = depth
 
     # Difinitions of methods.
-    cpdef uint64_t _bit_count(self, uint64_t x):
-        """Count the number of bit awaking.
-
-        Parameters
-        ----------
-        x : uint64_t
-            64-bit intager which represents the location of disk.
-        """
-
+    cpdef int _bit_count(self, uint64_t x):
         # Distributing by 2-bit, express the number of bits using 2-bit.
         x -= (x >> 1) & 0x5555555555555555ULL
         # Upper 2-bit + lower 2-bit.
@@ -122,16 +130,7 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         x += x >> 32
         return x & 0x0000007fULL
 
-    cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction):
-        """Check neighbor disk is reversible or not.
-
-        Parameters
-        ----------
-        put_loc : uint64_t
-            64-bit intager which represents the location of disk.
-        direction : uint64_t
-            Intager from 0 to 7.
-        """
+    cpdef uint64_t _check_surround(self, uint64_t put_loc, int direction):
         if direction == 0:  # Upper
             return (put_loc << 8) & 0xffffffffffffff00ULL
         elif direction == 1:  # Upper right
@@ -153,21 +152,6 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
             self, int turn, uint64_t put_loc,
             uint64_t black_board, uint64_t white_board,
             ):
-        """Simulate the next turn.
-
-        Parameters
-        ----------
-        turn : int
-            If black is on turn, 1. If white, 0.
-        put_loc : int
-            64-bit intager which represents the location of disk.
-        black_board, white_board : int
-            If board is not synchronized with the instance, enter it manually.
-
-        Returns
-        -------
-        reversed_black_board, reversed_white_board : list of int
-        """
         cdef uint64_t reverse_bit = 0
         cdef uint64_t reverse_bit_
         cdef uint64_t border_bit
@@ -200,33 +184,12 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
 
         return black_board, white_board
 
-    cpdef (uint64_t, uint64_t) count_disks(
+    cpdef (int, int) count_disks(
             self, uint64_t black_board, uint64_t white_board):
-        """Returns black and white's disk number.
-
-        Parameters
-        ----------
-        black_board, white_board : int (optional)
-            64-bit intager.
-        """
         return self._bit_count(black_board), self._bit_count(white_board)
 
     cpdef uint64_t reversible_area(
-            self, uint64_t turn, uint64_t black_board, uint64_t white_board):
-        """Returns reversible area.
-
-        Parameters
-        ----------
-        turn : uint64_t
-            If black is on turn, 1. If white, 0.
-        black_board, white_board : uint64_t
-            If board is not synchronized with the instance, enter it manually.
-
-        Returns
-        -------
-        reversible : uint64_t
-            Represents board of reversible positions.
-        """
+            self, unsigned char turn, uint64_t black_board, uint64_t white_board):
         cdef uint64_t *CONST = [
             0x7e7e7e7e7e7e7e7eULL, 0x00ffffffffffff00ULL, 0x007e7e7e7e7e7e00ULL,
         ]
@@ -311,50 +274,65 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
         return reversible
 
     cpdef bint is_reversible(
-            self, uint64_t turn, uint64_t put_loc,
+            self, unsigned char turn, uint64_t put_loc,
             uint64_t black_board, uint64_t white_board,
             ):
-        """Return wheather you can put disk on (x,y) or not.
-
-        Parameters
-        ----------
-        turn : int
-            If black is on turn, 1. If white, 0.
-        put_loc : int
-            64-bit intager which represents the location of disk.
-        black_board, white_board : int (optional)
-            64-bit intager.
-
-        Returns
-        -------
-        is_reversible : bool
-        """
         reversible = self.reversible_area(turn, black_board, white_board)
         return (put_loc & reversible) == put_loc
 
     cpdef bint turn_playable(
-            self, uint64_t turn, uint64_t black_board, uint64_t white_board):
-        """Return wheather you can put disk or not.
-
-        Parameters
-        ----------
-        turn : int
-            If black is on turn, 1. If white, 0.
-        put_loc : int
-            64-bit intager which represents the location of disk.
-        black_board, white_board : int (optional)
-            64-bit intager.
-        """
+            self, unsigned char turn, uint64_t black_board, uint64_t white_board):
         reversible = self.reversible_area(turn, black_board, white_board)
         return reversible != 0
 
     cdef int touch_border(self, uint64_t black_board, uint64_t white_board):
+        """
+        Check if any stone on the board is touching the border.
+
+        Parameters:
+        -----------
+        black_board : uint64_t
+            Bitboard representing the current state of black stones on the board.
+        white_board : uint64_t
+            Bitboard representing the current state of white stones on the board.
+
+        Returns:
+        --------
+        int
+            Returns 1 if a stone is touching the border, otherwise returns 0.
+        """
         cdef uint64_t board = (black_board | white_board)
         if board & 0xff818181818181ffULL:
             return 1
         return 0
 
     cdef float evaluate_value(self, uint64_t black_board, uint64_t white_board):
+        """
+        Evaluate the value of the current board position.
+
+        Parameters
+        ----------
+        black_board : uint64_t
+            A 64-bit unsigned integer representing the position of black discs on the board.
+        white_board : uint64_t
+            A 64-bit unsigned integer representing the position of white discs on the board.
+
+        Returns
+        -------
+        float
+            A floating point number representing the evaluation value of the current board position.
+
+        Notes
+        -----
+        This method calculates the evaluation value of the current board position by iterating over the positions of
+        black and white discs on the board, and adding or subtracting the corresponding values from the evaluation
+        tables based on the disc positions and the current game phase. The game phase is determined by checking if any
+        of the discs touch the border of the board.
+
+        The evaluation tables used in this method are pre-calculated values that are based on the strategic
+        importance of each board position. The values in EVAL_TBL1 are used in the opening and early midgame phases,
+        while the values in EVAL_TBL2 are used in the late midgame and endgame phases.
+        """
         cdef float evaluation = 0
         cdef uint64_t *board = [black_board, white_board]
 
@@ -379,14 +357,28 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
             self, uint64_t black_board, uint64_t white_board, int turn,
             int depth, float pre_evaluation
             ):
-        """Return wheather you can put disk or not.
+        """
+        Min-Max Algorithm with Alpha-Beta Pruning.
 
         Parameters
         ----------
-        black_board, white_board : int (optional)
-            64-bit intager.
+        black_board : uint64_t
+            Bitboard representation of the black player's disks.
+        white_board : uint64_t
+            Bitboard representation of the white player's disks.
         turn : int
             If black is on turn, 1. If white, 0.
+        depth : int
+            Search depth.
+        pre_evaluation : float
+            Previous evaluation value for alpha-beta pruning.
+
+        Returns
+        -------
+        evaluation : float
+            Evaluation value.
+        selected : int
+            The position of the disk to be placed.
         """
         # Calculate evaluation.
         cdef float evaluation = self.evaluate_value(black_board, white_board)
@@ -479,6 +471,18 @@ cdef public class MinmaxC [object MinmaxCObject, type MinmaxCType]:
             return min_evaluation, selected
 
     cpdef int put_disk(self, OthelloGameC othello):
+        """Put a disk in a reversible position.
+
+        Parameters
+        ----------
+        othello : OthelloGameC
+            Othello game object.
+
+        Returns
+        -------
+        int
+            Position of the disk placed.
+        """
         cdef uint64_t new_black_board
         cdef uint64_t new_white_board
 

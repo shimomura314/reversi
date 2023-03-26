@@ -4,6 +4,29 @@ import random
 
 
 class Maximize:
+    """
+    A strategy to try to maximize the number of disks you have.
+
+    Attributes
+    ----------
+    None
+
+    Methods
+    -------
+    put_disk(othello):
+        Given an Othello game board, finds all the legal moves and chooses a random move that maximizes the number of
+        disks owned by the current player.
+
+    Parameters
+    ----------
+    othello : instance of the Othello class
+        The current game state
+
+    Returns:
+    --------
+    int : the index of the chosen move
+    """
+
     def __init__(self):
         pass
 

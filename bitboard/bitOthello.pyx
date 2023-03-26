@@ -21,6 +21,58 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         self.INIT_WHITE = 0x0000001008000000ULL
 
     def __init__(self, str player_clr="black"):
+        """
+        Othello board game.
+
+        Parameters
+        ----------
+        player_clr : str, optional
+            The color of the player, either "black", "white", or "random".
+            Default is "black".
+
+        Attributes
+        ----------
+        _black_board : int
+            A bitboard representing the black pieces.
+        _white_board : int
+            A bitboard representing the white pieces.
+        _player_clr : int
+            The color of the player as an integer, where 0 represents black and 1 represents white.
+        turn : int
+            The current turn number.
+        reversible : int
+            The number of reversible positions.
+        result : str
+            The current result of the game.
+        _count_player : int
+            The number of player's pieces on the board.
+        _count_opponent : int
+            The number of opponent's pieces on the board.
+        _pass_cnt : list of int
+            The number of times each player has passed.
+        _player_auto : bool
+            Whether the player is controlled by a computer or not.
+        _board_log : deque
+            A deque containing the history of the board.
+        _board_back : deque
+            A deque containing the backup of the board.
+
+        Raises
+        ------
+        KeyError
+            If an invalid color string is specified.
+
+        Notes
+        -----
+        This class represents an Othello board game.
+        The board is represented as a bitboard, where each bit represents a position on the board.
+        The bit at index i represents the position (i % 8, i // 8) on the board.
+
+        Examples
+        --------
+        >>> game = OthelloBoard(player_clr="white")
+        >>> game.play()
+        """
         # Set a board.
         self._black_board = 0x0000000810000000ULL
         self._white_board = 0x0000001008000000ULL
@@ -54,15 +106,34 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         self._board_back = deque([])
 
     # Difinitions of methods.
-    cpdef uint64_t _bit_count(self, uint64_t x):
-        """Count the number of bit awaking.
+    cpdef int _bit_count(self, uint64_t x):
+        """
+        Count the number of bit awaking.
 
         Parameters
         ----------
         x : uint64_t
-            64-bit intager which represents the location of disk.
-        """
+            An unsigned 64-bit integer which represents the location of disk.
 
+        Returns
+        -------
+        uint64_t
+            The number of bits in the integer.
+
+        Notes
+        -----
+        This method uses the "population count" algorithm to count
+        the number of bits in an integer.
+        It works by first distributing the bits by 2-bit,
+        then adding the upper and lower bits at each level
+        until the entire 64-bit integer is summed up.
+
+        Examples
+        --------
+        >>> game = OthelloBoard()
+        >>> game._bit_count(0x0000000810000000ULL)
+        3
+        """
         # Distributing by 2-bit, express the number of bits using 2-bit.
         x -= (x >> 1) & 0x5555555555555555ULL
         # Upper 2-bit + lower 2-bit.
@@ -77,15 +148,20 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         x += x >> 32
         return x & 0x0000007fULL
 
-    cpdef uint64_t _check_surround(self, uint64_t put_loc, uint64_t direction):
-        """Check neighbor disk is reversible or not.
+    cpdef uint64_t _check_surround(self, uint64_t put_loc, int direction):
+        """
+        Check neighbor disk is reversible or not.
 
         Parameters
         ----------
         put_loc : uint64_t
-            64-bit intager which represents the location of disk.
-        direction : uint64_t
-            Intager from 0 to 7.
+            The location where the player puts their disk represented
+            as a 64-bit unsigned integer.
+        direction : int
+            An integer representing the direction to check.
+            It should be an integer in the range [0, 7].
+            0: upper, 1: upper right, 2: right, 3: lower right,
+            4: lower,5: lower left, 6: left, 7: upper left.
         """
         if direction == 0:  # Upper
             return (put_loc << 8) & 0xffffffffffffff00ULL
@@ -108,20 +184,24 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
             self, int turn, uint64_t put_loc,
             uint64_t black_board = 0, uint64_t white_board = 0,
             ):
-        """Simulate the next turn.
+        """
+        Simulates a play of Othello by updating the current board state.
 
         Parameters
         ----------
         turn : int
-            If black is on turn, 1. If white, 0.
-        put_loc : int
-            64-bit intager which represents the location of disk.
-        black_board, white_board : int
-            If board is not synchronized with the instance, enter it manually.
+            The player who is making the play. 0 for black, 1 for white.
+        put_loc : uint64_t
+            The location where the player puts their disk represented
+            as a 64-bit unsigned integer.
+        black_board, white_board : uint64_t, optional
+            Bitboard representing player's discs.
+            Default is 0, which means use the internal state of the board.
 
         Returns
         -------
-        reversed_black_board, reversed_white_board : list of int
+        tuple of uint64_t
+            A tuple of updated black and white bitboards after the player's move.
         """
         if black_board  == 0 and white_board == 0:
             black_board = self._black_board
@@ -160,24 +240,36 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return black_board, white_board
 
     cpdef void update_board(self, uint64_t black_board, uint64_t white_board):
-        """Put a disk and reverse opponent disks.
+        """
+        Updates the game board with the provided black and white board configurations.
 
         Parameters
         ----------
         black_board, white_board : int
-            64-bit intager.
+            The bitboard configuration of the black/white player.
+
+        Returns
+        -------
+        None
         """
         self._black_board = black_board
         self._white_board = white_board
 
     cpdef (int, int) count_disks(
             self, uint64_t black_board = 0, uint64_t white_board = 0):
-        """Returns black and white's disk number.
+        """
+        Counts the number of disks on the board for each player.
 
         Parameters
         ----------
-        black_board, white_board : int (optional)
-            64-bit intager.
+        black_board, white_board : uint64_t, optional
+            The bitboard representing the black/white player's disks.
+            If not given, the internal board of the instance is used.
+
+        Returns
+        -------
+        Tuple[int, int]
+            A tuple with the number of disks for the players, respectively.
         """
         if black_board  == 0 and white_board == 0:
             black_board = self._black_board
@@ -186,20 +278,22 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return self._bit_count(black_board), self._bit_count(white_board)
 
     cpdef uint64_t reversible_area(
-            self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
-        """Returns reversible area.
+            self, unsigned char turn, uint64_t black_board = 0, uint64_t white_board = 0):
+        """
+        Calculate the reversible area of the board for the given turn.
 
         Parameters
         ----------
-        turn : uint64_t
-            If black is on turn, 1. If white, 0.
+        turn : unsigned char
+            The turn to calculate the reversible area for.
         black_board, white_board : uint64_t
-            If board is not synchronized with the instance, enter it manually.
+            The boards represented as a 64-bit integer.
+            Defaults to 0.
 
         Returns
         -------
         reversible : uint64_t
-            Represents board of reversible positions.
+            The reversible area of the board for the given turn.
         """
         if black_board  == 0 and white_board == 0:
             black_board = self._black_board
@@ -289,23 +383,26 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return reversible
 
     cpdef bint is_reversible(
-            self, uint64_t turn, uint64_t put_loc,
+            self, unsigned char turn, uint64_t put_loc,
             uint64_t black_board = 0, uint64_t white_board = 0,
             ):
-        """Return wheather you can put disk on (x,y) or not.
+        """
+        Check if the put_loc is reversible for the given turn.
 
         Parameters
         ----------
-        turn : int
-            If black is on turn, 1. If white, 0.
-        put_loc : int
-            64-bit intager which represents the location of disk.
-        black_board, white_board : int (optional)
-            64-bit intager.
+        turn : unsigned char
+            Current player's turn. `0` for black, `1` for white.
+        put_loc : uint64_t
+            The bitboard position to check reversibility.
+        black_board, white_board : uint64_t, optional
+            Bitboard representing the player's pieces on the board.
+            Default is `0`.
 
         Returns
         -------
-        is_reversible : bool
+        bool
+            `True` if the put_loc is reversible, `False` otherwise.
         """
         if black_board  == 0 and white_board == 0:
             black_board = self._black_board
@@ -315,17 +412,21 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return (put_loc & reversible) == put_loc
 
     cpdef bint turn_playable(
-            self, uint64_t turn, uint64_t black_board = 0, uint64_t white_board = 0):
+            self, unsigned char turn, uint64_t black_board = 0, uint64_t white_board = 0):
         """Return wheather you can put disk or not.
 
         Parameters
         ----------
-        turn : int
-            If black is on turn, 1. If white, 0.
-        put_loc : int
-            64-bit intager which represents the location of disk.
-        black_board, white_board : int (optional)
-            64-bit intager.
+        turn : unsigned char
+            The turn of the player to check. 0 for black, 1 for white.
+        black_board, white_board : uint64_t, optional
+            Bitboards representing the stones.
+            Defaults to 0, in which case the current boards of the game will be used.
+        
+        Returns
+        -------
+        np.bool_
+            True if the player has a valid move to make, False otherwise.
         """
         if black_board  == 0 and white_board == 0:
             black_board = self._black_board
@@ -335,33 +436,74 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return reversible != 0
 
     cpdef (uint64_t, uint64_t) return_board(self):
+        """
+        Returns the current board of the game.
+
+        Returns
+        -------
+        board : tuple of uint64_t
+            A tuple of the black board and white board.
+        """
         return self._black_board, self._white_board
 
     cpdef (uint64_t, uint64_t) return_player_board(self, int turn):
+        """
+        Returns the board of a player.
+
+        Parameters
+        ----------
+        turn : int
+            The player's turn. If 0, returns the black board and white board. If 1, returns the white board and black board.
+
+        Returns
+        -------
+        board : tuple of uint64_t
+            A tuple of the board of the player and the opponent's board.
+        """
         if turn == 0:
             return self._black_board, self._white_board
         else:
             return self._white_board, self._black_board
 
     cpdef load_board(self, uint64_t black_board, uint64_t white_board):
+        """
+        Load the specified board.
+
+        Parameters
+        ----------
+        black_board : uint64_t
+            The black board.
+        white_board : uint64_t
+            The white board.
+        """
         self._black_board = black_board
         self._white_board = white_board
 
     cpdef void play_turn(self, int put_loc):
-        """You can put disk and reverse opponent's disk.
+        """
+        Play a turn with the given location on the board.
 
         Parameters
         ----------
         put_loc : int
-            Integer from 0 to 63.
+            Location to put the piece on the board, from 0 to 63.
+
+        Raises
+        ------
+        AssertionError
+            If the input value is not within 0 to 63.
+        ValueError
+            If the input value is not reversible.
+
+        Returns
+        -------
+        None
         """
         if not (0 <= put_loc <= 63):
             raise AssertionError
         # cdef uint64_t put_loc_ = 1i64 << put_loc
         cdef uint64_t put_loc_ = pow(2, put_loc)
         cdef uint64_t next_black_board, next_white_board
-
-        # put_loc_ = 1 << put_loc
 
         # If input value is not valid, raise an error.
         if not self.is_reversible(self.turn, put_loc_):
@@ -382,7 +524,16 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         self.turn ^= 1
 
     cpdef (int, int) update_count(self):
-        """Update counts of disks."""
+        """
+        Update the number of disks on the board for each player.
+
+        Returns
+        -------
+            count_player : int
+                The number of disks for the current player.
+            count_opponent : int
+                The number of disks for the opponent.
+        """
         cdef int count_board[2]
         count_board[0], count_board[1] = self.count_disks()
         if self._player_clr == 0:
@@ -395,7 +546,21 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
             return count_board[1], count_board[0]
 
     cpdef bint judge_game(self, int player = 0, int opponent = 0):
-        """Judgement of game."""
+        """
+        Determines the outcome of the game based on the current state of the board.
+
+        Parameters
+        ----------
+        player : int, optional
+            The score of the current player, defaults to 0.
+        opponent : int, optional
+            The score of the opposing player, defaults to 0.
+
+        Returns
+        -------
+        bool
+            Returns True if the game is over, otherwise False.
+        """
         if player == 0 and opponent == 0:
             player = self._count_player
             opponent = self._count_opponent
@@ -407,44 +572,62 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         if (black == 0 and white == 0) or (player+opponent) == 64:
             if player == opponent:
                 self.result = "DRAW"
-            if player > opponent:
+            elif player > opponent:
                 self.result = "WIN"
-            if player < opponent:
+            elif player < opponent:
                 self.result = "LOSE"
             return True
         return False
 
     cpdef void auto_mode(self, bint automode = True):
-        """If True is selected, the match will be played between the CPUs."""
+        """
+        Set automatic mode.
+
+        Parameters
+        ----------
+        automode : bool, optional
+            Automatic mode on/off flag, by default True
+        """
         self._player_auto = automode
 
     cpdef void load_strategy(self, object Strategy):
-        """Set strategy class."""
+        """
+        Load strategy for player and opponent.
+
+        Parameters
+        ----------
+        Strategy : object
+            Strategy object.
+        """
         self._strategy_player = Strategy(self)
         self._strategy_opponent = Strategy(self)
 
-    cpdef void change_strategy(self, str strategy, bint is_player=False):
-        """You can select AI strategy from candidates below.
+    def change_strategy(self, str strategy, bint is_player=False, **kwargs):
+        """
+        Change strategy for player or opponent.
 
         Parameters
         ----------
         strategy : str
-            random : Put disk randomly.
-            maximize : Put disk to maximize number of one's disks.
-            minimize : Put disk to minimize number of one's disks.
-        is_player : bool
-            Default is False.
+            Name of the strategy to be used.
+        is_player : bool, optional
+            Whether the player's strategy should be changed, by default False.
         """
         if is_player:
-            self._strategy_player.set_strategy(strategy)
+            self._strategy_player.set_strategy(strategy, **kwargs)
         else:
-            self._strategy_opponent.set_strategy(strategy)
+            self._strategy_opponent.set_strategy(strategy, **kwargs)
 
     cpdef (bint, bint) process_game(self):
         """
+        Process the game by updating the count, judging whether the game is over,
+        and making a move by the player or the CPU, depending on whose turn it is.
+
         Returns
         -------
-        finished, updated : bool
+        finished, updated : Tuple[bint, bint]
+            A tuple representing if the game has ended
+            and if a turn was played.
         """
         self.update_count()
 
@@ -478,10 +661,17 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return False, False
 
     cpdef list display_board(self):
-        """Calculate 2-dimensional arrays to be used for board display."""
+        """
+        Calculate 2-dimensional arrays to be used for board display.
+
+        Returns
+        -------
+        list
+            A list of lists with dimensions 8 x 8 where 1 represents a black disk,
+            -1 represents a white disk, and 0 represents an empty cell.
+        """
         cdef uint64_t black_board, white_board
         cdef int board_list[8][8]
-
 
         black_board, white_board = self.return_board()
         board_list = [[0 for _ in range(8)] for _ in range(8)]
@@ -496,6 +686,12 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return board_list
 
     cpdef bint undo_turn(self):
+        """
+        Undo the last turn.
+
+        Returns:
+            bint: True if successful, False otherwise.
+        """
         logger.debug(
             "Log:%s - %s" % (
                 ", ".join(map(str, self._board_log)),
@@ -518,6 +714,13 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return True
 
     cpdef bint redo_turn(self):
+        """
+        Redo the last undoed turn.
+
+        Returns:
+        - True if the board was advanced successfully.
+        - False if there is no board to advance.
+        """
         logger.debug(
             "Log:%s - %s" % (
                 ", ".join(map(str, self._board_log)),
@@ -538,6 +741,15 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
         return True
 
     cpdef int return_turn(self):
+        """
+        Returns the current turn of the game.
+
+        Returns
+        -------
+        int
+            An integer representing the current turn,
+            where 0 represents the black and 1 represents the white.
+        """
         return self._player_clr
 
     # cpdef (uint64_t, uint64_t, list, list) return_state(self):
@@ -547,6 +759,24 @@ cdef public class OthelloGameC [object OthelloGameCObject, type OthelloGameCType
     cpdef void load_state(
             self, uint64_t black_board, uint64_t white_board,
             list board_log, list board_back):
+        """
+        Load the current game state with the given board configuration and board history.
+
+        Parameters
+        ----------
+        black_board : uint64_t
+            The bitboard representing the black player's pieces.
+        white_board : uint64_t
+            The bitboard representing the white player's pieces.
+        board_log : list
+            The list of previous board states.
+        board_back : list
+            The list of next board states.
+
+        Returns
+        -------
+        None
+        """
         self.load_board(black_board, white_board)
         self._board_log = copy.deepcopy(board_log)
         self._board_back = copy.deepcopy(board_back)

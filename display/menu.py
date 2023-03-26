@@ -8,8 +8,68 @@ from strategy import Strategy
 
 
 class MenuBar(wx.MenuBar):
-    """Set menu bar."""
+    """
+    A class for setting up the menu bar in the Othello game GUI.
+
+    Parameters
+    ----------
+    frame : wx.Frame
+        The main frame of the GUI.
+
+    Attributes:
+    -----------
+    _frame : wx.Frame
+        The main frame of the GUI.
+    _id_clr_black : int
+        The ID of the "black" menu item in the "Procedure" menu.
+    _id_clr_white : int
+        The ID of the "white" menu item in the "Procedure" menu.
+    _id_clr_random : int
+        The ID of the "random" menu item in the "Procedure" menu.
+    _id_random : int
+        The ID of the "random" radio item in the "CPU strategy" menu.
+    _id_maximize : int
+        The ID of the "maximize" radio item in the "CPU strategy" menu.
+    _id_minimize : int
+        The ID of the "minimize" radio item in the "CPU strategy" menu.
+    _id_minmax : int
+        The ID of the "min-max" radio item in the "CPU strategy" menu.
+    _board_save : list
+        The saved state of the Othello board.
+    _board_log : list
+        The log of previous moves on the Othello board.
+    _board_back : list
+        The backup of the Othello board.
+
+    Methods:
+    --------
+    save_board():
+        Saves the current state of the Othello board.
+    load_board():
+        Loads the saved state of the Othello board.
+    initialize_game():
+        Initializes the Othello board.
+    close_game():
+        Closes the Othello game GUI.
+    undo_turn():
+        Undoes the last turn on the Othello board.
+    redo_turn():
+        Redoes the last turn on the Othello board.
+    change_settings(event):
+        Changes the settings of the Othello board and CPU strategy.
+    event_manager(event):
+        Manages events triggered by user actions in the menu bar.
+    """
+
     def __init__(self, frame):
+        """
+        Initializes the MenuBar class.
+
+        Parameters
+        ----------
+        frame : wx.Frame
+            The main frame of the GUI.
+        """
         super().__init__()
         self._frame = frame
 

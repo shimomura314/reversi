@@ -13,7 +13,7 @@ from bitboard import OthelloGame
 from matching import TrueSkill
 from strategy import Strategy
 
-repeat = 10000
+repeat = 1000
 STRAT = [
     "random",
     "QLearning",
@@ -145,7 +145,6 @@ def runby1():
                         str(np.average(np.array(
                         [value for value in Q_values.values()]
                         ))) + "\n")
-                    # print(np.average(np.array([value for value in Q_values.values()])))
 
     Rating.save_rating()
     progress_bar.close()

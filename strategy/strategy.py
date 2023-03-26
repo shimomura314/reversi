@@ -10,22 +10,50 @@ from .random import Random
 
 
 class Strategy(OthelloGame):
-    """You can select AI strategy from candidates below.
+    """
+    A class representing a strategy for playing Othello.
 
-    Strategies
-    ----------
-    random : Put disk randomly.
-    maximize : Put disk to maximize number of one's disks.
-    minimize : Put disk to minimize number of one's disks.
-    min-max : Put disk based on min-max theory.
+    Attributes:
+    -----------
+    _othello : OthelloGame
+        An Othello game instance.
+    _player_clr : int
+        The color of the player to move.
+    _strategy : object
+        An object representing a strategy for putting a disk on the board.
+
+    Methods:
+    --------
+    set_strategy(strategy: str) -> None
+        Sets the strategy for putting a disk on the board.
+    selecter(othello: OthelloGame) -> int
+        Chooses a position to put a disk on the board using the current strategy.
     """
 
     def __init__(self, othello, strategy: str = "random"):
+        """
+        Initializes an instance of the Strategy class.
+
+        Parameters:
+        -----------
+        othello : OthelloGame
+            An Othello game instance.
+        strategy : str, optional
+            The name of the strategy to use, by default "random".
+        """
         self._othello = othello
         self._player_clr = othello.return_turn()
         self.set_strategy(strategy)
 
     def set_strategy(self, strategy: str):
+        """
+        Sets the strategy for putting a disk on the board.
+
+        Parameters:
+        -----------
+        strategy : str
+            The name of the strategy to use.
+        """
         if strategy == "random":
             self._strategy = Random()
         elif strategy == "maximize":
@@ -44,4 +72,17 @@ class Strategy(OthelloGame):
             raise KeyError
 
     def selecter(self, othello):
+        """
+        Chooses a position to put a disk on the board using the current strategy.
+
+        Parameters:
+        -----------
+        othello : OthelloGame
+            An Othello game instance.
+
+        Returns:
+        --------
+        int
+            An integer representing the position to put a disk on the board.
+        """
         return self._strategy.put_disk(othello)
