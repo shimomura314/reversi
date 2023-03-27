@@ -186,10 +186,7 @@ class QLearning:
 
         reward = 0
         if (black == 0 and white == 0) or (player+opponent) == 64:
-            if player > opponent:
-                reward = 1
-            if player < opponent:
-                reward = -1
+            reward = player - opponent
 
         self.update_q_value(state, action, reward, next_state)
         return action
