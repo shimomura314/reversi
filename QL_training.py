@@ -1,6 +1,5 @@
 """Calculate rating."""
 
-from concurrent.futures import ProcessPoolExecutor
 import cProfile
 from itertools import combinations
 import pickle
@@ -12,28 +11,6 @@ import numpy as np
 from bitboard import OthelloGame
 from matching import TrueSkill
 from strategy import Strategy
-
-repeat = 10000
-STRAT = [
-    "random",
-    "QLearning",
-]
-
-Rating = TrueSkill(STRAT)
-
-parameters = []
-for _ in range(repeat):
-    for strategy1, strategy2 in combinations(STRAT, 2):
-        parameters.append((strategy1, strategy2))
-progress_bar = tqdm(total=len(parameters))
-
-global Q_values
-try:
-    with open(".//strategy//QL_dict//my_dict-0.5-0.9-0.1.pickle", "rb") as f:
-        Q_values = pickle.load(f)
-except:
-    Q_values = {}
-
 
 
 def set_match(strategy1, strategy2, color):
@@ -114,39 +91,28 @@ def printer(Rating: TrueSkill):
     plt.xticks(list(range(len(mus))), keys)
 
 
-def runMP(plot=False):
-    if plot:
-        cnt = 0
-        fig = plt.figure()
-
-    with ProcessPoolExecutor(max_workers=8) as executor:
-        for rslt in executor.map(matching, parameters):
-            # Update Rating.
-            strategy1, strategy2, win, lose, drew = rslt
-            for _ in range(win):
-                Rating.update_rating(strategy1, strategy2)
-            for _ in range(lose):
-                Rating.update_rating(strategy2, strategy1)
-            for _ in range(drew):
-                Rating.update_rating(strategy1, strategy2, True)
-
-            progress_bar.update(1)
-            if plot:
-                cnt += 1
-                if cnt < 10:
-                    continue
-                cnt = 0
-                plt.cla()
-                printer(Rating)
-                plt.pause(.01)
-
-    Rating.save_rating()
-    progress_bar.close()
-    Rating.printer()
-    print("Game was played", len(parameters)*2, "times.")
-
-
 def runby1():
+    repeat = 100000
+    STRAT = [
+        "random",
+        "QLearning",
+    ]
+
+    Rating = TrueSkill(STRAT, filename="./matching/trueskill4QL.pkl")
+
+    parameters = []
+    for _ in range(repeat):
+        for strategy1, strategy2 in combinations(STRAT, 2):
+            parameters.append((strategy1, strategy2))
+    progress_bar = tqdm(total=len(parameters))
+
+    global Q_values
+    try:
+        with open(".//strategy//QL_dict//my_dict-0.5-0.9-0.1.pickle", "rb") as f:
+            Q_values = pickle.load(f)
+    except:
+        Q_values = {}
+
     for i, parameter in enumerate(parameters):
         rslt = matching(parameter)
         # Update Rating.
@@ -160,12 +126,12 @@ def runby1():
         progress_bar.update(1)
 
         # It takes long time for proccessing.
-        # if i % 100 == 0:
-        #     with open("./strategy/QL_dict/averageQ.txt", "a") as log:
-        #         log.write(
-        #             str(np.average(np.array(
-        #             [value for value in Q_values.values()]
-        #             ))) + "\n")
+        if i % 5000 == 0:
+            with open("./strategy/QL_dict/averageQ.txt", "a") as log:
+                length = "{:>15}".format(len(Q_values.values()))
+                ave = str(np.average(np.array(
+                    [value for value in Q_values.values()])))
+                log.write(length + ", " + ave + "\n")
 
     Rating.save_rating()
     progress_bar.close()
@@ -177,7 +143,5 @@ def runby1():
 
 
 if __name__ == "__main__":
-
-    # runMP(plot=True)
-    # runby1()
-    cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)
+    runby1()
+    # cProfile.run("runby1()", filename="./matching/matching.prof", sort=2)

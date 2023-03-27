@@ -32,8 +32,6 @@ class QLearning:
         Update the Q-value table based on the reward received and the next state.
     """
 
-    # lock = threading.Lock()
-
     def __init__(self, alpha=0.5, gamma=0.9, epsilon=0.1, Q_values=None):
         """
         Initializes the QLearning object with the given parameters.
@@ -63,7 +61,7 @@ class QLearning:
         else:
             self._Q_values = Q_values
 
-        self._EXP2 = [
+        self._EXP2 = (
             1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192,
             16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152,
             4194304, 8388608, 16777216, 33554432, 67108864, 134217728,
@@ -77,7 +75,7 @@ class QLearning:
             72057594037927936, 144115188075855872, 288230376151711744,
             576460752303423488, 1152921504606846976, 2305843009213693952,
             4611686018427387904, 9223372036854775808,
-        ]
+        )
 
     def save_dict(self):
         """Write dictionary on files."""
@@ -104,21 +102,21 @@ class QLearning:
             Next state of the agent.
         """
         if self._turn == 0:
-            bw_board = [next_state[0], next_state[1]]
+            possible_actions = self._othello.reversible_area_list(
+                self._turn ^ 1, next_state[0], next_state[1])
         else:
-            bw_board = [next_state[1], next_state[0]]
-
-        possible_actions = self._othello.reversible_area_list(self._turn, *bw_board)
+            possible_actions = self._othello.reversible_area_list(
+                self._turn ^ 1, next_state[1], next_state[0])
 
         if possible_actions != []:
-            max_q_next_state = max(
+            max_q_next_state = -1 * max(
                 [self._Q_values.get((next_state, a), 0) for a in possible_actions])
         else:
-            max_q_next_state = self._Q_values.get((next_state, action), 0)
+            max_q_next_state = -1 * self._Q_values.get((next_state, action), 0)
         q_value = self._Q_values.get((state, action), 0)
         # Q(s, a) = Q(s, a) + α(r + γmaxQ(s', a') - Q(s, a))
         self._Q_values[(state, action)] = \
-            q_value + self._ALPHA * (reward + self._GAMMA*max_q_next_state - q_value)
+            (1 - self._ALPHA) * q_value + self._ALPHA * (reward + self._GAMMA*max_q_next_state)
 
     def select_action(self, state, possible_actions):
         """
@@ -175,14 +173,21 @@ class QLearning:
         next_state = self._othello.simulate_play(self._turn, action)
 
         if self._turn == 0:
-            next_state = (next_state[0], next_state[1])
+            # Judge game.
+            player, opponent = self._othello.count_disks(
+                next_state[0], next_state[1])
+            black = self._othello.reversible_area(
+                0, next_state[0], next_state[1])
+            white = self._othello.reversible_area(
+                1, next_state[0], next_state[1])
         else:
-            next_state = (next_state[1], next_state[0])
-
-        # Judge game.
-        player, opponent = self._othello.count_disks(*next_state)
-        black = self._othello.reversible_area(0, *next_state)
-        white = self._othello.reversible_area(1, *next_state)
+            # Judge game.
+            player, opponent = self._othello.count_disks(
+                next_state[1], next_state[0])
+            black = self._othello.reversible_area(
+                0, next_state[1], next_state[0])
+            white = self._othello.reversible_area(
+                1, next_state[1], next_state[0])
 
         reward = 0
         if (black == 0 and white == 0) or (player+opponent) == 64:
